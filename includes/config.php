@@ -13,5 +13,5 @@ error_reporting(0);
 @define('DB_HOST', 'localhost');
 @define('DB_USER', 'root');
 @define('DB_PASS', '');
-@define('DB_NAME', 'u890970355_alphaa');
+@define('DB_NAME', 'hmplatest');
 

@@ -33,7 +33,7 @@ $slide_image = $row_slides->slide_image;
     <div class="col-lg-7 pt-5" id="content-size-accor-scr">
       <h1 class="text-headline-larger font-weight-bold mt-4" id="power-headling-restyle">
 
-        <span class="bg_color_theme"> Uncover </span> <br class="br">
+        <span class="bg_color_theme"> Uncovers </span> <br class="br">
         <span class="font_size_decrease">the ideal freelance work rapidly and without impact</span>
       </h1>
       <p class="" id="restyle-for-portal-para">Break free from outdated norms – <br> instantly access the finest talent,
@@ -50,7 +50,7 @@ $slide_image = $row_slides->slide_image;
           <!-- Search Input -->
           <input id="search-query" class="rounded_rampal rounded_rampal2" name="search_query"
             placeholder="<?= $lang['search']['placeholder']; ?>" value="<?= @$_SESSION["search_query"]; ?>"
-          autocomplete="off" style="padding-left: 40px; padding-right: 40px;">
+            autocomplete="off" style="padding-left: 40px; padding-right: 40px;">
 
           <!-- Magnifying glass icon on the right side inside the search bar -->
           <button class="rampal_btn_primary position-absolute" name="search" type="submit" value="Search"
@@ -94,13 +94,13 @@ $slide_image = $row_slides->slide_image;
   });
 
   // On receiving speech input
-  recognition.onresult = function (event) {
+  recognition.onresult = function(event) {
     const transcript = event.results[0][0].transcript;
     searchQuery.value = transcript; // Display the spoken words in the input box
   };
 
   // Error handling
-  recognition.onerror = function (event) {
+  recognition.onerror = function(event) {
     alert('Error occurred in recognition: ' + event.error);
   };
 </script>
@@ -141,10 +141,10 @@ $slide_image = $row_slides->slide_image;
 
 
   .rounded_rampal {
-   
+
     width: 100% !important;
 
-    
+
     padding-left: 35px !important;
     border: 2px solid black;
     border-radius: 2rem !important;
@@ -163,7 +163,7 @@ $slide_image = $row_slides->slide_image;
   }
 
   .rampal_btn_primary .fa-magnifying-glass {
-  
+
     background-color: transparent;
     color: white;
   }
@@ -174,15 +174,15 @@ $slide_image = $row_slides->slide_image;
     background-color: transparent;
     color: white;
     border: none;
-    
+
   }
 
   .rampal_btn_primary2 .fa-microphone {
 
     background-color: transparent;
     color: white;
-   
- 
+
+
   }
 
   @media screen and (min-width: 769px) {
@@ -563,7 +563,7 @@ $slide_image = $row_slides->slide_image;
                   </div>
                   <div class="px-3 d-flex justify-content-between w-100 align-items-center">
                     <div class="">
-                      <h5 class="card-title font-weight-bold mb-0"><?= $seller_user_name; ?>   <?= $proposal_id ?></h5>
+                      <h5 class="card-title font-weight-bold mb-0"><?= $seller_user_name; ?> <?= $proposal_id ?></h5>
                       <small class="text-secondary"><?= $seller_level; ?></small>
                     </div>
                     <div class="text-secondary">
@@ -578,10 +578,10 @@ $slide_image = $row_slides->slide_image;
                   <div class="font-weight-bold text-warning">
                     <i class="fa fa-star"></i>
                     <span><?php if ($proposal_rating == "0") {
-                      echo "0.0";
-                    } else {
-                      printf("%.1f", $average_rating);
-                    } ?></span>
+                            echo "0.0";
+                          } else {
+                            printf("%.1f", $average_rating);
+                          } ?></span>
                     <span class="font-weight-normal text-secondary">(<?= $count_reviews; ?>)</span>
                   </div>
                 </div>
@@ -697,56 +697,58 @@ $slide_image = $row_slides->slide_image;
 
     <ul>
       <li>
-      <a href="<?= $site_url; ?>/categories/programming-tech/AI-Development" class="left_cat_item">AI Development</a> </li>
+        <a href="<?= $site_url; ?>/categories/programming-tech/AI-Development" class="left_cat_item">AI Development</a>
+      </li>
 
 
-    
 
-    <li>  <a href="<?= $site_url; ?>programming-tech/Website-Development/E-Commerce-Development"
-      class="left_cat_item">E-Commerce Development</a>  </li>
-    <li>  <a href="<?= $site_url; ?>categories/graphics-design/Logo-Brand-Identity/Logo-Design" class="left_cat_item">Logo
-      Design</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/video-animation/Editing-Post-Production/Video-Editing"
-      class="left_cat_item">Video Editing</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/programming-tech/Mobile-App-Development" class="left_cat_item">Mobile App
-      Development</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/graphics-design/Art-Illustration" class="left_cat_item">Art & Illustration</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/programming-tech/Data-Science-ML" class="left_cat_item">Data Science & ML</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/programming-tech/Website-Platforms/Shopify" class="left_cat_item">Shopify
-      Developer</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/programming-tech/Game-Development" class="left_cat_item">Game Development</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/graphics-design/3D-Design" class="left_cat_item">3D Design</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/writing-translation/Career-Writing/Resume-Writing"
-      class="left_cat_item">Resume Writer</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/graphics-design/Product-Gaming" class="left_cat_item">Product & Gaming</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/business/Financial-Services" class="left_cat_item">Financial Services</a>  </li>
-</ul>
+
+      <li> <a href="<?= $site_url; ?>programming-tech/Website-Development/E-Commerce-Development"
+          class="left_cat_item">E-Commerce Development</a> </li>
+      <li> <a href="<?= $site_url; ?>categories/graphics-design/Logo-Brand-Identity/Logo-Design" class="left_cat_item">Logo
+          Design</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/video-animation/Editing-Post-Production/Video-Editing"
+          class="left_cat_item">Video Editing</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Mobile-App-Development" class="left_cat_item">Mobile App
+          Development</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/graphics-design/Art-Illustration" class="left_cat_item">Art & Illustration</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Data-Science-ML" class="left_cat_item">Data Science & ML</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Website-Platforms/Shopify" class="left_cat_item">Shopify
+          Developer</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Game-Development" class="left_cat_item">Game Development</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/graphics-design/3D-Design" class="left_cat_item">3D Design</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/writing-translation/Career-Writing/Resume-Writing"
+          class="left_cat_item">Resume Writer</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/graphics-design/Product-Gaming" class="left_cat_item">Product & Gaming</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/business/Financial-Services" class="left_cat_item">Financial Services</a> </li>
+    </ul>
     <!-- Repeat for other items -->
   </div>
 
   <div class="ram_right_cat">
 
-     <ul>
+    <ul>
 
 
-    <li>  <a href="<?= $site_url; ?>/categories/digital-marketing/Social/seo" class="left_cat_item">SEO</a>  </li>
-   <li>   <a href="<?= $site_url; ?>/categories/programming-tech/Website-Development" class="left_cat_item">Website
-      Development</a>  </li>
-   <li>   <a href="<?= $site_url; ?>/categories/digital-marketing/Social/Social-Media-Marketing" class="left_cat_item">Social
-      Media Marketing</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/writing-translation/Content-Writing" class="left_cat_item">Content Writer</a>  </li>
-   <li>   <a href="<?= $site_url; ?>/categories/programming-tech/Software-Development" class="left_cat_item">Software
-      Development</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/writing-translation/Content-Writing/Scriptwriting"
-      class="left_cat_item">Scriptwriting</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/programming-tech/Software-Development" class="left_cat_item">Software
-      Development</a>  </li>
-   <li>   <a href="<?= $site_url; ?>/categories/programming-tech/Data-Science-ML" class="left_cat_item">Data Science & ML</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/music-audio/Sound-Design" class="left_cat_item">Sound Design</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/personal-growth/fashion-amp-style" class="left_cat_item">Fashion & Style</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/ai-services/ai-for-businesses" class="left_cat_item">AI for Businesses</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/programming-tech/Game-Development" class="left_cat_item">Game Development</a>  </li>
-    <li>  <a href="<?= $site_url; ?>/categories/programming-tech/AI-Development" class="left_cat_item">AI Development</a>   </ul>
+      <li> <a href="<?= $site_url; ?>/categories/digital-marketing/Social/seo" class="left_cat_item">SEO</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Website-Development" class="left_cat_item">Website
+          Development</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/digital-marketing/Social/Social-Media-Marketing" class="left_cat_item">Social
+          Media Marketing</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/writing-translation/Content-Writing" class="left_cat_item">Content Writer</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Software-Development" class="left_cat_item">Software
+          Development</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/writing-translation/Content-Writing/Scriptwriting"
+          class="left_cat_item">Scriptwriting</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Software-Development" class="left_cat_item">Software
+          Development</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Data-Science-ML" class="left_cat_item">Data Science & ML</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/music-audio/Sound-Design" class="left_cat_item">Sound Design</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/personal-growth/fashion-amp-style" class="left_cat_item">Fashion & Style</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/ai-services/ai-for-businesses" class="left_cat_item">AI for Businesses</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Game-Development" class="left_cat_item">Game Development</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-tech/AI-Development" class="left_cat_item">AI Development</a>
+    </ul>
 
     </ul>
 
@@ -811,9 +813,7 @@ $slide_image = $row_slides->slide_image;
     max-width: 600px;
     margin: auto;
     overflow: hidden;
-    border: 2px solid
-      <?= $site_url; ?>
-      ddd;
+    border: 2px solid <?= $site_url; ?> ddd;
     border-radius: 10px;
   }
 
@@ -1176,9 +1176,7 @@ $slide_image = $row_slides->slide_image;
     max-width: 600px;
     margin: auto;
     overflow: hidden;
-    border: 2px solid
-      <?= $site_url; ?>
-      ddd;
+    border: 2px solid <?= $site_url; ?> ddd;
     border-radius: 10px;
   }
 
@@ -1367,11 +1365,11 @@ $slide_image = $row_slides->slide_image;
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function() {
     var videotemp = document.getElementById('videotemp');
     var playIcon = document.getElementById('play-icon');
 
-    playIcon.addEventListener('click', function () {
+    playIcon.addEventListener('click', function() {
       if (videotemp.paused) {
         videotemp.play();
         playIcon.style.display = 'none';
@@ -1381,15 +1379,15 @@ $slide_image = $row_slides->slide_image;
       }
     });
 
-    videotemp.addEventListener('play', function () {
+    videotemp.addEventListener('play', function() {
       playIcon.style.display = 'none';
     });
 
-    videotemp.addEventListener('pause', function () {
+    videotemp.addEventListener('pause', function() {
       playIcon.style.display = 'block';
     });
 
-    videotemp.addEventListener('ended', function () {
+    videotemp.addEventListener('ended', function() {
       playIcon.style.display = 'block';
     });
   });
@@ -1422,7 +1420,7 @@ $slide_image = $row_slides->slide_image;
         $proposal_title = $picture1->proposal_title;
         $proposal_img1 = $picture1->proposal_img1;
         $proposal_desc = $picture1->proposal_desc;
-        ?>
+      ?>
         <div class="outer-frame-for-tpc slideres2">
           <div class="nitin-2" id="disp-lay-fl-ex">
             <div class="col-xl-12">
@@ -1530,7 +1528,7 @@ $slide_image = $row_slides->slide_image;
         $proposal_title = $picture1->proposal_title;
         $proposal_img1 = $picture1->proposal_img1;
         $proposal_desc = $picture1->proposal_desc;
-        ?>
+      ?>
         <div class="outer-frame-for-tpc">
           <div class="nitin-2" id="disp-lay-fl-ex">
             <div class="col-xl-12">
@@ -1669,7 +1667,7 @@ $slide_image = $row_slides->slide_image;
             $get_meta = $db->select("cats_meta", array("cat_id" => $cat_id, "language_id" => $siteLanguage));
             $row_meta = $get_meta->fetch();
             $cat_title = $row_meta->cat_title;
-            ?>
+          ?>
             <div class="col-md-3 col-6">
               <a href="categories/<?= $cat_url; ?>">
                 <div class="grn_box">
@@ -1678,7 +1676,7 @@ $slide_image = $row_slides->slide_image;
                 </div>
               </a>
             </div>
-            <?php
+          <?php
           } ?>
         </div>
         <div class="space80 hidden-xs"></div>
@@ -1693,7 +1691,7 @@ $slide_image = $row_slides->slide_image;
             $get_meta = $db->select("cats_meta", array("cat_id" => $cat_id, "language_id" => $siteLanguage));
             $row_meta = $get_meta->fetch();
             $cat_title = $row_meta->cat_title;
-            ?>
+          ?>
             <div class="col-md-3 col-6">
               <a href="categories/<?= $cat_url; ?>">
                 <div class="grn_box">
@@ -1702,7 +1700,7 @@ $slide_image = $row_slides->slide_image;
                 </div>
               </a>
             </div>
-            <?php
+          <?php
           } ?>
         </div>
 
@@ -1722,7 +1720,7 @@ $slide_image = $row_slides->slide_image;
         $box_title = $row_boxes->box_title;
         $box_desc = $row_boxes->box_desc;
         $box_image = getImageUrl("section_boxes", $row_boxes->box_image);
-        ?>
+      ?>
         <div class="col-md-4 pad0">
           <div class="box">
             <h5><?= $box_title; ?></h5>
@@ -1734,7 +1732,7 @@ $slide_image = $row_slides->slide_image;
             <img src="<?= $box_image; ?>" class="img-fluid mx-auto d-block">
           </div>
         </div>
-        <?php
+      <?php
       } ?>
       <?php
       $get_boxes = $db->query("select * from section_boxes where language_id='$siteLanguage' LIMIT 1,100");
@@ -1743,7 +1741,7 @@ $slide_image = $row_slides->slide_image;
         $box_title = $row_boxes->box_title;
         $box_desc = $row_boxes->box_desc;
         $box_image = getImageUrl("section_boxes", $row_boxes->box_image);
-        ?>
+      ?>
         <div class="col-md-4 pad0">
           <div class="box">
             <h5><?= $box_title; ?></h5>
@@ -1755,7 +1753,7 @@ $slide_image = $row_slides->slide_image;
             <img src="<?= $box_image; ?>" class="img-fluid mx-auto d-block">
           </div>
         </div>
-        <?php
+      <?php
       } ?>
     </div>
   </div>
@@ -1772,9 +1770,9 @@ $slide_image = $row_slides->slide_image;
         $get_proposals = $db->query("select * from proposals where proposal_featured='yes' AND proposal_status='active'");
         $count_proposals = $get_proposals->rowCount();
         if ($count_proposals > 1) {
-          ?>
+        ?>
           <span class="pull-right text-success"><a href="featured_proposals">View More</a></span>
-          <?php
+        <?php
         } ?>
         <div class="mt-5">
           <!--- home-featured-carousel Starts --->
@@ -1823,11 +1821,11 @@ $slide_image = $row_slides->slide_image;
               }
               $total = array_sum($proposal_reviews);
               // @$average_rating = $total / count($proposal_reviews);
-              ?>
+            ?>
               <div class="col-xl-2dot4 col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4">
                 <?php require("includes/proposals.php"); ?>
               </div>
-              <?php
+            <?php
             } ?>
           </div>
           <!--- row Ends -->
@@ -1839,7 +1837,7 @@ $slide_image = $row_slides->slide_image;
 </section>
 
 <script>
-  $(document).ready(function () {
+  $(document).ready(function() {
 
     var slider = $('<?= $site_url; ?>demo1').carousel({
       interval: 4000
@@ -1856,7 +1854,7 @@ $slide_image = $row_slides->slide_image;
       });
     }
 
-    $("<?= $site_url; ?>demo1").on('slide.bs.carousel', function (event) {
+    $("<?= $site_url; ?>demo1").on('slide.bs.carousel', function(event) {
       var eq = event.to;
       // console.log(event.from);
       // console.log(event.to);
@@ -1875,7 +1873,7 @@ $slide_image = $row_slides->slide_image;
       }
     });
 
-    $('video').on('ended', function () {
+    $('video').on('ended', function() {
       slider.carousel({
         'pause': false
       });
