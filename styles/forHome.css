@@ -393,6 +393,14 @@ body {
 .new-design-style {
   box-shadow: 1px 1px 15px grey;
 }
+/* nitin new css add home page Featured candidates section 04-09-2024 start */
+.Featured-candidates-nitin {
+  /* width: 24%;
+  padding: 0.8rem;
+  margin: auto;
+  border-radius: 3px; */
+}
+/* nitin new css add home page Featured candidates section 04-09-2024 end */
 
 .additing-some-new {
   /* background-color: red; */
@@ -833,7 +841,7 @@ body {
 
   #disp-lay-fl-ex {
     display: block;
-    margin-top: 35px;
+    /* margin-top: 35px; */
   }
 
   #power-headling-restyle {
@@ -1041,16 +1049,19 @@ body {
 
   #mobile_responsive_screen {
     display: flex;
-    margin: auto;
-    /* margin-top: 30px; */
-    width: 99%;
+    flex-wrap: wrap;
+    gap: 5px;
+    /* justify-content: center; */
+    /* margin: auto; */
+    margin-top: 30px;
+    /* width: 99%; */
     /* border: 2px solid green; */
   }
 
   .outer-frame-for-tpc {
     width: 31.5%;
     float: left;
-    /* margin: auto; */
+    margin: auto;
   }
 
   .t_p_c_section {
@@ -1167,7 +1178,7 @@ body {
     height: fit-content;
   }
 
-  .display-disappear-2 {
+  .display-disappear-2-nitin {
     display: none;
   }
 
@@ -1390,9 +1401,6 @@ body {
     width: 100%;
     margin: auto;
     height: 100%;
-
-    /*box-shadow: 1px 1px 5px black;*/
-    /* transition: background-color 0.6s ease; */
   }
 
   .new-design-style {
@@ -1447,10 +1455,10 @@ body {
   }
 
   #mobile_responsive_screen {
-    display: block;
-    margin: auto;
+    /* display: block; */
+    /* margin: auto; */
     /* margin-top: 30px; */
-    width: 100%;
+    /* width: 100%; */
     /* background-color:green; */
   }
 
@@ -2306,6 +2314,9 @@ body {
   .new-design-style {
     width: 100%;
   }
+  /* .Featured-candidates-nitin {
+    width: 100%;
+  } */
 
   #search-query::placeholder {
     color: white;
@@ -2318,6 +2329,9 @@ body {
   .new-design-style {
     width: 100%;
   }
+  /* .Featured-candidates-nitin {
+    width: 100%;
+  } */
 }
 
 /* =========================-----mobile cat----=============== */
@@ -2400,6 +2414,9 @@ body {
 .new-design-style {
   flex: 0 0 23%;
 }
+/* .Featured-candidates-nitin {
+  flex: 0 0 23%;
+} */
 
 @media (max-width: 1024px) {
   .new-design-style {
@@ -2409,6 +2426,17 @@ body {
 
 @media (max-width: 650px) {
   .new-design-style {
+    flex: 0 0 100%;
+  }
+}
+@media (max-width: 1024px) {
+  .Featured-candidates-nitin {
+    flex: 0 0 48%;
+  }
+}
+
+@media (max-width: 650px) {
+  .Featured-candidates-nitin {
     flex: 0 0 100%;
   }
 }

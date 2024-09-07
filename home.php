@@ -257,7 +257,7 @@ $slide_image = $row_slides->slide_image;
 
 
 <!-- without scroller start -->
-<div class="home-section2 impro-vise-back-color  display-disappear-2">
+<div class="home-section2 impro-vise-back-color  display-disappear-2-nitin">
   <div class="body-max-width px-3 ">
     <div class="text-center mb-4 mt-3">
       <h5 class="font-700-weight top-head-ing-respo my-2 text-secondary">How to hire talent on Hiremyprofile</h5>
@@ -1397,7 +1397,7 @@ $slide_image = $row_slides->slide_image;
 
 <!-- <?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?> -->
 
-<div class=" pt-2 home-section6 b-t-m-resize display-disappear-1">
+<!-- <div class=" pt-2 home-section6 b-t-m-resize display-disappear-1">
   <h5 style="text-align: center;" id="featured-candi-response" class="font-weight-bold">Featured candidates</h5>
   <h2 style="text-align: center;" class="">Leading employers already using job and talent.</h2>
   <div class="respo-for-mob-scr">
@@ -1490,7 +1490,7 @@ $slide_image = $row_slides->slide_image;
       VIEW ALL
     </a>
   </div>
-</div>
+</div> -->
 
 <!-- next to change -->
 
@@ -1511,7 +1511,6 @@ $slide_image = $row_slides->slide_image;
     <div class="nitin-1" id="mobile_responsive_screen">
       <?php
       $query1 = $db->query("SELECT s.* FROM sellers s INNER JOIN memb_plan_detail mpd ON s.seller_id = mpd.seller_id AND memb_status = 'Active' AND mpd.memb_tbl_id = 10  ORDER BY RAND() LIMIT 3");
-      // for featured candidate mpd.memb_tbl_id = 10 should be
       while ($get1_data = $query1->fetch()) {
         $seller_image = getImageUrl("sellers", $get1_data->seller_image);
         $seller_name = $get1_data->seller_name;
@@ -1529,60 +1528,60 @@ $slide_image = $row_slides->slide_image;
         $proposal_img1 = $picture1->proposal_img1;
         $proposal_desc = $picture1->proposal_desc;
       ?>
-        <div class="outer-frame-for-tpc">
+        <div class="outer-frame-for-tpc Featured-candidates-nitin">
           <div class="nitin-2" id="disp-lay-fl-ex">
             <div class="col-xl-12">
               <div class="rampal t_p_c_section">
-                <div class="col-md-12 mb-5">
-                  <div class="card pt-0 t_p_c_section_1">
-                    <div class="d-flex justify-content-space-between px-4 align-items-center position-relative"
-                      style="top: 15px;">
-                      <label class="mb-0 text-secondary font-weight-bold">$60/Hr</label>
-                      <i class="fa fa-heart rounded-circle d-flex justify-content-center align-items-center"></i>
+                <!-- <div class="col-md-12 mb-5"> -->
+                <div class="card pt-0 t_p_c_section_1">
+                  <div class="d-flex justify-content-space-between px-4 align-items-center position-relative"
+                    style="top: 15px;">
+                    <label class="mb-0 text-secondary font-weight-bold">$60/Hr</label>
+                    <i class="fa fa-heart rounded-circle d-flex justify-content-center align-items-center"></i>
+                  </div>
+                  <div class="d-flex flex-column align-items-center">
+                    <div
+                      class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center user-pic">
+                      <img class="w-100 h-100" src="<?php echo $seller_image ?>" alt="Image not found">
                     </div>
-                    <div class="d-flex flex-column align-items-center">
-                      <div
-                        class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center user-pic">
-                        <img class="w-100 h-100" src="<?php echo $seller_image ?>" alt="Image not found">
-                      </div>
-                      <div class="my-4 text-center">
+                    <div class="my-4 text-center">
 
-                        <h3 class="mb-0 "><?php echo $seller_name; ?></h3>
-                        <p class="mb-0  seller_headline_paragraph"><?php echo $seller_headline ?></p>
-                      </div>
-                    </div>
-
-                    <div class="d-flex justify-content-between px-5">
-                      <ul class="list-inline text-muted second-class-respo">
-                        <li class="list-inline-item color_golden">
-
-                          <?php for ($seller_i = 0; $seller_i < $proposal_rating; $seller_i++) {
-                            echo "<i class='fa fa-star'></i>";
-                          }
-                          for ($seller_i = $proposal_rating; $seller_i < 5; $seller_i++) {
-                            echo "<i class='fa fa-star-o'></i>";
-                          }
-                          ?>
-                        </li>
-                      </ul>
-                      <span class="font-weight-bold second-class-respo"><i
-                          class="fa fa-map-marker mr-2"></i><?php echo $seller_city . " " . $seller_country; ?></span>
-                    </div>
-                    <div class="d-flex btn-view-hire-respo border-radius-black">
-                      <a href="<?= $seller_user_name; ?>" class="btn-view-hire-respo pl-3 pr-2 py-3">
-                        <button class="btn w-100 theme-btn text-white View_Profile_btn">
-                          View Profile
-                        </button>
-                      </a>
-                      <a href="<?= $site_url; ?>" data-toggle="modal" data-target="<?= $site_url; ?>login-modal"
-                        class="btn-view-hire-respo pl-2 pr-3 py-3">
-                        <button class="btn w-100 btn-white  Hire_Me_btn">
-                          Hire Me
-                        </button>
-                      </a>
+                      <h3 class="mb-0 "><?php echo $seller_name; ?></h3>
+                      <p class="mb-0  seller_headline_paragraph"><?php echo $seller_headline ?></p>
                     </div>
                   </div>
+
+                  <div class="d-flex justify-content-between px-5">
+                    <ul class="list-inline text-muted second-class-respo">
+                      <li class="list-inline-item color_golden">
+
+                        <?php for ($seller_i = 0; $seller_i < $proposal_rating; $seller_i++) {
+                          echo "<i class='fa fa-star'></i>";
+                        }
+                        for ($seller_i = $proposal_rating; $seller_i < 5; $seller_i++) {
+                          echo "<i class='fa fa-star-o'></i>";
+                        }
+                        ?>
+                      </li>
+                    </ul>
+                    <span class="font-weight-bold second-class-respo"><i
+                        class="fa fa-map-marker mr-2"></i><?php echo $seller_city . " " . $seller_country; ?></span>
+                  </div>
+                  <div class="d-flex btn-view-hire-respo border-radius-black">
+                    <a href="<?= $seller_user_name; ?>" class="btn-view-hire-respo pl-3 pr-2 py-3">
+                      <button class="btn w-100 theme-btn text-white View_Profile_btn">
+                        View Profile
+                      </button>
+                    </a>
+                    <a href="<?= $site_url; ?>" data-toggle="modal" data-target="<?= $site_url; ?>login-modal"
+                      class="btn-view-hire-respo pl-2 pr-3 py-3">
+                      <button class="btn w-100 btn-white  Hire_Me_btn">
+                        Hire Me
+                      </button>
+                    </a>
+                  </div>
                 </div>
+                <!-- </div> -->
               </div>
             </div>
           </div>

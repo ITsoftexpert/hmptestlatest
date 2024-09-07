@@ -117,15 +117,14 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
         display: none;
     }
 
-    .nitin-1 {
+    /* .nitin-1 {
         margin: auto;
         width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-
-    }
+    } */
 
     .proposals_image_div {
         width: 100%;
@@ -884,7 +883,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
                                 @media (min-width: 600px) and (max-width: 768px) {
                                     #card_hide {
                                         width: 70% !important;
-                                        margin-left:auto;
+                                        margin-left: auto;
                                         margin-right: auto;
                                     }
                                 }
