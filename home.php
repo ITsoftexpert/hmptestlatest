@@ -33,7 +33,7 @@ $slide_image = $row_slides->slide_image;
     <div class="col-lg-7 pt-5" id="content-size-accor-scr">
       <h1 class="text-headline-larger font-weight-bold mt-4" id="power-headling-restyle">
 
-        <span class="bg_color_theme"> Uncover </span> <br class="br">
+        <span class="bg_color_theme"> Uncovers </span> <br class="br">
         <span class="font_size_decrease">the ideal freelance work rapidly and without impact</span>
       </h1>
       <p class="" id="restyle-for-portal-para">Break free from outdated norms – <br> instantly access the finest talent,
