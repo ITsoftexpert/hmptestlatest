@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 build
 .DS_Store
 phpunit.local.xml
@@ -23,3 +24,29 @@ tools
 
 # Groc 
 node_modules
+=======
+# build
+# .DS_Store
+# phpunit.local.xml
+# *.log
+
+# # IDE
+# .idea
+# .project
+# .settings
+# .buildpath
+# atlassian-ide-plugin.xml
+# *.bak
+
+# # Composer
+# vendor
+# composer.lock
+# composer.phar
+
+# # Project
+# var
+# tools
+
+# # Groc 
+# node_modules
+>>>>>>> press/shubhamhmpproject

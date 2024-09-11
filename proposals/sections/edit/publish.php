@@ -105,7 +105,11 @@ if (isset($_POST['submit_proposal'])) {
 
       $data = [];
       $data['template'] = "new_proposal";
+<<<<<<< HEAD
       $data['to'] = $site_email_address;
+=======
+      $data['to'] = "kumshubham25@gmail.com";
+>>>>>>> press/shubhamhmpproject
       $data['subject'] = "$site_name - $login_seller_user_name Has Just Created A New Proposal.";
       $data['user_name'] = "";
       $data['seller_user_name'] = $login_seller_user_name;

@@ -198,7 +198,11 @@ if (isset($_POST['register'])) {
 
 		if (!empty($error_array)) {
 			$_SESSION['error_array'] = $error_array;
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> press/shubhamhmpproject
 			echo "
 			<script>
 			var errorMessages = '';
@@ -250,6 +254,12 @@ if (isset($_POST['login'])) {
 		@$seller_user_name = $row_seller->seller_user_name;
 		@$seller_status = $row_seller->seller_status;
 		@$acc_status = $row_seller->acc_status;
+<<<<<<< HEAD
+=======
+		@$two_factor_enabled = $row_seller->two_factor_enabled;
+		@$seller_email = $row_seller->seller_email;
+		@$first_time_login = $row_seller->first_time_login;
+>>>>>>> press/shubhamhmpproject
 		$decrypt_password = password_verify($seller_pass, $hashed_password);
 
 		if ($decrypt_password == 0) {
@@ -292,6 +302,7 @@ if (isset($_POST['login'])) {
 				$select_seller = $db->query("select * from sellers where seller_email=:u_email OR seller_user_name=:u_name AND seller_pass=:u_pass", array("u_email" => $seller_user_name, "u_name" => $seller_user_name, "u_pass" => $hashed_password));
 				$row_seller = $select_seller->fetch();
 				if ($select_seller) {
+<<<<<<< HEAD
 
 					$_SESSION['sessionStart'] = $row_seller->seller_user_name;
 					if (isset($_SESSION['sessionStart']) and $_SESSION['sessionStart'] === $row_seller->seller_user_name) {
@@ -301,6 +312,107 @@ if (isset($_POST['login'])) {
 						$url = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 						echo "
+=======
+					$_SESSION['otp_pending'] = $seller_user_name;
+					// Function to generate a 6-digit OTP (define this function globally)
+					function generate_otp()
+					{
+						return sprintf('%06d', mt_rand(0, 999999)); // Generates a 6-digit OTP
+					}
+
+					if ($two_factor_enabled) {
+						// Generate OTP once and store it
+						$otp = generate_otp();
+
+						$seller = $db->select("two_factor_varification", array("seller_user_name" => $seller_user_name))->fetch();
+
+						if ($seller) {
+							// Update the existing OTP record
+							$update_otp = $db->update("two_factor_varification", array(
+								"verification_code" => $otp,             // Update the OTP
+								"otp_created_at" => date("Y-m-d H:i:s")  // Update the timestamp
+							), array("seller_user_name" => $seller_user_name));
+						} else {
+							// Insert new OTP record if seller_user_name doesn't exist
+							$two_factor_verification = $db->insert("two_factor_varification", array(
+								"seller_user_name" => $seller_user_name, // Insert seller's username
+								"verification_code" => $otp,             // Insert new OTP
+								"otp_created_at" => date("Y-m-d H:i:s")  // Insert timestamp
+							));
+						}
+
+						// Also, store OTP in session for further verification
+						$_SESSION['verification_code'] = $otp;
+
+						// Prepare email data
+						$data = [];
+						$data['template'] = "two_factor_auth";
+						$data['to'] = "kumshubham25@gmail.com";
+						$data['subject'] = "$site_name: verification code is " . $otp . ".";
+						$data['user_name'] = $seller_user_name;
+						$data['verification_code'] = $otp; // Use the same OTP here
+
+						// Send the email
+						send_mail($data);
+						echo "
+						  <script>
+        						swal({
+            						type: 'success',
+            						text: 'Send Two-Factor Verification Code Successfully',
+            						timer: 2000,
+            						onOpen: function(){
+                						swal.showLoading()
+            						}
+        						}).then(function(){
+            						window.location.href = '$site_url/verification_two_factor';
+        						});
+    						</script>";
+					} else {
+
+						if ($first_time_login == 0) {
+						    	$data = [];
+						$data['template'] = "welcome_first_login";
+						$data['to'] = "ceeeamindustry@gmail.com";
+						$data['subject'] = "$site_name: Welcome to visit our plateform";
+						$data['user_name'] = $seller_user_name;
+						// Send the email
+						send_mail($data);
+						
+							$f_time_login = 1;
+							$_SESSION['sessionStart'] = $row_seller->seller_user_name;
+							if (isset($_SESSION['sessionStart']) and $_SESSION['sessionStart'] === $row_seller->seller_user_name) {
+								$update_seller_status = $db->update("sellers", array("seller_status" => 'online',  "acc_status" => 'active', "seller_ip" => $ip, "device_type" => $device_type, "first_time_login" => $f_time_login), array("seller_user_name" => $row_seller->seller_user_name, "seller_pass" => $hashed_password));
+								//						$seller_user_name = ucfirst(strtolower($row_seller->seller_user_name));
+								$seller_user_name = ucfirst($row_seller->seller_user_name);
+								$url = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+								echo "
+						<script>
+							swal({
+								type: 'success',
+								text: 'Welcome to visit our plateform 'Hiremyprofile',
+								timer: 2000,
+								onOpen: function(){
+									swal.showLoading()
+								}
+							}).then(function(){
+								window.open('$url','_self')
+							});
+						</script>";
+						
+						
+						
+							}
+						} else {
+							$_SESSION['sessionStart'] = $row_seller->seller_user_name;
+							if (isset($_SESSION['sessionStart']) and $_SESSION['sessionStart'] === $row_seller->seller_user_name) {
+								$update_seller_status = $db->update("sellers", array("seller_status" => 'online',  "acc_status" => 'active', "seller_ip" => $ip, "device_type" => $device_type), array("seller_user_name" => $row_seller->seller_user_name, "seller_pass" => $hashed_password));
+								//						$seller_user_name = ucfirst(strtolower($row_seller->seller_user_name));
+								$seller_user_name = ucfirst($row_seller->seller_user_name);
+								$url = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+								echo "
+>>>>>>> press/shubhamhmpproject
 						<script>
 							swal({
 								type: 'success',
@@ -313,6 +425,11 @@ if (isset($_POST['login'])) {
 								window.open('$url','_self')
 							});
 						</script>";
+<<<<<<< HEAD
+=======
+							}
+						}
+>>>>>>> press/shubhamhmpproject
 					}
 				}
 			}

@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 api.h
 pkgconfig/
 *.so*
+=======
+# api.h
+# pkgconfig/
+# *.so*
+>>>>>>> press/shubhamhmpproject

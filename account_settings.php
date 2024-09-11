@@ -342,9 +342,15 @@ if (is_array($form_errors)) {
       <label class=""> <?= $lang['label']['enter_new_pass']; ?> </label>
       <input type="text" name="new_pass" class="form-control box-shadow-acc-set" required="" />
     </div>
+<<<<<<< HEAD
    
     <div class="col-md-4">
     <label class=""> <?= $lang['label']['confirm_new_pass']; ?> </label>
+=======
+
+    <div class="col-md-4">
+      <label class=""> <?= $lang['label']['confirm_new_pass']; ?> </label>
+>>>>>>> press/shubhamhmpproject
       <input type="text" name="new_pass_again" class="form-control box-shadow-acc-set" required="" />
     </div>
   </div>
@@ -356,6 +362,133 @@ if (is_array($form_errors)) {
     </button>
   </div>
 </form>
+<<<<<<< HEAD
+=======
+<!-- two factor varification -->
+<style>
+  .toggle_switch_button {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+  }
+
+  .toggle_switch_button input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .toggle_slider_button {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+  }
+
+  .toggle_slider_button:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+  }
+
+  input:checked+.toggle_slider_button {
+    background-color: #2196F3;
+  }
+
+  input:checked+.toggle_slider_button:before {
+    transform: translateX(26px);
+  }
+
+  .toggle_slider_button.round_span_style {
+    border-radius: 34px;
+  }
+
+  .toggle_slider_button.round_span_style:before {
+    border-radius: 50%;
+  }
+
+  .style_div_two_factor_verification {
+    border: 1px solid lightgrey;
+    display: flex;
+    padding: 15px 0 8px 10px;
+    border-radius: 5px;
+  }
+
+  .one_partion_2fa {
+    width: 90%;
+    padding: 6px 0;
+  }
+
+  .two_partion_2fa {
+    width: 10%;
+    text-align: center;
+  }
+
+  .responseMessage_style {
+    padding: 10px;
+    width: fit-content;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: none;
+    color: white;
+    font-size: 14px;
+  }
+</style>
+<hr>
+<h5>Two Factor Verification</h5>
+<div class="style_div_two_factor_verification">
+  <div class="one_partion_2fa">
+    <h6>Verification Enable/Disable</h6>
+    <div id="responseMessage" class="responseMessage_style"></div>
+
+  </div>
+  <div class="two_partion_2fa"> <label class="toggle_switch_button">
+      <input type="checkbox" id="enable_2fa">
+      <span class="toggle_slider_button round_span_style"></span>
+    </label>
+
+  </div>
+
+</div>
+
+
+<script>
+  $(document).ready(function() {
+    $('#enable_2fa').change(function() {
+      var isChecked = $(this).is(':checked'); // Check if the checkbox is checked
+      var status = isChecked ? 'activate' : 'deactivate'; // Determine the status
+
+      $.ajax({
+        url: 'update_2fa_status', // PHP script to handle the request
+        type: 'POST',
+        data: {
+          status: status
+        },
+        success: function(response) {
+          var bgColor = isChecked ? '#28a745' : '#ffc107'; // Green for activate, Yellow for deactivate
+
+          $('#responseMessage').css('background-color', bgColor).html(response).fadeIn().delay(3000).fadeOut();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+<!-- two factor varification -->
+
+>>>>>>> press/shubhamhmpproject
 <?php
 if (isset($_POST['change_password'])) {
   $rules = array(
@@ -445,11 +578,19 @@ if (isset($_POST['change_password'])) {
         <option> <?= $lang['settings']['reason']['10']; ?> </option>
       </select>
     </div>
+<<<<<<< HEAD
   <div class="submit_paypal_email_btn_style">
     <button type="submit" name="deactivate_account" class="btn btn-danger box-shadow-submit-btnn">
       <i class="fa fa-frown-o"></i> &nbsp; <?= $lang['button']['deactivate_account']; ?>
     </button>
   </div>
+=======
+    <div class="submit_paypal_email_btn_style">
+      <button type="submit" name="deactivate_account" class="btn btn-danger box-shadow-submit-btnn">
+        <i class="fa fa-frown-o"></i> &nbsp; <?= $lang['button']['deactivate_account']; ?>
+      </button>
+    </div>
+>>>>>>> press/shubhamhmpproject
   <?php } ?>
 </form>
 <?php

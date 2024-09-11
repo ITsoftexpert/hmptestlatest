@@ -10,7 +10,11 @@ echo "<script>window.open('login','_self');</script>";
 	
 
 ?>
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> press/shubhamhmpproject
 <?php 
 
 if(isset($_GET['unapprove_request'])){
@@ -28,6 +32,19 @@ if(isset($_GET['unapprove_request'])){
 		$get_seller = $db->select("sellers",array("seller_id" => $seller_id));
 		$row_seller = $get_seller->fetch();
 		$seller_phone = $row_seller->seller_phone;
+<<<<<<< HEAD
+=======
+		$seller_email = $row_seller->seller_email;
+
+		$data = [];
+		$data['template'] = "decline_buyer_request";
+		$data['to'] = $seller_email;
+		$data['subject'] = "$site_name: Your request has been declined.";
+		$data['user_name'] = $seller_user_name;
+		$data['request_url'] = "requests/post_request";
+		send_mail($data);
+
+>>>>>>> press/shubhamhmpproject
 
 		$n_date = date("F d, Y");
 
