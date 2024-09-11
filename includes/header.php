@@ -692,9 +692,9 @@ $site_border_color = $row_general_settings->site_border_color;
                     opacity: 1;
                   }
 
-                  /* .clearable_4 {
-                    width: 90 ! !important;
-                  } */
+                  .clearable_4 {
+                    width: 90 !important;
+                  }
 
                   @media screen and (max-width: 768px) {
                     .is-responsive .gnav-header .gnav-search-inner {

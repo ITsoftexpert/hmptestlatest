@@ -226,65 +226,47 @@ if (isset($_POST['submit'])) {
       }
     } else {
 
-      $targetDir = "uploads/address/"; // Directory where files will be uploaded
-      $seller_address_img1 = basename($_FILES["seller_address_img1"]["name"]); // Get the file name
-      $targetFilePath = $targetDir . $seller_address_img1; // Target file path
-      $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); // File extension
-
-      $allowTypes = array('jpg', 'png', 'jpeg', 'gif'); // Allowed file types
-      $maxFileSize = 1048576; // 1MB in bytes
-
-      // Check if the file type is allowed
-      if (in_array($fileType, $allowTypes)) {
-        // Check the file size
-        if ($_FILES["seller_address_img1"]["size"] <= $maxFileSize) {
-          // Move the file to the target directory
-          if (move_uploaded_file($_FILES["seller_address_img1"]["tmp_name"], $targetFilePath)) {
-            echo "The file " . htmlspecialchars($seller_address_img1) . " has been uploaded.";
-          } else {
-            echo "Sorry, there was an error uploading your file.";
-            exit();
-          }
+      function uploadImage($fileInputName, $targetDir, $allowedTypes, $maxFileSize) {
+        $fileName = basename($_FILES[$fileInputName]["name"]); // Get the file name
+        // Sanitize the file name
+        $fileName = preg_replace("/[^a-zA-Z0-9\._-]/", "", $fileName);
+        // Generate a unique file name to prevent overwriting
+        $fileName = uniqid() . "_" . $fileName;
+        $targetFilePath = $targetDir . $fileName; // Target file path
+        $fileType = strtolower(pathinfo($targetFilePath, PATHINFO_EXTENSION)); // File extension (in lowercase)
+        
+        // Check if the file type is allowed
+        if (in_array($fileType, $allowedTypes)) {
+            // Check the file size
+            if ($_FILES[$fileInputName]["size"] <= $maxFileSize) {
+                // Check if the uploads folder is writable
+                if (!is_dir($targetDir) || !is_writable($targetDir)) {
+                    return "Sorry, the upload directory is not writable.";
+                }
+                // Move the file to the target directory
+                if (move_uploaded_file($_FILES[$fileInputName]["tmp_name"], $targetFilePath)) {
+                    return "The file " . htmlspecialchars($fileName) . " has been uploaded.";
+                } else {
+                    return "Sorry, there was an error uploading your file.";
+                }
+            } else {
+                return "Sorry, your file is too large. The maximum file size allowed is 1MB.";
+            }
         } else {
-          echo "Sorry, your file is too large. The maximum file size allowed is 1MB.";
-          exit();
+            return "Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.";
         }
-      } else {
-        echo "Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.";
-        exit();
-      }
-
-
-
-
-      $targetDir2 = "uploads/address/"; // Directory where files will be uploaded
-      $seller_address_img2 = basename($_FILES["seller_address_img2"]["name"]); // Get the file name
-      $targetFilePath2 = $targetDir2 . $seller_address_img2; // Target file path
-      $fileType2 = pathinfo($targetFilePath2, PATHINFO_EXTENSION); // File extension
-
-      $allowTypes2 = array('jpg', 'png', 'jpeg', 'gif'); // Allowed file types
-      $maxFileSize2 = 1048576; // 1MB in bytes
-
-      // Check if the file type is allowed
-      if (in_array($fileType2, $allowTypes2)) {
-        // Check the file size
-        if ($_FILES["seller_address_img2"]["size"] <= $maxFileSize2) {
-          // Move the file to the target directory
-          if (move_uploaded_file($_FILES["seller_address_img2"]["tmp_name"], $targetFilePath2)) {
-            echo "The file " . htmlspecialchars($seller_address_img2) . " has been uploaded.";
-          } else {
-            echo "Sorry, there was an error uploading your file.";
-            exit();
-          }
-        } else {
-          echo "Sorry, your file is too large. The maximum file size allowed is 1MB.";
-          exit();
-        }
-      } else {
-        echo "Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.";
-        exit();
-      }
-
+    }
+    
+    $targetDir = "uploads/address/"; // Directory where files will be uploaded
+    $allowedTypes = array('jpg', 'png', 'jpeg', 'gif'); // Allowed file types
+    $maxFileSize = 1048576; // 1MB in bytes
+    
+    // Upload first image
+    echo uploadImage("seller_address_img1", $targetDir, $allowedTypes, $maxFileSize);
+    
+    // Upload second image
+    echo uploadImage("seller_address_img2", $targetDir, $allowedTypes, $maxFileSize);
+    
 
 
 
