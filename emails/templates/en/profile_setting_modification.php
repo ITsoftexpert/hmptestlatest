@@ -3,7 +3,7 @@
         <div class="row bg-white" style="background-color: #f9f9f9; padding-top: 25px; padding-bottom: 24px; text-align: center;">
 
             <div class="icon-container">
-                <div class="icon" style="border: 2px solid #000; padding: 18px; display: inline-block;">
+                <div class="icon" style="border: 1px solid #000; padding: 18px; display: inline-block;">
                     <img src="<?= img_url('profilemodificationrequired.png'); ?>" width="48" height="48" alt="Settings Icon">
                 </div>
             </div>

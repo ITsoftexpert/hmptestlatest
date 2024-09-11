@@ -674,7 +674,7 @@ $site_border_color = $row_general_settings->site_border_color;
                   }
 
                   .clearable_4 {
-                    width: 90 ! !important;
+                    width: 90 !important;
                   }
 
                   @media screen and (max-width: 768px) {
