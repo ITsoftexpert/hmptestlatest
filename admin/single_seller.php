@@ -8,6 +8,8 @@ if (!isset($_SESSION['admin_email'])) {
 $seller_id = $input->get('single_seller');
 $get_seller = $db->select("sellers", array("seller_id" => $seller_id));
 $row_seller = $get_seller->fetch();
+$seller_user_name = $row_seller->seller_user_name;
+$seller_email = $row_seller->seller_email;
 
 if (!$row_seller) {
     echo "<script>alert('Invalid Seller ID')</script>";
@@ -51,6 +53,13 @@ if (isset($_POST['profile-approve'])) {
     $update = $db->update("sellers", $upForm, ["seller_id" => $seller_id]);
 
     if ($update) {
+        $data = [];
+        $data['template'] = "profile_setting_update";
+        $data['to'] = $seller_email;
+        $data['subject'] = "$site_name: Your profile settings have been successfully updated.";
+        $data['user_name'] = $seller_user_name;
+        $data['profile_settings_url'] = "settings?profile_settings";    
+        send_mail($data);
 
         $db->update("sellers_profile_tmp", ['status' => 1], ["seller_id" => $seller_id]);
 
@@ -78,6 +87,16 @@ if (isset($_POST['profile-modification'])) {
     $update = $db->update("sellers_profile_tmp", $form, ["id" => $profileId, "seller_id" => $seller_id]);
 
     if ($update) {
+
+        $data = [];
+        $data['template'] = "profile_modification_request";
+        $data['to'] = $seller_email;
+        $data['subject'] = "$site_name: Action Required - Profile Modification Request";
+        $data['user_name'] = $seller_user_name;
+        $data['feedback'] = $feedback;
+        $data['profile_settings_url'] = "settings?profile_modification_required";    
+        send_mail($data);        
+
         $last_update_date = date("F d, Y");
         $db->insert("notifications", array("receiver_id" => $seller_id, "sender_id" => "admin_$admin_id", "order_id" => $seller_id, "reason" => "profile_modification", "date" => $last_update_date, "status" => "unread"));
 
@@ -87,7 +106,7 @@ if (isset($_POST['profile-modification'])) {
         echo "<script>alert_error('Modification request could not sent.', 'index?single_seller=" . $seller_id . "');</script>";
     }
 }
-// professional approve
+// professional approve 
 if (isset($_POST['professional-approve'])) {
     $update = $db->update("seller_pro_info", ['status' => 1], ["seller_id" => $seller_id]);
     if ($update) {
