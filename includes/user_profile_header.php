@@ -65,7 +65,7 @@ $follow_id = isset($follow_tbl_data) && $follow_tbl_data ? $follow_tbl_data->id 
 
   @media screen and (max-width: 900px) {
     .user-header-mt {
-      margin-top: 108px;
+      margin-top: 173px;
     }
   }
 </style>

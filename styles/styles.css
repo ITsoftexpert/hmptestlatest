@@ -1560,7 +1560,7 @@ a.toggle-menu {
   .navbar-light .navbar-nav .nav-link,
   .mega-drop-down a {
     /*margin: 0;*/
-    font-size: 15px;
+    font-size: 12px;
     overflow-y: scroll;
     /* padding: 3px; */
   }
@@ -1742,9 +1742,7 @@ a.toggle-menu {
   }
 
   .navbar-light .navbar-toggler {
-    border-color: #fff;
-    color: #000 !important;
-    font-size: 22px;
+    border-color: #28a745;
   }
 
   footer ul li a {
