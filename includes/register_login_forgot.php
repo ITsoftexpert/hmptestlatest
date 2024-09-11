@@ -198,11 +198,6 @@ if (isset($_POST['register'])) {
 
 		if (!empty($error_array)) {
 			$_SESSION['error_array'] = $error_array;
-<<<<<<< HEAD
-			
-=======
-
->>>>>>> press/shubhamhmpproject
 			echo "
 			<script>
 			var errorMessages = '';
@@ -254,12 +249,9 @@ if (isset($_POST['login'])) {
 		@$seller_user_name = $row_seller->seller_user_name;
 		@$seller_status = $row_seller->seller_status;
 		@$acc_status = $row_seller->acc_status;
-<<<<<<< HEAD
-=======
 		@$two_factor_enabled = $row_seller->two_factor_enabled;
 		@$seller_email = $row_seller->seller_email;
 		@$first_time_login = $row_seller->first_time_login;
->>>>>>> press/shubhamhmpproject
 		$decrypt_password = password_verify($seller_pass, $hashed_password);
 
 		if ($decrypt_password == 0) {
@@ -302,17 +294,6 @@ if (isset($_POST['login'])) {
 				$select_seller = $db->query("select * from sellers where seller_email=:u_email OR seller_user_name=:u_name AND seller_pass=:u_pass", array("u_email" => $seller_user_name, "u_name" => $seller_user_name, "u_pass" => $hashed_password));
 				$row_seller = $select_seller->fetch();
 				if ($select_seller) {
-<<<<<<< HEAD
-
-					$_SESSION['sessionStart'] = $row_seller->seller_user_name;
-					if (isset($_SESSION['sessionStart']) and $_SESSION['sessionStart'] === $row_seller->seller_user_name) {
-						$update_seller_status = $db->update("sellers", array("seller_status" => 'online',  "acc_status" => 'active', "seller_ip" => $ip, "device_type" => $device_type), array("seller_user_name" => $row_seller->seller_user_name, "seller_pass" => $hashed_password));
-						//						$seller_user_name = ucfirst(strtolower($row_seller->seller_user_name));
-						$seller_user_name = ucfirst($row_seller->seller_user_name);
-						$url = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-						echo "
-=======
 					$_SESSION['otp_pending'] = $seller_user_name;
 					// Function to generate a 6-digit OTP (define this function globally)
 					function generate_otp()
@@ -412,7 +393,6 @@ if (isset($_POST['login'])) {
 								$url = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 								echo "
->>>>>>> press/shubhamhmpproject
 						<script>
 							swal({
 								type: 'success',
@@ -425,11 +405,8 @@ if (isset($_POST['login'])) {
 								window.open('$url','_self')
 							});
 						</script>";
-<<<<<<< HEAD
-=======
 							}
 						}
->>>>>>> press/shubhamhmpproject
 					}
 				}
 			}

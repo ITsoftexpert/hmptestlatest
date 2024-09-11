@@ -10,11 +10,7 @@ echo "<script>window.open('login','_self');</script>";
 	
 
 ?>
-<<<<<<< HEAD
-
-=======
   
->>>>>>> press/shubhamhmpproject
 <?php 
 
 if(isset($_GET['unapprove_request'])){
@@ -32,8 +28,6 @@ if(isset($_GET['unapprove_request'])){
 		$get_seller = $db->select("sellers",array("seller_id" => $seller_id));
 		$row_seller = $get_seller->fetch();
 		$seller_phone = $row_seller->seller_phone;
-<<<<<<< HEAD
-=======
 		$seller_email = $row_seller->seller_email;
 
 		$data = [];
@@ -44,7 +38,6 @@ if(isset($_GET['unapprove_request'])){
 		$data['request_url'] = "requests/post_request";
 		send_mail($data);
 
->>>>>>> press/shubhamhmpproject
 
 		$n_date = date("F d, Y");
 

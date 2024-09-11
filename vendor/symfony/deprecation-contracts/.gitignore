@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-vendor/
-composer.lock
-phpunit.xml
-=======
 # vendor/
 # composer.lock
 # phpunit.xml
->>>>>>> press/shubhamhmpproject

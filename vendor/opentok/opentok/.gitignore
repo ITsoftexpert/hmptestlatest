@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-*.DS_Store
-composer.phar
-composer.lock
-opentok.phar
-vendor/
-phpunit.xml
-sample/*/vendor/
-sample/*/cache/
-composer.lock
-=======
 # *.DS_Store
 # composer.phar
 # composer.lock
@@ -18,4 +7,3 @@ composer.lock
 # sample/*/vendor/
 # sample/*/cache/
 # composer.lock
->>>>>>> press/shubhamhmpproject

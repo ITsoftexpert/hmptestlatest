@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-/.php_cs.cache
-/.phpunit
-/build/*
-/composer.lock
-/phpunit.xml
-/tests/acceptance.conf.php
-/tests/smoke.conf.php
-/vendor/
-=======
 # /.php_cs.cache
 # /.phpunit
 # /build/*
@@ -16,4 +6,3 @@
 # /tests/acceptance.conf.php
 # /tests/smoke.conf.php
 # /vendor/
->>>>>>> press/shubhamhmpproject

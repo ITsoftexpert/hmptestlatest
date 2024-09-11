@@ -53,11 +53,7 @@ $follow_id = isset($follow_tbl_data) && $follow_tbl_data ? $follow_tbl_data->id 
 
 ?>
 <style>
-<<<<<<< HEAD
-  /* .user-header-mt {
-=======
   .user-header-mt {
->>>>>>> press/shubhamhmpproject
     margin-top: 150px;
   }
 
@@ -70,203 +66,6 @@ $follow_id = isset($follow_tbl_data) && $follow_tbl_data ? $follow_tbl_data->id 
     .user-header-mt {
         margin-top: 173px;
     }
-<<<<<<< HEAD
-} */
-
-  .container_profile {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 185px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .box_profile {
-    padding: 20px;
-
-    /* border: 1px solid #000; */
-  }
-
-  .box-25 {
-    width: 25%;
-    flex: 0 0 25%;
-    display: flex;
-  }
-
-  .box-75 {
-    width: 75%;
-    flex: 0 0 75%;
-  }
-
-  @media (max-width: 768px) {
-
-    .box-25,
-    .box-75 {
-      flex: 0 0 100%;
-    }
-  }
-
-  .profile_img {
-    height: 100%;
-    width: 100%;
-    margin-top: auto;
-    margin-bottom: auto;
-    border-radius: 15px;
-  }
-
-  body,
-  body * {
-    color: black !important;
-  }
-
-  a {
-    color: black !important;
-  }
-
-
-  .btn,
-  .btn * {
-    color: white !important;
-
-  }
-
-  .fa-star {
-    color: orange !important;
-  }
-
-  .fa-map-marker {
-    color: red !important;
-  }
-
-  .fa-truck {
-    color: #00dece !important;
-  }
-
-  .fa-user {
-    color: #00dece !important;
-  }
-
-  .fa-circle {
-    color: green !important;
-  }
-</style>
-<div class="container_profile">
-  <!-- 25% Box for the Profile Image -->
-  <div class="box_profile box-25">
-    <div class="profile-image float-lg-left flaot-md-left float-none ">
-      <?php if (!empty($seller_image)) { ?>
-        <img src="<?= $seller_image; ?>" class="profile_img">
-      <?php } else { ?>
-        <img src="user_images/empty-image.png" class="rounded-circle">
-      <?php } ?>
-      <?php if ($seller_level == 2) { ?>
-        <img src="images/level_badge_1.png" class="level_badge">
-      <?php } ?>
-      <?php if ($seller_level == 3) { ?>
-        <img src="images/level_badge_2.png" class="level_badge">
-      <?php } ?>
-      <?php if ($seller_level == 4) { ?>
-        <img src="images/level_badge_3.png" class="level_badge">
-      <?php } ?>
-    </div>
-  </div>
-
-  <!-- 75% Box for the Remaining Content -->
-  <div class="box_profile box-75">
-    <div class="col-md-12 user-header ">
-      <?php if (isset($_SESSION['seller_user_name'])) { ?>
-        <?php if ($_SESSION['seller_user_name'] == $seller_user_name) { ?>
-          <a href="settings?profile_settings" class="btn btn-edit btn-success"><i class="fa fa-pencil"></i> Edit&nbsp;</a>
-        <?php } ?>
-      <?php } ?>
-
-      <div class="content-bar mt-3">
-        <h1> Hi, I'm <?= ucfirst($seller_user_name); ?> <?php if (check_status($seller_id) == "Online") { ?>
-            <span class="user-is-online ml-2" style="ml-2">
-              <span class="h6"><i class="fa fa-circle"></i></span>
-              <span><?= check_status($seller_id); ?></span>
-            </span>
-          <?php } ?>
-        </h1>
-        <span class="headline">
-          <?= $seller_headline; ?>
-        </span>
-        <div class="star-rating">
-          <?php
-          for ($seller_i = 0; $seller_i < $average_rating; $seller_i++) {
-            echo " <i class='fa fa-star'></i> ";
-          }
-          for ($seller_i = $average_rating; $seller_i < 5; $seller_i++) {
-            echo " <i class='fa fa-star-o'></i> ";
-          }
-          ?>
-          <span class=" m-1"><strong>
-              <?php printf("%.1f", $average); ?></strong> (<?= $count_reviews; ?>)</span>
-          <?php if (!empty($seller_country)) { ?>
-            <span class="">
-              <i class="fa fa-map-marker m-1"></i> <?= $seller_country; ?>
-            </span>
-          <?php } ?>
-        </div>
-
-      </div>
-
-      <div class="content-bar">
-        <?php if ($count_proposals != 0) { ?>
-          <?php if (!isset($_SESSION['seller_user_name'])) { ?>
-            <a class="btn btn-success mt-3" href="login.php"> Contact <small>(<?= $seller_user_name; ?>)</small></a>
-
-          <?php } else { ?>
-            <?php if ($_SESSION['seller_user_name'] != $seller_user_name) { ?>
-              <a class="btn btn-success mt-3" href="<?= $site_url; ?>/conversations/message?seller_id=<?= $seller_id ?>">
-                Contact <small>(<?= $seller_user_name; ?>)</small>
-              </a>
-              <?php if ($follow_id) { ?>
-                <button class="follow btn btn-primary mt-3" id="unfollow" value="<?= $seller_id ?>">Unfollow</button>
-              <?php } else { ?>
-                <button class="follow btn btn-outline-success mt-3 bg-secondary text-light" id="follow"
-                  value="<?= $seller_id ?>">Follow</button>
-              <?php } ?>
-              <button class="btn btn-outline-success mt-3 text-light bg-secondary">
-                <i class="fa fa-thumbs-o-up" data-toggle="tooltip" data-placement="top" title="Recommend"></i> 0
-                recommendation
-              </button>
-            <?php } ?>
-          <?php } ?>
-        <?php } else { ?>
-          <br><br>
-          <?= (empty($seller_headline) and check_status($seller_id) != "Online") ? "<br><br>" : ""; ?>
-        <?php } ?>
-      </div>
-
-    </div>
-    <div class="col-md-12 user-status">
-      <ul class="p-0">
-        <li>
-          <i class="fa fa-user"></i>
-          <strong><?= $lang['user_profile']['member_since']; ?> </strong> <?= $seller_register_date; ?>
-        </li>
-        <?php if ($seller_recent_delivery != "none") { ?>
-          <li>
-
-            <i class="fa fa-truck fa-flip-horizontal"></i>
-            <strong><?= $lang['user_profile']['recent_delivery']; ?> </strong> <?= $seller_recent_delivery; ?>
-          </li>
-        <?php } ?>
-        <?php if ($seller_level != 1) { ?>
-          <li>
-            <i class="fa fa-bars"></i>
-            <strong><?= $lang['user_profile']['seller_level']; ?> </strong> <?= $level_title; ?>
-          </li>
-        <?php } ?>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!--Follow Button CSS Start-->
-<!-- <style>
-=======
 }
   
 
@@ -386,7 +185,6 @@ $follow_id = isset($follow_tbl_data) && $follow_tbl_data ? $follow_tbl_data->id 
 </div>
 <!--Follow Button CSS Start-->
 <style>
->>>>>>> press/shubhamhmpproject
   button .msg-follow,
   button .msg-following,
   button .msg-unfollow {
@@ -420,11 +218,7 @@ $follow_id = isset($follow_tbl_data) && $follow_tbl_data ? $follow_tbl_data->id 
   button.following:not(.wait):hover .msg-unfollow {
     display: inline;
   }
-<<<<<<< HEAD
-</style> -->
-=======
 </style>
->>>>>>> press/shubhamhmpproject
 
 <script>
   /*$('button').click(function(){
@@ -436,36 +230,6 @@ $follow_id = isset($follow_tbl_data) && $follow_tbl_data ? $follow_tbl_data->id 
      //       alert("<?= $seller_id . $login_seller_id ?>");
 
         }
-<<<<<<< HEAD
-  var dataString = {
-    "seller_id": <?= $seller_id ?>,
-    "login_seller_id": <?= $login_seller_id ?>
-  };
-
-        /!*dataString['seller_id'] = [<?= $seller_id ?>];
-  dataString['login_seller_id'] = [<?= $login_seller_id ?>];
-* !/
-  // dataString = new array('seller_id'=><?= $seller_id ?>, 'login_seller_id'=><?= $login_seller_id ?>) ; // array?
-  var jsonString = JSON.stringify(dataString);
-
-       /!* $.ajax({
-  type: "POST",
-    url: "following.php",
-      data: { data: jsonString },
-  cache: false,
-
-    success: function(response) {
-      // alert(response);
-      console.log(response);
-
-    }
-        });* !/
-
-
-    }).on('mouseleave', function () {
-      $(this).removeClass('wait');
-    }) */
-=======
         var dataString = {
         "seller_id": <?= $seller_id ?>,
         "login_seller_id" : <?= $login_seller_id ?>
@@ -494,6 +258,5 @@ $follow_id = isset($follow_tbl_data) && $follow_tbl_data ? $follow_tbl_data->id 
     }).on('mouseleave',function(){
         $(this).removeClass('wait');
     })*/
->>>>>>> press/shubhamhmpproject
 </script>
 <!--Follow button css ends-->
