@@ -376,9 +376,6 @@
 
 /* card template buyer */
 .card_template_buyer {
-  
-  
-  
   /* height: 20vh; */
   display: flex;
   margin: auto;
@@ -544,7 +541,7 @@
     line-height: 35px !important;
   }
   #powerful-job-respon {
-    padding-bottom: 35px;
+    padding-bottom: 3rem;
   }
   #f-j-restyle {
     width: 100%;
@@ -553,11 +550,9 @@
 
 @media (max-width: 579px) {
   .bg_color_theme {
-    color: #e5e5e5;
-    font-size: 2.2rem !important;
-    line-height: 25px
-    
-    ;
+    color: #c1c1c1;
+    font-size: 3.6rem !important;
+    line-height: 25px;
   }
 }
 

@@ -6705,7 +6705,7 @@
 }
 
 .ui-toolkit .height-50px {
-  height: 50px;
+  height: 70px !important;
 }
 
 .ui-toolkit .height-75px {
@@ -6730,6 +6730,7 @@
 
 .ui-toolkit .z-index-1 {
   z-index: 10;
+  display: none;
 }
 
 .ui-toolkit .z-index-2 {
@@ -10471,7 +10472,7 @@ body.is-global-nav #new-seller-header {
 .gnav-header .has-svg-icons .nav-icon.gigtodo-icon svg,
 .gnav-header .has-svg-icons .nav-icon.inline-svg svg {
   fill: currentColor;
-  width: 20px;
+  width: 23px;
   height: 100%;
   color: #6c6c6c !important;
 }
@@ -12098,7 +12099,7 @@ a:hover {
 .theme-bg-sky {
   background-color: #00cedc !important;
 }
-.rampal_search{
+.rampal_search {
   display: flex;
   margin: auto !important;
   padding: auto !important;
@@ -12845,7 +12846,7 @@ button.btn:focus {
 .text-success_rampal.active {
   color: red !important;
 }
-.rampal_search{
+.rampal_search {
   text-align: center !important;
   display: flex !important;
 }

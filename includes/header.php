@@ -94,7 +94,7 @@ $site_border_color = $row_general_settings->site_border_color;
   @media (max-width:480px) {
     .gnav-header #mobilemenu {
       padding-top: 0px !important;
-      margin-left: 5px;
+      margin-left: 1px;
     }
 
     .gigtodo-icon {
@@ -107,15 +107,14 @@ $site_border_color = $row_general_settings->site_border_color;
 
     #style-join-border-red a {
 
-      font-weight: 900;
-      background-color: white !important;
-      color: #6c6c6c !important;
+      font-weight: 500;
+      background-color: #fff !important;
+      color: #00cedc !important;
       border: none !important;
-
-      font-size: 17px;
-      border: 1px solid #6c6c6c !important;
+      box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+      font-size: 16px;
+      border: 1px solid #00000082 !important;
       padding: 5px;
-
       margin-top: 3px !important;
       margin-bottom: auto !important;
 
@@ -128,13 +127,9 @@ $site_border_color = $row_general_settings->site_border_color;
     }
 
     .ram_canvas_toggle {
-   
       display: none;
       /* Initially hide the icon */
-      
-    
       z-index: 1000;
-     
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.5s ease-out, transform 0.5s ease-out;
@@ -190,16 +185,12 @@ $site_border_color = $row_general_settings->site_border_color;
 
     .register-link a {
       color: black;
-
-
-
     }
 
     .register-link {
       display: flex;
       align-items: center;
     }
-
   }
 
   @media (max-width: 480px) {
@@ -220,9 +211,6 @@ $site_border_color = $row_general_settings->site_border_color;
       background-color: transparent !important;
     }
   }
-
-
-
 
   @media (min-width: 1025px) {
     .style-display-flex {
@@ -268,7 +256,7 @@ $site_border_color = $row_general_settings->site_border_color;
     .mobile_screen_respo_logo_img {
       margin: auto;
       margin-top: 3px;
-      height: 40px;
+      height: 41px;
     }
 
   }
@@ -412,10 +400,6 @@ $site_border_color = $row_general_settings->site_border_color;
     }
   }
 
-
-
-
-
   @media(min-width:421px) and (max-width:639px) {
     .margin-left {
       /* border:1px solid green !important; */
@@ -504,8 +488,8 @@ $site_border_color = $row_general_settings->site_border_color;
       class="gnav-header-inner clear apply-nav-height col-group has-svg-icons body-max-width">
       <div class="col-xs-12">
         <div id="gigtodo-logo" class="apply-nav-height gigtodo-logo-svg gigtodo-logo-svg-logged-in <?php if (isset($_SESSION["seller_user_name"])) {
-          echo "loggedInLogo";
-        } ?>">
+                                                                                                      echo "loggedInLogo";
+                                                                                                    } ?>">
           <a href="<?= $site_url; ?>">
             <?php if ($site_logo_type == "image") { ?>
               <img class="desktop" src="<?= $site_logo_image; ?>" width="150">
@@ -570,8 +554,8 @@ $site_border_color = $row_general_settings->site_border_color;
           <?php if (!isset($_SESSION["seller_user_name"])) { ?>
             <!--                        <li class="register-link">-->
             <!--                            <a href="--><? //= $site_url; 
-              ?><!--/freelancers">--><? //= $lang['freelancers_menu']; 
-                ?><!--</a>-->
+                                                        ?><!--/freelancers">--><? //= $lang['freelancers_menu']; 
+                                                                                ?><!--</a>-->
             <!--                        </li>-->
             <li class="sell-on-gigtodo-link d-none d-lg-block">
               <a href="#" data-toggle="modal" data-target="#register-modal">
@@ -708,9 +692,9 @@ $site_border_color = $row_general_settings->site_border_color;
                     opacity: 1;
                   }
 
-                  .clearable_4 {
+                  /* .clearable_4 {
                     width: 90 ! !important;
-                  }
+                  } */
 
                   @media screen and (max-width: 768px) {
                     .is-responsive .gnav-header .gnav-search-inner {
@@ -760,30 +744,28 @@ $site_border_color = $row_general_settings->site_border_color;
 
 
                 <script>
-                  document.getElementById('ram_canvas_toggle').addEventListener('click', function () {
+                  document.getElementById('ram_canvas_toggle').addEventListener('click', function() {
                     document.getElementById('ram_canvas').classList.add('show');
                   });
 
-                  document.getElementById('ram_canvas_close').addEventListener('click', function () {
+                  document.getElementById('ram_canvas_close').addEventListener('click', function() {
                     document.getElementById('ram_canvas').classList.remove('show');
                   });
 
-                  document.getElementById('ram_canvas_overlay').addEventListener('click', function () {
+                  document.getElementById('ram_canvas_overlay').addEventListener('click', function() {
                     document.getElementById('ram_canvas').classList.remove('show');
                   });
 
-                  window.addEventListener('scroll', function () {
+                  window.addEventListener('scroll', function() {
                     var searchIcon = document.getElementById('ram_canvas_toggle');
 
                     // Jab page 100px se zyada scroll ho, tab icon dikhaye
                     if (window.scrollY > 100) {
-                      searchIcon.classList.add('show');  // Add class to show the icon
+                      searchIcon.classList.add('show'); // Add class to show the icon
                     } else {
-                      searchIcon.classList.remove('show');  // Remove class to hide the icon
+                      searchIcon.classList.remove('show'); // Remove class to hide the icon
                     }
                   });
-
-
                 </script>
 
 
@@ -793,7 +775,7 @@ $site_border_color = $row_general_settings->site_border_color;
 
 
             </li>
-            <?php
+          <?php
           } else {
             require_once("comp/UserMenu.php");
           }
@@ -834,7 +816,7 @@ $site_border_color = $row_general_settings->site_border_color;
 <?php
 if (isset($_SESSION['seller_user_name'])) {
   if ($seller_verification != "ok") {
-    ?>
+?>
     <div class="alert alert-warning clearfix activate-email-class mb-0 mt-150px">
       <div class="float-left mt-2">
         <i style="font-size: 125%;" class="fa fa-exclamation-circle"></i>
@@ -851,13 +833,13 @@ if (isset($_SESSION['seller_user_name'])) {
       </div>
     </div>
     <script>
-      $(document).ready(function () {
-        $("#send-email").click(function () {
+      $(document).ready(function() {
+        $("#send-email").click(function() {
           $("#wait").addClass('loader');
           $.ajax({
             method: "POST",
             url: "<?= $site_url; ?>/includes/send_email",
-            success: function () {
+            success: function() {
               $("#wait").removeClass('loader');
               $("#send-email").html("Resend Email");
               swal({
@@ -871,21 +853,21 @@ if (isset($_SESSION['seller_user_name'])) {
     </script>
     <script>
       //downthere of header
-      document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener('DOMContentLoaded', function() {
         var containerfluid = document.querySelectorAll('.container-fluid');
-        containerfluid.forEach(function (element) {
+        containerfluid.forEach(function(element) {
           element.style.setProperty('margin-top', '0px', 'important');
         });
       });
       // my profile
-      document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener('DOMContentLoaded', function() {
         var userheadermt = document.querySelectorAll('.user-header-mt');
-        userheadermt.forEach(function (element) {
+        userheadermt.forEach(function(element) {
           element.style.setProperty('margin-top', '0px', 'important');
         });
       });
     </script>
-  <?php }
+<?php }
 } ?>
 
 <?php require_once("register_login_forgot_modals.php"); ?>

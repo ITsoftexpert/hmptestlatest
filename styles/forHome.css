@@ -314,14 +314,15 @@ body {
 
 @media (max-width: 768px) {
   #powerful-job-respon {
-    background-image: linear-gradient(
+    background-color: #fff;
+    /* background-image: linear-gradient(
       to bottom right,
       #00c8d4 0%,
       #165477 25%,
       #153957 50%,
       #0f2138 75%,
       #1a1e31 100%
-    );
+    ); */
 
     /* ============---- pahle y lagaya tha =========------- */
 
@@ -335,11 +336,11 @@ body {
     ); */
   }
   .font_size_decrease {
-    color: white !important;
+    /* color: white !important; */
   }
-  #restyle-for-portal-para {
+  /* #restyle-for-portal-para {
     display: none;
-  }
+  } */
   .font_size_decrease {
     line-height: 10px !important;
   }
@@ -352,7 +353,7 @@ body {
 }
 @media (max-width: 579px) {
   .font_size_decrease {
-    font-size: 24px;
+    font-size: 30px;
     line-height: 10px !important;
   }
   .bg_color_theme {
@@ -416,6 +417,7 @@ body {
   /* border: 1px solid green; */
   display: flex !important;
   margin: auto;
+  padding: 0px 26px;
   width: 100%;
 }
 
@@ -878,7 +880,7 @@ body {
   }
 
   .mob-sty-respo-vsi {
-    background-color: #ebebeb;
+    background-color: #ebebeb66;
     height: fit-content;
     padding-bottom: 3rem !important;
     /* border: 2px solid red; */
@@ -1174,7 +1176,7 @@ body {
   #powerful-job-respon {
     margin-top: 3rem;
     /* padding-bottom: 40px; */
-    background-color: white;
+    /* background-color: white; */
     height: fit-content;
   }
 
@@ -1386,9 +1388,9 @@ body {
     animation-delay: 0s;
   }
 
-  .container-top-proposal-row:hover {
+  /* .container-top-proposal-row:hover {
     box-shadow: 1px 1px 8px #00c8d4;
-  }
+  } */
 
   .container-top-proposal {
     height: 100%;
@@ -1457,6 +1459,7 @@ body {
   #mobile_responsive_screen {
     /* display: block; */
     /* margin: auto; */
+    padding: 0px 26px;
     /* margin-top: 30px; */
     /* width: 100%; */
     /* background-color:green; */
@@ -1500,7 +1503,7 @@ body {
   }
 
   .mob-sty-respo-vsi {
-    background-color: #ebebeb;
+    background-color: #ebebeb66;
     padding-top: 12px !important;
     padding-bottom: 2rem !important;
     /* border: 2px solid red; */
@@ -1735,7 +1738,7 @@ body {
 
   .o-view_all_styling-div {
     display: flex;
-    margin-top: 0px;
+    margin-top: 25px;
     width: 100%;
   }
 
@@ -2244,7 +2247,7 @@ body {
 
 .raminer_1,
 .raminer_2 {
-  border: 2px solid #5e5e5e;
+  border: 2px solid grey;
   width: 45%;
   border-radius: 10px;
 }
@@ -2252,8 +2255,8 @@ body {
 @media (max-width: 768px) {
   .raminer_1,
   .raminer_2 {
-    width: 85%;
-    border-radius: 10px;
+    width: 100%;
+    border-radius: 5px;
     /* margin-top: 20px; */
   }
 }
@@ -2272,9 +2275,24 @@ body {
 
 .ram_smaal_h {
   text-align: center;
-  color: rgb(0, 0, 0);
-  font-size: 1.4rem; /* Adjusted size */
-  /* line-height: 37px; */
+  color: #808080;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+/* Media query for mobile view */
+@media (max-width: 767px) {
+  .ram_smaal_h {
+    color: #fff; /* Color for mobile view */
+    text-align: left;
+    font-size: 30px;
+  }
+  .ram_big_h {
+    color: #fff; /* Color for mobile view */
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400 !important;
+  }
 }
 
 .full-width-button {
@@ -2283,7 +2301,7 @@ body {
   align-items: center;
   width: 100%;
   padding: 10px;
-  color: rgb(0, 0, 0);
+  color: #fff;
   text-align: center;
   text-decoration: none;
 
@@ -2294,9 +2312,10 @@ body {
 }
 
 .full-width-button:hover {
-  color: white !important;
-  background-color: #5e5e5e;
-  border: #5e5e5e !important;
+  color: #fff !important;
+  font-weight: 400;
+  background-color: #00000021;
+  border: #00000021 !important;
 }
 
 .full-width-button i:first-child {
@@ -2378,8 +2397,28 @@ body {
 
 @media screen and (max-width: 768px) {
   .ram_container {
+    position: relative;
     margin-top: 0px !important;
-    padding: 25px;
+    padding: 50px 25px 50px 25px;
+    background-image: url("/hmp2024/images/second-section-banner-image.png");
+    background-size: cover;
+    background-position: top;
+  }
+
+  .ram_container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 69%); /* Black overlay with 50% opacity */
+    z-index: 1;
+  }
+
+  .ram_container > * {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
   }
   .rampal_btn_primary {
     min-width: 0px !important;
@@ -2387,12 +2426,32 @@ body {
 
   #f-j-restyle a .find_find_free_btn {
     width: 100% !important;
-
+    background-color: #fff !important;
     font-size: 18px;
+    color: #00c8d4 !important;
+    border: 1px solid #00c8d4 !important;
+  }
+  #f-j-restyle a .find_find_free_btn:hover {
+    width: 100% !important;
+    background-color: #00c8d4 !important;
+    font-size: 18px;
+    color: #fff !important;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   }
   #f-j-restyle a .post_job_free_btn {
     width: 100% !important;
     font-size: 18px;
+    background-color: #00c8d4 !important;
+    color: #fff !important;
+  }
+  #f-j-restyle a .post_job_free_btn:hover {
+    width: 100% !important;
+    font-size: 18px;
+    background-color: #fff !important;
+    color: #000 !important;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   }
 }
 
@@ -2414,9 +2473,6 @@ body {
 .new-design-style {
   flex: 0 0 23%;
 }
-/* .Featured-candidates-nitin {
-  flex: 0 0 23%;
-} */
 
 @media (max-width: 1024px) {
   .new-design-style {
@@ -2439,4 +2495,34 @@ body {
   .Featured-candidates-nitin {
     flex: 0 0 100%;
   }
+}
+
+/* ###########################nitin-start-css################# */
+
+.home-page-text-menu {
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+}
+.home-page-text-menu:hover {
+  color: grey;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.menu-login {
+  text-align: center;
+  background-color: #00c8d4;
+  margin: 13px !important;
+  border-radius: 5px;
+}
+.mobile-menu-login {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mobile-menu-logo {
+  width: 170px;
+  /* padding: 15px; */
 }

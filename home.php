@@ -33,8 +33,8 @@ $slide_image = $row_slides->slide_image;
     <div class="col-lg-7 pt-5" id="content-size-accor-scr">
       <h1 class="text-headline-larger font-weight-bold mt-4" id="power-headling-restyle">
 
-        <span class="bg_color_theme"> Uncover </span> <br class="br">
-        <span class="font_size_decrease">the ideal freelance work rapidly and without impact</span>
+        <span class="bg_color_theme"> Uncover </span>
+        <span class="font_size_decrease">the <br class="br">ideal freelance work rapidly and without impact</span>
       </h1>
       <p class="" id="restyle-for-portal-para">Break free from outdated norms – <br> instantly access the finest talent,
         right at your fingertips.</p>
@@ -54,7 +54,7 @@ $slide_image = $row_slides->slide_image;
 
           <!-- Magnifying glass icon on the right side inside the search bar -->
           <button class="rampal_btn_primary position-absolute" name="search" type="submit" value="Search"
-            style="right: 10px; top: 47%; transform: translateY(-50%); border: none; background: transparent;">
+            style="right: 10px; top: 40%; transform: translateY(-50%); border: none; background: transparent;">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
@@ -107,12 +107,6 @@ $slide_image = $row_slides->slide_image;
 
 
 <!-- Script for voice search functionality -->
-
-
-
-
-
-
 <!--  =========================  rampal  ============================= -->
 <style>
   @media (min-width: 768px) {
@@ -138,24 +132,24 @@ $slide_image = $row_slides->slide_image;
     width: 100% !important;
   }
 
-
-
   .rounded_rampal {
-
     width: 100% !important;
-
-
     padding-left: 35px !important;
     border: 2px solid black;
-    border-radius: 2rem !important;
+    font-size: 17px;
+    border-radius: 5px !important;
     background-color: transparent !important;
-    color: white;
-    border: 2px solid white;
+    color: #000;
+    border: 2px solid #00000082;
     z-index: 2px !important;
   }
 
+  #search-query::placeholder {
+    color: #808080;
+    /* Change the color to black */
+  }
+
   .rampal_btn_primary {
-    /* margin-left: -5px !important; */
     padding-top: 7px;
     background-color: transparent;
     color: white;
@@ -165,7 +159,7 @@ $slide_image = $row_slides->slide_image;
   .rampal_btn_primary .fa-magnifying-glass {
 
     background-color: transparent;
-    color: white;
+    color: #808080;
   }
 
   .rampal_btn_primary2 {
@@ -178,11 +172,9 @@ $slide_image = $row_slides->slide_image;
   }
 
   .rampal_btn_primary2 .fa-microphone {
-
     background-color: transparent;
-    color: white;
-
-
+    color: #000;
+    font-size: 17px;
   }
 
   @media screen and (min-width: 769px) {
@@ -219,14 +211,13 @@ $slide_image = $row_slides->slide_image;
   @media (max-width: 768px) {
     .home-section1 button {
       min-width: 0px;
-      /* margin: auto; */
     }
   }
 </style>
 
 <div class="ram_container">
   <div class="ram_text">
-    <p class="ram_smaal_h">How to hire talent on Hiremyprofile</p>
+    <p class="ram_smaal_h">How to hire <br> talent on <br> Hiremyprofile</p>
     <h2 class="ram_big_h">Hire in 3 easy ways: get your work done swiftly, smoothly, and successfully</h2>
   </div>
 
@@ -248,10 +239,6 @@ $slide_image = $row_slides->slide_image;
     </div>
   </div>
 </div>
-
-
-
-
 
 
 
@@ -479,7 +466,7 @@ $slide_image = $row_slides->slide_image;
   id="dummy-video-content-border" style="margin: top 0px;">
   <div class="cards">
     <div class="d-flex justify-content-between align-items-center" id="top-propo-div-respon">
-      <h5 class="my-0 textdarkheadingempowerTps">Discoverrrr our top sellers</h5>
+      <h5 class="my-0 textdarkheadingempowerTps">Discover our top sellers</h5>
     </div>
   </div>
   <h2 class="text-center ">Get top-tier talent, exceptional service, and quick results by hiring from our platform.</h2>
