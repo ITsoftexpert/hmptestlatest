@@ -4,11 +4,16 @@
 
 error_reporting(0);
 
-// live 
 // @define('DB_HOST', 'localhost');
-// @define('DB_USER', 'u674474931_hmpdemo');
-// @define('DB_PASS', 'zD4zu&r2Y');
-// @define('DB_NAME', 'u674474931_hmpdemo');
+// @define('DB_USER', 'u890970355_alpha15');
+// @define('DB_PASS', '~goDlnW/F7i');
+// @define('DB_NAME', 'u890970355_alpha15');
+
+
+@define('DB_HOST', 'localhost');
+@define('DB_USER', 'root');
+@define('DB_PASS', '');
+@define('DB_NAME', 'u890970355_alphaa');
 
 // local
 @define('DB_HOST', 'localhost');
