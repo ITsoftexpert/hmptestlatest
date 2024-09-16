@@ -1090,12 +1090,8 @@ $slide_image = $row_slides->slide_image;
 
 
 <!-- <script src="script.js"></script> -->
-
-
-
+ 
 <!-- review section -->
-
-
 
 <!-- <div class=" py-5 home-section5">
   <div class="body-max-width px-3">
@@ -1481,6 +1477,204 @@ $slide_image = $row_slides->slide_image;
 
 <!-- next to change -->
 
+<!-- nitin created design by featured candidate section  -->
+<div
+  class="home-section3 body-max-width px-3 pt-2 mb-5 ">
+  <div class="cards">
+    <div class="d-flex justify-content-between align-items-center" id="top-propo-div-respon">
+      <h5 class="my-0 textdarkheadingempowerTps">Featured candidates</h5>
+    </div>
+  </div>
+  <h2 class="text-center ">Leading employers already using job and talent.</h2>
+
+  <!-- start of top proposal section-->
+  <div class="container-top-proposal">
+    <div class="container-top-proposal-row">
+      <div class="featured-main-container">
+        <!-- Card 1 -->
+        <!-- Card 1 -->
+        <div class="featured-card">
+          <div class="featured-main-header">
+            <div class="profile-picture">
+              <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+            </div>
+            <div class="profile-info">
+              <h3><span class="online-indicator"></span> Sumit kumar</h3>
+              <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+              <div class="rating">
+                <span>⭐ 4.9</span> <span>(1,708)</span>
+              </div>
+            </div>
+            <button class="favorite-button" onclick="toggleFavorite(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="featured-main-tags">
+            <span>Email Template</span>
+            <span>Next.js</span>
+            <span>+17</span>
+          </div>
+          <div class="slider featured-main-slider">
+            <div class="slides">
+              <!-- Different images for Card 1 -->
+              <img src="https://plus.unsplash.com/premium_photo-1681666713641-8d722b681edc?w=500&auto=format&fit=crop&q=60" alt="Image 1">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60" alt="Image 2">
+              <img src="https://plus.unsplash.com/premium_photo-1681666713641-8d722b681edc?w=500&auto=format&fit=crop&q=60" alt="Image 3">
+            </div>
+            <div class="dots">
+              <span class="dot" onclick="currentSlide(1, 1)"></span>
+              <span class="dot" onclick="currentSlide(1, 2)"></span>
+              <span class="dot" onclick="currentSlide(1, 3)"></span>
+            </div>
+          </div>
+          <div class="featured-main-footer">
+            <p>From <br><strong>$195</strong>/project</p>
+            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+            <button class="see-profile-button">See profile</button>
+          </div>
+        </div>
+
+        <!-- Repeat for 3 more cards -->
+        <div class="featured-card">
+          <div class="featured-main-header">
+            <div class="profile-picture">
+              <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+            </div>
+            <div class="profile-info">
+              <h3><span class="online-indicator"></span> Sumit kumar</h3>
+              <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+              <div class="rating">
+                <span>⭐ 4.9</span> <span>(1,708)</span>
+              </div>
+            </div>
+            <button class="favorite-two-button" onclick="toggletwoFavorite(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="featured-main-tags">
+            <span>Email Template</span>
+            <span>Next.js</span>
+            <span>+17</span>
+          </div>
+          <div class="slider featured-main-slider">
+            <div class="slides">
+              <!-- Different images for Card 2 -->
+              <img src="https://plus.unsplash.com/premium_photo-1678565999332-1cde462f7b24?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2Vic2l0ZXxlbnwwfHwwfHx8MA%3D%3D" alt="Image 1">
+              <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHdlYnNpdGV8ZW58MHx8MHx8fDA%3D" alt="Image 2">
+              <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdlYnNpdGV8ZW58MHx8MHx8fDA%3D" alt="Image 3">
+            </div>
+            <div class="dots">
+              <span class="dot" onclick="currentSlide(2, 1)"></span>
+              <span class="dot" onclick="currentSlide(2, 2)"></span>
+              <span class="dot" onclick="currentSlide(2, 3)"></span>
+            </div>
+          </div>
+          <div class="featured-main-footer">
+            <p>From <br><strong>$195</strong>/project</p>
+            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+            <button class="see-profile-button">See profile</button>
+          </div>
+        </div>
+        <div class="featured-card">
+          <div class="featured-main-header">
+            <div class="profile-picture">
+              <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+            </div>
+            <div class="profile-info">
+              <h3><span class="online-indicator"></span> Sumit kumar</h3>
+              <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+              <div class="rating">
+                <span>⭐ 4.9</span> <span>(1,708)</span>
+              </div>
+            </div>
+            <button class="favorite-three-button" onclick="togglethreeFavorite(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="featured-main-tags">
+            <span>Email Template</span>
+            <span>Next.js</span>
+            <span>+17</span>
+          </div>
+          <div class="slider featured-main-slider">
+            <div class="slides">
+              <img src="https://media.istockphoto.com/id/508498442/photo/man-using-laptop-working-on-plan-to-increase-website-traffic.webp?a=1&b=1&s=612x612&w=0&k=20&c=RzNNYwU9iTOFVRBv_6eB8kYPTIdGP0YzKLCOsYE7H-U=" alt="Image 1">
+              <img src="https://media.istockphoto.com/id/1398473177/photo/questionnaire-with-checkboxes-filling-survey-form-online-answer-questions.webp?a=1&b=1&s=612x612&w=0&k=20&c=yfGyijQDY6Toe7ucQFFsnPwy-tC5JKPEkIaJ2SMF-fs=" alt="Image 2">
+              <img src="https://media.istockphoto.com/id/1062674570/photo/purchasing-thing-online.webp?a=1&b=1&s=612x612&w=0&k=20&c=rIcG89F3Z1KVgHsD3JgBKcIzMIlqy5cKnXW4Rxwnrl8=" alt="Image 3">
+            </div>
+            <div class="dots">
+              <span class="dot" onclick="currentSlide(3, 1)"></span>
+              <span class="dot" onclick="currentSlide(3, 2)"></span>
+              <span class="dot" onclick="currentSlide(3, 3)"></span>
+            </div>
+          </div>
+          <div class="featured-main-footer">
+            <p>From <br><strong>$195</strong>/project</p>
+            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+            <button class="see-profile-button">See profile</button>
+          </div>
+        </div>
+        <div class="featured-card">
+          <div class="featured-main-header">
+            <div class="profile-picture">
+              <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+            </div>
+            <div class="profile-info">
+              <h3><span class="online-indicator"></span> Sumit kumar</h3>
+              <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+              <div class="rating">
+                <span>⭐ 4.9</span> <span>(1,708)</span>
+              </div>
+            </div>
+            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="featured-main-tags">
+            <span>Email Template</span>
+            <span>Next.js</span>
+            <span>+17</span>
+          </div>
+          <div class="slider featured-main-slider">
+            <div class="slides">
+              <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
+              <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
+              <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
+            </div>
+            <div class="dots">
+              <span class="dot" onclick="currentSlide(4, 1)"></span>
+              <span class="dot" onclick="currentSlide(4, 2)"></span>
+              <span class="dot" onclick="currentSlide(4, 3)"></span>
+            </div>
+          </div>
+          <div class="featured-main-footer">
+            <p>From <br><strong>$195</strong>/project</p>
+            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+            <button class="see-profile-button">See profile</button>
+          </div>
+        </div>
+
+
+        <!-- Repeat for Card 2, Card 3, and Card 4 with different content -->
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+  <div class="display_flex_position display_flex_positionpart2"><a class="btn theme-bg text-white"
+      id="top-view-response" href="featured_proposals">
+      VIEW ALL
+    </a>
+  </div>
+</div>
+
+<!-- nitin created design by featured candidate section  -->
+
+
 <style>
   @media (max-width: 768px) {
     .home-section6 {
@@ -1491,7 +1685,7 @@ $slide_image = $row_slides->slide_image;
   }
 </style>
 
-<div class=" pt-4 home-section6 b-t-m-resize display-disappear-2">
+<!-- <div class=" pt-4 home-section6 b-t-m-resize display-disappear-2">
   <h5 style="text-align: center;" id="featured-candi-response" class="font-weight-bold">Featured candidates</h5>
   <h2 style="text-align: center;" class="content-font-resize">Leading employers already using job and talent.</h2>
   <div class="respo-for-mob-scr">
@@ -1519,7 +1713,6 @@ $slide_image = $row_slides->slide_image;
           <div class="nitin-2" id="disp-lay-fl-ex">
             <div class="col-xl-12">
               <div class="rampal t_p_c_section">
-                <!-- <div class="col-md-12 mb-5"> -->
                 <div class="card pt-0 t_p_c_section_1">
                   <div class="d-flex justify-content-space-between px-4 align-items-center position-relative"
                     style="top: 15px;">
@@ -1568,7 +1761,6 @@ $slide_image = $row_slides->slide_image;
                     </a>
                   </div>
                 </div>
-                <!-- </div> -->
               </div>
             </div>
           </div>
@@ -1581,7 +1773,7 @@ $slide_image = $row_slides->slide_image;
       VIEW ALL
     </a>
   </div>
-</div>
+</div> -->
 
 <!-- end to change -->
 <script>
@@ -1867,4 +2059,61 @@ $slide_image = $row_slides->slide_image;
     });
 
   });
+</script>
+<script>
+  let slideIntervals = [];
+
+  function showSlides(cardIndex, n) {
+    const slides = document.querySelectorAll(`.featured-card:nth-child(${cardIndex}) .slides img`);
+    const dots = document.querySelectorAll(`.featured-card:nth-child(${cardIndex}) .dot`);
+
+    let slideIndex = n;
+    if (n > slides.length) slideIndex = 1;
+    if (n < 1) slideIndex = slides.length;
+
+    slides.forEach((slide) => slide.classList.remove("active"));
+    dots.forEach((dot) => dot.classList.remove("active"));
+
+    slides[slideIndex - 1].classList.add("active");
+    dots[slideIndex - 1].classList.add("active");
+    return slideIndex;
+  }
+
+  function currentSlide(cardIndex, n) {
+    slideIntervals[cardIndex] = showSlides(cardIndex, n);
+  }
+
+  function nextSlide(cardIndex) {
+    slideIntervals[cardIndex] = showSlides(cardIndex, slideIntervals[cardIndex] + 1);
+  }
+
+  function startAutoPlay(cardIndex) {
+    slideIntervals[cardIndex] = 1;
+    setInterval(() => nextSlide(cardIndex), 2000);
+  }
+
+  // Start autoplay for each card
+  document.querySelectorAll('.featured-card').forEach((_, index) => {
+    startAutoPlay(index + 1);
+  });
+
+  function toggleFavorite() {
+    const button = document.querySelector('.favorite-button');
+    button.classList.toggle('active');
+  }
+
+  function toggletwoFavorite() {
+    const button = document.querySelector('.favorite-two-button');
+    button.classList.toggle('active');
+  }
+
+  function togglethreeFavorite() {
+    const button = document.querySelector('.favorite-three-button');
+    button.classList.toggle('active');
+  }
+
+  function togglefourFavorite() {
+    const button = document.querySelector('.favorite-four-button');
+    button.classList.toggle('active');
+  }
 </script>

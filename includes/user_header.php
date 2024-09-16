@@ -155,7 +155,7 @@ $site_border_color = $row_general_settings->site_border_color;
 
     .mobile_screen_respo_logo_img {
       margin: auto;
-      margin-top: 7px;      
+      margin-top: 7px;
     }
 
     .account-nav {
@@ -503,7 +503,7 @@ if (isset($_SESSION['seller_user_name'])) {
         });
       });
     </script>
-     <script>
+    <script>
       //downthere of header
       document.addEventListener('DOMContentLoaded', function() {
         var containerfluid = document.querySelectorAll('.container-fluid');
@@ -519,7 +519,7 @@ if (isset($_SESSION['seller_user_name'])) {
         });
       });
     </script>
-   
+
 <?php  }
 } ?>
 

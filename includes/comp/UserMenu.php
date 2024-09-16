@@ -1,36 +1,37 @@
 <style>
-    .font-size-18 {
-      /* font-size: 11px; */
-      margin: 0px 8px;
-    }
+  .font-size-18 {
+    margin: 0px 8px;
+  }
+
   @media (max-width:767px) {
     .font-size-18 {
       font-size: 11px;
       margin: 0px 5px;
     }
   }
-  .current_balance a:hover{
+
+  .current_balance a:hover {
     color: white;
   }
 </style>
 
-<ul class="list-inline mb-0">
-  <li class="list-inline-item align-middle position-relative font-size-18">
-    <!-- <label class="rounded-circle  theme-bg text-white position-absolute text-smaller mb-0 badge-custm d-flex align-items-center justify-content-center d-flex total-user-count count c-notifications-header"></label> -->
+<ul class="list-inline mb-0 ">
+  <li class="list-inline-item align-middle position-relative font-size-18 desktop-view-afterlogin">
+    <label class="rounded-circle  theme-bg text-white position-absolute text-smaller mb-0 badge-custm d-flex align-items-center justify-content-center d-flex total-user-count count c-notifications-header"></label>
     <a class="fa fa-bell-o fa-2x bell menuItem" data-toggle="dropdown" title="<?= $lang['popup']['notifications']; ?>">
       <span class="total-user-count count c-notifications-header"></span>
     </a>
     <div class="dropdown-menu notifications-dropdown">
     </div>
   </li>
-  <li class="list-inline-item align-middle position-relative font-size-18">
+  <li class="list-inline-item align-middle position-relative font-size-18 ">
     <a data-toggle="dropdown" title="<?= $lang['popup']['inbox']; ?>" class="fa fa-envelope-o fa-2x message menuItem">
       <span class="total-user-count count c-messages-header"></span>
     </a>
     <div class="dropdown-menu messages-dropdown">
     </div>
   </li>
-  <li class="list-inline-item align-middle position-relative font-size-18">
+  <li class="list-inline-item align-middle position-relative font-size-18 desktop-view-afterlogin">
     <a href="<?= $site_url; ?>/favorites" class="fa fa-heart-o fa-2x" title="<?= $lang["menu"]["favorites"]; ?>">
       <span class="total-user-count count c-favorites"></span>
     </a>
@@ -49,7 +50,7 @@
       <?php require_once("userMenuLinks.php"); ?>
     </div>
   </li>
-  <li class="list-inline-item align-middle current_balance">
+  <li class="list-inline-item align-middle current_balance desktop-view-afterlogin">
     <a href="" class="btn theme-btn m-0">
       <?= showPrice($current_balance); ?>
     </a>

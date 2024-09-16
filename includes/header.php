@@ -72,7 +72,7 @@ $site_border_color = $row_general_settings->site_border_color;
 
 <style>
   .sub_header {
-    background: #e5e5e5;
+    background: #ebebeb;
     min-height: 30px;
   }
 
@@ -122,7 +122,7 @@ $site_border_color = $row_general_settings->site_border_color;
 
     .fa-magnifying-glass {
       font-size: 18px;
-      color: gray;
+      /* color: gray; */
       margin-top: 8px;
     }
 
@@ -276,7 +276,7 @@ $site_border_color = $row_general_settings->site_border_color;
     .account-nav {
       /* border: 2px solid green; */
       padding-right: 16px;
-      padding-top: 18px !important;
+      padding-top: 24px !important;
     }
   }
 
@@ -412,7 +412,7 @@ $site_border_color = $row_general_settings->site_border_color;
     .account-nav {
       /* border: 2px solid green; */
       padding-right: 16px;
-      padding-top: 18px !important;
+      padding-top: 24px !important;
     }
   }
 
@@ -552,17 +552,17 @@ $site_border_color = $row_general_settings->site_border_color;
         <ul
           class="account-nav apply-nav-height <?php echo (!isset($_SESSION["seller_user_name"])) ? 'guest_user' : ''; ?> ">
           <?php if (!isset($_SESSION["seller_user_name"])) { ?>
-            <!--                        <li class="register-link">-->
+            <!-- <li class="register-link">-->
             <!--                            <a href="--><? //= $site_url; 
                                                         ?><!--/freelancers">--><? //= $lang['freelancers_menu']; 
                                                                                 ?><!--</a>-->
-            <!--                        </li>-->
-            <li class="sell-on-gigtodo-link d-none d-lg-block">
+            <!--                        </li> -->
+            <!-- <li class="sell-on-gigtodo-link d-none d-lg-block">
               <a href="#" data-toggle="modal" data-target="#register-modal">
                 <span class="sell-copy"><?= $lang['find_job']; ?></span>
                 <span class="sell-copy short"><?= $lang['become_seller']; ?></span>
               </a>
-            </li>
+            </li> -->
             <li class="register-link" id="log-in-mod-el">
               <a href="#" data-toggle="modal" data-target="#login-modal"><?= $lang['sign_in']; ?></a>
             </li>

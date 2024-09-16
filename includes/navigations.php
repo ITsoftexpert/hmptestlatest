@@ -5,47 +5,118 @@
   }
 
   @media (max-width:767px) {
-    .px-3{
-      padding:0px 15px !important;
+    .px-3 {
+      padding: 0px 15px !important;
     }
-  
+
   }
-  @media(max-width:420px){
-    .box-shadow-navigate{
-      padding:20px 16px 10px 16px;
+
+  .afterlogin-nitin-bottom-icon {
+    font-size: 28px;
   }
+
+  @media(max-width:420px) {
+    .box-shadow-navigate {
+      padding: 20px 16px 10px 16px;
+      bottom: 0;
+      position: fixed;
+      width: 100%;
+      background-color: #fff !important;
+      border: 1px solid #D1ECF1;
+
+
+    }
+
+    .mobile-submenu-nitinafterlogin {
+      background-color: #fff !important;
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    }
   }
-  @media(min-width:421px) and (max-width:640px){
-    .box-shadow-navigate{
-      padding:15px 14px 10px 16px;
+
+  @media(min-width:421px) and (max-width:640px) {
+    .box-shadow-navigate {
+      padding: 15px 14px 10px 16px;
+      bottom: 0;
+      position: fixed;
+      width: 100%;
+      background-color: #fff !important;
+      border: 1px solid #D1ECF1;
+
+
+    }
   }
+
+  @media(min-width:641px) and (max-width:768px) {
+    .box-shadow-navigate {
+      padding: 15px 15px 10px 18px;
+    }
   }
-  @media(min-width:641px) and (max-width:768px){
-    .box-shadow-navigate{
-      padding:15px 15px 10px 18px;
+
+  @media(min-width:768px) and (max-width:899px) {
+    .box-shadow-navigate {
+      padding: 15px 15px 10px 18px;
+      bottom: 0;
+      position: fixed;
+      background-color: #fff !important;
+      width: 100%;
+      /* z-index: 999; */
+      border: 1px solid #D1ECF1;
+    }
   }
+
+  @media(min-width:900px) and (max-width:1024px) {
+    .box-shadow-navigate {
+      padding: 2px 21px 10px 21px;
+    }
   }
-  @media(min-width:768px) and (max-width:899px){
-    .box-shadow-navigate{
-      padding:15px 15px 10px 18px;
+
+  @media(min-width:1025px) {
+    .box-shadow-navigate {
+      padding: 5px 24px 5px 24px;
+      /* z-index: 999; */
+      background: #fff;
+    }
   }
-  }
-  @media(min-width:900px) and (max-width:1024px){
-    .box-shadow-navigate{
-      padding:2px 21px 10px 21px;
-  }
-  }
-  
-  @media(min-width:1025px){
-    .box-shadow-navigate{
-  padding:5px 24px 5px 24px;
-  }
+
+  /* Desktop view ke liye */
+  @media only screen and (min-width: 1024px) {
+    .afterlogin-nitin-bottom-icon {
+      display: none;
+
+    }
+
+    .nitin-desktop-none-notification {
+      display: none !important;
+
+    }
   }
 </style>
- 
 
-<nav class="navbar navbar-expand-lg bg-white bb-xs-1  font-weight-bold navbar-light box-shadow-navigate">
-  <a class="navbar-brand d-block d-lg-none" href="#">Sub Menu</a>
+
+<nav class="navbar navbar-expand-lg mobile-submenu-nitinafterlogin bb-xs-1  font-weight-bold navbar-light box-shadow-navigate">
+  <!-- <a class="navbar-brand d-block d-lg-none" href="#">Sub Menu</a> -->
+  <li class="list-inline-item align-middle position-relative font-size-18 ">
+    <a href="">
+      <i class="fa-solid fa-house afterlogin-nitin-bottom-icon"></i>
+    </a>
+  </li>
+  <li class="list-inline-item align-middle position-relative font-size-18 ">
+    <label class=" nitin-desktop-none-notification rounded-circle  theme-bg text-white position-absolute text-smaller mb-0 badge-custm d-flex align-items-center justify-content-center d-flex total-user-count count c-notifications-header"></label>
+    <a class="fa fa-bell-o fa-2x bell menuItem afterlogin-nitin-bottom-icon" data-toggle="dropdown" title="<?= $lang['popup']['notifications']; ?>">
+    </a>
+    <div class="dropdown-menu notifications-dropdown">
+    </div>
+  </li>
+  <li class="list-inline-item align-middle position-relative font-size-18 ">
+    <a href="">
+      <i class="fa-solid fa-plus afterlogin-nitin-bottom-icon"></i>
+    </a>
+  </li>
+  <li class="list-inline-item align-middle position-relative font-size-18 ">
+    <a href="<?= $site_url; ?>/favorites" class="fa fa-heart-o afterlogin-nitin-bottom-icon" title="<?= $lang["menu"]["favorites"]; ?>">
+      <span class="total-user-count count c-favorites"></span>
+    </a>
+  </li>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
