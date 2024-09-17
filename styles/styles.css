@@ -4302,10 +4302,10 @@ footer a:hover {
     width: 92%;
   }
 
-  .cookies_footer .col-md-8 .btn-success,
+  /* .cookies_footer .col-md-8 .btn-success,
   .cookies_footer .col-md-8 br {
     display: none;
-  }
+  } */
 }
 
 .social_icon a {

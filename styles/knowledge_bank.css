@@ -2,22 +2,22 @@ a.support-que {
   display: block;
   cursor: pointer;
   font-size: 20px;
-  height: 60px;
-  width: 60px;
+  height: 45px;
+  width: 55px;
   line-height: 60px;
   text-align: center;
   background: #28a745;
   color: #fff;
-  border-radius: 50%;
+  border-radius: 5px 0px 0px 5px;
   position: fixed;
-  bottom: 80px;
-  right: 10px;
+  bottom: 90px;
+  right: 0px;
   z-index: 9999;
 }
 a.support-que i {
   color: #fff;
   position: absolute;
-  top: 20px;
+  top: 14px;
   left: 24px;
   transition: transform 0.2s ease 0s;
 }
