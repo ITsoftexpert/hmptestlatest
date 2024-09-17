@@ -126,6 +126,10 @@
       animation: slideIn 0.6s ease forwards;
     }
   }
+
+  .nitin-fix-height-submenu {
+    height: 75vh;
+  }
 </style>
 
 <script>
@@ -207,7 +211,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <div class="collapse navbar-collapse nitin-fix-height-submenu" id="navbarNavDropdown">
     <ul class="navbar-nav justify-content-between w-100">
       <li class="active">
         <?php
