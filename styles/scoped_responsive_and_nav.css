@@ -12850,3 +12850,27 @@ button.btn:focus {
   text-align: center !important;
   display: flex !important;
 }
+
+.home-page-text-menu {
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+}
+.home-page-text-menu:hover {
+  color: grey;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.menu-login {
+  text-align: center;
+  background-color: #00c8d4;
+  margin: 13px !important;
+  border-radius: 5px;
+}
+
+.mobile-menu-login {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
