@@ -5,13 +5,12 @@
 error_reporting(0);
 
 // @define('DB_HOST', 'localhost');
-// @define('DB_USER', 'u890970355_alpha2');
-// @define('DB_PASS', 'B$!MOSe5=Dv');
-// @define('DB_NAME', 'u890970355_alpha2');
+// @define('DB_USER', 'u674474931_hmpdemo');
+// @define('DB_PASS', 'zD4zu&r2Y');
+// @define('DB_NAME', 'u674474931_hmpdemo');
 
 
 @define('DB_HOST', 'localhost');
 @define('DB_USER', 'root');
 @define('DB_PASS', '');
 @define('DB_NAME', 'hmplatest');
-

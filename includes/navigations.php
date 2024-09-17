@@ -22,14 +22,13 @@
       position: fixed;
       width: 100%;
       background-color: #fff !important;
-      border: 1px solid #D1ECF1;
+      border-top: 2px solid #D1ECF1;
 
 
     }
 
     .mobile-submenu-nitinafterlogin {
       background-color: #fff !important;
-      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     }
   }
 
@@ -41,8 +40,6 @@
       width: 100%;
       background-color: #fff !important;
       border: 1px solid #D1ECF1;
-
-
     }
   }
 
@@ -74,6 +71,7 @@
     .box-shadow-navigate {
       padding: 5px 24px 5px 24px;
       /* z-index: 999; */
+      border-bottom: 1px solid #e1e3df;
       background: #fff;
     }
   }
@@ -90,7 +88,96 @@
 
     }
   }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    to {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  @media(max-width: 768px) {
+    .mobile-submenu-nitinafterlogin {
+      padding: 20px 16px 10px 16px;
+      bottom: 0;
+      position: fixed;
+      width: 100%;
+      background-color: #fff !important;
+      border-top: 2px solid #D1ECF1;
+      box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+      opacity: 1;
+      animation: slideIn 0.6s ease forwards;
+    }
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const navElement = document.querySelector('.box-shadow-navigate');
+    let lastScrollTop = 0;
+    let ticking = false;
+    let isHidden = false;
+
+    function handleScroll() {
+      // Only handle scroll if the screen width is 768px or less
+      if (window.innerWidth <= 768) {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScrollTop > lastScrollTop && !isHidden) {
+          // Scrolling down
+          navElement.classList.add('hide');
+          isHidden = true;
+        } else if (currentScrollTop < lastScrollTop && isHidden) {
+          // Scrolling up
+          navElement.classList.remove('hide');
+          isHidden = false;
+        }
+
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // For Mobile or negative scrolling
+      }
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll);
+
+    // Optional: Handle resize to reset states if needed
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        // Remove class if screen width goes above 768px
+        navElement.classList.remove('hide');
+        isHidden = false;
+      }
+    });
+  });
+</script>
+
+
 
 
 <nav class="navbar navbar-expand-lg mobile-submenu-nitinafterlogin bb-xs-1  font-weight-bold navbar-light box-shadow-navigate">

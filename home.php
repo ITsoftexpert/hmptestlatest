@@ -272,11 +272,11 @@ $slide_image = $row_slides->slide_image;
             <span></span>
             <span></span>
             <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <!-- <span></span> -->
+            <!-- <span></span> -->
+            <!-- <span></span> -->
+            <!-- <span></span> -->
+            <!-- <span></span> -->
           </div>
           <a href="<?= $site_url; ?>/requests/post_request">
             <!-- <img class="img-fluid p-lg-5" src="images/hmp/Circle-Designs.png" alt=""> -->
@@ -318,11 +318,11 @@ $slide_image = $row_slides->slide_image;
               <span></span>
               <span></span>
               <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <!-- <span></span> -->
+              <!-- <span></span> -->
+              <!-- <span></span> -->
+              <!-- <span></span> -->
+              <!-- <span></span> -->
             </div>
           </a>
           <!-- <img class="img-fluid p-lg-5" src="images/hmp/Circle-Designs.png" alt=""> -->
@@ -365,11 +365,11 @@ $slide_image = $row_slides->slide_image;
               <span></span>
               <span></span>
               <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <!-- <span></span> -->
+              <!-- <span></span> -->
+              <!-- <span></span> -->
+              <!-- <span></span> -->
+              <!-- <span></span> -->
             </div>
           </a>
           <a href="<?= $site_url; ?>/freelancers">
@@ -1090,7 +1090,7 @@ $slide_image = $row_slides->slide_image;
 
 
 <!-- <script src="script.js"></script> -->
- 
+
 <!-- review section -->
 
 <!-- <div class=" py-5 home-section5">

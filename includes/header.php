@@ -79,7 +79,7 @@ $site_border_color = $row_general_settings->site_border_color;
   @media (max-width:420px) {
     #style-join-border-red {
 
-      margin-top: 18px !important;
+      margin-top: 10px !important;
 
 
     }

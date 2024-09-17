@@ -1,22 +1,12 @@
 <!-- start footer -->
 <footer class="footer">
-
-
-
-
-
-
-
 	<style>
 		.VIpgJd-ZVi9od-ORHb-OEVmcd {
 			display: none !important;
 			background-color: black !important;
 			height: 0px !important;
 			margin-top: -36px !important;
-
-
 		}
-
 
 		@media screen and (min-width: 768px) {
 			@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
@@ -131,25 +121,13 @@
 		}
 	</style>
 
-
-
-
-	<!-- <div style="position: fixed; top: 20px; right: 28%; z-index: 111;" id="langtrans">
-		<div id="google_translate_icon" style="cursor: pointer;">
-			<i class="fa-solid fa-language" style="font-size: 30px; color: gray;"></i>
-		</div>
-		<div id="google_translate_element" style="display: none;"></div>
-	</div> -->
-
 	<script type="text/javascript">
 		function googleTranslateElementInit() {
 			new google.translate.TranslateElement({
 				pageLanguage: 'en'
 			}, 'google_translate_element');
 		}
-
-
-		document.getElementById('google_translate_icon').onclick = function () {
+		document.getElementById('google_translate_icon').onclick = function() {
 			this.style.display = 'none';
 			document.getElementById('google_translate_element').style.display = 'block';
 		};
@@ -157,21 +135,6 @@
 
 	<script type="text/javascript"
 		src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-
-
-
-
-
-
-
-	<!-- <div style="position: fixed; top: 24px; right: 25%; z-index: 999999999999;" id="ram_display_none">
-		<button id="toggleButton" class="toggle-button"
-			style="background-color: #00CEDC; border: none !important; color: white; border-radius: 5px;">
-			<i id="icon" class="fas fa-sun"></i>
-		</button>
-	</div> -->
-
 	<style>
 		/* Hide the button when the screen width is 768px or less */
 		@media only screen and (max-width: 768px) {
@@ -199,7 +162,7 @@
 		document.getElementById('toggleButton').addEventListener('click', handleToggle);
 
 		// To disable dark mode if screen size is below 768px and reset the icon
-		window.addEventListener('resize', function () {
+		window.addEventListener('resize', function() {
 			if (window.innerWidth <= 768) {
 				document.body.classList.remove('dark-mode');
 				document.getElementById('icon').classList.remove('fa-moon');
@@ -207,19 +170,6 @@
 			}
 		});
 	</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	<div class="container">
 		<div class="row px-5-mx-3">
@@ -260,33 +210,7 @@
 					}
 				}
 			</style>
-
-
-
-
-
 			<div class="col-md-3 col-12">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 				<h3 class="h3Border mb-lg-4" data-toggle="collapse" data-target="#collapseabout"><?= $lang['about']; ?>
 				</h3>
@@ -298,15 +222,15 @@
 						$icon_class = $row_footer_links->icon_class;
 						$link_title = $row_footer_links->link_title;
 						$link_url = $row_footer_links->link_url;
-						?>
+					?>
 						<li class="list-unstyled-item"><a href="<?= $site_url . $link_url; ?>"><i
 									class="fa <?= $icon_class; ?>"></i> <?= $link_title; ?></a></li>
 					<?php } ?>
 				</ul>
 
 				<h3 class="h3Border mb-lg-4 mt-4">Contact us</h3>
-				<ul class="p-0">
-					<li class="font-normal"><a href="mailto:info@hiremyprofile.com" class="text-secondary"><i
+				<ul class="p-0 footer-ul-nitin">
+					<li class="font-normal"><a href="mailto:info@hiremyprofile.com" class=""><i
 								class="fa fa-envelope"></i> info@hiremyprofile.com</a></li>
 					<li><a href=""><i class="fa fa-home"></i></a> <a href=""><span class="fontnormal">126, FIRST FLOOR
 								BANK ROAD, Ambala, Haryana , India 133001</span></a></li>
@@ -323,17 +247,12 @@
 						$link_id = $row_footer_links->link_id;
 						$link_title = $row_footer_links->link_title;
 						$link_url = $row_footer_links->link_url;
-						?>
+					?>
 						<li class="list-unstyled-item"><a href="<?= $site_url . $link_url; ?>"><?= $link_title; ?></a></li>
 					<?php } ?>
 				</ul>
 			</div>
-
-
-
 			<div class="col-md-3 col-12">
-
-
 				<h3 class="h3Border mb-lg-4">Terms</h3>
 				<!--<span class="font-weight-bold text-white"><i class="fa fa-envelope"></i></span>-->
 				<p class="mb_10px"><span class="mr-2 font-weight-light text-secondary"><a
@@ -358,7 +277,7 @@
 				<h3 class="h3Border mb-lg-4">Download </h3>
 				<button class="btn btn-outline-dark text-white w-100 py-4 px-4 mb-4">
 					<div class="d-flex align-items-center ">
-						<i class="fa  fa-apple fa-3x text-green1"></i>
+						<i class="fa-brands fa-google-play" style="color: #00d663; font-size: 40px;"></i>
 						<div class="d-flex flex-column pl-4 align-items-flex-start">
 							<label class="mb-0 font-weight-bold">Google Play</label>
 							<span class="text-muted">Coming soon</span>
@@ -367,7 +286,7 @@
 				</button>
 				<button class="btn btn-outline-dark text-white w-100 py-4 px-4 mb-4">
 					<div class="d-flex align-items-center">
-						<i class="fa fa-android fa-3x text-green1"></i>
+						<i class="fa-brands fa-app-store-ios" style="color: #00d663; font-size: 40px;"></i>
 						<div class="d-flex flex-column pl-4 align-items-flex-start">
 							<label class="mb-0 font-weight-bold">App Store</label>
 							<span class="text-muted">coming soon</span>

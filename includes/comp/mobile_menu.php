@@ -71,35 +71,37 @@ $next_icon = "
             <ul data-ui="mobile-top-catnav-container" class="mobile-top-catnav-container list-unstyled mobile-catnav-margin">
 
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="#" class="home-page-text-menu">Post a Job
+                <a href="#" class="home-page-text-menu"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Post a Job
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="#" class="home-page-text-menu">Hire an Expert
+                <a href="#" class="home-page-text-menu"><i class="fa fa-user"></i>&nbsp;&nbsp;Hire an Expert
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="#" class="home-page-text-menu">Hire by Category
+                <a href="#" class="home-page-text-menu"><i class="fa fa-search"></i>&nbsp;&nbsp;Hire by Category
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="#" class="home-page-text-menu">Become a Seller
+                <a href="#" class="home-page-text-menu"><img width="22" src="http://localhost/hmp2024/mobile-header-img/become-a-seller.png" alt="Become-a-Seller">&nbsp;&nbsp;Become a Seller
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="how-it-works" class="home-page-text-menu">How it Works?</a>
-              </li>
-              <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="#" class="home-page-text-menu">Why us
+                <a href="how-it-works" class="home-page-text-menu">
+                  <img width="22" src="http://localhost/hmp2024/mobile-header-img/how-it-work.png" alt="how-it-work">&nbsp;&nbsp;How it Works?
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="#" class="home-page-text-menu">Help/Contact
+                <a href="#" class="home-page-text-menu"><img width="22" src="http://localhost/hmp2024/mobile-header-img/why-us.png" alt="why-us">&nbsp;&nbsp;Why us
+                </a>
+              </li>
+              <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
+                <a href="#" class="home-page-text-menu"><img width="22" src="http://localhost/hmp2024/mobile-header-img/help.png" alt="help">&nbsp;&nbsp;Help/Contact
 
                 </a>
               </li>
               <li class="p-xs-1 bb-xs-1 text-body-larger top-nav-item menu-login">
-                <a href="#" class="mobile-menu-login">Login
+                <a href="#" class="mobile-menu-login"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login
                 </a>
               </li>
               <?php
@@ -233,7 +235,47 @@ $next_icon = "
           <div data-ui="mobile-catnav-scroll-wrapper" class="height-full overflow-y-scroll">
             <div class="mobile-topnav bg-white animated">
               <ul class="mobile-top-catnav-container list-unstyled mobile-catnav-margin">
-                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only" data-uid="d-1" data-name="<?= $lang["menu"]['dashboard']; ?>">
+                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
+                  <a href="#">
+                    <div class="flag">
+                      <i class="fa-solid fa-user"></i>&nbsp;&nbsp;
+                      <span>Username</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
+                  <i class="fa-solid fa-hand-holding-dollar"></i>&nbsp;&nbsp;
+                  <a href="" class="btn theme-btn m-0">
+                    <span></span>
+
+                    <?= showPrice($current_balance); ?>
+                  </a>
+                </li>
+                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
+                  <a href="#">
+                    <div class="flag">
+                      <i class="fa-duotone fa-solid fa-gear"></i>&nbsp;&nbsp;
+                      <span>Settings</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
+                  <a href="#">
+                    <div class="flag">
+                      <i class="fa-solid fa-address-card"></i>&nbsp;&nbsp;
+                      <span>My Profile</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
+                  <a href="#">
+                    <div class="flag">
+                      <i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;
+                      <span>Help</span>
+                    </div>
+                  </a>
+                </li>
+                <!-- <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only" data-uid="d-1" data-name="<?= $lang["menu"]['dashboard']; ?>">
                   <a href="#">
                     <div class="flag">
                       <span class="gigtodo-icon icon-smaller mr-2">
@@ -245,9 +287,9 @@ $next_icon = "
                       <?= $next_icon; ?>
                     </div>
                   </a>
-                </li>
+                </li> -->
                 <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
-                  <a href="<?= $site_url; ?>/notifications">
+                  <!-- <a href="<?= $site_url; ?>/notifications">
                     <div class="flag">
                       <span class="gigtodo-icon icon-smaller mr-2">
                         <?php include($dir . "images/svg/notification.svg"); ?>
@@ -259,24 +301,10 @@ $next_icon = "
                         <?php } ?>
                       </div>
                     </div>
-                  </a>
+                  </a> -->
                 </li>
-                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
-                  <a href="<?= $site_url; ?>/conversations/inbox">
-                    <div class="flag">
-                      <span class="gigtodo-icon icon-smaller mr-2">
-                        <?php include($dir . "images/svg/email.svg"); ?>
-                      </span>
-                      <div class="flag-body">
-                        Messages
-                        <?php if ($count_unread_inbox_messages > 0) { ?>
-                          <span class="badge badge-pill badge-danger"> <?= $count_unread_inbox_messages; ?> New</span>
-                        <?php } ?>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
+
+                <!-- <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
                   <a href="<?= $site_url; ?>/favorites">
                     <div class="flag">
                       <span class="gigtodo-icon icon-smaller mr-2">
@@ -290,8 +318,8 @@ $next_icon = "
                       </div>
                     </div>
                   </a>
-                </li>
-                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
+                </li> -->
+                <!-- <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
                   <a href="<?= $site_url; ?>/cart">
                     <div class="flag">
                       <span class="gigtodo-icon icon-smaller mr-2">
@@ -305,7 +333,7 @@ $next_icon = "
                       </div>
                     </div>
                   </a>
-                </li>
+                </li> -->
                 <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
                   <a href="<?= $site_url; ?>/logout">
                     <div class="flag">
