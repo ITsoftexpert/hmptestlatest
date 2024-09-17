@@ -1560,7 +1560,7 @@ a.toggle-menu {
   .navbar-light .navbar-nav .nav-link,
   .mega-drop-down a {
     /*margin: 0;*/
-    font-size: 12px;
+    font-size: 15px;
     overflow-y: scroll;
     /* padding: 3px; */
   }

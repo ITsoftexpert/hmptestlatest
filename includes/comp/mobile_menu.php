@@ -245,7 +245,7 @@ $next_icon = "
                       <span class="home-page-text-menu">Username</span>
                     </div>
                   </a>
-                </li>
+                </li> -->
                 <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
                   <i class="fa-solid fa-hand-holding-dollar"></i>&nbsp;&nbsp;
                   <a href="" class="btn theme-btn m-0 balance-username-nitin">
@@ -260,7 +260,7 @@ $next_icon = "
                       <i class="fa-duotone fa-solid fa-gear"></i>&nbsp;&nbsp;
                       <span class="home-page-text-menu">Settings</span>
                     </div>
-                  </a>
+                  </a> -->
                 </li>
                 <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
                   <a href="<?= $site_url; ?>/kumarji">
