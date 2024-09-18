@@ -1,30 +1,27 @@
 <style>
   .new-hover-effects:hover {
-    color: #00C8D4 !important;
-    background-color: #E5E5E5;
+    color: #00c8d4 !important;
+    background-color: #e5e5e5;
   }
 
-  @media (max-width:767px) {
+  @media (max-width: 767px) {
     .px-3 {
       padding: 0px 15px !important;
     }
-
   }
 
   .afterlogin-nitin-bottom-icon {
     font-size: 28px;
   }
 
-  @media(max-width:420px) {
+  @media (max-width: 420px) {
     .box-shadow-navigate {
       padding: 20px 16px 10px 16px;
       bottom: 0;
       position: fixed;
       width: 100%;
       background-color: #fff !important;
-      border-top: 2px solid #D1ECF1;
-
-
+      border-top: 2px solid #d1ecf1;
     }
 
     .mobile-submenu-nitinafterlogin {
@@ -32,24 +29,24 @@
     }
   }
 
-  @media(min-width:421px) and (max-width:640px) {
+  @media (min-width: 421px) and (max-width: 640px) {
     .box-shadow-navigate {
       padding: 15px 14px 10px 16px;
       bottom: 0;
       position: fixed;
       width: 100%;
       background-color: #fff !important;
-      border: 1px solid #D1ECF1;
+      border: 1px solid #d1ecf1;
     }
   }
 
-  @media(min-width:641px) and (max-width:768px) {
+  @media (min-width: 641px) and (max-width: 768px) {
     .box-shadow-navigate {
       padding: 15px 15px 10px 18px;
     }
   }
 
-  @media(min-width:768px) and (max-width:899px) {
+  @media (min-width: 768px) and (max-width: 899px) {
     .box-shadow-navigate {
       padding: 15px 15px 10px 18px;
       bottom: 0;
@@ -57,17 +54,17 @@
       background-color: #fff !important;
       width: 100%;
       /* z-index: 999; */
-      border: 1px solid #D1ECF1;
+      border: 1px solid #d1ecf1;
     }
   }
 
-  @media(min-width:900px) and (max-width:1024px) {
+  @media (min-width: 900px) and (max-width: 1024px) {
     .box-shadow-navigate {
       padding: 2px 21px 10px 21px;
     }
   }
 
-  @media(min-width:1025px) {
+  @media (min-width: 1025px) {
     .box-shadow-navigate {
       padding: 5px 24px 5px 24px;
       /* z-index: 999; */
@@ -80,12 +77,10 @@
   @media only screen and (min-width: 1024px) {
     .afterlogin-nitin-bottom-icon {
       display: none;
-
     }
 
     .nitin-desktop-none-notification {
       display: none !important;
-
     }
   }
 
@@ -113,28 +108,24 @@
     }
   }
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     .mobile-submenu-nitinafterlogin {
       padding: 20px 16px 10px 16px;
       bottom: 0;
       position: fixed;
       width: 100%;
       background-color: #fff !important;
-      border-top: 2px solid #D1ECF1;
+      border-top: 2px solid #d1ecf1;
       box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
       opacity: 1;
       animation: slideIn 0.6s ease forwards;
     }
   }
-
-  /* .nitin-fix-height-submenu {
-    height: 75vh;
-  } */
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const navElement = document.querySelector('.box-shadow-navigate');
+  document.addEventListener("DOMContentLoaded", function() {
+    const navElement = document.querySelector(".box-shadow-navigate");
     let lastScrollTop = 0;
     let ticking = false;
     let isHidden = false;
@@ -142,15 +133,16 @@
     function handleScroll() {
       // Only handle scroll if the screen width is 768px or less
       if (window.innerWidth <= 768) {
-        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const currentScrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
 
         if (currentScrollTop > lastScrollTop && !isHidden) {
           // Scrolling down
-          navElement.classList.add('hide');
+          navElement.classList.add("hide");
           isHidden = true;
         } else if (currentScrollTop < lastScrollTop && isHidden) {
           // Scrolling up
-          navElement.classList.remove('hide');
+          navElement.classList.remove("hide");
           isHidden = false;
         }
 
@@ -168,22 +160,18 @@
       }
     }
 
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll);
 
     // Optional: Handle resize to reset states if needed
-    window.addEventListener('resize', function() {
+    window.addEventListener("resize", function() {
       if (window.innerWidth > 768) {
         // Remove class if screen width goes above 768px
-        navElement.classList.remove('hide');
+        navElement.classList.remove("hide");
         isHidden = false;
       }
     });
   });
 </script>
-
-
-
-
 <nav class="navbar navbar-expand-lg mobile-submenu-nitinafterlogin bb-xs-1  font-weight-bold navbar-light box-shadow-navigate">
   <!-- <a class="navbar-brand d-block d-lg-none" href="#">Sub Menu</a> -->
   <li class="list-inline-item align-middle position-relative font-size-18 ">
@@ -208,9 +196,14 @@
       <span class="total-user-count count c-favorites"></span>
     </a>
   </li>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <li class="list-inline-item align-middle position-relative font-size-18 ">
+    <a href="http://localhost/hmp2024/sub_mobilemenu">
+      <i class="fa-solid fa-bars afterlogin-nitin-bottom-icon"></i>
+    </a>
+  </li>
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> -->
   <div class="collapse navbar-collapse nitin-fix-height-submenu" id="navbarNavDropdown">
     <ul class="navbar-nav justify-content-between w-100">
       <li class="active">

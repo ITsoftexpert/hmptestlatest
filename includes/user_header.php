@@ -70,36 +70,78 @@ $site_border_color = $row_general_settings->site_border_color;
 <link href="<?= $site_url; ?>/styles/some-changes.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
+<!-- <link href="styles/nitin.css" rel="stylesheet">
+<script src="js/nitin.js"></script> -->
+
 <style>
   .sub_header {
-    background: #e5e5e5;
+    background: #ebebeb;
     min-height: 30px;
   }
 
   @media (max-width:420px) {
-    .gnav-header #mobilemenu {
-      padding-top: 0px !important;
-      margin-left: -2px;
-    }
-
     #style-join-border-red {
-      /* margin-top: -2px; */
-      display: none;
+
+      margin-top: 10px !important;
+
+
     }
 
-    #log-in-mod-el {
-      padding: 3px 12px;
-      /* border: 1px solid red; */
-      background-color: #00cedc;
-      color: white;
-      border-radius: 2px;
+    .gnav-header .has-svg-icons .nav-icon.gigtodo-icon svg,
+    .gnav-header .has-svg-icons .nav-icon.inline-svg svg {
+      top: 1px !important;
     }
+
   }
 
   @media (max-width:480px) {
-    #style-join-border-red {
-      /* margin-top: -2px; */
+    .gnav-header #mobilemenu {
+      padding-top: 0px !important;
+      margin-left: 1px;
+    }
+
+    .gigtodo-icon {
+      border: 0px !important;
+    }
+
+    .box-shadow-header-top2 {
+      box-shadow: 0px 0px 0px grey !important;
+    }
+
+    #style-join-border-red a {
+
+      font-weight: 500;
+      background-color: #fff !important;
+      color: #00cedc !important;
+      border: none !important;
+      box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+      font-size: 16px;
+      border: 1px solid #00000082 !important;
+      padding: 5px;
+      margin-top: 3px !important;
+      margin-bottom: auto !important;
+
+    }
+
+    .fa-magnifying-glass {
+      font-size: 18px;
+      /* color: gray; */
+      margin-top: 8px;
+    }
+
+    .ram_canvas_toggle {
       display: none;
+      /* Initially hide the icon */
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .ram_canvas_toggle.show {
+      display: block;
+      opacity: 1;
+      transform: translatex(0);
     }
 
     #log-in-mod-el {
@@ -108,6 +150,68 @@ $site_border_color = $row_general_settings->site_border_color;
       background-color: #00cedc;
       color: white;
       border-radius: 2px;
+      display: none;
+    }
+  }
+
+  .hamburger-icon {
+    color: gray;
+  }
+
+  @media (max-width:418px) {
+    #style-join-border-red {
+      margin-top: 19px;
+      /* display: none; */
+    }
+
+    .box-shadow-header-top2 {
+      box-shadow: 0px 0px 0px grey !important;
+    }
+
+    #log-in-mod-el {
+      padding: 3px 12px;
+      /* border: 1px solid red; */
+      background-color: #00cedc;
+      color: white;
+      border-radius: 2px;
+      display: none;
+    }
+  }
+
+  /* =============--- rampal css ----========== */
+
+  @media (max-width:480px) {
+    #log-in-mod-el {
+      margin-right: 10px;
+      padding: 0px;
+    }
+
+    .register-link a {
+      color: black;
+    }
+
+    .register-link {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #log-in-mod-el a {
+      color: black !important;
+      padding: 0px;
+      background-color: transparent !important;
+      margin-top: 2px;
+    }
+
+    #log-in-mod-el {
+
+      margin-right: 10px;
+    }
+
+    #log-in-mod-el {
+
+      background-color: transparent !important;
     }
   }
 
@@ -137,6 +241,10 @@ $site_border_color = $row_general_settings->site_border_color;
       padding-right: 21px;
       padding-top: 18px;
     }
+
+    .box-shadow-header-top {
+      padding-bottom: 1rem;
+    }
   }
 
   @media(max-width:768px) and (min-width:641px) {
@@ -148,20 +256,30 @@ $site_border_color = $row_general_settings->site_border_color;
   }
 
   @media(max-width:420px) {
+    .mobile_screen_respo_logo_img {
+      margin: auto;
+      margin-top: 3px;
+      height: 41px;
+    }
+
+  }
+
+  @media(max-width:420px) {
 
     .mobile_screen_respo_logo {
       display: block;
+      margin-top: 3px;
     }
 
-    .mobile_screen_respo_logo_img {
-      margin: auto;
-      margin-top: 7px;
+    .btn_join2 {
+      background-color: black !important;
     }
+
 
     .account-nav {
       /* border: 2px solid green; */
       padding-right: 16px;
-      padding-top: 18px !important;
+      padding-top: 24px !important;
     }
   }
 
@@ -209,6 +327,10 @@ $site_border_color = $row_general_settings->site_border_color;
   #search-bar-btn-respo {
     padding-right: 15px;
     padding-left: 15px;
+  }
+
+  .box-shadow-header-top {
+    box-shadow: 0px 0px 8px grey !important;
   }
 
   @media(min-width:768px) {
@@ -275,15 +397,11 @@ $site_border_color = $row_general_settings->site_border_color;
 
     .mobile_screen_respo_logo_img {
       margin: auto;
-      margin-top: 7px;
+      /* margin-top: 7px; */
       margin-left: 7px;
-      height: 29px;
+      height: 40px;
     }
   }
-
-
-
-
 
   @media(min-width:421px) and (max-width:639px) {
     .margin-left {
@@ -297,7 +415,7 @@ $site_border_color = $row_general_settings->site_border_color;
     .account-nav {
       /* border: 2px solid green; */
       padding-right: 16px;
-      padding-top: 18px !important;
+      padding-top: 24px !important;
     }
   }
 
@@ -320,7 +438,11 @@ $site_border_color = $row_general_settings->site_border_color;
 
   @media(min-width:769px) and (max-width:1024px) {
     .mobile_screen_respo_logo_img {
-      margin: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+      height: 49px;
+      margin-left: 10px;
+      margin-top: 2px !important;
     }
 
     .style-display-flex {
@@ -343,10 +465,30 @@ $site_border_color = $row_general_settings->site_border_color;
       width: 70%;
     }
   }
+
+
+  @media (max-width:420px) {
+
+
+    .box-shadow-header-top2 {
+      border-bottom: 1px solid lightslategrey;
+      box-shadow: none !important;
+    }
+  }
+
+  @media (max-width:480px) {
+
+
+    .box-shadow-header-top2 {
+      border-bottom: 1px solid lightslategrey;
+      box-shadow: none !important;
+    }
+  }
 </style>
 <div class="sticky">
-  <div id="gnav-header" class="gnav-header global-nav clear gnav-3 box-shadow-header-top">
-    <header id="gnav-header-inner" class="gnav-header-inner clear apply-nav-height col-group has-svg-icons body-max-width">
+  <div id="gnav-header" class="gnav-header global-nav clear gnav-3 box-shadow-header-top box-shadow-header-top2">
+    <header id="gnav-header-inner"
+      class="gnav-header-inner clear apply-nav-height col-group has-svg-icons body-max-width">
       <div class="col-xs-12">
         <div id="gigtodo-logo" class="apply-nav-height gigtodo-logo-svg gigtodo-logo-svg-logged-in <?php if (isset($_SESSION["seller_user_name"])) {
                                                                                                       echo "loggedInLogo";
@@ -363,7 +505,8 @@ $site_border_color = $row_general_settings->site_border_color;
           </a>
         </div>
         <div class="style-display-flex">
-          <button id="mobilemenu" class="unstyled-button mobile-catnav-trigger margin-left apply-nav-height icon-b-1 tablet-catnav-enabled <?= ($enable_mobile_logo == 0) ? "left" : ""; ?>">
+          <button id="mobilemenu"
+            class="unstyled-button mobile-catnav-trigger margin-left apply-nav-height icon-b-1 tablet-catnav-enabled <?= ($enable_mobile_logo == 0) ? "left" : ""; ?>">
             <span class="screen-reader-only"></span>
             <div class="text-gray-lighter text-body-larger">
               <span class="gigtodo-icon hamburger-icon nav-icon">
@@ -385,12 +528,15 @@ $site_border_color = $row_general_settings->site_border_color;
         <div class="catnav-search-bar search-browse-wrapper with-catnav" id="search-bar-btn-respo">
           <div class="search-browse-inner" id="search-bar-btn-respo-inn">
             <form id="gnav-search" class="search-nav expanded-search apply-nav-height" method="post">
-              <div class="gnav-search-inner clearable" id="inner-search-btn-bar">
+              <div class="gnav-search-inner clearable clearable2" id="inner-search-btn-bar">
                 <div class="search-input-wrapper text-field-wrapper">
-                  <input id="search-query" class="w-100 rounded" name="search_query" placeholder="<?= $lang['search']['placeholder']; ?>" value="<?= @$_SESSION["search_query"]; ?>" autocomplete="off">
+                  <input id="search-query" class="w-100 rounded" name="search_query"
+                    placeholder="<?= $lang['search']['placeholder']; ?>" value="<?= @$_SESSION["search_query"]; ?>"
+                    autocomplete="off">
                 </div>
                 <div class="search-button-wrapper hide">
-                  <button class="btn btn-primary" style="color:#FFF;background-color: <?php echo $site_color; ?>" name="search" type="submit" value="Search">
+                  <button class="btn btn-primary" style="color:#FFF;background-color: <?php echo $site_color; ?>"
+                    name="search" type="submit" value="Search">
                     <?= $lang['search']['button']; ?>
                   </button>
                 </div>
@@ -406,30 +552,231 @@ $site_border_color = $row_general_settings->site_border_color;
           echo "<script>window.open('$site_url/search.php','_self')</script>";
         }
         ?>
-        <ul class="account-nav apply-nav-height <?php echo (!isset($_SESSION["seller_user_name"])) ? 'guest_user' : ''; ?> ">
+        <ul
+          class="account-nav apply-nav-height <?php echo (!isset($_SESSION["seller_user_name"])) ? 'guest_user' : ''; ?> ">
           <?php if (!isset($_SESSION["seller_user_name"])) { ?>
-            <!--                        <li class="register-link">-->
+            <!-- <li class="register-link">-->
             <!--                            <a href="--><? //= $site_url; 
                                                         ?><!--/freelancers">--><? //= $lang['freelancers_menu']; 
                                                                                 ?><!--</a>-->
-            <!--                        </li>-->
-            <li class="sell-on-gigtodo-link d-none d-lg-block">
+            <!--                        </li> -->
+            <!-- <li class="sell-on-gigtodo-link d-none d-lg-block">
               <a href="#" data-toggle="modal" data-target="#register-modal">
                 <span class="sell-copy"><?= $lang['find_job']; ?></span>
                 <span class="sell-copy short"><?= $lang['become_seller']; ?></span>
               </a>
-            </li>
+            </li> -->
             <li class="register-link" id="log-in-mod-el">
               <a href="#" data-toggle="modal" data-target="#login-modal"><?= $lang['sign_in']; ?></a>
             </li>
-            <li class="sign-in-link mr-lg-0" id="style-join-border-red">
-              <a href="#" class="btn btn_join" style="color: white;background-color: <?php echo $site_color; ?>" data-toggle="modal" data-target="#register-modal">
+            <li class="sign-in-link mr-lg-0" id="style-join-border-red" style="display:flex">
+              <a href="#" class="btn btn_join btn_join2" data-toggle="modal" data-target="#register-modal">
                 <?php if ($deviceType == "phone") {
                   echo $lang['mobile_join_now'];
                 } else {
                   echo $lang['join_now'];
                 } ?>
               </a>
+
+              <span class="rampal_search"> <span id="ram_canvas_toggle" class="ram_canvas_toggle">
+                  <i class="fa-solid fa-magnifying-glass"></i><!-- Unicode for search icon -->
+                </span>
+
+
+
+                <style>
+                  .ram_canvas {
+                    position: relative;
+                  }
+
+                  @media screen and (min-width: 1025px) {
+                    #ram_canvas_toggle {
+                      display: none;
+                    }
+                  }
+
+
+                  @media screen and (max-width: 1025px) {
+                    .clearable {
+                      width: 80% !important;
+                    }
+
+                    #gnav-search {
+                      display: none;
+                    }
+                  }
+
+
+                  .fa-searchengin {
+                    color: black;
+                  }
+
+
+                  .ram_canvas_content {
+                    position: fixed;
+                    top: -200px;
+
+                    left: 0;
+                    width: 100%;
+                    height: 100px;
+
+                    background-color: white;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    transition: top 0.3s ease-in-out;
+                    z-index: 99999999;
+
+                    overflow-y: auto;
+                    border-radius: 0 0 0.25rem 0.25rem;
+                    display: flex;
+                    justify-content: center;
+
+                    align-items: center;
+
+                    text-align: center;
+                  }
+
+
+                  .ram_canvas.show #ram_canvas_content {
+                    top: 0;
+
+                  }
+
+                  /* Close Button */
+                  .ram_canvas_close {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    font-size: 24px;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    z-index: 1000;
+
+                  }
+
+
+                  .ram_canvas_overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                    z-index: 998;
+
+                  }
+
+                  /* Toggle Button */
+                  .ram_canvas_toggle {
+                    position: relative;
+                    z-index: 1001;
+
+                    cursor: pointer;
+                    font-size: 15px;
+                    transition: opacity 0.3s ease;
+                    margin-left: 12px;
+
+
+                  }
+
+
+                  .ram_canvas.show #ram_canvas_toggle {
+                    opacity: 0;
+                    pointer-events: none;
+                    /* Prevent interaction */
+                  }
+
+                  /* Show the overlay when offcanvas is open */
+                  .ram_canvas.show #ram_canvas_overlay {
+                    visibility: visible;
+                    opacity: 1;
+                  }
+
+                  .clearable_4 {
+                    width: 90 !important;
+                  }
+
+                  @media screen and (max-width: 768px) {
+                    .is-responsive .gnav-header .gnav-search-inner {
+                      position: relative;
+                      top: 0;
+                      margin-top: 31px;
+                      margin-bottom: 10px;
+                      width: 90%;
+                    }
+
+                    .gnav-header .search-button-wrapper .btn-primary {
+
+                      padding-left: 5px;
+                      padding-right: 5px;
+
+                    }
+                  }
+
+                  .clearable_4 {
+                    width: 80%;
+                  }
+                </style>
+
+
+                <div id="ram_canvas" class="ram_canvas">
+
+                  <div id="ram_canvas_content" class="ram_canvas_content">
+
+                    <button id="ram_canvas_close" class="ram_canvas_close">&times;</button>
+                    <div class="gnav-search-inner clearable_4 " id="inner-search-btn-bar">
+                      <div class="search-input-wrapper text-field-wrapper">
+                        <input id="search-query" class="w-100 rounded" name="search_query"
+                          placeholder="<?= $lang['search']['placeholder']; ?>" value="<?= @$_SESSION["search_query"]; ?>"
+                          autocomplete="off">
+                      </div>
+                      <div class="search-button-wrapper hide">
+                        <button class="btn btn-primary" style="color:#FFF;background-color: <?php echo $site_color; ?>"
+                          name="search" type="submit" value="Search">
+                          <?= $lang['search']['button']; ?>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="ram_canvas_overlay" class="ram_canvas_overlay"></div>
+                </div>
+
+
+
+                <script>
+                  document.getElementById('ram_canvas_toggle').addEventListener('click', function() {
+                    document.getElementById('ram_canvas').classList.add('show');
+                  });
+
+                  document.getElementById('ram_canvas_close').addEventListener('click', function() {
+                    document.getElementById('ram_canvas').classList.remove('show');
+                  });
+
+                  document.getElementById('ram_canvas_overlay').addEventListener('click', function() {
+                    document.getElementById('ram_canvas').classList.remove('show');
+                  });
+
+                  window.addEventListener('scroll', function() {
+                    var searchIcon = document.getElementById('ram_canvas_toggle');
+
+                    // Jab page 100px se zyada scroll ho, tab icon dikhaye
+                    if (window.scrollY > 100) {
+                      searchIcon.classList.add('show'); // Add class to show the icon
+                    } else {
+                      searchIcon.classList.remove('show'); // Remove class to hide the icon
+                    }
+                  });
+                </script>
+
+
+
+              </span>
+
+
+
             </li>
           <?php
           } else {
@@ -442,6 +789,10 @@ $site_border_color = $row_general_settings->site_border_color;
   </div>
 
   <?php include("comp/mobile_menu.php"); ?>
+
+
+
+
   <div class="clearfix"></div>
   <?php include("comp/categories_nav.php"); ?>
   <?php if (isset($_SESSION['seller_user_name'])) { ?>
@@ -449,15 +800,13 @@ $site_border_color = $row_general_settings->site_border_color;
   <?php } else { ?>
     <style>
       /* .container-fluid,
-      .order-page {
-        margin-top: 25px !important;
-        ;
-      } */
+                                                                                                                                                                                                                                                                                .order-page {
+                                                                                                                                                                                                                                                                                  margin-top: 25px !important;
+                                                                                                                                                                                                                                                                                  ;
+                                                                                                                                                                                                                                                                                } */
     </style>
   <?php } ?>
 </div>
-
-
 <div class="clearfix"></div>
 <?php if (isset($_GET['not_available'])) { ?>
   <!-- Alert to show wrong url or unregistered account end -->
@@ -465,6 +814,7 @@ $site_border_color = $row_general_settings->site_border_color;
     <?= $lang['not_availble']; ?>
   </div>
 <?php } ?>
+
 
 <?php
 if (isset($_SESSION['seller_user_name'])) {
@@ -481,7 +831,8 @@ if (isset($_SESSION['seller_user_name'])) {
         ?>
       </div>
       <div class="float-right">
-        <button id="send-email" class="btn btn-success btn-sm float-right text-white"><?= $lang["popup"]["email_confirm"]['button']; ?></button>
+        <button id="send-email"
+          class="btn btn-success btn-sm float-right text-white"><?= $lang["popup"]["email_confirm"]['button']; ?></button>
       </div>
     </div>
     <script>
@@ -519,10 +870,8 @@ if (isset($_SESSION['seller_user_name'])) {
         });
       });
     </script>
-
-<?php  }
+<?php }
 } ?>
-
 
 <?php require_once("register_login_forgot_modals.php"); ?>
 <?php require_once("register_login_forgot.php"); ?>

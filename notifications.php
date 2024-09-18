@@ -79,10 +79,11 @@ if (isset($_GET['delete'])) {
 	<?php } ?>
 
 	<style>
-		.alter-top-margin0{
+		.alter-top-margin0 {
 			/* margin-top:-100px; */
 			padding: 2rem;
 		}
+
 		@media (max-width:768px) {
 			.full-width-margin {
 				width: 100%;
@@ -92,11 +93,12 @@ if (isset($_GET['delete'])) {
 				/* color: #256156; */
 				/* font-size: 20px !important; */
 			}
-			.alter-top-margin0{
-			/* margin-top:-125px; */
-			padding: 0;
-		}
-		
+
+			.alter-top-margin0 {
+				/* margin-top:-125px; */
+				padding: 0;
+			}
+
 			.text-align-center {
 				text-align: center;
 				margin: auto;
@@ -141,7 +143,7 @@ if (isset($_GET['delete'])) {
 				font-size: 14px !important;
 			}
 
-		
+
 		}
 	</style>
 </head>
@@ -211,7 +213,7 @@ if (isset($_GET['delete'])) {
 										<a href="<?= $site_url; ?>/notifications?n_id=<?= $notification_id; ?>">
 											<?= include("includes/comp/notification_reasons.php"); ?>
 										</a>
-								 	</td>
+									</td>
 									<td> <?= $date; ?> </td>
 									<td class="content-center">
 										<a href="notifications?delete=<?= $notification_id; ?>" class="text-white btn btn-danger">

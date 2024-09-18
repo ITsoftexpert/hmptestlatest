@@ -232,7 +232,8 @@ if ($oSellerWeight) {
 			}
 		}
 
-		.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+		.nav-pills .nav-link.active,
+		.nav-pills .show>.nav-link {
 			background-color: transparent !important;
 			color: black !important;
 			border: 2px solid #00cedc !important;

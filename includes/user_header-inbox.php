@@ -175,7 +175,7 @@ $site_border_color = $row_general_settings->site_border_color;
         });
       });
     </script>
-     <script>
+    <script>
       //downthere of header
       document.addEventListener('DOMContentLoaded', function() {
         var containerfluid = document.querySelectorAll('.container-fluid');

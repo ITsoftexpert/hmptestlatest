@@ -70,6 +70,9 @@ $site_border_color = $row_general_settings->site_border_color;
 <link href="<?= $site_url; ?>/styles/some-changes.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
+<!-- <link href="styles/nitin.css" rel="stylesheet">
+<script src="js/nitin.js"></script> -->
+
 <style>
   .sub_header {
     background: #ebebeb;

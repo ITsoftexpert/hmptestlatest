@@ -114,7 +114,6 @@ $login_seller_image = getImageUrl2("sellers", "seller_image", $row_login_seller-
             <br>
             <a href="#"><strong><?= $login_seller_user_name; ?></strong></a>
           </div>
-          <!-- Go to www.addthis.com/dashboard to customize your tools -->
           <div class="addthis_inline_share_toolbox_d0jy"></div>
         </div>
       </div>
@@ -175,7 +174,7 @@ $login_seller_image = getImageUrl2("sellers", "seller_image", $row_login_seller-
         } else {
           $show_favorite_class = "proposal-unfavorite";
         }
-        ?>
+      ?>
         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-3">
           <?php require("includes/proposals.php"); ?>
         </div>
