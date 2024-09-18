@@ -4,6 +4,10 @@
     background-color: #e5e5e5;
   }
 
+  .hide {
+    display: none;
+  }
+
   @media (max-width: 767px) {
     .px-3 {
       padding: 0px 15px !important;
