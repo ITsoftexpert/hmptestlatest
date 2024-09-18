@@ -80,7 +80,7 @@
   /* Desktop view ke liye */
   @media only screen and (min-width: 1024px) {
     .afterlogin-nitin-bottom-icon {
-      display: none;
+      display: none !important;
     }
 
     .nitin-desktop-none-notification {

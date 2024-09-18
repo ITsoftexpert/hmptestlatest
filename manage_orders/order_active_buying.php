@@ -1,9 +1,7 @@
-
 <style>
-	.font-size-3{
+	.font-size-3 {
 		/* box-shadow: 0px 0px 5px black, inset 0px 0px 15px #00c8d4; */
 	}
-
 </style>
 <div class="table-responsive box-table mt-3">
 	<table class="table table-bordered" id="orderActive">

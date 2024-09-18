@@ -468,6 +468,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
             margin: 0px !important;
         }
     }
+
     /* respo-nsive-screen-for-size-between-768px-to-1600px-section-end */
 </style>
 <script>
