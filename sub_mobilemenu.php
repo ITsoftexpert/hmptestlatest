@@ -7,7 +7,7 @@ require_once("social-config.php");
 <html lang="en" class="ui-toolkit">
 
 <head>
-    <title><?= $site_name; ?> - Favorites</title>
+    <title><?= $site_name; ?> - Sub menu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="<?= $site_desc; ?>">

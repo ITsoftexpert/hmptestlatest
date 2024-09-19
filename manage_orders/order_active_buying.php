@@ -2,6 +2,19 @@
 	.font-size-3 {
 		/* box-shadow: 0px 0px 5px black, inset 0px 0px 15px #00c8d4; */
 	}
+
+	@media (max-width: 767px) {
+
+		#orderActive th:nth-child(2),
+		#orderActive td:nth-child(2),
+		#orderActive th:nth-child(3),
+		#orderActive td:nth-child(3),
+		#orderActive th:nth-child(4),
+		#orderActive td:nth-child(4) {
+			display: none;
+			/* Hide Order Date, Due On, and Total */
+		}
+	}
 </style>
 <div class="table-responsive box-table mt-3">
 	<table class="table table-bordered" id="orderActive">
@@ -16,9 +29,14 @@
 		</thead>
 		<tbody>
 			<tr class="table-info">
-				<td colspan="5">
-					data fetching...
+				<td>
+					<?= $lang['th']['order_summary']; ?>:
+					<br>Order Date: [Date Here]
+					<br>Due On: [Due Date Here]
+					<br>Total: [Total Amount Here]
+					<br>Status: [Status Here]
 				</td>
+				<td colspan="4">data fetching...</td>
 			</tr>
 		</tbody>
 	</table>
