@@ -421,18 +421,39 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
     }
 
     .create_proposal_atleast {
-        display: flex;
         width: 100%;
         padding: 13px;
         border-radius: 3px;
         background-color: white;
-        /* border: 1px solid #00C8D4; */
+        border: 1px solid #e0e0e0;
         margin-top: 1rem;
+        display: flex;
+        /* Default to flex */
+    }
+
+    /* Media query for mobile devices */
+    @media (max-width: 768px) {
+        .create_proposal_atleast {
+            display: block;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+            /* Change to block or any other desired display property */
+        }
+
+        .papargraph_block {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin: auto;
+            padding: 10px 0px 10px 0px;
+            font-size: 19px;
+            /* background-color: green; */
+        }
     }
 
     .papargraph_block {
         display: block;
         width: 100%;
+        /* text-align: center; */
         margin: auto;
         font-size: 19px;
         /* background-color: green; */
@@ -440,7 +461,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
 
     .icon_bblock {
         display: block;
-        width: 30%;
+        width: 20%;
         margin: auto;
         /* background-color: blue; */
     }
@@ -450,22 +471,61 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
         width: 50%;
         margin: auto;
         text-align: center;
-        /* background-color: red; */
+    }
+
+    /* Media query for mobile devices */
+    @media (max-width: 768px) {
+        .btn_bblock {
+            width: 100%;
+            /* Remove width restriction */
+            margin: 0;
+            /* Remove margin */
+        }
+
+        .btn_get_btn {
+            padding: 8px 22px;
+            border-radius: 0.25rem;
+            border: none;
+            width: 100%;
+            font-size: 18px;
+            background-color: #fff;
+            font-weight: 400;
+            cursor: pointer;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+        }
     }
 
     .btn_get_btn {
-        background-color: white;
-        padding: 1rem 2rem;
-        border-radius: 50px;
-        border: 1px solid #00cedc;
+        padding: 8px 22px;
+        border-radius: 0.25rem;
+        border: none;
+        width: 80%;
         font-size: 18px;
-        font-weight: 600;
+        background-color: #fff;
+        font-weight: 400;
+        cursor: pointer;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    }
+
+    .btn_get_btn:hover {
+        background-color: white;
+        padding: 8px 22px;
+        border-radius: 0.25rem;
+        color: #00cedc;
+        border: 1px solid #fff;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
     }
 
     @media (max-width: 768px) {
         .box-shadow-bbody {
             padding: 0px !important;
             margin: 0px !important;
+        }
+
+        .box-shadow-buyer-body {
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
         }
     }
 

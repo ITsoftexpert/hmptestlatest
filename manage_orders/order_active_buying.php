@@ -3,16 +3,39 @@
 		/* box-shadow: 0px 0px 5px black, inset 0px 0px 15px #00c8d4; */
 	}
 
-	@media (max-width: 767px) {
+	@media (max-width: 600px) {
+		#orderActive {
+			display: block;
+			overflow-x: auto;
+		}
 
-		#orderActive th:nth-child(2),
-		#orderActive td:nth-child(2),
-		#orderActive th:nth-child(3),
-		#orderActive td:nth-child(3),
-		#orderActive th:nth-child(4),
-		#orderActive td:nth-child(4) {
+		#orderActive thead {
 			display: none;
-			/* Hide Order Date, Due On, and Total */
+			/* Header ko chhupao */
+		}
+
+		#orderActive tbody tr {
+			display: flex;
+			flex-direction: column;
+			/* Rows ko vertical stack karo */
+			margin-bottom: 1rem;
+			/* background-color: #f2f2f2; */
+		}
+
+		#orderActive tbody td {
+			display: flex;
+			justify-content: space-between;
+			padding: 0.5rem;
+			border: 1px solid #f2f2f2;
+		}
+
+		#orderActive tbody td::before {
+			content: attr(data-label);
+			/* Heading ko dikhana */
+			font-weight: bold;
+			/* Bold karna */
+			margin-right: 1rem;
+			/* Space dena */
 		}
 	}
 </style>
@@ -29,17 +52,18 @@
 		</thead>
 		<tbody>
 			<tr class="table-info">
-				<td>
-					<?= $lang['th']['order_summary']; ?>:
-					<br>Order Date: [Date Here]
-					<br>Due On: [Due Date Here]
-					<br>Total: [Total Amount Here]
-					<br>Status: [Status Here]
-				</td>
-				<td colspan="4">data fetching...</td>
+				<td data-label="<?= $lang['th']['order_summary']; ?>">Order details here</td>
+				<td data-label="<?= $lang['th']['order_date']; ?>">2024-09-19</td>
+				<td data-label="<?= $lang['th']['due_on']; ?>">2024-09-26</td>
+				<td data-label="<?= $lang['th']['total']; ?>">$100</td>
+				<td data-label="<?= $lang['th']['status2']; ?>">Pending</td>
 			</tr>
+			<!-- <tr class="table-info">
+				<td colspan="5">data fetching...</td>
+			</tr> -->
 		</tbody>
 	</table>
+
 	<nav id="pagination-order-yes" aria-label="Active order navigation">
 	</nav>
 </div>

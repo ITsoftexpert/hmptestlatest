@@ -16,21 +16,25 @@ $activeReqTab = isset($_GET['tab']) ? $_GET['tab'] : "approved_request";
             margin-right: -9px !important;
         }
     }
-    @media (min-width:992px) {
-    .width-increase1 {
-        width: 18.5%;
-        margin: 5px 0px;
-    }
-    .width-increase12 {
-        width: 24%;
-        margin: 5px 0px;
-    }
-    .width-increase13 {
-        width: 18%;
-        margin: 5px 0px;
-    }}
 
-    
+    @media (min-width:992px) {
+        .width-increase1 {
+            width: 18.5%;
+            margin: 5px 0px;
+        }
+
+        .width-increase12 {
+            width: 24%;
+            margin: 5px 0px;
+        }
+
+        .width-increase13 {
+            width: 18%;
+            margin: 5px 0px;
+        }
+    }
+
+
     .ram_1_dropbtn {
         background-color: #00CEDC;
         color: white;
@@ -54,10 +58,10 @@ $activeReqTab = isset($_GET['tab']) ? $_GET['tab'] : "approved_request";
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
-        top: 100%; 
+        top: 100%;
     }
 
-  
+
     .ram_1_dropdown-content a {
         color: black;
         padding: 12px 16px;
@@ -66,38 +70,40 @@ $activeReqTab = isset($_GET['tab']) ? $_GET['tab'] : "approved_request";
         transition: background-color 0.3s, color 0.3s;
     }
 
- 
+
     .ram_1_dropdown-content a:hover {
         background-color: #00CEDC;
         color: white;
     }
 
-    
+
     .ram_1_dropdown.show .ram_1_dropdown-content {
         display: block;
     }
 
-   
+
     .ram_1_dropdown.show .ram_1_dropbtn {
         background-color: #00CEDC;
         color: white;
     }
 
-   
+
     .tab-content {
         margin-top: 20px;
     }
-    .ram_1_dropbtn{
+
+    .ram_1_dropbtn {
         padding: 6px 16px;
     }
 
     @media (max-width: 768px) {
-        .ram_hide{
+        .ram_hide {
             display: none;
         }
     }
+
     @media (min-width: 768px) {
-        #dropdownContainer{
+        #dropdownContainer {
             display: none;
         }
     }
@@ -187,37 +193,36 @@ $activeReqTab = isset($_GET['tab']) ? $_GET['tab'] : "approved_request";
 
 <!-- Add JavaScript to update the button text on dropdown item click and handle dropdown visibility -->
 <script>
-$(document).ready(function() {
-    var dropdownButton = document.querySelector(".ram_1_dropbtn");
-    var dropdown = document.querySelector(".ram_1_dropdown");
-    var dropdownContent = document.querySelector(".ram_1_dropdown-content");
+    $(document).ready(function() {
+        var dropdownButton = document.querySelector(".ram_1_dropbtn");
+        var dropdown = document.querySelector(".ram_1_dropdown");
+        var dropdownContent = document.querySelector(".ram_1_dropdown-content");
 
-    dropdownButton.addEventListener("click", function() {
-        dropdown.classList.toggle("show");
-    });
+        dropdownButton.addEventListener("click", function() {
+            dropdown.classList.toggle("show");
+        });
 
-    dropdownContent.addEventListener("click", function(event) {
-        var target = event.target;
-        if (target.tagName === 'A') {
-            dropdownButton.textContent = target.textContent;
-            // Trigger a click event on the corresponding tab
-            var tabId = target.getAttribute('href').substring(1);
-            var tab = document.getElementById(tabId);
-            if (tab) {
-                var tabPane = new bootstrap.Tab(tab);
-                tabPane.show();
+        dropdownContent.addEventListener("click", function(event) {
+            var target = event.target;
+            if (target.tagName === 'A') {
+                dropdownButton.textContent = target.textContent;
+                // Trigger a click event on the corresponding tab
+                var tabId = target.getAttribute('href').substring(1);
+                var tab = document.getElementById(tabId);
+                if (tab) {
+                    var tabPane = new bootstrap.Tab(tab);
+                    tabPane.show();
+                }
+                dropdown.classList.remove("show");
             }
-            dropdown.classList.remove("show");
+        });
+
+        // Set the first item as active text
+        var firstItem = dropdownContent.querySelector("a");
+        if (firstItem) {
+            dropdownButton.textContent = firstItem.textContent;
         }
     });
-
-    // Set the first item as active text
-    var firstItem = dropdownContent.querySelector("a");
-    if (firstItem) {
-        dropdownButton.textContent = firstItem.textContent;
-    }
-});
 </script>
 
 <!-- Bootstrap JavaScript (required for dropdown functionality) -->
-

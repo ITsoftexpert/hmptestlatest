@@ -71,37 +71,37 @@ $next_icon = "
             <ul data-ui="mobile-top-catnav-container" class="mobile-top-catnav-container list-unstyled mobile-catnav-margin">
 
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="#" class="home-page-text-menu"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Post a Job
+                <a href="<?= $site_url; ?>/requests/post_request" class="home-page-text-menu"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Post a Job
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="#" class="home-page-text-menu"><i class="fa fa-user"></i>&nbsp;&nbsp;Hire an Expert
+                <a href="<?= $site_url; ?>/freelancers" class="home-page-text-menu"><i class="fa fa-user"></i>&nbsp;&nbsp;Hire an Expert
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="#" class="home-page-text-menu"><i class="fa fa-search"></i>&nbsp;&nbsp;Hire by Category
+                <a href="<?= $site_url; ?>/categories/graphics-design" class="home-page-text-menu"><i class="fa fa-search"></i>&nbsp;&nbsp;Hire by Category
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="#" class="home-page-text-menu"><img width="22" src="http://localhost/hmp2024/mobile-header-img/become-a-seller.png" alt="Become-a-Seller">&nbsp;&nbsp;Become a Seller
+                <a href="<?= $site_url; ?>/requests/buyer_requests" class="home-page-text-menu"><img width="22" src="http://localhost/hmp2024/mobile-header-img/become-a-seller.png" alt="Become-a-Seller">&nbsp;&nbsp;Become a Seller
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="how-it-works" class="home-page-text-menu">
+                <a href="<?= $site_url; ?>/how-it-works" class="home-page-text-menu">
                   <img width="22" src="http://localhost/hmp2024/mobile-header-img/how-it-work.png" alt="how-it-work">&nbsp;&nbsp;How it Works?
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="#" class="home-page-text-menu"><img width="22" src="http://localhost/hmp2024/mobile-header-img/why-us.png" alt="why-us">&nbsp;&nbsp;Why us
+                <a href="<?= $site_url; ?>/requests/buyer_requests" class="home-page-text-menu"><img width="22" src="http://localhost/hmp2024/mobile-header-img/why-us.png" alt="why-us">&nbsp;&nbsp;Why us
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="#" class="home-page-text-menu"><img width="22" src="http://localhost/hmp2024/mobile-header-img/help.png" alt="help">&nbsp;&nbsp;Help/Contact
+                <a href="<?= $site_url; ?>/customer_support" class="home-page-text-menu"><img width="22" src="http://localhost/hmp2024/mobile-header-img/help.png" alt="help">&nbsp;&nbsp;Help/Contact
 
                 </a>
               </li>
               <li class="p-xs-1 bb-xs-1 text-body-larger top-nav-item menu-login">
-                <a href="#" class="mobile-menu-login"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login
+                <a href="<?= $site_url; ?>" class="mobile-menu-login"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login
                 </a>
               </li>
               <?php
@@ -252,7 +252,7 @@ $next_icon = "
                   </a>
                 </li>
                 <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
-                  <a href="#">
+                  <a href="<?= $site_url; ?>/settings?profile_settings">
                     <div class="flag">
                       <i class="fa-duotone fa-solid fa-gear"></i>&nbsp;&nbsp;
                       <span>Settings</span>
@@ -260,7 +260,7 @@ $next_icon = "
                   </a>
                 </li>
                 <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
-                  <a href="#">
+                  <a href="<?= $site_url; ?>/kumarji">
                     <div class="flag">
                       <i class="fa-solid fa-address-card"></i>&nbsp;&nbsp;
                       <span>My Profile</span>
@@ -268,7 +268,7 @@ $next_icon = "
                   </a>
                 </li>
                 <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
-                  <a href="#">
+                  <a href="<?= $site_url; ?>/customer_support">
                     <div class="flag">
                       <i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;
                       <span>Help</span>
