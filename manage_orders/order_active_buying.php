@@ -208,7 +208,7 @@
 		flex-direction: column;
 	}
 </style>
-<div class="table-responsive box-table mt-3 ">
+<div class="table-responsive box-table mt-3 mb-3 ">
 	<table class="table table-bordered buyer-nitin-edit-sec" id="orderActive">
 		<thead>
 			<tr>
