@@ -2033,7 +2033,7 @@ body {
 @media (max-width: 767px) and (min-width: 420px) {
   .is-responsive .gnav-header .account-nav {
     position: absolute;
-    top: -12px;
+    top: -15px;
     right: 0;
   }
 
@@ -2064,7 +2064,7 @@ body {
 
   .is-responsive .gnav-header .account-nav {
     position: absolute;
-    top: -15px;
+    /* top: -15px; */
     right: 0;
   }
 

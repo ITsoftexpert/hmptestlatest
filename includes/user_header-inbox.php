@@ -59,6 +59,8 @@ $site_border_color = $row_general_settings->site_border_color;
 
 <style>
 
+
+
 </style>
 
 <div id="gnav-header" class="gnav-header global-nav clear gnav-3">

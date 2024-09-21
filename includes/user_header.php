@@ -236,10 +236,13 @@ $site_border_color = $row_general_settings->site_border_color;
       display: none;
     }
 
+    /* ye login ke phele vale page ka header */
+
     .account-nav {
       /* border: 2px solid green; */
       padding-right: 21px;
-      padding-top: 18px;
+      padding-top: 9px;
+      /* background-color: red; */
     }
 
     .box-shadow-header-top {
@@ -276,11 +279,11 @@ $site_border_color = $row_general_settings->site_border_color;
     }
 
 
-    .account-nav {
-      /* border: 2px solid green; */
+    /* .account-nav {
+      border: 2px solid green;
       padding-right: 16px;
       padding-top: 24px !important;
-    }
+    } */
   }
 
   @media(min-width:900px) and (max-width:1024) {
@@ -415,7 +418,7 @@ $site_border_color = $row_general_settings->site_border_color;
     .account-nav {
       /* border: 2px solid green; */
       padding-right: 16px;
-      padding-top: 24px !important;
+      /* padding-top: 24px !important; */
     }
   }
 

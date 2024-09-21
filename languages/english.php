@@ -785,9 +785,9 @@ $lang['cart']['total2'] = "Total";
 /// Coupon Code Messages
 $lang['coupon_code']['not_valid'] = "Your Coupon Code Is Not Valid.";
 $lang['coupon_code']['applied'] = "Your coupon code has been applied successfully.";
-$lang['coupon_code']['expired']= "Your Coupon Code Is Expired. ";
-$lang['coupon_code']['not_apply']= " Your coupon code does not apply to proposal/service in your cart.";
-$lang['coupon_code']['already_used']= "Your Coupon Code Is Already Used.";
+$lang['coupon_code']['expired'] = "Your Coupon Code Is Expired. ";
+$lang['coupon_code']['not_apply'] = " Your coupon code does not apply to proposal/service in your cart.";
+$lang['coupon_code']['already_used'] = "Your Coupon Code Is Already Used.";
 
 /// Purchases
 $lang['purchases']['no_purchases'] = "You have no purchases to display.";

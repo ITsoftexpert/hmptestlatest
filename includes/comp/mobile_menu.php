@@ -47,7 +47,7 @@ $next_icon = "
           </button>
           <div class="flex-xs-4 width-full pt-md-4 pb-md-4 pl-xs-2">
             <h6 id="mobile-catnav-header-title" class="text-left position-absolute vertical-center">
-              <img width="170" class="mobile-menu-logo" src="http://localhost/hmp2024//images/original-hmp-logo.jpeg" alt="mobile-menu-logo">
+              <img width="170" class="mobile-menu-logo" src="<?= $site_logo_image; ?>" alt="mobile-menu-logo">
               <!-- <a href="<?= $site_url; ?>"><img src="images/<?= $site_favicon; ?>" class="rounded" title='Home' alt='Home' /></a> -->
             </h6>
             <h6 id="mobile-sub-catnav-header-title" class="text-center position-absolute position-left position-right vertical-center pl-md-8 pr-md-8"></h6>
