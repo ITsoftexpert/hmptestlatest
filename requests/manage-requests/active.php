@@ -209,6 +209,59 @@
 		/* Ensures square dimensions */
 	}
 
+	.manage-req-heading-main {
+		font-size: 18px;
+		font-weight: 600;
+		margin-bottom: 10px;
+	}
+
+	/* Style for the button */
+	.status-active {
+		background-color: #00d9d9;
+		/* Match the color from the image */
+		border: none;
+		padding: 10px;
+		cursor: pointer;
+	}
+
+	/* Container for the dropdown */
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+
+	/* Dropdown content (hidden by default) */
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #fff;
+		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+		z-index: 999;
+		min-width: 160px;
+		border-radius: 4px;
+		right: 0px;
+		/* Adjust this value to move dropdown to the right */
+	}
+
+	/* Style for the dropdown items */
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	/* Change color of dropdown links on hover */
+	.dropdown-content a:hover {
+		background-color: #f1f1f1;
+	}
+
+	/* Show the dropdown when hovering over the button */
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+
+
 	/* ====================-----table for phone only---------========================= */
 </style>
 <div class="table-responsive box-table  box-shadow-req-act">
@@ -240,7 +293,7 @@
 					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
 				</div> -->
 				<div class="order-text">
-					<p>i want SEO on my existing websitei want SEO on my existing websitei want SEO......<a href="#">read more</a></p>
+					<h3 class="manage-req-heading-main">i want to make my website in wordpress from expert testing</h3>
 					<div class="order-info">
 						<div class="info-container">
 							<div class="info-item">
@@ -261,7 +314,17 @@
 			</div>
 			<div class="order-status">
 				<span class="Order-Status-textmain">Actions</span>
-				<button class="status-active"><i class="fa-solid fa-caret-down"></i></button>
+				<div class="dropdown">
+					<button class="status-active">
+						<i class="fa-solid fa-caret-down"></i>
+					</button>
+					<div class="dropdown-content">
+						<a href="#">View Offers</a>
+						<a href="#">Pause</a>
+						<a href="#">Edit</a>
+						<a href="#">Delete</a>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="order-card">
@@ -271,7 +334,7 @@
 					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
 				</div> -->
 				<div class="order-text">
-					<p>i want SEO on my existing websitei want SEO on my existing websitei want SEO......<a href="#">read more</a></p>
+					<h3 class="manage-req-heading-main">i want to make my website in wordpress from expert testing</h3>
 					<div class="order-info">
 						<div class="info-container">
 							<div class="info-item">
@@ -292,7 +355,17 @@
 			</div>
 			<div class="order-status">
 				<span class="Order-Status-textmain">Actions</span>
-				<button class="status-active"><i class="fa-solid fa-caret-down"></i></button>
+				<div class="dropdown">
+					<button class="status-active">
+						<i class="fa-solid fa-caret-down"></i>
+					</button>
+					<div class="dropdown-content">
+						<a href="#">View Offers</a>
+						<a href="#">Pause</a>
+						<a href="#">Edit</a>
+						<a href="#">Delete</a>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="order-card">
@@ -302,7 +375,7 @@
 					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
 				</div> -->
 				<div class="order-text">
-					<p>i want SEO on my existing websitei want SEO on my existing websitei want SEO......<a href="#">read more</a></p>
+					<h3 class="manage-req-heading-main">i want to make my website in wordpress from expert testing</h3>
 					<div class="order-info">
 						<div class="info-container">
 							<div class="info-item">
@@ -323,7 +396,17 @@
 			</div>
 			<div class="order-status">
 				<span class="Order-Status-textmain">Actions</span>
-				<button class="status-active"><i class="fa-solid fa-caret-down"></i></button>
+				<div class="dropdown">
+					<button class="status-active">
+						<i class="fa-solid fa-caret-down"></i>
+					</button>
+					<div class="dropdown-content">
+						<a href="#">View Offers</a>
+						<a href="#">Pause</a>
+						<a href="#">Edit</a>
+						<a href="#">Delete</a>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="order-card">
@@ -333,7 +416,7 @@
 					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
 				</div> -->
 				<div class="order-text">
-					<p>i want SEO on my existing websitei want SEO on my existing websitei want SEO......<a href="#">read more</a></p>
+					<h3 class="manage-req-heading-main">i want to make my website in wordpress from expert testing</h3>
 					<div class="order-info">
 						<div class="info-container">
 							<div class="info-item">
@@ -354,7 +437,17 @@
 			</div>
 			<div class="order-status">
 				<span class="Order-Status-textmain">Actions</span>
-				<button class="status-active"><i class="fa-solid fa-caret-down"></i></button>
+				<div class="dropdown">
+					<button class="status-active">
+						<i class="fa-solid fa-caret-down"></i>
+					</button>
+					<div class="dropdown-content">
+						<a href="#">View Offers</a>
+						<a href="#">Pause</a>
+						<a href="#">Edit</a>
+						<a href="#">Delete</a>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -393,5 +486,12 @@
 			$('body #wait').addClass("loader");
 			activeRequest(<?= $login_seller_id ?>, 'active', <?= isset($homePerPage) ? $homePerPage : 10 ?>, page);
 		})
+	});
+</script>
+
+<script>
+	document.querySelector('.status-active').addEventListener('click', function() {
+		const dropdown = document.querySelector('.dropdown-content');
+		dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
 	});
 </script>
