@@ -64,8 +64,9 @@
     /* Style for active tab in larger screens */
     @media (min-width:768px) {
         .nav-tabs .nav-item .nav-link.active {
-            background-color: #00CEDC;
-            color: white;
+            background-color: #ebebeb;
+            color: #000;
+            font-weight: 600;
         }
     }
 

@@ -12769,6 +12769,7 @@ button.btn:focus {
   right: -5px;
   bottom: 15px;
   min-width: 25px;
+  background-color: #00c8d4;
   min-height: 25px;
 }
 
@@ -12802,7 +12803,8 @@ button.btn:focus {
 }
 
 .theme-bg {
-  background-color: #00c8d4;
+  /* background-color: #00c8d4; */
+  background-color: #fff;
 }
 
 .theme-text {

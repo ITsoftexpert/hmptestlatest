@@ -142,13 +142,20 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 	.box-shadow-bg-color {
 		/* box-shadow: 0px 0px 5px black, inset 0px 0px 25px gray; */
 	}
-	.box-shadow-draft{
+
+	.box-shadow-draft {
 		/* box-shadow: 0px 0px 5px black, inset 0px 0px 30px gray; */
 	}
-	.box-shadow-new-propo{
+
+	.box-shadow-new-propo {
 		/* box-shadow: 2px 2px 5px black; */
+		background-color: #EBEBEB !important;
+		box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+		border: none !important;
+		color: #000;
 	}
-	.notify_you_model{
+
+	.notify_you_model {
 		width: 100%;
 		height: 100%;
 		top: 0;
@@ -156,6 +163,47 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 		background-color: grey;
 		opacity: 0.5;
 		position: fixed;
+	}
+
+	.active-proposals-nitin {
+		background-color: #00cedc !important;
+		border: none !important;
+		color: #fff !important;
+		font-size: 17px !important;
+		padding: 2px 10px 1px 5px;
+
+	}
+
+	@media only screen and (max-width: 768px) {
+		.active-proposel-seller-sec {
+			display: none;
+		}
+	}
+
+	.custom-dropdown {
+		position: relative;
+		display: inline-block;
+	}
+
+	.custom-dropdown-content {
+		display: none;
+		position: absolute;
+		right: 0;
+		background-color: white;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+	}
+
+	.custom-dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	.custom-dropdown-content a:hover {
+		background-color: #f1f1f1;
 	}
 </style>
 <div class="col-md-12 padding-40">
@@ -170,12 +218,38 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 			<a class="btn btn-success box-shadow-new-propo text_center margin-auto" href="<?= $site_url ?>/proposals/create_proposal"><i class="fa fa-plus-circle"></i> <?= $lang['button']['add_new_proposal']; ?></a>
 		<?php } ?>
 	</div>
-<!-- 
+	<!-- 
 	<div class="notify_you_model">
 <div> </div>
 </div> -->
 	<div class="clearfix"></div>
-	<ul class="nav nav-tabs flex-column flex-sm-row mt-3">
+	<div class="dropdown mt-3 seller-active-order-nitin">
+		<button class="btn btn-secondary dropdown-toggle active-proposals-nitin" type="button" id="proposalDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Active Proposals
+		</button>
+		<div class="dropdown-menu" aria-labelledby="proposalDropdown">
+			<a class="dropdown-item <?= $active; ?>" href="#active-proposals" data-toggle="tab">
+				<?= $lang['tabs']['active_proposals']; ?> &nbsp; &nbsp; <span class="badge badge-success float-right"><?= $count_active_proposals; ?></span>
+			</a>
+			<a class="dropdown-item <?= (isset($_GET['paused'])) ? "active" : ""; ?>" href="#pause-proposals" data-toggle="tab">
+				<?= $lang['tabs']['pause_proposals']; ?> &nbsp; &nbsp; <span class="badge badge-success float-right"><?= $count_pause_proposals; ?></span>
+			</a>
+			<a class="dropdown-item <?= (isset($_GET['pending'])) ? "active" : ""; ?>" href="#pending-proposals" data-toggle="tab">
+				<?= $lang['tabs']['pending_proposals']; ?> &nbsp; &nbsp; <span class="badge badge-success float-right"><?= $count_pending_proposals; ?></span>
+			</a>
+			<a class="dropdown-item <?= (isset($_GET['modification'])) ? "active" : ""; ?>" href="#modification-proposals" data-toggle="tab">
+				<?= $lang['tabs']['requires_modification']; ?> &nbsp; &nbsp; <span class="badge badge-success float-right"><?= $count_modification_proposals; ?></span>
+			</a>
+			<a class="dropdown-item <?= (isset($_GET['draft'])) ? "active" : ""; ?>" href="#draft-proposals" data-toggle="tab">
+				<?= $lang['tabs']['draft']; ?> &nbsp; &nbsp; <span class="badge badge-success float-right"><?= $count_draft_proposals; ?></span>
+			</a>
+			<a class="dropdown-item <?= (isset($_GET['declined'])) ? "active" : ""; ?>" href="#declined-proposals" data-toggle="tab">
+				<?= $lang['tabs']['declined']; ?> &nbsp; &nbsp; <span class="badge badge-success float-right"><?= $count_declined_proposals; ?></span>
+			</a>
+		</div>
+	</div>
+
+	<ul class="nav nav-tabs flex-column flex-sm-row mt-3 oldseller-section">
 		<li class="nav-item width-increased">
 			<a href="#active-proposals" data-toggle="tab" class="nav-link make-black <?= $active; ?> pt-pr">
 				<?= $lang['tabs']['active_proposals']; ?> &nbsp; &nbsp; <span class="badge badge-success badge-float-right"><?= $count_active_proposals; ?></span>
@@ -209,13 +283,13 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 	</ul>
 
 
-<script>
-	function notifyYou(){
-		alert('hello');
-	}
-</script>
+	<script>
+		function notifyYou() {
+			alert('hello');
+		}
+	</script>
 
-	<div class="tab-content">
+	<div class="tab-content active-proposel-seller-sec">
 		<div id="active-proposals" class="tab-pane fade show <?= $active; ?>">
 			<div class="table-responsive box-table mt-3 box-shadow-act-pro">
 				<table class="table table-bordered">
@@ -255,7 +329,7 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 								$proposal_title = $row_proposals->proposal_title;
 								$proposal_views = $row_proposals->proposal_views;
 								$proposal_price = $row_proposals->proposal_price;
-						 		if ($proposal_price == 0) {
+								if ($proposal_price == 0) {
 									$get_p = $db->select("proposal_packages", array("proposal_id" => $proposal_id, "package_name" => "Basic"));
 									$proposal_price = $get_p->fetch()->price;
 								}
@@ -748,4 +822,112 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 			</div>
 		</div>
 	</div>
+	<!-- nitin add mobile view seller active proposals -->
+	<div class="buyer-active-orderdataby-nitin mt-4">
+		<div class="order-card">
+			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
+			<div class="order-content">
+				<!-- <div class="order-image">
+					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
+				</div> -->
+				<div class="order-text">
+					<h3 class="manage-req-heading-main">Expert in CSS and HTML: Crafting Responsive and Accessible Web Designs</h3>
+					<div class="order-info">
+						<div class="info-container">
+							<div class="info-item">
+								<i class="fa-solid fa-basket-shopping"></i> 0
+								<span class="heading">Orders</span>
+							</div>
+							<div class="info-item">
+								<i class="fa-solid fa-eye"></i> 0
+								<span class="heading"> Views</span>
+							</div>
+							<div class="info-item">
+								<i class="fa-solid fa-sack-dollar"></i> 25.00
+								<span class="heading">Proposal's Price</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="order-status">
+				<span class="Order-Status-textmain">Actions</span>
+				<div class="custom-dropdown">
+					<button class="custom-dropdown-button" id="dropdownBtn">
+						<i class="fa-solid fa-caret-down"></i>
+					</button>
+					<div class="custom-dropdown-content" id="dropdownMenu">
+						<a href="#">Preview</a>
+						<a href="#">Make Proposal Featured</a>
+						<a href="#">Deactivate Proposal</a>
+						<a href="#">View Coupons</a>
+						<a href="#">View Referrals</a>
+						<a href="#">Edit</a>
+						<a href="#">Delete</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="order-card">
+			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
+			<div class="order-content">
+				<!-- <div class="order-image">
+					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
+				</div> -->
+				<div class="order-text">
+					<h3 class="manage-req-heading-main">2Experienced Web Developer Specializing in User-Friendly, Responsive Websites </h3>
+					<div class="order-info">
+						<div class="info-container">
+							<div class="info-item">
+								<i class="fa-solid fa-basket-shopping"></i> 0
+								<span class="heading">Orders</span>
+							</div>
+							<div class="info-item">
+								<i class="fa-solid fa-eye"></i> 0
+								<span class="heading"> Views</span>
+							</div>
+							<div class="info-item">
+								<i class="fa-solid fa-sack-dollar"></i> 25.00
+								<span class="heading">Proposal's Price</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="order-status">
+				<span class="Order-Status-textmain">Actions</span>
+				<div class="custom-dropdown">
+					<button class="custom-dropdown-button" id="dropdownBtn">
+						<i class="fa-solid fa-caret-down"></i>
+					</button>
+					<div class="custom-dropdown-content" id="dropdownMenu">
+						<a href="#">Preview</a>
+						<a href="#">Make Proposal Featured</a>
+						<a href="#">Deactivate Proposal</a>
+						<a href="#">View Coupons</a>
+						<a href="#">View Referrals</a>
+						<a href="#">Edit</a>
+						<a href="#">Delete</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<script>
+		document.getElementById("dropdownBtn").addEventListener("click", function() {
+			const dropdownMenu = document.getElementById("dropdownMenu");
+			dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+		});
+
+		window.onclick = function(event) {
+			if (!event.target.matches('.custom-dropdown-button')) {
+				const dropdowns = document.getElementsByClassName("custom-dropdown-content");
+				for (let i = 0; i < dropdowns.length; i++) {
+					dropdowns[i].style.display = "none";
+				}
+			}
+		}
+	</script>
 </div>

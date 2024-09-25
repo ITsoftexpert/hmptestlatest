@@ -230,17 +230,26 @@
 		display: inline-block;
 	}
 
-	/* Dropdown content (hidden by default) */
+	/* Dropdown content (initially hidden with animation) */
 	.dropdown-content {
 		display: none;
+		/* Initially hidden */
 		position: absolute;
 		background-color: #fff;
 		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-		z-index: 999;
+		z-index: 1;
 		min-width: 160px;
 		border-radius: 4px;
-		right: 0px;
-		/* Adjust this value to move dropdown to the right */
+		right: 0;
+		/* Position dropdown 20px to the right */
+		top: 100%;
+		/* Default to open down */
+		transform: scaleY(0);
+		/* Initial scale set to 0 for animation */
+		transform-origin: top;
+		/* Origin from the top for downward opening */
+		transition: transform 0.3s ease;
+		/* Animation effect */
 	}
 
 	/* Style for the dropdown items */
@@ -256,10 +265,13 @@
 		background-color: #f1f1f1;
 	}
 
-	/* Show the dropdown when hovering over the button */
-	.dropdown:hover .dropdown-content {
+	/* Active class for dropdown (used in JS to toggle visibility) */
+	.dropdown-content.show {
 		display: block;
+		transform: scaleY(1);
+		/* Expands the dropdown */
 	}
+
 
 
 	/* ====================-----table for phone only---------========================= */
@@ -293,6 +305,48 @@
 					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
 				</div> -->
 				<div class="order-text">
+					<h3 class="manage-req-heading-main">I want to make my website in wordpress from expert testing</h3>
+					<div class="order-info">
+						<div class="info-container">
+							<div class="info-item">
+								<i class="fas fa-calendar"></i> July 24, 2024
+								<span class="heading">date</span>
+							</div>
+							<div class="info-item">
+								<img class="buyer-offer-img" src="images/buyer-offer-img.png" alt=""> 0
+								<span class="heading">offer</span>
+							</div>
+							<div class="info-item">
+								<i class="fa-solid fa-sack-dollar"></i> 22.00
+								<span class="heading">Budget</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="order-status">
+				<span class="Order-Status-textmain">Actions</span>
+				<div class="dropdown">
+					<button class="status-active">
+						<i class="fa-solid fa-caret-down dropdown-icon"></i> <!-- Icon for first dropdown -->
+					</button>
+					<div class="dropdown-content">
+						<a href="#">View Offers</a>
+						<a href="#">Pause</a>
+						<a href="#">Edit</a>
+						<a href="#">Delete</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="order-card">
+			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
+			<div class="order-content">
+				<!-- <div class="order-image">
+					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
+				</div> -->
+				<div class="order-text">
 					<h3 class="manage-req-heading-main">i want to make my website in wordpress from expert testing</h3>
 					<div class="order-info">
 						<div class="info-container">
@@ -316,7 +370,7 @@
 				<span class="Order-Status-textmain">Actions</span>
 				<div class="dropdown">
 					<button class="status-active">
-						<i class="fa-solid fa-caret-down"></i>
+						<i class="fa-solid fa-caret-down dropdown-icon"></i> <!-- Icon for first dropdown -->
 					</button>
 					<div class="dropdown-content">
 						<a href="#">View Offers</a>
@@ -357,7 +411,7 @@
 				<span class="Order-Status-textmain">Actions</span>
 				<div class="dropdown">
 					<button class="status-active">
-						<i class="fa-solid fa-caret-down"></i>
+						<i class="fa-solid fa-caret-down dropdown-icon"></i> <!-- Icon for first dropdown -->
 					</button>
 					<div class="dropdown-content">
 						<a href="#">View Offers</a>
@@ -398,48 +452,7 @@
 				<span class="Order-Status-textmain">Actions</span>
 				<div class="dropdown">
 					<button class="status-active">
-						<i class="fa-solid fa-caret-down"></i>
-					</button>
-					<div class="dropdown-content">
-						<a href="#">View Offers</a>
-						<a href="#">Pause</a>
-						<a href="#">Edit</a>
-						<a href="#">Delete</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="order-card">
-			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
-			<div class="order-content">
-				<!-- <div class="order-image">
-					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
-				</div> -->
-				<div class="order-text">
-					<h3 class="manage-req-heading-main">i want to make my website in wordpress from expert testing</h3>
-					<div class="order-info">
-						<div class="info-container">
-							<div class="info-item">
-								<i class="fas fa-calendar"></i> July 24, 2024
-								<span class="heading">date</span>
-							</div>
-							<div class="info-item">
-								<img class="buyer-offer-img" src="images/buyer-offer-img.png" alt=""> 0
-								<span class="heading">offer</span>
-							</div>
-							<div class="info-item">
-								<i class="fa-solid fa-sack-dollar"></i> 22.00
-								<span class="heading">Budget</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="order-status">
-				<span class="Order-Status-textmain">Actions</span>
-				<div class="dropdown">
-					<button class="status-active">
-						<i class="fa-solid fa-caret-down"></i>
+						<i class="fa-solid fa-caret-down dropdown-icon"></i> <!-- Icon for first dropdown -->
 					</button>
 					<div class="dropdown-content">
 						<a href="#">View Offers</a>
@@ -490,8 +503,43 @@
 </script>
 
 <script>
-	document.querySelector('.status-active').addEventListener('click', function() {
-		const dropdown = document.querySelector('.dropdown-content');
-		dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+	// Get all icons with the class 'dropdown-icon'
+	const dropdownIcons = document.querySelectorAll('.dropdown-icon');
+
+	// Add event listener to each dropdown icon
+	dropdownIcons.forEach((icon) => {
+		icon.addEventListener('click', function(event) {
+			const dropdownContent = this.parentElement.nextElementSibling; // Get the corresponding dropdown content
+			const rect = dropdownContent.getBoundingClientRect();
+			const windowHeight = window.innerHeight;
+
+			// Prevent the click from affecting other elements
+			event.stopPropagation();
+
+			// Toggle dropdown visibility and apply animation class
+			if (dropdownContent.classList.contains('show')) {
+				dropdownContent.classList.remove('show');
+			} else {
+				// Check if there's enough space below the button
+				dropdownContent.style.top = "100%"; // Default to open down
+				dropdownContent.style.bottom = "auto"; // Reset
+				if (rect.bottom > windowHeight) {
+					// If not enough space, open upwards
+					dropdownContent.style.top = "auto";
+					dropdownContent.style.bottom = "100%";
+				}
+				dropdownContent.classList.add('show');
+			}
+		});
+	});
+
+	// Close any open dropdowns if you click outside of any dropdown
+	document.addEventListener('click', function(event) {
+		const openDropdowns = document.querySelectorAll('.dropdown-content.show');
+		openDropdowns.forEach((dropdown) => {
+			if (!event.target.closest('.dropdown')) {
+				dropdown.classList.remove('show');
+			}
+		});
 	});
 </script>

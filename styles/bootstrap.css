@@ -3806,7 +3806,8 @@ tbody.collapse.show {
 
 .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover {
-  border-color: #e9ecef #e9ecef #ddd;
+  /* border-color: #e9ecef #e9ecef #ddd; */
+  background-color: #f5f6f6;
 }
 
 .nav-tabs .nav-link.disabled {

@@ -179,12 +179,12 @@
 <nav class="navbar navbar-expand-lg mobile-submenu-nitinafterlogin bb-xs-1  font-weight-bold navbar-light box-shadow-navigate">
   <!-- <a class="navbar-brand d-block d-lg-none" href="#">Sub Menu</a> -->
   <li class="list-inline-item align-middle position-relative font-size-18 ">
-    <a href="<?= $site_url; ?>">  
+    <a href="<?= $site_url; ?>">
       <i class="fa-solid fa-house afterlogin-nitin-bottom-icon"></i>
     </a>
   </li>
   <li class="list-inline-item align-middle position-relative font-size-18 ">
-    <label class=" nitin-desktop-none-notification rounded-circle  theme-bg text-white position-absolute text-smaller mb-0 badge-custm d-flex align-items-center justify-content-center d-flex total-user-count count c-notifications-header"></label>
+    <label class=" nitin-desktop-none-notification rounded-circle text-white position-absolute text-smaller mb-0 badge-custm d-flex align-items-center justify-content-center d-flex total-user-count count c-notifications-header"></label>
     <a href="<?= $site_url; ?>/notifications" class="fa fa-bell-o fa-2x bell menuItem afterlogin-nitin-bottom-icon">
     </a>
     <div class="dropdown-menu notifications-dropdown">

@@ -75,15 +75,18 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
 
     .about-section-1 .nav-tabs .nav-link.active,
     .about-section-1 .nav-tabs .nav-item.show .nav-link {
-        color: #fff;
-        background-color: #00c8d4;
+        color: #000;
+        /* background-color: #00c8d4; */
+        background-color: #ebebeb;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
         width: 50%;
+        font-weight: 500 !important;
         text-align: center;
         font-weight: normal;
     }
 
     .about-section-1 .nav-tabs .nav-link {
-        color: #495057;
+        color: #000;
         background-color: #fafafa;
         width: 50%;
         text-align: center;
@@ -95,12 +98,12 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
         content: '';
         position: relative;
         left: -40px;
-        top: 38px;
+        top: 40px;
         width: 0;
         height: 0;
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
-        border-top: 10px solid #00c8d4;
+        border-top: 10px solid #ebebeb;
         clear: both;
     }
 
@@ -576,7 +579,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
         <div class="user_border seller_box hide col-xl-3 col-lg-3 box-shadow-bbody1 <?= ($lang_dir == "right" ? 'order-2 order-sm-1' : '') ?> hidden-xs">
             <?php include("includes/buyer_home_sidebar.php"); ?>
         </div>
-        <div class="col-xl-9 col-lg-9 p-3 box-shadow-bbody">
+        <div class="col-xl-9 col-lg-9  box-shadow-bbody">
             <div class="about-section-1">
                 <div class="top_bas nav nav-tabs font-weight-bold text-largest" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link strech_full_scr  box-shadow-sfs <?= $activeTab == "buyer" ? "active" : "" ?>" data-toggle="tab" data-value="buyer" href="#Buyer" role="tab" aria-selected="<?= $activeTab == "buyer" ? "true" : "false" ?>" id="buyer_tab"><span class="strong-text"> Buyer </span></a>
@@ -640,7 +643,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
 
                             <!-- Buyer Contacts -->
                             <div class="row">
-                                <div class="col-md-12 mt-5 mb-3 margin-top-25">
+                                <div class="col-md-12 mt-3">
                                     <h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> text-align-center"><?= $lang["titles"]["manage_contacts"]; ?></h1>
                                 </div>
                                 <div class="col-md-12">

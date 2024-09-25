@@ -3,44 +3,278 @@
         .heading_4 {
            font-size: 16px;
         }
+
         .font-size-3 {
-        padding: 10px !important;
-        text-align: center;
-        /* border:1px solid lightgray !important; */
-     }
-     .heading-41{
-      font-size:16px;
-      text-align: center;
-   }
+           padding: 10px !important;
+           text-align: center;
+           /* border:1px solid lightgray !important; */
+        }
+
+        .heading-41 {
+           font-size: 16px;
+           text-align: center;
+        }
 
      }
+
      @media (min-width:768px) {
-     .heading_4 {
-        font-size: 20px;
-        text-align: center;
-        /* padding: 25px 0px; */
-        /* height:65px; */
-        /* box-shadow:0px 0px 5px black, inset 0px 0px 25px #00c8d4; */
-     }
-     .heading-41{
-      font-size:20px;
-      text-align: center;
-      padding:4px 0px;
-      /* color:#045e5d; */
-   }
+        .heading_4 {
+           font-size: 20px;
+           text-align: center;
+           /* padding: 25px 0px; */
+           /* height:65px; */
+           /* box-shadow:0px 0px 5px black, inset 0px 0px 25px #00c8d4; */
+        }
 
-     .font-size-3 {
-        padding: 13px !important;
-        text-align: center;
-        /* border:1px solid lightgray !important; */
+        .heading-41 {
+           font-size: 20px;
+           text-align: center;
+           padding: 4px 0px;
+           /* color:#045e5d; */
+        }
+
+        .font-size-3 {
+           padding: 13px !important;
+           text-align: center;
+           /* border:1px solid lightgray !important; */
+        }
      }
-   }
-    
+
+
+     .freelancer-card {
+        max-width: 330px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        margin: 0 auto;
+        overflow: hidden;
+     }
+
+     .freelancer-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        position: relative;
+     }
+
+     .freelancer-header img {
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border: 3px solid #a7a9ac;
+        margin-right: 15px;
+     }
+
+     .freelancer-header .status {
+        position: absolute;
+        left: 48px;
+        top: 48px;
+        width: 10px;
+        height: 10px;
+        background-color: green;
+        border-radius: 50%;
+        border: 2px solid white;
+     }
+
+     .freelancer-header .heart-icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+     }
+
+     .freelancer-header .freelancer-info {
+        flex-grow: 1;
+     }
+
+     .freelancer-info h4 {
+        margin: 0;
+     }
+
+     .freelancer-info p {
+        margin: 2px 0;
+        color: #666;
+        font-size: 14px;
+     }
+
+     .user-pro {
+        color: #666;
+     }
+
+     .tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 10px 0;
+     }
+
+     .tag {
+        background-color: #f1f1f1;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 12px;
+     }
+
+     .freelancer-image {
+        margin-top: 10px;
+     }
+
+     .freelancer-image img {
+        width: 100%;
+        height: 170px;
+        border-radius: 8px;
+        object-fit: cover;
+     }
+
+     .price-section {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #e0e0e0;
+
+        align-items: center;
+        margin-top: 15px;
+        padding: 7px 5px 0px 5px;
+     }
+
+     .price-section .price {
+        font-size: 16px;
+        font-weight: bold;
+     }
+
+     .profile-btn {
+        background-color: #00b9f5;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+     }
+
+     .profile-btn:hover {
+        background-color: #008ecf;
+     }
+
+     .message-icon {
+        background-color: #00cedc;
+        border-radius: 20%;
+        color: #fff;
+        padding: 5px 10px 5px 10px;
+        cursor: pointer;
+     }
+
+     .amount-spent-buyernitin {
+        color: #a7a9ac;
+     }
+
+     .completed-orders-container {
+        position: relative;
+        display: inline-block;
+     }
+
+     .complete-order-badge {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: -10px;
+        /* Adjust according to your design */
+        right: -3px;
+        /* Adjust according to your design */
+        background-color: #00b9f5;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 7px;
+        font-size: 12px;
+        font-weight: bold;
+     }
+
+     /* .tag {
+        font-size: 16px;
+        font-weight: normal;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        display: inline-block;
+     } */
+     /* Hide on mobile (screen width less than 768px) */
+     @media only screen and (max-width: 768px) {
+        .sellers-from-whom {
+           display: none;
+        }
+     }
+
+     @media only screen and (min-width: 1024px) {
+        .freelancer-card {
+           display: none;
+        }
+     }
+
+     .whom-slider-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        /* Hide overflow */
+     }
+
+     .whomslider {
+        display: flex;
+        transition: transform 0.5s ease;
+        /* Smooth transition */
+        width: calc(100% * number_of_cards);
+        /* Set total width based on number of cards */
+     }
+
+     .freelancer-card {
+        min-width: 100%;
+        /* Show one card at a time */
+        box-sizing: border-box;
+        padding: 10px;
+        /* Add some padding */
+     }
+
+     /* Additional styles for your card here */
+
+     .info-item {
+        position: relative;
+        cursor: pointer;
+     }
+
+     /* Hidden heading initially */
+     .info-item .heading {
+        position: absolute;
+        bottom: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 10px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        font-size: 14px;
+        border-radius: 5px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.4s ease;
+        white-space: nowrap;
+     }
+
+     /* Show heading on hover */
+     .info-item:hover .heading {
+        opacity: 1;
+        bottom: 100%;
+     }
+
+     .chat-iconbuyer {
+        cursor: pointer;
+     }
   </style>
- 
+
   <div class="table-responsive box-table box-shadow-box-table">
-     <h4 class="heading-41 text-align-center mt-3"> <?= $lang['manage_contacts']['my_sellers']; ?> </h4>
-     <table class="table table-bordered mt-3">
+     <h4 class="heading-41 text-align-center "> <?= $lang['manage_contacts']['my_sellers']; ?> </h4>
+     <table class="table table-bordered mt-3 sellers-from-whom">
         <thead>
            <tr>
               <th class="font-size-3"><?= $lang['th']['seller_name']; ?></th>
@@ -56,9 +290,9 @@
                $pageNumber = filter_var($_GET["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
                if (!is_numeric($pageNumber)) {
                   die('Invalid page number!');
-               } //incase of invalid page number
+               }
             } else {
-               $pageNumber = 1; //if there's no page number, set it to 1
+               $pageNumber = 1;
             }
             $start_from =  (($pageNumber - 1) * $limit);
             $where_limit = " order by id DESC LIMIT $start_from, $limit";
@@ -67,7 +301,7 @@
             $totalRows = $sel_my_sellers_page->rowCount();
             $row_my_sellers_page = $sel_my_sellers_page->fetch();
 
-            //break records into pages
+
             $totalPages = ceil($totalRows / $limit);
             if ($totalRows > 0) {
                $sel_my_sellers =  $db->query("SELECT * FROM my_sellers WHERE buyer_id=:buyer_id $where_limit", array("buyer_id" => $login_seller_id));
@@ -107,7 +341,7 @@
                     </td>
                  </tr>
               <?php
-               }  // while
+               }
             } else {
                ?>
               <tr class="table-danger">
@@ -122,6 +356,155 @@
            <?php } ?>
         </tbody>
      </table>
+
+
+     <div class="whom-slider-container mb-3">
+        <div class="whomslider">
+           <div class="freelancer-card">
+              <div class="freelancer-header">
+                 <img src="https://media.istockphoto.com/id/1285124274/photo/middle-age-man-portrait.webp?a=1&b=1&s=612x612&w=0&k=20&c=wQTkPBW1rlfaFAkKanmLbpmEtiWWVH33UkndM1ib1-o=" alt="Profile Image">
+                 <div class="freelancer-info">
+                    <h4>Nitin Kumar</h4>
+                    <a class="user-pro" href="">User Profile</a> |
+                    <a class="user-pro" href="">History</a>
+                 </div>
+              </div>
+              <div class="tags">
+                 <div class="completed-orders-container">
+                    <span class="complete-order-badge">5</span>
+                    <div class="tag">Completed Orders</div>
+                 </div>
+                 <div class="info-item">
+                    <div class="tag">July 10, 2024</div>
+                    <span class="heading">Last Order Date</span>
+                 </div>
+              </div>
+              <div class="freelancer-image">
+                 <img src="https://images.unsplash.com/photo-1508317469940-e3de49ba902e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2tpbGx8ZW58MHx8MHx8fDA%3D" alt="Project Image">
+              </div>
+              <div class="price-section">
+                 <div class="price"><span class="amount-spent-buyernitin">Amount Spent: </span> $78.00</div>
+                 <a href="#" class="chat-iconbuyer">
+                    <div class="message-icon"><i class="fa fa-comment"></i></div>
+                 </a>
+              </div>
+           </div>
+
+           <!-- Add more freelancer cards here -->
+           <div class="freelancer-card">
+              <div class="freelancer-header">
+                 <img src="https://media.istockphoto.com/id/1285124274/photo/middle-age-man-portrait.webp?a=1&b=1&s=612x612&w=0&k=20&c=wQTkPBW1rlfaFAkKanmLbpmEtiWWVH33UkndM1ib1-o=" alt="Profile Image">
+                 <div class="freelancer-info">
+                    <h4>Anuranjan</h4>
+                    <a class="user-pro" href="">User Profile</a> |
+                    <a class="user-pro" href="">History</a>
+                 </div>
+              </div>
+              <div class="tags">
+                 <div class="completed-orders-container">
+                    <span class="complete-order-badge">5</span>
+                    <div class="tag">Completed Orders</div>
+                 </div>
+                 <div class="info-item">
+                    <div class="tag">July 10, 2024</div>
+                    <span class="heading">Last Order Date</span>
+                 </div>
+              </div>
+              <div class="freelancer-image">
+                 <img src="https://media.istockphoto.com/id/2168660389/photo/young-professionals-collaborating-in-a-modern-office-environment.webp?a=1&b=1&s=612x612&w=0&k=20&c=Iu9fmYb8dRUg-u5DYoIkhWUrXq4bdse0Id7P8VGIcSs=" alt="Project Image">
+              </div>
+              <div class="price-section">
+                 <div class="price"><span class="amount-spent-buyernitin">Amount Spent: </span> $78.00</div>
+                 <div class="message-icon"><i class="fa fa-comment"></i></div>
+              </div>
+           </div>
+
+           <div class="freelancer-card">
+              <div class="freelancer-header">
+                 <img src="https://media.istockphoto.com/id/1285124274/photo/middle-age-man-portrait.webp?a=1&b=1&s=612x612&w=0&k=20&c=wQTkPBW1rlfaFAkKanmLbpmEtiWWVH33UkndM1ib1-o=" alt="Profile Image">
+                 <div class="freelancer-info">
+                    <h4>Priyanshu</h4>
+                    <a class="user-pro" href="">User Profile</a> |
+                    <a class="user-pro" href="">History</a>
+                 </div>
+              </div>
+              <div class="tags">
+                 <div class="completed-orders-container">
+                    <span class="complete-order-badge">5</span>
+                    <div class="tag">Completed Orders</div>
+                 </div>
+                 <div class="info-item">
+                    <div class="tag">July 10, 2024</div>
+                    <span class="heading">Last Order Date</span>
+                 </div>
+              </div>
+              <div class="freelancer-image">
+                 <img src="https://media.istockphoto.com/id/2162406436/photo/indian-woman-lady-staff-teen-girl-worker-sitting-on-desk-chair-do-work-together-indoor-office.webp?a=1&b=1&s=612x612&w=0&k=20&c=9cxqF7eAfR4LOcl0bu89x1J0xBlC0kMmaYWdu5I16Y4=" alt="Project Image">
+              </div>
+              <div class="price-section">
+                 <div class="price"><span class="amount-spent-buyernitin">Amount Spent: </span> $78.00</div>
+                 <a href="#">
+                    <div class="message-icon"><i class="fa fa-comment"></i></div>
+                 </a>
+              </div>
+           </div>
+
+           <div class="freelancer-card">
+              <div class="freelancer-header">
+                 <img src="https://media.istockphoto.com/id/1285124274/photo/middle-age-man-portrait.webp?a=1&b=1&s=612x612&w=0&k=20&c=wQTkPBW1rlfaFAkKanmLbpmEtiWWVH33UkndM1ib1-o=" alt="Profile Image">
+                 <div class="freelancer-info">
+                    <h4>Parmanshu</h4>
+                    <a class="user-pro" href="">User Profile</a> |
+                    <a class="user-pro" href="">History</a>
+                 </div>
+              </div>
+              <div class="tags">
+                 <div class="completed-orders-container">
+                    <span class="complete-order-badge">5</span>
+                    <div class="tag">Completed Orders</div>
+                 </div>
+                 <div class="info-item">
+                    <div class="tag">July 10, 2024</div>
+                    <span class="heading">Last Order Date</span>
+                 </div>
+              </div>
+              <div class="freelancer-image">
+                 <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c29mdHdhcmV8ZW58MHx8MHx8fDA%3D" alt="Project Image">
+              </div>
+              <div class="price-section">
+                 <div class="price"><span class="amount-spent-buyernitin">Amount Spent: </span> $78.00</div>
+                 <div class="message-icon"><i class="fa fa-comment"></i></div>
+              </div>
+           </div>
+           <!-- Repeat for more cards -->
+        </div>
+        <button class="prev d-none" onclick="moveSlide(-1)">❮</button>
+        <button class="next d-none" onclick="moveSlide(1)">❯</button>
+     </div>
+
+
+     <script>
+        let slideIndex = 0;
+
+        function moveSlide(direction) {
+           const cards = document.querySelectorAll('.freelancer-card');
+           slideIndex += direction;
+
+           // Reset index if out of bounds
+           if (slideIndex < 0) {
+              slideIndex = cards.length - 1;
+           } else if (slideIndex >= cards.length) {
+              slideIndex = 0;
+           }
+
+           const whomslider = document.querySelector('.whomslider');
+           whomslider.style.transform = `translateX(-${slideIndex * 100}%)`; // Move slider
+        }
+
+        // Optionally, you can automatically slide the cards
+        setInterval(() => moveSlide(1), 5000); // Slide every 5 seconds
+     </script>
+
      <nav id="pagination-buyer-contacts" aria-label="Active request navigation">
         <?= pagination($limit, $pageNumber, $totalRows, $totalPages, $site_url . "/manage_contacts?my_sellers&page="); ?>
      </nav>

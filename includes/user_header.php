@@ -563,12 +563,12 @@ $site_border_color = $row_general_settings->site_border_color;
                                                         ?><!--/freelancers">--><? //= $lang['freelancers_menu']; 
                                                                                 ?><!--</a>-->
             <!--                        </li> -->
-            <!-- <li class="sell-on-gigtodo-link d-none d-lg-block">
+            <li class="sell-on-gigtodo-link d-none d-lg-block">
               <a href="#" data-toggle="modal" data-target="#register-modal">
                 <span class="sell-copy"><?= $lang['find_job']; ?></span>
-                <span class="sell-copy short"><?= $lang['become_seller']; ?></span>
+                <!-- <span class="sell-copy short"><?= $lang['become_seller']; ?></span> -->
               </a>
-            </li> -->
+            </li>
             <li class="register-link" id="log-in-mod-el">
               <a href="#" data-toggle="modal" data-target="#login-modal"><?= $lang['sign_in']; ?></a>
             </li>

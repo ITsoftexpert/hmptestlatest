@@ -42,16 +42,24 @@
     font-size: 17px;
     font-weight: 500;
   }
+
+  .color-nitin-text {
+    color: #000 !important;
+  }
+
+  .color-nitin-text-two {
+    color: #00cedc !important;
+  }
 </style>
 
 <div class="card card1 theme-bg text-white border-0 px-sm-4 px-2  py-3 w-100 mb-4 box-shadow-buyer">
-  <label class="mb-0"><?= $lang['welcome']; ?>.</label>
-  <h4><?= ucfirst($login_user_name); ?></h4>
+  <label class="mb-0 color-nitin-text"><?= $lang['welcome']; ?>.</label>
+  <h4 class="color-nitin-text"><?= ucfirst($login_user_name); ?></h4>
   <div class="d-flex align-items-center justify-content-space-between">
-    <h5><a class="text-white" href="">@<?= ($login_user_name); ?></a></h5>
+    <h5><a class=" color-nitin-text-two" href="">@<?= ($login_user_name); ?></a></h5>
   </div>
   <div>
-    <h6><span>Current Membership - &nbsp;&nbsp;</span><?php echo strtoupper($row_purchsed_plan->plan_name); ?></h6>
+    <h6 class="color-nitin-text"><span>Current Membership - &nbsp;&nbsp;</span><?php echo strtoupper($row_purchsed_plan->plan_name); ?></h6>
   </div>
 </div>
 
@@ -119,30 +127,30 @@
   </div>
 </div>
 <div id="buyer-sidebar" style="<?= $activeTab == "seller" ? "display: none" : "" ?>">
-<?php if ($totalWeight >= 80) { ?>
-  <div class="card rounded-0  mb-3 card_user ">
-    <p id="heading_padding_restyle">If You Want To Become A Seller</p>
-    <div class="card-body box-shadow-c-body">
-      <img src="images/sales.png" class="img-fluid center-block" alt="none">
-      <h4><?= $lang['sidebar']['start_selling']['title']; ?></h4>
-      <p><?= $lang['sidebar']['start_selling']['desc']; ?></p>
-      <button onclick="location.href='start_selling'" class="btn get_btn">
-        <?= $lang['sidebar']['start_selling']['button']; ?>
-      </button>
+  <?php if ($totalWeight >= 80) { ?>
+    <div class="card rounded-0  mb-3 card_user ">
+      <p id="heading_padding_restyle">If You Want To Become A Seller</p>
+      <div class="card-body box-shadow-c-body">
+        <img src="images/sales.png" class="img-fluid center-block" alt="none">
+        <h4><?= $lang['sidebar']['start_selling']['title']; ?></h4>
+        <p><?= $lang['sidebar']['start_selling']['desc']; ?></p>
+        <button onclick="location.href='start_selling'" class="btn get_btn">
+          <?= $lang['sidebar']['start_selling']['button']; ?>
+        </button>
+      </div>
     </div>
-  </div>
   <?php } else { ?>
-<div class="card rounded-0  mb-3 card_user ">
-    <p id="heading_padding_restyle">If You Want To Become A Seller</p>
-    <div class="card-body box-shadow-c-body">
-      <img src="images/sales.png" class="img-fluid center-block" alt="none">
-      <h4><?= $lang['sidebar']['start_selling']['title']; ?></h4>
-      <p><?= $lang['sidebar']['start_selling']['desc']; ?></p>
-      <button onclick="location.href='settings?profile_settings'" class="btn get_btn">
-        <?= $lang['sidebar']['start_selling']['button']; ?>
-      </button>
+    <div class="card rounded-0  mb-3 card_user ">
+      <p id="heading_padding_restyle">If You Want To Become A Seller</p>
+      <div class="card-body box-shadow-c-body">
+        <img src="images/sales.png" class="img-fluid center-block" alt="none">
+        <h4><?= $lang['sidebar']['start_selling']['title']; ?></h4>
+        <p><?= $lang['sidebar']['start_selling']['desc']; ?></p>
+        <button onclick="location.href='settings?profile_settings'" class="btn get_btn">
+          <?= $lang['sidebar']['start_selling']['button']; ?>
+        </button>
+      </div>
     </div>
-  </div>
   <?php } ?>
 </div>
 <div id="seller-sidebar" style="<?= $activeTab == "buyer" ? "display: none" : "" ?>">
@@ -183,7 +191,7 @@
           <path d="M122.5,34.031L0,245.001l122.5,210.968h245L490,245.001L367.5,34.031H122.5z M287.558,318.293h-85.116l-42.557-73.292l42.557-73.292h85.116l42.557,73.292L287.558,318.293z" />
         </svg>
       </div>
-    </a>  
+    </a>
   </div>
 </div>
 
