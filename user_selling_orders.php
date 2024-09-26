@@ -38,6 +38,7 @@
 	.seller-active-order-nitin {
 		padding: 5px 8px 5px 8px;
 		background: #00cedc;
+		width: fit-content;
 		color: #fff !important;
 	}
 

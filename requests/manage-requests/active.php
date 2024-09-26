@@ -224,53 +224,42 @@
 		cursor: pointer;
 	}
 
-	/* Container for the dropdown */
-	.dropdown {
+	.dropdown-one {
 		position: relative;
 		display: inline-block;
 	}
 
-	/* Dropdown content (initially hidden with animation) */
-	.dropdown-content {
+	.dropdown-content-one {
 		display: none;
 		/* Initially hidden */
 		position: absolute;
-		background-color: #fff;
+		right: 0;
+		background-color: white;
+		min-width: 160px;
 		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 		z-index: 1;
-		min-width: 160px;
-		border-radius: 4px;
-		right: 0;
-		/* Position dropdown 20px to the right */
-		top: 100%;
-		/* Default to open down */
-		transform: scaleY(0);
-		/* Initial scale set to 0 for animation */
-		transform-origin: top;
-		/* Origin from the top for downward opening */
-		transition: transform 0.3s ease;
-		/* Animation effect */
 	}
 
-	/* Style for the dropdown items */
-	.dropdown-content a {
+	.dropdown-content-one a {
 		color: black;
 		padding: 12px 16px;
 		text-decoration: none;
 		display: block;
 	}
 
-	/* Change color of dropdown links on hover */
-	.dropdown-content a:hover {
+	.dropdown-content-one a:hover {
 		background-color: #f1f1f1;
 	}
 
-	/* Active class for dropdown (used in JS to toggle visibility) */
-	.dropdown-content.show {
-		display: block;
-		transform: scaleY(1);
-		/* Expands the dropdown */
+	.dropdown-button-one {
+		background-color: #00cedc;
+		border: none;
+		color: #fff;
+		border-radius: 5px;
+		cursor: pointer;
+		/* Pointer cursor for better UX */
 	}
+
 
 
 
@@ -326,17 +315,18 @@
 			</div>
 			<div class="order-status">
 				<span class="Order-Status-textmain">Actions</span>
-				<div class="dropdown">
-					<button class="status-active">
-						<i class="fa-solid fa-caret-down dropdown-icon"></i> <!-- Icon for first dropdown -->
+				<div class="dropdown-one">
+					<button class="dropdown-button-one">
+						<i class="fa-solid fa-caret-down dropdown-icon-one"></i>
 					</button>
-					<div class="dropdown-content">
+					<div class="dropdown-content-one">
 						<a href="#">View Offers</a>
 						<a href="#">Pause</a>
 						<a href="#">Edit</a>
 						<a href="#">Delete</a>
 					</div>
 				</div>
+
 
 			</div>
 		</div>
@@ -368,11 +358,11 @@
 			</div>
 			<div class="order-status">
 				<span class="Order-Status-textmain">Actions</span>
-				<div class="dropdown">
-					<button class="status-active">
-						<i class="fa-solid fa-caret-down dropdown-icon"></i> <!-- Icon for first dropdown -->
+				<div class="dropdown-one">
+					<button class="dropdown-button-one">
+						<i class="fa-solid fa-caret-down dropdown-icon-one"></i>
 					</button>
-					<div class="dropdown-content">
+					<div class="dropdown-content-one">
 						<a href="#">View Offers</a>
 						<a href="#">Pause</a>
 						<a href="#">Edit</a>
@@ -409,11 +399,11 @@
 			</div>
 			<div class="order-status">
 				<span class="Order-Status-textmain">Actions</span>
-				<div class="dropdown">
-					<button class="status-active">
-						<i class="fa-solid fa-caret-down dropdown-icon"></i> <!-- Icon for first dropdown -->
+				<div class="dropdown-one">
+					<button class="dropdown-button-one">
+						<i class="fa-solid fa-caret-down dropdown-icon-one"></i>
 					</button>
-					<div class="dropdown-content">
+					<div class="dropdown-content-one">
 						<a href="#">View Offers</a>
 						<a href="#">Pause</a>
 						<a href="#">Edit</a>
@@ -450,11 +440,11 @@
 			</div>
 			<div class="order-status">
 				<span class="Order-Status-textmain">Actions</span>
-				<div class="dropdown">
-					<button class="status-active">
-						<i class="fa-solid fa-caret-down dropdown-icon"></i> <!-- Icon for first dropdown -->
+				<div class="dropdown-one">
+					<button class="dropdown-button-one">
+						<i class="fa-solid fa-caret-down dropdown-icon-one"></i>
 					</button>
-					<div class="dropdown-content">
+					<div class="dropdown-content-one">
 						<a href="#">View Offers</a>
 						<a href="#">Pause</a>
 						<a href="#">Edit</a>
@@ -503,43 +493,17 @@
 </script>
 
 <script>
-	// Get all icons with the class 'dropdown-icon'
-	const dropdownIcons = document.querySelectorAll('.dropdown-icon');
-
-	// Add event listener to each dropdown icon
-	dropdownIcons.forEach((icon) => {
-		icon.addEventListener('click', function(event) {
-			const dropdownContent = this.parentElement.nextElementSibling; // Get the corresponding dropdown content
-			const rect = dropdownContent.getBoundingClientRect();
-			const windowHeight = window.innerHeight;
-
-			// Prevent the click from affecting other elements
-			event.stopPropagation();
-
-			// Toggle dropdown visibility and apply animation class
-			if (dropdownContent.classList.contains('show')) {
-				dropdownContent.classList.remove('show');
-			} else {
-				// Check if there's enough space below the button
-				dropdownContent.style.top = "100%"; // Default to open down
-				dropdownContent.style.bottom = "auto"; // Reset
-				if (rect.bottom > windowHeight) {
-					// If not enough space, open upwards
-					dropdownContent.style.top = "auto";
-					dropdownContent.style.bottom = "100%";
-				}
-				dropdownContent.classList.add('show');
-			}
+	document.querySelectorAll(".dropdown-button-one").forEach(button => {
+		button.addEventListener("click", function(event) {
+			const dropdownMenu = this.nextElementSibling; // Get the dropdown content
+			dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+			event.stopPropagation(); // Prevent event from bubbling up
 		});
 	});
 
-	// Close any open dropdowns if you click outside of any dropdown
-	document.addEventListener('click', function(event) {
-		const openDropdowns = document.querySelectorAll('.dropdown-content.show');
-		openDropdowns.forEach((dropdown) => {
-			if (!event.target.closest('.dropdown')) {
-				dropdown.classList.remove('show');
-			}
+	window.addEventListener("click", function() {
+		document.querySelectorAll(".dropdown-content-one").forEach(menu => {
+			menu.style.display = "none"; // Hide all dropdowns
 		});
 	});
 </script>

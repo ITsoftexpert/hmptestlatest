@@ -143,7 +143,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
 
         .alter-top-margin {
             /* margin-top: 50px !important; */
-            padding: 0rem;
+            padding-top: 2.5rem;
         }
 
         .b-t-m-resize {

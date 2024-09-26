@@ -205,6 +205,13 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 	.custom-dropdown-content a:hover {
 		background-color: #f1f1f1;
 	}
+
+	.custom-dropdown-button {
+		background-color: #00cedc;
+		border: none;
+		color: #fff;
+		border-radius: 5px;
+	}
 </style>
 <div class="col-md-12 padding-40">
 	<div class="alert alert-info text-align-center mt-3 pt-3 pb-3 box-shadow-can-post">
@@ -912,22 +919,20 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 				</div>
 			</div>
 		</div>
-
-
 	</div>
 	<script>
-		document.getElementById("dropdownBtn").addEventListener("click", function() {
-			const dropdownMenu = document.getElementById("dropdownMenu");
-			dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+		document.querySelectorAll(".custom-dropdown-button").forEach(button => {
+			button.addEventListener("click", function(event) {
+				const dropdownMenu = this.nextElementSibling;
+				dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+				event.stopPropagation(); // Prevent event from bubbling up
+			});
 		});
 
-		window.onclick = function(event) {
-			if (!event.target.matches('.custom-dropdown-button')) {
-				const dropdowns = document.getElementsByClassName("custom-dropdown-content");
-				for (let i = 0; i < dropdowns.length; i++) {
-					dropdowns[i].style.display = "none";
-				}
-			}
-		}
+		window.addEventListener("click", function() {
+			document.querySelectorAll(".custom-dropdown-content").forEach(menu => {
+				menu.style.display = "none"; // Hide all dropdowns
+			});
+		});
 	</script>
 </div>

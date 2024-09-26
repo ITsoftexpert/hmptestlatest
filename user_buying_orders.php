@@ -74,10 +74,10 @@
         color: white !important;
         background-color: #00CEDC !important;
         width: fit-content;
-        display: flex;
+        /* display: flex;
         justify-content: space-between;
         gap: 58px;
-        align-items: center;
+        align-items: center; */
         /* margin-left: auto; */
 
     }
@@ -96,10 +96,11 @@
     }
 </style>
 <ul class="nav nav-tabs flex-column flex-sm-row box-shadow-buyer-order">
+
     <!-- Dropdown for smaller screens -->
     <li class="nav-item dropdown d-block d-sm-none">
-        <a class="nav-link respo_drop_toggle make-black padding-13 text-blue" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?= $lang['tabs']['active']; ?> <i class="fas fa-chevron-down"></i> <!-- Icon added here for "active" only -->
+        <a class=" dropdown-toggle nav-link respo_drop_toggle make-black padding-13 text-blue" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?= $lang['tabs']['active']; ?>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <?php

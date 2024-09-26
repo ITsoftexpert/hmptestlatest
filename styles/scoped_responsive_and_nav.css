@@ -12262,15 +12262,15 @@ a:hover {
     margin: 0px;
     margin-right: 0px;
   }
-  .container-fluid,
+  /* .container-fluid,
   .order-page {
     margin-top: 165px !important;
-  }
+  } */
 }
 @media (max-width: 420px) {
   .container-fluid,
   .order-page {
-    margin-top: 165px !important;
+    margin-top: 110px !important;
   }
 }
 

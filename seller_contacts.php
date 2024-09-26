@@ -1,29 +1,44 @@
 <style>
-   .heading-41{
-      font-size:20px;
+   .heading-41 {
+      font-size: 20px;
       text-align: center;
-      padding:4px 0px;
+      padding: 4px 0px;
       /* color:#045e5d; */
    }
-   @media(max-width:768px){
-      .heading-41{
-      font-size:16px;
-      text-align: center;
+
+   @media(max-width:768px) {
+      .heading-41 {
+         font-size: 16px;
+         text-align: center;
+      }
    }
-   }
-   .font-size-3{
-      padding:13px !important;
+
+   .font-size-3 {
+      padding: 13px !important;
       text-align: center;
       /* box-shadow: 0px 0px 5px black, inset 0px 0px 15px #00c8d4; */
       /* border:1px solid lightgray !important; */
    }
-  
-   
+
+   .new-slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      /* Hide overflow */
+   }
+
+   .newSlider {
+      display: flex;
+      transition: transform 0.5s ease;
+      /* Smooth transition */
+      width: calc(100% * number_of_cards);
+      /* Set total width based on number of cards */
+   }
 </style>
 
 <div class="table-responsive box-table box-shadow-table41">
-   <h4 class="heading-41 box-shadow-heading-41 mt-3"> <?= $lang['manage_contacts']['my_buyers']; ?> </h4>
-   <table class="table table-bordered mt-3">
+   <h4 class="heading-41 box-shadow-heading-41 "> <?= $lang['manage_contacts']['my_buyers']; ?> </h4>
+   <table class="table table-bordered mt-3 sellers-from-whom">
       <!-- table table-hover Starts -->
       <thead>
          <tr>
@@ -106,6 +121,167 @@
          <?php } ?>
       </tbody>
    </table>
+
+
+
+   <div class="new-slider-container mb-3">
+      <div class="newSlider">
+         <div class="freelancer-card">
+            <div class="freelancer-header">
+               <img src="https://media.istockphoto.com/id/1285124274/photo/middle-age-man-portrait.webp?a=1&b=1&s=612x612&w=0&k=20&c=wQTkPBW1rlfaFAkKanmLbpmEtiWWVH33UkndM1ib1-o=" alt="Profile Image">
+               <div class="freelancer-info">
+                  <h4>Nitin Kumar</h4>
+                  <a class="user-pro" href="">User Profile</a> |
+                  <a class="user-pro" href="">History</a>
+               </div>
+            </div>
+            <div class="tags">
+               <div class="completed-orders-container">
+                  <span class="complete-order-badge">3</span>
+                  <div class="tag">Completed Orders</div>
+               </div>
+               <div class="info-item">
+                  <div class="tag">July 09, 2024</div>
+                  <span class="heading">Last Order Date</span>
+               </div>
+            </div>
+            <div class="freelancer-image">
+               <img src="https://images.unsplash.com/photo-1508317469940-e3de49ba902e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2tpbGx8ZW58MHx8MHx8fDA%3D" alt="Project Image">
+            </div>
+            <div class="price-section">
+               <div class="price"><span class="amount-spent-buyer">Amount Spent: </span> $45.00</div>
+               <a href="#" class="chat-iconbuyer">
+                  <div class="message-icon"><i class="fa fa-comment"></i></div>
+               </a>
+            </div>
+         </div>
+
+
+         <div class="freelancer-card">
+            <div class="freelancer-header">
+               <img src="https://media.istockphoto.com/id/1285124274/photo/middle-age-man-portrait.webp?a=1&b=1&s=612x612&w=0&k=20&c=wQTkPBW1rlfaFAkKanmLbpmEtiWWVH33UkndM1ib1-o=" alt="Profile Image">
+               <div class="freelancer-info">
+                  <h4>Anuranjan</h4>
+                  <a class="user-pro" href="">User Profile</a> |
+                  <a class="user-pro" href="">History</a>
+               </div>
+            </div>
+            <div class="tags">
+               <div class="completed-orders-container">
+                  <span class="complete-order-badge">3</span>
+                  <div class="tag">Completed Orders</div>
+               </div>
+               <div class="info-item">
+                  <div class="tag">July 09, 2024</div>
+                  <span class="heading">Last Order Date</span>
+               </div>
+            </div>
+            <div class="freelancer-image">
+               <img src="https://images.unsplash.com/photo-1508317469940-e3de49ba902e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2tpbGx8ZW58MHx8MHx8fDA%3D" alt="Project Image">
+            </div>
+            <div class="price-section">
+               <div class="price"><span class="amount-spent-buyer">Amount Spent: </span> $45.00</div>
+               <a href="#" class="chat-iconbuyer">
+                  <div class="message-icon"><i class="fa fa-comment"></i></div>
+               </a>
+            </div>
+         </div>
+
+
+         <div class="freelancer-card">
+            <div class="freelancer-header">
+               <img src="https://media.istockphoto.com/id/1285124274/photo/middle-age-man-portrait.webp?a=1&b=1&s=612x612&w=0&k=20&c=wQTkPBW1rlfaFAkKanmLbpmEtiWWVH33UkndM1ib1-o=" alt="Profile Image">
+               <div class="freelancer-info">
+                  <h4>Parmanshu</h4>
+                  <a class="user-pro" href="">User Profile</a> |
+                  <a class="user-pro" href="">History</a>
+               </div>
+            </div>
+            <div class="tags">
+               <div class="completed-orders-container">
+                  <span class="complete-order-badge">3</span>
+                  <div class="tag">Completed Orders</div>
+               </div>
+               <div class="info-item">
+                  <div class="tag">July 09, 2024</div>
+                  <span class="heading">Last Order Date</span>
+               </div>
+            </div>
+            <div class="freelancer-image">
+               <img src="https://images.unsplash.com/photo-1508317469940-e3de49ba902e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2tpbGx8ZW58MHx8MHx8fDA%3D" alt="Project Image">
+            </div>
+            <div class="price-section">
+               <div class="price"><span class="amount-spent-buyer">Amount Spent: </span> $45.00</div>
+               <a href="#" class="chat-iconbuyer">
+                  <div class="message-icon"><i class="fa fa-comment"></i></div>
+               </a>
+            </div>
+         </div>
+
+
+         <div class="freelancer-card">
+            <div class="freelancer-header">
+               <img src="https://media.istockphoto.com/id/1285124274/photo/middle-age-man-portrait.webp?a=1&b=1&s=612x612&w=0&k=20&c=wQTkPBW1rlfaFAkKanmLbpmEtiWWVH33UkndM1ib1-o=" alt="Profile Image">
+               <div class="freelancer-info">
+                  <h4>Priyanshu</h4>
+                  <a class="user-pro" href="">User Profile</a> |
+                  <a class="user-pro" href="">History</a>
+               </div>
+            </div>
+            <div class="tags">
+               <div class="completed-orders-container">
+                  <span class="complete-order-badge">3</span>
+                  <div class="tag">Completed Orders</div>
+               </div>
+               <div class="info-item">
+                  <div class="tag">July 09, 2024</div>
+                  <span class="heading">Last Order Date</span>
+               </div>
+            </div>
+            <div class="freelancer-image">
+               <img src="https://images.unsplash.com/photo-1508317469940-e3de49ba902e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2tpbGx8ZW58MHx8MHx8fDA%3D" alt="Project Image">
+            </div>
+            <div class="price-section">
+               <div class="price"><span class="amount-spent-buyer">Amount Spent: </span> $45.00</div>
+               <a href="#" class="chat-iconbuyer">
+                  <div class="message-icon"><i class="fa fa-comment"></i></div>
+               </a>
+            </div>
+         </div>
+
+         <!-- Add more freelancer cards here -->
+         <!-- ... -->
+
+      </div>
+      <button class="prev d-none" onclick="moveNewSlide(-1)">❮</button>
+      <button class="next d-none" onclick="moveNewSlide(1)">❯</button>
+   </div>
+
+
+   <script>
+      let newSlideIndex = 0;
+
+      function moveNewSlide(direction) {
+         const newCards = document.querySelectorAll('.freelancer-card');
+         newSlideIndex += direction;
+
+         // Reset index if out of bounds
+         if (newSlideIndex < 0) {
+            newSlideIndex = newCards.length - 1;
+         } else if (newSlideIndex >= newCards.length) {
+            newSlideIndex = 0;
+         }
+
+         const newSlider = document.querySelector('.newSlider');
+         newSlider.style.transform = `translateX(-${newSlideIndex * 100}%)`; // Move slider
+      }
+
+      // Optionally, you can automatically slide the cards
+      setInterval(() => moveNewSlide(1), 5000); // Slide every 5 seconds
+   </script>
+
+
+
    <nav id="pagination-seller-contacts" aria-label="Active request navigation">
       <?= pagination($limit, $pageNumber, $totalRows, $totalPages, $site_url . "/manage_contacts?page="); ?>
    </nav>

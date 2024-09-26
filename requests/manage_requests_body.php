@@ -110,7 +110,10 @@ $activeReqTab = isset($_GET['tab']) ? $_GET['tab'] : "approved_request";
 </style>
 
 <div class="ram_1_dropdown" id="dropdownContainer">
-    <button class="ram_1_dropbtn"> <?= $lang['tabs']['active_requests']; ?> </button>
+    <button class="ram_1_dropbtn dropdown-toggle"> <?= $lang['tabs']['active_requests']; ?> </button>
+    <!-- <button class="btn btn-secondary dropdown-toggle active-proposals-nitin" type="button" id="proposalDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Active Requests5
+    </button> -->
     <div class="ram_1_dropdown-content">
         <ul class="nav nav-tabs flex-column flex-sm-row mt-1">
             <li class="nav-item width-increase1">
