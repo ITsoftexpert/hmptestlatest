@@ -278,6 +278,7 @@
         <thead>
            <tr>
               <th class="font-size-3"><?= $lang['th']['seller_name']; ?></th>
+              
               <th class="font-size-3"><?= $lang['th']['completed_orders']; ?></th>
               <th class="font-size-3"><?= $lang['th']['amount_spent']; ?></th>
               <th class="font-size-3"><?= $lang['th']['last_order_date']; ?></th>

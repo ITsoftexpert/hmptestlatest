@@ -530,6 +530,10 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
         .box-shadow-buyer-body {
             box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
         }
+
+        .manage-proposal-buyer-heading {
+            display: none;
+        }
     }
 
     /* respo-nsive-screen-for-size-between-768px-to-1600px-section-end */
@@ -620,7 +624,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
                             <br>
                             <br>
                             <div class="row">
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-12 mb-3 manage-proposal-buyer-heading">
                                     <h1 class="text-center"><?= $lang["titles"]["buying_orders"]; ?></h1>
                                 </div>
                                 <div class="col-md-12">

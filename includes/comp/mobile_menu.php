@@ -66,7 +66,6 @@ $next_icon = "
         </div>
 
         <div data-ui="mobile-catnav-scroll-wrapper" class="height-full overflow-y-scroll">
-
           <div class="mobile-topnav bg-white animated">
             <ul data-ui="mobile-top-catnav-container" class="mobile-top-catnav-container list-unstyled mobile-catnav-margin">
 
@@ -83,20 +82,20 @@ $next_icon = "
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="<?= $site_url; ?>/requests/buyer_requests" class="home-page-text-menu"><img width="22" src="http://localhost/hmp2024/mobile-header-img/become-a-seller.png" alt="Become-a-Seller">&nbsp;&nbsp;Become a Seller
+                <a href="<?= $site_url; ?>/requests/buyer_requests" class="home-page-text-menu"><i class="fa-solid fa-shop"></i>&nbsp;&nbsp;Become a Seller
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
                 <a href="<?= $site_url; ?>/how-it-works" class="home-page-text-menu">
-                  <img width="22" src="http://localhost/hmp2024/mobile-header-img/how-it-work.png" alt="how-it-work">&nbsp;&nbsp;How it Works?
+                  <i class="fa-solid fa-gears"></i>&nbsp;&nbsp;How it Works?
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="<?= $site_url; ?>/requests/buyer_requests" class="home-page-text-menu"><img width="22" src="http://localhost/hmp2024/mobile-header-img/why-us.png" alt="why-us">&nbsp;&nbsp;Why us
+                <a href="<?= $site_url; ?>/requests/buyer_requests" class="home-page-text-menu"><i class="fa fa-building-magnifying-glass"></i>&nbsp;&nbsp;Why us
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="<?= $site_url; ?>/customer_support" class="home-page-text-menu"><img width="22" src="http://localhost/hmp2024/mobile-header-img/help.png" alt="help">&nbsp;&nbsp;Help/Contact
+                <a href="<?= $site_url; ?>/customer_support" class="home-page-text-menu"><i class="fa fa-handshake-angle"></i>&nbsp;&nbsp;Help/Contact
 
                 </a>
               </li>

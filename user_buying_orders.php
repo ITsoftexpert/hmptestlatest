@@ -71,14 +71,17 @@
     }
 
     #navbarDropdown {
-        color: white !important;
-        background-color: #00CEDC !important;
+        color: #000 !important;
+        background-color: #ebebeb !important;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
         width: fit-content;
-        /* display: flex;
-        justify-content: space-between;
-        gap: 58px;
-        align-items: center; */
-        /* margin-left: auto; */
+        display: flex;
+        justify-content: center;
+        font-size: 17px;
+        font-weight: 600;
+        gap: 8px;
+        align-items: center;
+        margin: auto;
 
     }
 
@@ -94,15 +97,24 @@
         margin-left: 10px;
         /* Optional: adds space between the label and the badge */
     }
+
+    .dropnitinbuyer {
+        background-color: #fff;
+        width: 100%;
+        transform: translate3d(0px, 46px, 0px) !important;
+    }
 </style>
 <ul class="nav nav-tabs flex-column flex-sm-row box-shadow-buyer-order">
 
     <!-- Dropdown for smaller screens -->
     <li class="nav-item dropdown d-block d-sm-none">
-        <a class=" dropdown-toggle nav-link respo_drop_toggle make-black padding-13 text-blue" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <!-- <a class=" dropdown-toggle nav-link respo_drop_toggle make-black padding-13 text-blue" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <?= $lang['tabs']['active']; ?>
+        </a> -->
+        <a class="dropdown-toggle nav-link respo_drop_toggle make-black padding-13 text-blue" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Manage Proposals
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu dropnitinbuyer" aria-labelledby="navbarDropdown">
             <?php
             $statuses = ['active', 'delivered', 'completed', 'cancelled', 'all'];
 
