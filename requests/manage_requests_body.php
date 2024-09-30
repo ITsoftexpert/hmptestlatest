@@ -5,7 +5,7 @@ $countRequestsPending = $db->count("buyer_requests", array("seller_id" => $login
 $countRequestsModification = $db->count("buyer_requests", array("seller_id" => $login_seller_id, "request_status" => 'modification'));
 $countRequestsUnapproved = $db->count("buyer_requests", array("seller_id" => $login_seller_id, "request_status" => 'unapproved'));
 $display_milestone = $db->select("milestone", array("seller_id" => $login_seller_id));
-            $milstoneRowCount = $display_milestone->rowCount();
+$milstoneRowCount = $display_milestone->rowCount();
 
 $activeReqTab = isset($_GET['tab']) ? $_GET['tab'] : "approved_request";
 ?>
@@ -363,10 +363,10 @@ $activeReqTab = isset($_GET['tab']) ? $_GET['tab'] : "approved_request";
         </a>
     </li>
     <li class="nav-item ">
-        
+
         <a href="#milestoneBuyerReq" data-toggle="tab" class="nav-link make-black padding-10">
             Milestone <span class="badge badge-success badge-float-right ml-5"><?= $milstoneRowCount; ?></span>
-        </a>       
+        </a>
     </li>
 </ul>
 
@@ -386,8 +386,8 @@ $activeReqTab = isset($_GET['tab']) ? $_GET['tab'] : "approved_request";
     <div id="unapprovedBuyerReq" class="tab-pane fade <?= $activeReqTab == 'unapproved_request' ? "show active" : "" ?>">
         <?php require_once("manage-requests/unapproved.php") ?>
     </div>
-    <div id="milestoneBuyerReq" class="tab-pane">      
-        <?php require_once("manage-requests/milestone.php") ?>   
+    <div id="milestoneBuyerReq" class="tab-pane">
+        <?php require_once("manage-requests/milestone.php") ?>
     </div>
 </div>
 
