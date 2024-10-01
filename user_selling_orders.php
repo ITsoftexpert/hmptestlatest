@@ -71,8 +71,240 @@
 			display: none;
 		}
 	}
+
+
+
+	/* ######################################### */
+
+	/* Base styles for dropdown */
+	.firstsellerdropdown-dropdown {
+		position: relative;
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+
+	/* Button */
+	.firstsellerdropdown-btn {
+		/* background-color: #f8f9fa;
+		border: 1px solid #ced4da;
+		padding: 10px;
+		font-size: 16px;
+		cursor: pointer;
+		display: inline-block;
+		width: auto;
+		margin: 0 auto;
+		position: relative; */
+		color: #000 !important;
+		background-color: #ebebeb !important;
+		box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+		width: fit-content;
+		border: none;
+		padding: 11px 15px;
+		font-size: 17px;
+		font-weight: 600;
+		gap: 8px;
+		align-items: center;
+	}
+
+	/* Dropdown icon */
+	.firstsellerdropdown-icon {
+		margin-left: 10px;
+		font-size: 14px;
+		vertical-align: middle;
+	}
+
+	/* Dropdown content */
+	.firstsellerdropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #fff;
+		border: 1px solid #ced4da;
+		width: 100%;
+		z-index: 1;
+		padding: 10px;
+		left: 0;
+		top: 100%;
+	}
+
+	/* List styling */
+	.firstsellerdropdown-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	/* Items */
+	.firstsellerdropdown-item-active,
+	.firstsellerdropdown-item-delivered,
+	.firstsellerdropdown-item-completed,
+	.firstsellerdropdown-item-cancelled,
+	.firstsellerdropdown-item-all {
+		margin-bottom: 8px;
+	}
+
+	/* Links */
+	.firstsellerdropdown-link-active,
+	.firstsellerdropdown-link-delivered,
+	.firstsellerdropdown-link-completed,
+	.firstsellerdropdown-link-cancelled,
+	.firstsellerdropdown-link-all {
+		display: flex;
+		justify-content: space-between;
+		padding: 8px;
+		text-decoration: none;
+		color: #212529;
+	}
+
+	/* Hover effect for links */
+	.firstsellerdropdown-link-active:hover {
+		background-color: #ebebeb;
+	}
+
+	.firstsellerdropdown-link-delivered:hover {
+		background-color: #ebebeb;
+	}
+
+	.firstsellerdropdown-link-completed:hover {
+		background-color: #ebebeb;
+	}
+
+	.firstsellerdropdown-link-cancelled:hover {
+		background-color: #ebebeb;
+	}
+
+	.firstsellerdropdown-link-all:hover {
+		background-color: #ebebeb;
+	}
+
+	/* Badges */
+	.firstsellerdropdown-badge-active {
+		padding: 4px;
+		border-radius: 5px;
+		height: 25px;
+		width: 25px;
+		text-align: center;
+		font-size: 14px;
+		color: #fff;
+		background-color: #00cedc;
+	}
+
+	.firstsellerdropdown-badge-delivered {
+		padding: 4px;
+		border-radius: 5px;
+		height: 25px;
+		width: 25px;
+		text-align: center;
+		font-size: 14px;
+		color: #fff;
+		background-color: #00cedc;
+	}
+
+	.firstsellerdropdown-badge-completed {
+		padding: 4px;
+		border-radius: 5px;
+		height: 25px;
+		width: 25px;
+		text-align: center;
+		font-size: 14px;
+		color: #fff;
+		background-color: #00cedc;
+	}
+
+	.firstsellerdropdown-badge-cancelled {
+		padding: 4px;
+		border-radius: 5px;
+		height: 25px;
+		width: 25px;
+		text-align: center;
+		font-size: 14px;
+		color: #fff;
+		background-color: #00cedc;
+	}
+
+	.firstsellerdropdown-badge-all {
+		padding: 4px;
+		border-radius: 5px;
+		height: 25px;
+		width: 25px;
+		text-align: center;
+		font-size: 14px;
+		color: #fff;
+		background-color: #00cedc;
+	}
+
+	/* OK Button */
+	.firstsellerdropdown-btn-ok {
+		background-color: #4CAF50;
+		color: white;
+		padding: 10px 20px;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		margin-top: 10px;
+	}
+
+	.firstsellerdropdown-btn-ok:hover {
+		background-color: #45a049;
+	}
+
+	/* Mobile-specific styles */
+	@media (max-width: 768px) {
+		.firstsellerdropdown-dropdown {
+			display: block;
+			/* Ensures dropdown is displayed */
+		}
+
+		.firstsellerdropdown-content {
+			display: none;
+			/* Initially hidden */
+		}
+
+		/* Show dropdown content on mobile */
+		.firstsellerdropdown-content.active {
+			display: block;
+			/* Use 'active' class to show content */
+		}
+	}
+
+	/* Hide on desktop */
+	@media (min-width: 1024px) {
+
+		/* Adjust this value based on your breakpoint */
+		.firstsellerdropdown-btn {
+			display: none;
+		}
+	}
 </style>
-<div class="dropdown seller-active-order-nitin">
+
+<div class="firstsellerdropdown-dropdown" id="firstsellerdropdownContainer">
+	<button class="firstsellerdropdown-btn" onclick="toggleFirstsellerDropdown()">Manage Proposals
+		<span class="firstsellerdropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+	</button>
+	<div class="firstsellerdropdown-content" id="firstsellerdropdownMenu">
+		<ul class="firstsellerdropdown-list">
+			<li class="firstsellerdropdown-item-active">
+				<a href="#" class="firstsellerdropdown-link-active">ACTIVE <span class="firstsellerdropdown-badge-active">0</span></a>
+			</li>
+			<li class="firstsellerdropdown-item-delivered">
+				<a href="#" class="firstsellerdropdown-link-delivered">DELIVERED <span class="firstsellerdropdown-badge-delivered">0</span></a>
+			</li>
+			<li class="firstsellerdropdown-item-completed">
+				<a href="#" class="firstsellerdropdown-link-completed">COMPLETED <span class="firstsellerdropdown-badge-completed">1</span></a>
+			</li>
+			<li class="firstsellerdropdown-item-cancelled">
+				<a href="#" class="firstsellerdropdown-link-cancelled">CANCELLED <span class="firstsellerdropdown-badge-cancelled">1</span></a>
+			</li>
+			<li class="firstsellerdropdown-item-all">
+				<a href="#" class="firstsellerdropdown-link-all">ALL <span class="firstsellerdropdown-badge-all">0</span></a>
+			</li>
+		</ul>
+		<button class="firstsellerdropdown-btn-ok">OK</button>
+	</div>
+</div>
+
+
+<!-- <div class="dropdown seller-active-order-nitin">
 	<span class="font-weight-bold active-order-text-nitin">Active Orders</span>
 	<button class="btn btn-secondary dropdown-toggle border-none-dropdownnitin" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		<?= $lang['tabs']['select_order_status']; ?>
@@ -94,7 +326,7 @@
 			<?= $lang['tabs']['all']; ?> <span class="badge badge-success badge-float-right"><?= $db->count("orders", array("seller_id" => $login_seller_id)); ?></span>
 		</a>
 	</div>
-</div>
+</div> -->
 
 <ul class="nav nav-tabs flex-column flex-sm-row oldseller-section">
 	<li class="nav-item width-increase">
@@ -155,3 +387,10 @@
 		<?php require_once("manage_orders/order_all_selling.php") ?>
 	</div>
 </div>
+
+	<script>
+		function toggleFirstsellerDropdown() {
+			var dropdownMenu = document.getElementById("firstsellerdropdownMenu");
+			dropdownMenu.classList.toggle("active"); // Use class to toggle visibility
+		}
+	</script>

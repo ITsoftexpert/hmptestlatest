@@ -14,8 +14,11 @@
     color: white;
   }
 
-  .nitinafterloginenvloppro {
-    /* padding-top: 15px; */
+  /* Mobile-specific styles */
+  @media (max-width: 768px) {
+    .nitinafterloginenvloppro {
+      padding-top: 15px;
+    }
   }
 </style>
 

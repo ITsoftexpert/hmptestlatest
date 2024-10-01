@@ -534,6 +534,14 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
         .manage-proposal-buyer-heading {
             display: none;
         }
+
+        .manage-requesr-buyer-heading {
+            display: none;
+        }
+
+        .mobile-view-seller-heading {
+            display: none;
+        }
     }
 
     /* respo-nsive-screen-for-size-between-768px-to-1600px-section-end */
@@ -636,7 +644,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
 
                             <!-- Start Manage Request -->
                             <div class="row">
-                                <div class="col-md-12 mt-5 mb-3 margin-top-25">
+                                <div class="col-md-12 mt-5 mb-3 margin-top-25 manage-requesr-buyer-heading">
                                     <h1 class="text-align-center"> <?= $lang["titles"]["manage_requests"]; ?> </h1>
                                 </div>
                                 <div class="col-md-12">
@@ -1217,7 +1225,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
                                     </div>
 
                                     <div class="col-md-12 mt-5">
-                                        <h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> title-selling-order-headling"><?= $lang["titles"]["selling_orders"]; ?></h1>
+                                        <h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> title-selling-order-headling text-center mobile-view-seller-heading"><?= $lang["titles"]["selling_orders"]; ?></h1>
                                     </div>
                                     <div class="col-md-12 mt-3">
                                         <?php include('user_selling_orders.php'); ?>

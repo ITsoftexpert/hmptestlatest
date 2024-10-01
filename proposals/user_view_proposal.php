@@ -212,12 +212,179 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 		color: #fff;
 		border-radius: 5px;
 	}
+
+	/* ######################################################3 */
+
+	/* Base styles for second dropdown */
+	.secondsellerdropdown-dropdown {
+		position: relative;
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+
+	/* Button */
+	.secondsellerdropdown-btn {
+		color: #000 !important;
+		background-color: #ebebeb !important;
+		box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+		width: fit-content;
+		border: none;
+		padding: 11px 15px;
+		font-size: 17px;
+		font-weight: 600;
+		gap: 8px;
+		align-items: center;
+	}
+
+	/* Dropdown icon */
+	.secondsellerdropdown-icon {
+		margin-left: 10px;
+		font-size: 14px;
+		vertical-align: middle;
+	}
+
+	/* Dropdown content */
+	.secondsellerdropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #fff;
+		border: 1px solid #ced4da;
+		width: 100%;
+		z-index: 1;
+		padding: 10px;
+		left: 0;
+		top: 100%;
+	}
+
+	/* List styling */
+	.secondsellerdropdown-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	/* Items */
+	.secondsellerdropdown-item-active,
+	.secondsellerdropdown-item-paused,
+	.secondsellerdropdown-item-pending,
+	.secondsellerdropdown-item-modification,
+	.secondsellerdropdown-item-draft,
+	.secondsellerdropdown-item-declined {
+		margin-bottom: 8px;
+	}
+
+	/* Links */
+	.secondsellerdropdown-link-active,
+	.secondsellerdropdown-link-paused,
+	.secondsellerdropdown-link-pending,
+	.secondsellerdropdown-link-modification,
+	.secondsellerdropdown-link-draft,
+	.secondsellerdropdown-link-declined {
+		display: flex;
+		justify-content: space-between;
+		padding: 8px;
+		text-decoration: none;
+		color: #212529;
+	}
+
+	/* Badges */
+	.secondsellerdropdown-badge-active,
+	.secondsellerdropdown-badge-paused,
+	.secondsellerdropdown-badge-pending,
+	.secondsellerdropdown-badge-modification,
+	.secondsellerdropdown-badge-draft,
+	.secondsellerdropdown-badge-declined {
+		padding: 4px;
+		border-radius: 5px;
+		height: 25px;
+		width: 25px;
+		text-align: center;
+		font-size: 14px;
+		color: #fff;
+		background-color: #00cedc;
+		/* You can change this color if needed */
+	}
+
+	/* Hover effect for links */
+	.secondsellerdropdown-link-active:hover {
+		background-color: #ebebeb;
+	}
+
+	.secondsellerdropdown-link-paused:hover {
+		background-color: #ebebeb;
+	}
+
+	.secondsellerdropdown-link-pending:hover {
+		background-color: #ebebeb;
+	}
+
+	.secondsellerdropdown-link-modification:hover {
+		background-color: #ebebeb;
+	}
+
+	.secondsellerdropdown-link-draft:hover {
+		background-color: #ebebeb;
+	}
+
+	.secondsellerdropdown-link-declined:hover {
+		background-color: #ebebeb;
+	}
+
+
+	/* OK Button */
+	.secondsellerdropdown-btn-ok {
+		background-color: #4CAF50;
+		color: white;
+		padding: 10px 20px;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		margin-top: 10px;
+	}
+
+	.secondsellerdropdown-btn-ok:hover {
+		background-color: #45a049;
+	}
+
+	/* Mobile-specific styles */
+	@media (max-width: 768px) {
+		.secondsellerdropdown-dropdown {
+			display: block;
+		}
+
+		.secondsellerdropdown-content {
+			display: none;
+		}
+
+		/* Show dropdown content on mobile */
+		.secondsellerdropdown-content.active {
+			display: block;
+		}
+	}
+
+	/* Hide on desktop */
+	@media (min-width: 1024px) {
+		.secondsellerdropdown-btn {
+			display: none;
+		}
+	}
+
+
+	/* Hide on desktop */
+	@media (min-width: 1024px) {
+
+		/* Adjust this value based on your breakpoint */
+		.firstsellerdropdown-btn {
+			display: none;
+		}
+	}
 </style>
 <div class="col-md-12 padding-40">
 	<div class="alert alert-info text-align-center mt-3 pt-3 pb-3 box-shadow-can-post">
 		You can post <?php echo $totalProposal >= $num_gigs ? 0 : $num_gigs - $totalProposal ?> number of proposals.
 	</div>
-	<div class="col_md_12 display_flex-1 mt-2 mb-2 float_right">
+	<div class="col_md_12 display_flex-1 mt-2 mb-2 float_right justify-content-center">
 		<?php if ($totalProposal >= $num_gigs) { ?>
 			<a class="btn btn-success box-shadow-new-propo" href="<?= $site_url ?>/start_selling"><i class="fa fa-plus-circle"></i> <?= $lang['button']['add_new_proposal']; ?></a>
 		<?php } else { ?>
@@ -229,8 +396,38 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 	<div class="notify_you_model">
 <div> </div>
 </div> -->
+
+	<div class="secondsellerdropdown-dropdown" id="secondsellerdropdownContainer">
+		<button class="secondsellerdropdown-btn" onclick="toggleSecondsellerDropdown()">Manage Proposals
+			<span class="secondsellerdropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+		</button>
+		<div class="secondsellerdropdown-content" id="secondsellerdropdownMenu">
+			<ul class="secondsellerdropdown-list">
+				<li class="secondsellerdropdown-item-active">
+					<a href="#" class="secondsellerdropdown-link-active">Active Proposals <span class="secondsellerdropdown-badge-active">0</span></a>
+				</li>
+				<li class="secondsellerdropdown-item-paused">
+					<a href="#" class="secondsellerdropdown-link-paused">Paused Proposals <span class="secondsellerdropdown-badge-paused">0</span></a>
+				</li>
+				<li class="secondsellerdropdown-item-pending">
+					<a href="#" class="secondsellerdropdown-link-pending">Pending Proposals <span class="secondsellerdropdown-badge-pending">0</span></a>
+				</li>
+				<li class="secondsellerdropdown-item-modification">
+					<a href="#" class="secondsellerdropdown-link-modification">Requires Modification <span class="secondsellerdropdown-badge-modification">0</span></a>
+				</li>
+				<li class="secondsellerdropdown-item-draft">
+					<a href="#" class="secondsellerdropdown-link-draft">Draft <span class="secondsellerdropdown-badge-draft">0</span></a>
+				</li>
+				<li class="secondsellerdropdown-item-declined">
+					<a href="#" class="secondsellerdropdown-link-declined">Declined <span class="secondsellerdropdown-badge-declined">0</span></a>
+				</li>
+			</ul>
+			<button class="secondsellerdropdown-btn-ok">OK</button>
+		</div>
+	</div>
+
 	<div class="clearfix"></div>
-	<div class="dropdown mt-3 seller-active-order-nitin">
+	<!-- <div class="dropdown mt-3 seller-active-order-nitin">
 		<button class="btn btn-secondary dropdown-toggle active-proposals-nitin" type="button" id="proposalDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			Active Proposals
 		</button>
@@ -254,7 +451,7 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 				<?= $lang['tabs']['declined']; ?> &nbsp; &nbsp; <span class="badge badge-success float-right"><?= $count_declined_proposals; ?></span>
 			</a>
 		</div>
-	</div>
+	</div> -->
 
 	<ul class="nav nav-tabs flex-column flex-sm-row mt-3 oldseller-section">
 		<li class="nav-item width-increased">
@@ -935,4 +1132,11 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 			});
 		});
 	</script>
+	<script>
+		function toggleSecondsellerDropdown() {
+			var dropdownMenu = document.getElementById("secondsellerdropdownMenu");
+			dropdownMenu.classList.toggle("active"); // Use class to toggle visibility
+		}
+	</script>
+
 </div>

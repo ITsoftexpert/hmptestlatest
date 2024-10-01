@@ -108,30 +108,68 @@
 
     <!-- Dropdown for smaller screens -->
     <li class="nav-item dropdown d-block d-sm-none">
-        <!-- <a class=" dropdown-toggle nav-link respo_drop_toggle make-black padding-13 text-blue" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?= $lang['tabs']['active']; ?>
-        </a> -->
         <a class="dropdown-toggle nav-link respo_drop_toggle make-black padding-13 text-blue" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Manage Proposals
         </a>
         <div class="dropdown-menu dropnitinbuyer" aria-labelledby="navbarDropdown">
             <?php
             $statuses = ['active', 'delivered', 'completed', 'cancelled', 'all'];
+            $active_label = $lang['tabs']['active']; // Assuming this is the label for active
 
             foreach ($statuses as $status) {
                 $count_orders = $db->count("orders", array("buyer_id" => $login_seller_id, "order_status" => $status));
                 $label = $lang['tabs'][$status]; // Dynamic label
-                $active_class = $status == 'active' ? 'active' : '';
 
                 echo "
-<a class='dropdown-item $active_class' href='#$status' data-toggle='tab'>
-    $label <span class='badge badge-success'>$count_orders</span>
-</a>";
+            <a class='dropdown-item' href='#$status' data-status='$status'>
+                <span class='status-label'>$label</span> 
+                <span class='badge badge-success'>$count_orders</span>
+                <span class='check-icon' style='display:none;'>✔️</span>
+            </a>";
             }
             ?>
-
+            <div class="dropdown-divider"></div>
+            <button id="confirmSelection" class="btn btn-primary btn-block">OK</button>
         </div>
     </li>
+
+    <!-- Add this JavaScript code to handle selection and confirmation -->
+    <script>
+        let selectedStatuses = [];
+
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default anchor behavior
+
+                const checkIcon = this.querySelector('.check-icon');
+                const status = this.getAttribute('data-status');
+
+                // Toggle check icon display
+                if (checkIcon.style.display === 'none') {
+                    checkIcon.style.display = 'inline';
+                    if (status === 'active') {
+                        selectedStatuses.push(status);
+                    }
+                } else {
+                    checkIcon.style.display = 'none';
+                    selectedStatuses = selectedStatuses.filter(s => s !== status);
+                }
+            });
+        });
+
+        document.getElementById('confirmSelection').addEventListener('click', function() {
+            if (selectedStatuses.length > 0) {
+                alert('Selected statuses: ' + selectedStatuses.join(', '));
+                // Optionally hide the dropdown
+                document.getElementById('navbarDropdown').setAttribute('aria-expanded', 'false');
+                document.querySelector('.dropdown-menu').classList.remove('show');
+            } else {
+                alert('No statuses selected.');
+            }
+        });
+    </script>
+
+
 
 
 

@@ -91,7 +91,7 @@ $next_icon = "
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="<?= $site_url; ?>/requests/buyer_requests" class="home-page-text-menu"><i class="fa fa-building-magnifying-glass"></i>&nbsp;&nbsp;Why us
+                <a href="<?= $site_url; ?>/requests/buyer_requests" class="home-page-text-menu"><i class="fa-solid fa-person-circle-question"></i>&nbsp;&nbsp;Why us
                 </a>
               </li>
               <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
