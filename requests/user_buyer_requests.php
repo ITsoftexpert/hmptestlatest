@@ -16,7 +16,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
             align-items: center;
         }
 
-       
+
         .badge-float-right {
             float: right;
             margin-top: -3px;
@@ -85,7 +85,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
     @media (min-width:769px) {
         #sub-category {
             /* width: auto; */
-            width: 25%;
+            width: 100%;
             margin-top: -40px !important;
         }
 
@@ -126,6 +126,12 @@ $relevant_requests = $row_general_settings->relevant_requests;
 
     .padding {
         padding: 5px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .buyer-request-head-nitin {
+            display: none;
+        }
     }
 </style>
 <ul class="nav nav-tabs mt-3">
@@ -181,13 +187,13 @@ $relevant_requests = $row_general_settings->relevant_requests;
         </li>
     <?php } ?>
 </ul>
-<div class="tab-content mt-4">
+<div class="tab-content mt-4 seller-recent-buyer-req-nitin">
     <div id="active-requests" class="tab-pane fade <?= $activetab == "active" ? "show active" : "" ?> box-shadow-buyer-request">
         <div class="box-table width-99  box-shadow-head31">
-            <h3 class="float_left ml-2 mt-3 mb-3 heading-31"> Buyer Requests </h3>
+            <h3 class="float_left ml-2 mt-3 mb-3 heading-31 buyer-request-head-nitin"> Buyer Requests </h3>
             <?php // if (isset($_SESSION['seller_user_name']) && !(isset($homePerPage))) {
             ?>
-            <select id="sub-category" class="form-control float-right sort-by mt-3 mb-3 mr-2 font-size">
+            <select id="sub-category" class="form-control float-right sort-by mt-3 mb-3 mr-0 font-size">
                 <option value="all"> All Subcategories</option>
                 <?php
                 if (!empty($where_child_id)) {

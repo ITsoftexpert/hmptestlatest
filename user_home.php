@@ -64,9 +64,9 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
         background-color: black;
     }
 
-    #sub-category {
+    /* #sub-category {
         width: auto;
-    }
+    } */
 
     .about-section-2 .nav.nav-tabs.flex-column.flex-sm-row,
     .tab-content {
