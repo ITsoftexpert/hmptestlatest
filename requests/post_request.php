@@ -438,6 +438,7 @@ if (isset($_POST['submit'])) {
 											<div class="form-group">
 												<!--SESSION START FOR REQUEST TITLE START -->
 												<?php if (isset($_SESSION['seller_user_name'])) { ?>
+													<!-- <label for="request_title">Project Title</label> -->
 													<input type="text" name="request_title" id="request_title" placeholder="<?= $lang['placeholder']['request_title']; ?>" class="form-control input-lg box-shadow-post-req" required="" value="<?php isset($form_data['request_title']) ? $form_data['request_title'] : "";  ?>" minlength="30" maxlength="150">
 												<?php } else { ?>
 													<a href="#" data-toggle="modal" data-target="#login-modal">

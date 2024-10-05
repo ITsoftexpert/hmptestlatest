@@ -398,7 +398,7 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 </div> -->
 
 	<div class="secondsellerdropdown-dropdown" id="secondsellerdropdownContainer">
-		<button class="secondsellerdropdown-btn" onclick="toggleSecondsellerDropdown()">Manage Proposals
+		<button class="secondsellerdropdown-btn" onclick="toggleSecondsellerDropdown()">Manage Requests
 			<span class="secondsellerdropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
 		</button>
 		<div class="secondsellerdropdown-content" id="secondsellerdropdownMenu">

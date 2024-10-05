@@ -84,8 +84,8 @@ $relevant_requests = $row_general_settings->relevant_requests;
 
     @media (min-width:769px) {
         #sub-category {
-            /* width: auto; */
-            width: 100%;
+            width: auto;
+            /* width: 100%; */
             margin-top: -40px !important;
         }
 
@@ -132,6 +132,179 @@ $relevant_requests = $row_general_settings->relevant_requests;
         .buyer-request-head-nitin {
             display: none;
         }
+    }
+</style>
+
+<style>
+    /* Hide the element with class buyerrequesttbl-nitin on mobile */
+    @media (max-width: 767px) {
+        .buyerrequesttbl-nitin {
+            display: none;
+        }
+    }
+
+    /* Hide the element with class mobile-request-card on desktop and larger screens */
+    @media (min-width: 768px) {
+        .mobile-request-card {
+            display: none;
+        }
+    }
+
+    /* General Styles */
+    /* body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+    } */
+
+    /* .request-list {
+        padding: 10px;
+    } */
+
+    /* Card Styles */
+    .request-card {
+        display: flex;
+        background-color: white;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        /* align-items: center; */
+    }
+
+    /* Icon Section */
+    .icon {
+        width: 40px;
+        margin-right: 15px;
+    }
+
+    .icon img {
+        width: 100%;
+    }
+
+    /* Info Section */
+    .request-info {
+        flex: 1;
+    }
+
+    .request-title {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .request-des {
+        font-size: 14px;
+        color: #6c757d;
+        margin: 5px 0;
+    }
+
+    .request-price {
+        font-size: 14px;
+        color: #28a745;
+        font-weight: bold;
+    }
+
+    .request-time {
+        font-size: 12px;
+        color: #6c757d;
+        /* margin-top: 5px; */
+    }
+
+    .rate-date-nitin-seller {
+        display: flex;
+        gap: 20px;
+    }
+
+    /* Mobile Styles */
+    @media screen and (max-width: 600px) {
+        .request-card {
+            flex-direction: row;
+        }
+    }
+
+
+
+
+
+    /* Hide the element with class buyerrequesttbl-nitin on mobile */
+    @media (max-width: 767px) {
+        .buyerrequesttbl-nitin {
+            display: none;
+        }
+    }
+
+    /* Hide the element with class offer-submitted-nitin on desktop and larger screens */
+    @media (min-width: 768px) {
+        .offer-submitted-nitin {
+            display: none;
+        }
+    }
+
+    /* General Styles */
+    .offer-card.offer-submitted-nitin {
+        display: flex;
+        background-color: white;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .offer-icon.offer-submitted-nitin {
+        width: 40px;
+        margin-right: 15px;
+    }
+
+    .offer-icon.offer-submitted-nitin img {
+        width: 100%;
+    }
+
+    .offer-info.offer-submitted-nitin {
+        flex: 1;
+    }
+
+    .offer-title.offer-submitted-nitin {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .offer-des.offer-submitted-nitin {
+        font-size: 14px;
+        color: #6c757d;
+        margin: 5px 0;
+    }
+
+    .offer-price.offer-submitted-nitin {
+        font-size: 14px;
+        color: #28a745;
+        font-weight: bold;
+    }
+
+    .offer-time.offer-submitted-nitin {
+        font-size: 12px;
+        color: #6c757d;
+    }
+
+    .rate-date.offer-submitted-nitin {
+        display: flex;
+        gap: 20px;
+    }
+
+    /* Mobile Styles */
+    @media screen and (max-width: 600px) {
+        .offer-card.offer-submitted-nitin {
+            flex-direction: row;
+        }
+    }
+
+    .duration-weeks {
+        font-weight: bold;
+        /* Make the weeks bold if desired */
+        color: #000;
+        /* Change color if necessary */
     }
 </style>
 <ul class="nav nav-tabs mt-3">
@@ -210,14 +383,14 @@ $relevant_requests = $row_general_settings->relevant_requests;
             </select>
             <?php // }
             ?>
-            <table class="table-responsive table table-bordered" id="buyerRequestsTbl">
+            <table class="table-responsive table table-bordered buyerrequesttbl-nitin" id="buyerRequestsTbl">
                 <thead class="mt-3">
                     <tr>
                         <th class="font-size-th width_55">Request</th>
-                        <th class="font-size-th text-align-center">Budget</th>
+                        <th class="font-size-th text-align-center">Offers</th>
                         <th class="font-size-th text-align-center">Date</th>
                         <th class="font-size-th text-align-center">Duration</th>
-                        <th class="font-size-th text-align-center">Offers</th>
+                        <th class="font-size-th text-align-center">Budget</th>
                     </tr>
                 </thead>
                 <tbody id="load-data">
@@ -228,6 +401,75 @@ $relevant_requests = $row_general_settings->relevant_requests;
                     </tr>
                 </tbody>
             </table>
+
+
+
+            <br>
+            <br>
+            <div class="request-list mobile-request-card">
+                <div class="request-card">
+                    <div class="icon">
+                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
+                    </div>
+                    <div class="request-info">
+                        <h3 class="request-title">Amazon Sales Growth Expert for...</h3>
+                        <p class="request-des">Amazon FBA, Internet Marketing...</p>
+                        <div class="rate-date-nitin-seller">
+                            <p class="request-price">$30 - 250 USD</p>
+                            <p class="request-time">September, 24, 2024 </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="request-card">
+                    <div class="icon">
+                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
+                    </div>
+                    <div class="request-info">
+                        <h3 class="request-title">Hotel Application Mobile App..</h3>
+                        <p class="request-des">PHP, Mobile App Development...</p>
+                        <div class="rate-date-nitin-seller">
+                            <p class="request-price">$30 - 250 USD</p>
+                            <p class="request-time">August, 28, 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="request-card">
+                    <div class="icon">
+                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
+                    </div>
+                    <div class="request-info">
+                        <h3 class="request-title">ASP.NET Developer Needed for...</h3>
+                        <p class="request-des">.NET, C# Programming, ASP.NET...</p>
+                        <div class="rate-date-nitin-seller">
+                            <p class="request-price">$30 - 250 USD</p>
+                            <p class="request-time">August, 28, 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="request-card">
+                    <div class="icon">
+                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
+                    </div>
+                    <div class="request-info">
+                        <h3 class="request-title">All-in-One Web & Mobile Sales..</h3>
+                        <p class="request-des">PHP, Website Design, Software....</p>
+                        <div class="rate-date-nitin-seller">
+                            <p class="request-price">$30 - 250 USD</p>
+                            <p class="request-time">August, 28, 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
             <nav id="pagination-buyer-requests-ajax" aria-label="Active request navigation">
             </nav>
         </div>
@@ -235,7 +477,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
     <div id="sent-offers" class="tab-pane fade <?= $activetab == "offers" ? "show active" : "" ?>">
         <div class="table-responsive box-table box-shadow-rdpy">
             <h3 class="ml-2 mt-3 mb-3 font-size-4 text-align-center padding"> OFFERS SUBMITTED </h3>
-            <table class="table table-bordered" id="offerSentTbl">
+            <table class="table table-bordered buyerrequesttbl-nitin" id="offerSentTbl">
                 <thead>
                     <tr>
                         <th class="font-size-th">Request</th>
@@ -252,6 +494,71 @@ $relevant_requests = $row_general_settings->relevant_requests;
                     </tr>
                 </tbody>
             </table>
+
+            <div class="offer-list offer-submitted-nitin">
+                <div class="offer-card offer-submitted-nitin">
+                    <div class="offer-icon offer-submitted-nitin">
+                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
+                    </div>
+                    <div class="offer-info offer-submitted-nitin">
+                        <h3 class="offer-title offer-submitted-nitin">Amazon Sales Growth Expert for...</h3>
+                        <p class="offer-des offer-submitted-nitin">Amazon FBA, Internet Marketing...</p>
+                        <div class="rate-date offer-submitted-nitin">
+                            <p class="offer-price offer-submitted-nitin">$30 - 250 USD</p>
+                            <p class="offer-duration offer-submitted-nitin">Duration: <span class="duration-weeks">2 weeks</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offer-card offer-submitted-nitin">
+                    <div class="offer-icon offer-submitted-nitin">
+                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
+                    </div>
+                    <div class="offer-info offer-submitted-nitin">
+                        <h3 class="offer-title offer-submitted-nitin">Hotel Application Mobile App..</h3>
+                        <p class="offer-des offer-submitted-nitin">PHP, Mobile App Development...</p>
+                        <div class="rate-date offer-submitted-nitin">
+                            <p class="offer-price offer-submitted-nitin">$30 - 250 USD</p>
+                            <p class="offer-duration offer-submitted-nitin">Duration: <span class="duration-weeks">2 weeks</span></p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offer-card offer-submitted-nitin">
+                    <div class="offer-icon offer-submitted-nitin">
+                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
+                    </div>
+                    <div class="offer-info offer-submitted-nitin">
+                        <h3 class="offer-title offer-submitted-nitin">ASP.NET Developer Needed for...</h3>
+                        <p class="offer-des offer-submitted-nitin">.NET, C# Programming, ASP.NET...</p>
+                        <div class="rate-date offer-submitted-nitin">
+                            <p class="offer-price offer-submitted-nitin">$30 - 250 USD</p>
+                            <p class="offer-duration offer-submitted-nitin">Duration: <span class="duration-weeks">2 weeks</span></p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offer-card offer-submitted-nitin">
+                    <div class="offer-icon offer-submitted-nitin">
+                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
+                    </div>
+                    <div class="offer-info offer-submitted-nitin">
+                        <h3 class="offer-title offer-submitted-nitin">All-in-One Web & Mobile Sales..</h3>
+                        <p class="offer-des offer-submitted-nitin">PHP, Website Design, Software....</p>
+                        <div class="rate-date offer-submitted-nitin">
+                            <p class="offer-price offer-submitted-nitin">$30 - 250 USD</p>
+                            <p class="offer-duration offer-submitted-nitin">Duration: <span class="duration-weeks">2 weeks</span></p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
             <nav id="pagination-buyer-offer-sent" aria-label="buyer offer send navigation">
             </nav>
         </div>
