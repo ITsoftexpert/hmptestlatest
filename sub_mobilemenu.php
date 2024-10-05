@@ -27,15 +27,157 @@ require_once("social-config.php");
     <script type="text/javascript" src="js/sweat_alert.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a39d50ac9681a6c"></script>
+    <style>
+        .page-container {
+            /* display: flex; */
+            margin-top: 8rem;
+        }
+
+        .custom-sidebar {
+            width: 100%;
+            /* height: 100vh; */
+            background-color: #fff;
+            color: #000;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .sidebar-header {
+            text-align: center;
+        }
+
+        .menu-section {
+            margin: 20px 0;
+        }
+
+        .menu-section h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            display: none;
+            /* Hidden by default */
+        }
+
+        .menu-item {
+            padding: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .menu-item i {
+            margin-right: 10px;
+            /* Space between icon and text */
+        }
+
+        .menu-item:hover {
+            background-color: #EBEBEB;
+        }
+
+        .show {
+            display: block;
+            /* Show the dropdown */
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+    </style>
 </head>
 
 
 <body class="is-responsive">
     <?php require_once("includes/header.php"); ?>
 
-    <h1>jdbhbcebcbechjbvchvbehc</h1>
+    <div class="page-container">
+        <div class="custom-sidebar">
+            <div class="menu-section">
+                <h3><a href="">Dashboard</a></h3>
+            </div>
+            <div class="menu-section">
+                <!-- <h3><a href=""><i class="fas fa-tachometer-alt"></i>&nbsp;&nbsp;Dashboard</a></h3> -->
+                <h3><a href="">Selling </a><i class=" fa-chevron-down dropdown-toggle" onclick="toggleDropdown('hire-dropdown')"></i></h3>
+                <ul class="menu-list dropdown" id="hire-dropdown">
+                    <li class="menu-item"><i class="fas fa-box"></i> Orders</li>
+                    <li class="menu-item"><i class="fas fa-file-alt"></i> My Proposals</li>
+                    <li class="menu-item"><i class="fas fa-tags"></i> Create A Coupon</li>
+                    <li class="menu-item"><i class="fas fa-bullhorn"></i> Buyer Requests</li>
+                    <li class="menu-item"><i class="fas fa-coins"></i> Revenues</li>
+                    <li class="menu-item"><i class="fas fa-wallet"></i> Withdrawal Requests</li>
+                </ul>
+            </div>
+            <div class="menu-section">
+                <h3><a href="">Buying</a> <i class=" fa-chevron-down dropdown-toggle" onclick="toggleDropdown('work-dropdown')"></i></h3>
+                <ul class="menu-list dropdown" id="work-dropdown">
+                    <li class="menu-item"><i class="fas fa-box-open"></i> Orders</li>
+                    <li class="menu-item"><i class="fas fa-shopping-cart"></i> Purchases</li>
+                    <li class="menu-item"><i class="fas fa-heart"></i> Favorites</li>
+                </ul>
+            </div>
+            <div class="menu-section">
+                <h3><a href="">Requests</a> <i class=" fa-chevron-down dropdown-toggle" onclick="toggleDropdown('requests-dropdown')"></i></h3>
+                <ul class="menu-list dropdown" id="requests-dropdown">
+                    <li class="menu-item"><i class="fas fa-pen"></i> Post A Request</li>
+                    <li class="menu-item"><i class="fas fa-tasks"></i> Manage Requests</li>
+                </ul>
+            </div>
+            <div class="menu-section">
+                <h3><a href="">Contacts</a> <i class=" fa-chevron-down dropdown-toggle" onclick="toggleDropdown('contacts-dropdown')"></i></h3>
+                <ul class="menu-list dropdown" id="contacts-dropdown">
+                    <li class="menu-item"><i class="fas fa-users"></i> My Buyers</li>
+                    <li class="menu-item"><i class="fas fa-store"></i> My Sellers</li>
+                </ul>
+            </div>
+            <div class="menu-section">
+                <h3><a href="">My Referrals</a> <i class=" fa-chevron-down dropdown-toggle" onclick="toggleDropdown('referrals-dropdown')"></i></h3>
+                <ul class="menu-list dropdown" id="referrals-dropdown">
+                    <li class="menu-item"><i class="fas fa-user-friends"></i> User Referrals</li>
+                    <li class="menu-item"><i class="fas fa-hand-holding-usd"></i> Proposal Referrals</li>
+                </ul>
+            </div>
+            <div class="menu-section">
+                <h3><a href="">Inbox Messages</a></h3>
+            </div>
+
+            <div class="menu-section">
+                <h3> <a href="">Notifications</a></h3>
+            </div>
+
+            <div class="menu-section">
+                <h3> <a href="">My Profile</a></h3>
+            </div>
+            <div class="menu-section">
+                <h3>Settings <i class=" fa-chevron-down dropdown-toggle" onclick="toggleDropdown('settings-dropdown')"></i></h3>
+                <ul class="menu-list dropdown" id="settings-dropdown">
+                    <li class="menu-item"><i class="fas fa-user-cog"></i> Profile Settings</li>
+                    <li class="menu-item"><i class="fas fa-briefcase"></i> Professional Settings</li>
+                    <li class="menu-item"><i class="fas fa-user-shield"></i> Account Settings</li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            function toggleDropdown(dropdownId) {
+                const dropdown = document.getElementById(dropdownId);
+                dropdown.classList.toggle('show');
+            }
+        </script>
+    </div>
 
     <?php require_once("includes/footer.php"); ?>
 </body>
+
 
 </html>
