@@ -765,19 +765,20 @@
   color: #fdd003;
 }
 
-.popular_service_div {
+/* .popular_service_div {
   width: 95%;
   margin: auto;
-  /* height: 90vh; */
-}
+  height: 90vh;
+} */
 
 .popular_service_div_60 {
-  width: 95%;
+  width: 100%;
   /* height: 60vh; */
-  margin: auto;
+  /* margin: auto; */
   margin-top: 2.5rem;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .margin-auto-link-paragraph {
@@ -786,22 +787,23 @@
 }
 
 .popular_service_title {
-  width: 24%;
-  height: 18vh;
-  margin: 0.3rem auto;
+  width: 100%;
+  /* height: 18vh; */
+  margin: auto;
   /* border: 1px solid lightgray; */
   outline: 2px solid white;
   /* background-color: #00cedc; */
   display: flex;
   /* color: white; */
+  justify-content: center;
 }
 
-.margin-auto-link {
+/* .margin-auto-link {
   width: 35%;
-}
+} */
 
 .popular_service_title:hover {
-  /* border: 1px solid grey; */
+  border-bottom: 3px solid #00cedc;
   /* outline: 2px solid grey; */
   /* background-color: #e5e5e5; */
   color: gray;

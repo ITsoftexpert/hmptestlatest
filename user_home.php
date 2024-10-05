@@ -1277,7 +1277,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
         </div>
     </div>
 </div>
-<div class="third_section_div_style desktop-view-only">
+<div class="third_section_div_style desktop-view-only d-none">
     <div class="third_sectioninner_div_style">
         <div class="third_sectioninner_60">
             <p class="margin_according_content color_theme_color">Freelance talent hub</p>

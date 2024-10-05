@@ -876,6 +876,63 @@ $slide_image = $row_slides->slide_image;
     }
   }
 </style>
+
+<style>
+  .popular_service_div {
+    padding: 30px 0;
+    background-color: #f9f9f9;
+  }
+
+  .popular_service_div h5,
+  .popular_service_div h2 {
+    margin-bottom: 20px;
+  }
+
+  .popular_service_div_60 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 0px 50px 0px 50px;
+  }
+
+  .popular_service_title {
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .popular_service_title:hover {
+    transform: translateY(-5px);
+  }
+
+  .popular_service_title img {
+    width: 100%;
+    height: 115px;
+    /* margin-bottom: 15px; */
+  }
+
+  .category_popular_paragraph {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  .margin-auto-link,
+  .margin-auto-link-paragraph {
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .desktop-view-only {
+      display: none;
+    }
+  }
+</style>
 <div class="mobile-view-only">
   <h5 class="text-center text-secondary">Popular categories</h5>
   <h2 class="text-center">Explore and hire from our most popular service categories today!</h2>
@@ -974,7 +1031,7 @@ $slide_image = $row_slides->slide_image;
   setInterval(nextSlide, 5000);
 </script>
 
-<div class="popular_service_div desktop-view-only">
+<!-- <div class="popular_service_div desktop-view-only">
   <h5 class="text-center text-secondary">Popular categories</h5>
   <h2 class="text-center">Explore and hire from our most popular service categories today!</h2>
   <div class="popular_service_div_60">
@@ -1013,6 +1070,112 @@ $slide_image = $row_slides->slide_image;
           Development</p>
       </a>
     </div>
+    <div class="popular_service_title">
+      <a href="<?= $site_url; ?>/categories/digital-marketing/Social/Social-Media-Marketing" class="margin-auto-link">
+        <img src="images/hmp/Social-Media-Marketing-icon.png" alt="" width="100%"></a>
+      <a href="<?= $site_url; ?>/categories/digital-marketing/Social/Social-Media-Marketing"
+        class="margin-auto-link-paragraph">
+        <p class="category_popular_paragraph">Social Media <br>
+          Marketing</p>
+      </a>
+    </div>
+    <div class="popular_service_title">
+      <a href="<?= $site_url; ?>/categories/ai-services/ai-development" class="margin-auto-link">
+        <img src="images/hmp/ai-management.png" alt="" width="100%"></a>
+      <a href="<?= $site_url; ?>/categories/ai-services/ai-development" class="margin-auto-link-paragraph">
+        <p class="category_popular_paragraph">AI <br> Development</p>
+      </a>
+    </div>
+    <div class="popular_service_title">
+      <a href="<?= $site_url; ?>/categories/graphics-design/Architecture-Building-Design" class="margin-auto-link">
+        <img src="images/hmp/Architecture-icon.png" alt="" width="100%"></a>
+      <a href="<?= $site_url; ?>/categories/graphics-design/Architecture-Building-Design"
+        class="margin-auto-link-paragraph">
+        <p class="category_popular_paragraph">Architecture <br> &
+          Interior Design</p>
+      </a>
+    </div>
+    <div class="popular_service_title">
+      <a href="<?= $site_url; ?>/categories/programming-tech/Data-Science-ML" class="margin-auto-link">
+        <img src="images/hmp/Data-Science-ml-icon.png" alt="" width="100%"></a>
+      <a href="<?= $site_url; ?>/categories/programming-tech/Data-Science-ML" class="margin-auto-link-paragraph">
+        <p class="category_popular_paragraph">Data Science <br> &
+          ML</p>
+      </a>
+    </div>
+    <div class="popular_service_title">
+      <a href="<?= $site_url; ?>/categories/video-animation/photography" class="margin-auto-link">
+        <img src="images/hmp/product-photoshoot-icon.png" alt="" width="100%"></a>
+      <a href="<?= $site_url; ?>/categories/video-animation/photography" class="margin-auto-link-paragraph">
+        <p class="category_popular_paragraph">Product <br>
+          Photography</p>
+      </a>
+    </div>
+    <div class="popular_service_title">
+      <a href="<?= $site_url; ?>/categories/digital-marketing/Methods-Techniques/E-Commerce-Marketing"
+        class="margin-auto-link">
+        <img src="images/hmp/E-Commerce-Marketing-icon.png" alt="" width="100%"></a>
+      <a href="<?= $site_url; ?>/categories/digital-marketing/Methods-Techniques/E-Commerce-Marketing"
+        class="margin-auto-link-paragraph">
+        <p class="category_popular_paragraph">E-Commerce <br>
+          Marketing</p>
+      </a>
+    </div>
+    <div class="popular_service_title">
+      <a href="<?= $site_url; ?>/categories/video-animation/Editing-Post-Production/Video-Editing"
+        class="margin-auto-link">
+        <img src="images/hmp/video-editing-icon.png" alt="" width="100%"></a>
+      <a href="<?= $site_url; ?>/categories/video-animation/Editing-Post-Production/Video-Editing"
+        class="margin-auto-link-paragraph">
+        <p class="category_popular_paragraph">Video <br>
+          Editing</p>
+      </a>
+    </div>
+    <div class="popular_service_title">
+      <a href="<?= $site_url; ?>/categories/ai-services/ai-content" class="margin-auto-link">
+        <img src="images/hmp/Voice-Over-icon.png" alt="" width="100%"></a>
+      <a href="<?= $site_url; ?>/categories/ai-services/ai-content" class="margin-auto-link-paragraph">
+        <p class="category_popular_paragraph"> AI <br> Content</p>
+      </a>
+    </div>
+  </div>
+</div> -->
+
+<div class="popular_service_div desktop-view-only">
+  <h5 class="text-center text-secondary">Popular categories</h5>
+  <h2 class="text-center">Explore and hire from our most popular service categories today!</h2>
+  <div class="popular_service_div_60">
+    <div class="popular_service_title">
+      <a href="<?= $site_url; ?>/categories/programming-tech/Website-Development" class="margin-auto-link">
+        <img src="images/hmp/web-development-icon.png" alt="">
+      </a>
+      <a href="<?= $site_url; ?>/categories/programming-tech/Website-Development" class="margin-auto-link-paragraph">
+        <p class="category_popular_paragraph">Website <br> Development</p>
+      </a>
+    </div>
+    <div class="popular_service_title">
+      <a href="<?= $site_url; ?>/categories/graphics-design/Logo-Brand-Identity/Logo-Design" class="margin-auto-link">
+        <img src="images/hmp/logo-design-icon.png" alt=""></a>
+      <a href="<?= $site_url; ?>/categories/graphics-design/Logo-Brand-Identity/Logo-Design" class="margin-auto-link-paragraph">
+        <p class="category_popular_paragraph">Logo <br> Design</p>
+      </a>
+    </div>
+    <div class="popular_service_title">
+      <a href="<?= $site_url; ?>/categories/digital-marketing/Search/Search-Engine-Optimization-(SEO)" class="margin-auto-link">
+        <img src="images/hmp/seo-icon.png" alt=""></a>
+      <a href="<?= $site_url; ?>/categories/digital-marketing/Search/Search-Engine-Optimization-(SEO)" class="margin-auto-link-paragraph">
+        <p class="category_popular_paragraph">SEO</p>
+      </a>
+    </div>
+    <div class="popular_service_title">
+      <a href="<?= $site_url; ?>/categories/programming-tech/Software-Development" class="margin-auto-link">
+        <img src="images/hmp/software-development-icon.png" alt=""></a>
+      <a href="<?= $site_url; ?>/categories/programming-tech/Software-Development" class="margin-auto-link-paragraph">
+        <p class="category_popular_paragraph">Software <br> Development</p>
+      </a>
+    </div>
+    <!-- Continue with the rest of the items... -->
+
     <div class="popular_service_title">
       <a href="<?= $site_url; ?>/categories/digital-marketing/Social/Social-Media-Marketing" class="margin-auto-link">
         <img src="images/hmp/Social-Media-Marketing-icon.png" alt="" width="100%"></a>
