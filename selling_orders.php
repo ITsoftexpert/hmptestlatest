@@ -36,14 +36,21 @@ $login_seller_id = $row_login_seller->seller_id;
 	<style>
 		.width-99 {
 			/* border: 2px solid green; */
-			display:flex;
+			display: flex;
 		}
-		.margin-auto{
+
+		.margin-auto {
 			/* border:1px solid yellow; */
-			margin:auto;
+			margin: auto;
 		}
-		
-	
+
+		@media (max-width: 768px) {
+
+			/* Aap is value ko apni zarurat ke hisaab se badal sakte hain */
+			.hide-on-mobile {
+				display: none;
+			}
+		}
 	</style>
 </head>
 
@@ -52,7 +59,9 @@ $login_seller_id = $row_login_seller->seller_id;
 	<div class="container-fluid mb-5 pt-5">
 		<div class="row">
 			<div class="col-md-12">
-				<h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> width-99"><span class="margin-auto"><?= $lang["titles"]["selling_orders"]; ?></span></h1>
+				<h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> width-99 hide-on-mobile">
+					<span class="margin-auto"><?= $lang["titles"]["selling_orders"]; ?></span>
+				</h1>
 			</div>
 		</div>
 		<div class="row">

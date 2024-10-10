@@ -134,7 +134,7 @@ EOT;
 			/* background-color:#f58f7a !important; */
 		}
 
-	
+
 
 		@media (max-width:768px) {
 
@@ -202,10 +202,11 @@ EOT;
 			}
 
 		}
-		@media(max-width:640px){
+
+		@media(max-width:640px) {
 			.padding-2 {
-			padding: 1px 15px;
-		}
+				padding: 1px 15px;
+			}
 		}
 
 		@media (max-width:440px) {
@@ -219,6 +220,49 @@ EOT;
 				margin-left: 110px;
 			}
 		}
+
+		/* Hide element on mobile screens */
+		@media only screen and (max-width: 767px) {
+			.hide-on-mobile {
+				display: none !important;
+				/* Hide the element on mobile */
+			}
+		}
+
+		/* Hide the button on desktop */
+		.revenue-btn-earned {
+			display: none;
+		}
+
+		/* Apply the styles on mobile (or when the screen width is below 768px) */
+		@media (max-width: 768px) {
+			.revenue-btn-earned {
+				display: flex;
+				/* Show the button on mobile */
+				color: #000 !important;
+				background-color: #ebebeb !important;
+				box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+				width: fit-content;
+				border: none;
+				padding: 11px 15px;
+				justify-content: center;
+				font-size: 17px;
+				font-weight: 600;
+				gap: 8px;
+				align-items: center;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 20px;
+			}
+
+			/* Centering the dropdown in the middle of the page */
+			.centered-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+		}
 	</style>
 </head>
 
@@ -227,7 +271,9 @@ EOT;
 	<div class="container-fluid mrg-top padding-2">
 		<div class="row">
 			<div class="col-md-12 padding-10">
-				<h2 class="pull-left flex-display"><span class="text-align-center"><?= $lang["titles"]["revenue"]; ?></span></h2>
+				<h2 class="pull-left flex-display hide-on-mobile"><span class="text-align-center"><?= $lang["titles"]["revenue"]; ?></span></h2>
+				<button class="revenue-btn-earned">Revenue Earned
+				</button>
 				<p class="lead pull-right full_width">
 					<span>Available For Withdrawal: </span><span class="font-weight-bold text-success right_float"> <?= showPrice($current_balance); ?> </span>
 				</p>
@@ -256,20 +302,20 @@ EOT;
 					<div class="card-body card-body-padding box-shadow-revanue">
 						<div class="row increase-height">
 							<div class="col-md-3 text-center border-box left-right-padding">
-								<p class="bottom-margin"> Withdrawals </p>
 								<h2 class="color_red"> <?= showPrice($withdrawn); ?></h2>
+								<p class="bottom-margin"> Withdrawals </p>
 							</div>
 							<div class="col-md-3 text-center border-box left-right-padding">
-								<p class="bottom-margin"> Used To Order Proposals/Services </p>
-								<h2 class="color_red"> <?= showPrice($used_purchases); ?></h2>
-							</div>
-							<div class="col-md-3 text-center border-box left-right-padding">
-								<p class="bottom-margin"> Pending Clearance </p>
-								<h2 class="color_red"> <?= showPrice($pending_clearance); ?></h2>
-							</div>
-							<div class="col-md-3 text-center border-box left-right-padding">
-								<p class="bottom-margin"> Available Income </p>
 								<h2 class="color_red"> <?= showPrice($current_balance); ?></h2>
+								<p class="bottom-margin"> Available Income </p>
+							</div>
+							<div class="col-md-3 text-center border-box left-right-padding">
+								<h2 class="color_red"> <?= showPrice($pending_clearance); ?></h2>
+								<p class="bottom-margin"> Pending Clearance </p>
+							</div>
+							<div class="col-md-3 text-center border-box left-right-padding">
+								<h2 class="color_red"> <?= showPrice($used_purchases); ?></h2>
+								<p class="bottom-margin"> Used To Order Proposals/Services </p>
 							</div>
 						</div>
 					</div>
@@ -310,16 +356,33 @@ EOT;
 					<?php } ?>
 
 				<?php } else { ?>
+					<div class="centered-container">
+						<label class="lead mt-1 "> Withdraw To: </label>
+						<div class="btn-group ml-2">
+							<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fa fa-arrow-down"></i> Select Payment Option
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#">
+									<i class="fa-brands fa-paypal"></i> PayPal Account
+								</a>
+								<a class="dropdown-item" href="#">
+									<i class="fa fa-university"></i> Bank Transfer
+								</a>
+								<a class="dropdown-item" href="#">
+									<i class="fa fa-credit-card"></i> Stripe Account
+								</a>
+								<a class="dropdown-item" href="#">
+									<i class="fa fa-wallet"></i> Other Payment Method
+								</a>
+							</div>
+						</div>
+					</div>
 
-					<label class="lead pull-left mt-1 align-center"> Withdraw To: </label>
-					<?php if ($enable_paypal == "yes") { ?>
-						<button class="btn btn-default ml-2" <?= $withdrawLimitText; ?>>
-							<i class="fa fa-paypal"></i> Paypal Account
-						</button>
-					<?php } ?>
+
 					<?php if ($wish_do_manual_payouts == 1 & $enable_payoneer == 1) { ?>
 						<button class="btn btn-default ml-2" <?= $withdrawLimitText; ?>>
-							<i class="fa fa-paypal"></i> Payoneer Account
+							<i class="fa-brands fa-paypal"></i> Payoneer Account
 						</button>
 					<?php } ?>
 

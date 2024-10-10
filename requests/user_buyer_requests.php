@@ -165,7 +165,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
     /* Card Styles */
     .request-card {
         display: flex;
-        background-color: white;
+        background-color: #FAFAFA;
         border-radius: 10px;
         padding: 15px;
         margin-bottom: 15px;
@@ -195,7 +195,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
     }
 
     .request-des {
-        font-size: 14px;
+        font-size: 13px;
         color: #6c757d;
         margin: 5px 0;
     }
@@ -245,7 +245,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
     /* General Styles */
     .offer-card.offer-submitted-nitin {
         display: flex;
-        background-color: white;
+        background-color: #FAFAFA;
         border-radius: 10px;
         padding: 15px;
         margin-bottom: 15px;
@@ -366,7 +366,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
             <h3 class="float_left ml-2 mt-3 mb-3 heading-31 buyer-request-head-nitin"> Buyer Requests </h3>
             <?php // if (isset($_SESSION['seller_user_name']) && !(isset($homePerPage))) {
             ?>
-            <select id="sub-category" class="form-control float-right sort-by mt-3 mb-3 mr-0 font-size">
+            <select id="sub-category" class="form-control float-right sort-by mt-3 mb-3 mr-0">
                 <option value="all"> All Subcategories</option>
                 <?php
                 if (!empty($where_child_id)) {
@@ -412,7 +412,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
                         <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
                     </div>
                     <div class="request-info">
-                        <h3 class="request-title">Amazon Sales Growth Expert for...</h3>
+                        <h3 class="request-title">Amazon Sales Growth Expert for Paradice...</h3>
                         <p class="request-des">Amazon FBA, Internet Marketing...</p>
                         <div class="rate-date-nitin-seller">
                             <p class="request-price">$30 - 250 USD</p>
@@ -426,8 +426,8 @@ $relevant_requests = $row_general_settings->relevant_requests;
                         <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
                     </div>
                     <div class="request-info">
-                        <h3 class="request-title">Hotel Application Mobile App..</h3>
-                        <p class="request-des">PHP, Mobile App Development...</p>
+                        <h3 class="request-title">Hotel Application Mobile App Develop...</h3>
+                        <p class="request-des">PHP, Mobile App Development Iphone...</p>
                         <div class="rate-date-nitin-seller">
                             <p class="request-price">$30 - 250 USD</p>
                             <p class="request-time">August, 28, 2024</p>
@@ -440,8 +440,8 @@ $relevant_requests = $row_general_settings->relevant_requests;
                         <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
                     </div>
                     <div class="request-info">
-                        <h3 class="request-title">ASP.NET Developer Needed for...</h3>
-                        <p class="request-des">.NET, C# Programming, ASP.NET...</p>
+                        <h3 class="request-title">ASP.NET Developer Needed for Web...</h3>
+                        <p class="request-des">.NET, C# Programming, ASP.NET Micro...</p>
                         <div class="rate-date-nitin-seller">
                             <p class="request-price">$30 - 250 USD</p>
                             <p class="request-time">August, 28, 2024</p>
@@ -455,7 +455,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
                     </div>
                     <div class="request-info">
                         <h3 class="request-title">All-in-One Web & Mobile Sales..</h3>
-                        <p class="request-des">PHP, Website Design, Software....</p>
+                        <p class="request-des">PHP, Website Design, Software archi...</p>
                         <div class="rate-date-nitin-seller">
                             <p class="request-price">$30 - 250 USD</p>
                             <p class="request-time">August, 28, 2024</p>

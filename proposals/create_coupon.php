@@ -45,7 +45,8 @@ $login_seller_language = $row_login_seller->seller_language;
   <style>
     .fixed {
       position: fixed;
-      top: 0;transition: all 3s linear;
+      top: 0;
+      transition: all 3s linear;
       left: 0;
       width: 100%;
       z-index: 100;
@@ -57,11 +58,22 @@ $login_seller_language = $row_login_seller->seller_language;
         padding-top: 2px;
       }
 
-   
-      .current-page-style{
-        height:6vh;
+
+      .current-page-style {
+        height: 6vh;
         font-size: 15px !important;
-        box-shadow:1px 1px 5px black;
+        box-shadow: 1px 1px 5px black;
+      }
+    }
+
+    .coupon-page-nitin {
+      margin: 200px 0px 55px 0px;
+    }
+
+    @media (max-width: 768px) {
+      .coupon-page-nitin {
+        margin: 150px 0px 40px 0px;
+        /* Adjust values as needed */
       }
     }
   </style>
@@ -69,12 +81,12 @@ $login_seller_language = $row_login_seller->seller_language;
 
 <body class="is-responsive">
   <?php require_once("../includes/user_header.php"); ?>
-  <div class="container pb-5" style="margin-top: 200px;"><!--- container Starts --->
+  <div class="container coupon-page-nitin"><!--- container Starts --->
     <div class="row">
       <div class="col-md-10 m-auto">
         <div class="card"><!--- card Starts --->
           <div class="card-header"><!--- card-header Starts --->
-            <h4 class="h4 text-align-center"><?= $lang['create_coupon']['title']; ?></h4>
+            <h4 class="h4 text-center"><?= $lang['create_coupon']['title']; ?></h4>
           </div>
           <!--- card-header Ends --->
           <div class="card-body">
@@ -85,7 +97,7 @@ $login_seller_language = $row_login_seller->seller_language;
                 <!--- form-group row Starts --->
                 <label class="col-md-3 control-label"> <?= $lang['label']['coupon_title']; ?> </label>
                 <div class="col-md-6">
-                  <input type="text" name="coupon_title" class="form-control" required>
+                  <input type="text" name="coupon_title" placeholder="coupon title" class="form-control" required>
                 </div>
               </div>
               <!--- form-group row Ends --->
@@ -108,7 +120,7 @@ $login_seller_language = $row_login_seller->seller_language;
                 <!--- form-group row Starts --->
                 <label class="col-md-3 control-label"> <?= $lang['label']['coupon_code']; ?> </label>
                 <div class="col-md-6">
-                  <input type="text" name="coupon_code" class="form-control" required>
+                  <input type="text" name="coupon_code" placeholder="coupon code" class="form-control" required>
                 </div>
               </div>
               <!--- form-group row Ends --->

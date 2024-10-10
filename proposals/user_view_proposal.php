@@ -87,13 +87,11 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 	.box-shadow-cs5 {
 		font-size: 20px;
 		width: 100%;
-		/* box-shadow: 0px 0px 1px gray, inset 0px 0px 75px #fc503d; */
 	}
 
 	.font-size-3 {
 		border: 1px solid lightgray !important;
 		text-align: center;
-		/* box-shadow: 0px 0px 5px black, inset 0px 0px 15px #00c8d4; */
 	}
 
 	.float_right {
@@ -107,48 +105,13 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 		margin-right: -9px !important;
 	}
 
-	.width-increased {
-		/* box-shadow: inset 0px 0px 15px whitesmoke; */
-	}
-
-	.width-increaseds {
-		/* box-shadow: inset 0px 0px 15px whitesmoke; */
-	}
-
-	.width-increasese {
-		/* box-shadow:inset 0px 0px 15px whitesmoke; */
-	}
-
-	.width-increases {
-		/* box-shadow: inset 0px 0px 15px whitesmoke; */
-	}
 
 	.pt-pr {
 		padding: 9px 15px 9px 9px;
 	}
 
-	.padding-40 {
-		/* padding: 1px 18px 2px 18px !important; */
-	}
-
-	.box-shadow-act-pro {
-		/* box-shadow: 0px 0px 2px gray; */
-	}
-
-	.box-shadow-can-post {
-		/* box-shadow: 0px 0px 1px black; */
-	}
-
-	.box-shadow-bg-color {
-		/* box-shadow: 0px 0px 5px black, inset 0px 0px 25px gray; */
-	}
-
-	.box-shadow-draft {
-		/* box-shadow: 0px 0px 5px black, inset 0px 0px 30px gray; */
-	}
 
 	.box-shadow-new-propo {
-		/* box-shadow: 2px 2px 5px black; */
 		background-color: #EBEBEB !important;
 		box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 		border: none !important;
@@ -181,18 +144,18 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 	}
 
 	.custom-dropdown {
-		position: relative;
+		/* position: relative; */
 		display: inline-block;
 	}
 
 	.custom-dropdown-content {
 		display: none;
 		position: absolute;
-		right: 0;
+		right: 17px;
 		background-color: white;
 		min-width: 160px;
 		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-		z-index: 1;
+		z-index: 999;
 	}
 
 	.custom-dropdown-content a {
@@ -221,6 +184,7 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 		display: block;
 		width: 100%;
 		text-align: center;
+		margin-top: 20px;
 	}
 
 	/* Button */
@@ -303,10 +267,8 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 		font-size: 14px;
 		color: #fff;
 		background-color: #00cedc;
-		/* You can change this color if needed */
 	}
 
-	/* Hover effect for links */
 	.secondsellerdropdown-link-active:hover {
 		background-color: #ebebeb;
 	}
@@ -332,7 +294,6 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 	}
 
 
-	/* OK Button */
 	.secondsellerdropdown-btn-ok {
 		background-color: #4CAF50;
 		color: white;
@@ -347,7 +308,6 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 		background-color: #45a049;
 	}
 
-	/* Mobile-specific styles */
 	@media (max-width: 768px) {
 		.secondsellerdropdown-dropdown {
 			display: block;
@@ -357,36 +317,151 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 			display: none;
 		}
 
-		/* Show dropdown content on mobile */
 		.secondsellerdropdown-content.active {
 			display: block;
 		}
+
+		.view-my-proposal-hide-on-mobile {
+			display: none;
+		}
 	}
 
-	/* Hide on desktop */
 	@media (min-width: 1024px) {
 		.secondsellerdropdown-btn {
 			display: none;
 		}
 	}
 
-
-	/* Hide on desktop */
 	@media (min-width: 1024px) {
-
-		/* Adjust this value based on your breakpoint */
 		.firstsellerdropdown-btn {
 			display: none;
 		}
 	}
+
+
+	/* byuer seller order summary page css new add */
+	.order-card {
+		border: 1px solid #e0e0e0;
+		border-radius: 8px;
+		padding: 16px;
+		max-width: 100%;
+		background-color: #fff;
+		font-family: Arial, sans-serif;
+	}
+
+	.manage-req-heading-main {
+		font-size: 13px;
+	}
+
+	@media (min-width: 1024px) {
+		.order-card {
+			display: none;
+		}
+	}
+
+	.Order-Summary {
+		margin: 0 0 10px;
+		font-size: 1.25em;
+		font-weight: bold;
+		color: #a7a9ac;
+	}
+
+	.Order-Status-textmain {
+		font-size: 1.25em;
+		color: #a7a9ac;
+	}
+
+	.order-content {
+		display: flex;
+		gap: 10px;
+		margin-bottom: 10px;
+	}
+
+	.order-image img {
+		width: 100px;
+		height: 85px;
+		border-radius: 4px;
+		object-fit: cover;
+	}
+
+	.order-text p {
+		font-size: 13px;
+		color: #333;
+	}
+
+	.order-text a {
+		color: #007bff;
+		text-decoration: none;
+	}
+
+	.order-info i {
+		margin-right: 4px;
+	}
+
+	.order-status {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-top: 1px solid #e0e0e0;
+		padding-top: 10px;
+	}
+
+	@media (max-width: 767px) {
+		.buyer-nitin-edit-sec {
+			display: none;
+		}
+	}
+
+	.info-container {
+		display: flex;
+		font-size: 0.85em;
+		color: #555;
+		gap: 40px;
+	}
+
+	.info-item {
+		position: relative;
+		cursor: pointer;
+	}
+
+	.info-item .heading {
+		position: absolute;
+		bottom: 120%;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 5px 10px;
+		background-color: rgba(0, 0, 0, 0.8);
+		color: white;
+		font-size: 14px;
+		border-radius: 5px;
+		opacity: 0;
+		pointer-events: none;
+		transition: all 0.4s ease;
+		white-space: nowrap;
+	}
+
+	.info-item:hover .heading {
+		opacity: 1;
+		bottom: 100%;
+	}
+
+	.buyer-active-orderdataby-nitin {
+		display: flex;
+		gap: 20px;
+		flex-direction: column;
+	}
+
+	.mobile-d-nones {
+		display: none;
+	}
 </style>
 <div class="col-md-12 padding-40">
-	<div class="alert alert-info text-align-center mt-3 pt-3 pb-3 box-shadow-can-post">
+	<div class="alert alert-info text-center mt-3 pt-3 pb-3 box-shadow-can-post hide-on-mobile">
 		You can post <?php echo $totalProposal >= $num_gigs ? 0 : $num_gigs - $totalProposal ?> number of proposals.
 	</div>
-	<div class="col_md_12 display_flex-1 mt-2 mb-2 float_right justify-content-center">
+	<div class="col_md_12 display_flex-1 mt-0 mb-0 float_right justify-content-center">
 		<?php if ($totalProposal >= $num_gigs) { ?>
-			<a class="btn btn-success box-shadow-new-propo" href="<?= $site_url ?>/start_selling"><i class="fa fa-plus-circle"></i> <?= $lang['button']['add_new_proposal']; ?></a>
+			<a class="btn btn-success box-shadow-new-propo hide-on-mobile mobile-d-nones" href="<?= $site_url ?>/start_selling"><i class="fa fa-plus-circle"></i> <?= $lang['button']['add_new_proposal']; ?></a>
 		<?php } else { ?>
 
 			<a class="btn btn-success box-shadow-new-propo text_center margin-auto" href="<?= $site_url ?>/proposals/create_proposal"><i class="fa fa-plus-circle"></i> <?= $lang['button']['add_new_proposal']; ?></a>
@@ -453,7 +528,7 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 		</div>
 	</div> -->
 
-	<ul class="nav nav-tabs flex-column flex-sm-row mt-3 oldseller-section">
+	<ul class="nav nav-tabs flex-column flex-sm-row mt-3 oldseller-section view-my-proposal-hide-on-mobile">
 		<li class="nav-item width-increased">
 			<a href="#active-proposals" data-toggle="tab" class="nav-link make-black <?= $active; ?> pt-pr">
 				<?= $lang['tabs']['active_proposals']; ?> &nbsp; &nbsp; <span class="badge badge-success badge-float-right"><?= $count_active_proposals; ?></span>
@@ -1035,7 +1110,7 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
 				</div> -->
 				<div class="order-text">
-					<h3 class="manage-req-heading-main">Expert in CSS and HTML: Crafting Responsive and Accessible Web Designs</h3>
+					<h3 class="manage-req-heading-main">Expert nnnnnn in CSS and HTML: Crafting Responsive and Accessible Web Designs</h3>
 					<div class="order-info">
 						<div class="info-container">
 							<div class="info-item">

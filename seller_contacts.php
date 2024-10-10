@@ -34,10 +34,21 @@
       width: calc(100% * number_of_cards);
       /* Set total width based on number of cards */
    }
+
+   @media (max-width: 768px) {
+
+      /* Adjust the width as needed */
+      .hide-on-mobile {
+         display: none;
+      }
+   }
 </style>
 
-<div class="table-responsive box-table box-shadow-table41">
-   <h4 class="heading-41 box-shadow-heading-41 "> <?= $lang['manage_contacts']['my_buyers']; ?> </h4>
+<div class=" box-table box-shadow-table41">
+   <h4 class="heading-41 box-shadow-heading-41 hide-on-mobile">
+      <?= $lang['manage_contacts']['my_buyers']; ?>
+   </h4>
+
    <table class="table table-bordered mt-3 sellers-from-whom">
       <!-- table table-hover Starts -->
       <thead>
@@ -125,7 +136,7 @@
 
 
    <div class="new-slider-container mb-3">
-      <div class="newSlider">
+      <div class="newSlider owl-carousel">
          <div class="freelancer-card">
             <div class="freelancer-header">
                <img src="https://media.istockphoto.com/id/1285124274/photo/middle-age-man-portrait.webp?a=1&b=1&s=612x612&w=0&k=20&c=wQTkPBW1rlfaFAkKanmLbpmEtiWWVH33UkndM1ib1-o=" alt="Profile Image">
@@ -258,14 +269,42 @@
    </div>
 
 
+
    <script>
+      $(document).ready(function() {
+         $(".newSlider").owlCarousel({
+            loop: true, // Set to true for autoplay to work continuously
+            margin: 10,
+            autoplay: true, // Enable autoplay
+            autoplayTimeout: 5000, // Time between transitions in milliseconds
+            autoplayHoverPause: true, // Pause on hover
+            responsive: {
+               0: {
+                  items: 1
+               },
+               640: {
+                  items: 2
+               },
+               960: {
+                  items: 3
+               },
+               1200: {
+                  items: 4
+               }
+            }
+         });
+      });
+   </script>
+
+
+   <!-- <script>
       let newSlideIndex = 0;
 
       function moveNewSlide(direction) {
          const newCards = document.querySelectorAll('.freelancer-card');
          newSlideIndex += direction;
 
-         // Reset index if out of bounds
+     
          if (newSlideIndex < 0) {
             newSlideIndex = newCards.length - 1;
          } else if (newSlideIndex >= newCards.length) {
@@ -273,12 +312,12 @@
          }
 
          const newSlider = document.querySelector('.newSlider');
-         newSlider.style.transform = `translateX(-${newSlideIndex * 100}%)`; // Move slider
+         newSlider.style.transform = `translateX(-${newSlideIndex * 100}%)`; 
       }
 
-      // Optionally, you can automatically slide the cards
-      setInterval(() => moveNewSlide(1), 5000); // Slide every 5 seconds
-   </script>
+     
+      setInterval(() => moveNewSlide(1), 5000); 
+   </script> -->
 
 
 

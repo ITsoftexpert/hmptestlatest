@@ -1752,7 +1752,7 @@ pre code {
 }
 
 .table-bordered {
-  border: 1px solid #e9ecef;
+  border: 1px solid lightgrey;
 }
 
 .table-bordered th,

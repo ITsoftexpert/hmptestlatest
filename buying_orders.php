@@ -44,6 +44,7 @@ $login_seller_id = $row_login_seller->seller_id;
 				text-align: center;
 				margin: auto;
 			}
+
 			.padding-alter1 {
 				padding: 5px 25px;
 			}
@@ -69,9 +70,18 @@ $login_seller_id = $row_login_seller->seller_id;
 				width: 100%;
 			}
 		}
-		@media(max-width:639px){
+
+		@media(max-width:639px) {
 			.padding-alter1 {
 				padding: 5px 17px;
+			}
+		}
+
+		@media (max-width: 768px) {
+
+			/* Aap is value ko apni zarurat ke hisaab se badal sakte hain */
+			.hide-on-mobile {
+				display: none;
 			}
 		}
 	</style>
@@ -82,7 +92,7 @@ $login_seller_id = $row_login_seller->seller_id;
 	<div class="container-fluid padding-alter1">
 		<div class="row">
 			<div class="col-md-12">
-				<h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> full-width"><span class="text-align-center"><?= $lang["titles"]["buying_orders"]; ?></span></h1>
+				<h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> full-width hide-on-mobile"><span class="text-align-center"><?= $lang["titles"]["buying_orders"]; ?></span></h1>
 			</div>
 			<div class="col-md-12 mt-3 mb-3 top_margin">
 				<?php include('user_buying_orders.php'); ?>

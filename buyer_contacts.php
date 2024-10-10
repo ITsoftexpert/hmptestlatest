@@ -270,15 +270,42 @@
      .chat-iconbuyer {
         cursor: pointer;
      }
+
+     .manage-contacts-btn {
+        color: #000 !important;
+        background-color: #ebebeb !important;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        width: fit-content;
+        border: none;
+        padding: 11px 15px;
+        display: flex;
+        justify-content: center;
+        font-size: 17px;
+        font-weight: 600;
+        gap: 8px;
+        align-items: center;
+        margin: auto;
+     }
+
+
+     @media (min-width: 1024px) {
+
+        /* Aap is value ko apni zarurat ke hisaab se badal sakte hain */
+        .manage-contacts-btn {
+           display: none;
+        }
+     }
   </style>
 
-  <div class="table-responsive box-table box-shadow-box-table">
-     <h4 class="heading-41 text-align-center "> <?= $lang['manage_contacts']['my_sellers']; ?> </h4>
+  <div class=" box-table box-shadow-box-table">
+     <button class="manage-contacts-btn mt-4 mb-4">Manage Contacts
+     </button>
+     <!-- <h4 class="heading-41 text-align-center "> <?= $lang['manage_contacts']['my_sellers']; ?> </h4> -->
      <table class="table table-bordered mt-3 sellers-from-whom">
         <thead>
            <tr>
               <th class="font-size-3"><?= $lang['th']['seller_name']; ?></th>
-              
+
               <th class="font-size-3"><?= $lang['th']['completed_orders']; ?></th>
               <th class="font-size-3"><?= $lang['th']['amount_spent']; ?></th>
               <th class="font-size-3"><?= $lang['th']['last_order_date']; ?></th>
@@ -360,7 +387,7 @@
 
 
      <div class="whom-slider-container mb-3">
-        <div class="whomslider">
+        <div class="whomslider owl-carousel">
            <div class="freelancer-card">
               <div class="freelancer-header">
                  <img src="https://media.istockphoto.com/id/1285124274/photo/middle-age-man-portrait.webp?a=1&b=1&s=612x612&w=0&k=20&c=wQTkPBW1rlfaFAkKanmLbpmEtiWWVH33UkndM1ib1-o=" alt="Profile Image">
@@ -440,7 +467,7 @@
                  </div>
               </div>
               <div class="freelancer-image">
-                 <img src="https://media.istockphoto.com/id/2162406436/photo/indian-woman-lady-staff-teen-girl-worker-sitting-on-desk-chair-do-work-together-indoor-office.webp?a=1&b=1&s=612x612&w=0&k=20&c=9cxqF7eAfR4LOcl0bu89x1J0xBlC0kMmaYWdu5I16Y4=" alt="Project Image">
+                 <img src="https://images.unsplash.com/photo-1631624210938-539575f92e3c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c29mdHdhcmUlMjBkZXZlbG9wbWVudHxlbnwwfHwwfHx8MA%3D%3D" alt="Project Image">
               </div>
               <div class="price-section">
                  <div class="price"><span class="amount-spent-buyernitin">Amount Spent: </span> $78.00</div>
@@ -485,26 +512,31 @@
 
 
      <script>
-        let slideIndex = 0;
-
-        function moveSlide(direction) {
-           const cards = document.querySelectorAll('.freelancer-card');
-           slideIndex += direction;
-
-           // Reset index if out of bounds
-           if (slideIndex < 0) {
-              slideIndex = cards.length - 1;
-           } else if (slideIndex >= cards.length) {
-              slideIndex = 0;
-           }
-
-           const whomslider = document.querySelector('.whomslider');
-           whomslider.style.transform = `translateX(-${slideIndex * 100}%)`; // Move slider
-        }
-
-        // Optionally, you can automatically slide the cards
-        setInterval(() => moveSlide(1), 5000); // Slide every 5 seconds
+        $(document).ready(function() {
+           $(".whomslider").owlCarousel({
+              loop: true, // Set to true for autoplay to work continuously
+              margin: 10,
+              autoplay: true, // Enable autoplay
+              autoplayTimeout: 5000, // Time between transitions in milliseconds
+              autoplayHoverPause: true, // Pause on hover
+              responsive: {
+                 0: {
+                    items: 1
+                 },
+                 640: {
+                    items: 2
+                 },
+                 960: {
+                    items: 3
+                 },
+                 1200: {
+                    items: 4
+                 }
+              }
+           });
+        });
      </script>
+
 
      <nav id="pagination-buyer-contacts" aria-label="Active request navigation">
         <?= pagination($limit, $pageNumber, $totalRows, $totalPages, $site_url . "/manage_contacts?my_sellers&page="); ?>

@@ -2708,7 +2708,8 @@ _:-ms-fullscreen,
   .nav-tabs .nav-link.active,
   .nav-tabs .nav-item.show .nav-link {
     border-color: #ddd #ddd #fff;
-    border-radius: 3px 3px 0 0;
+    border-radius: 5px;
+    background-color: #ebebeb;
   }
 
   .nav-tabs .nav-link {
@@ -2898,7 +2899,7 @@ _:-ms-fullscreen,
 @media (max-width: 767px) {
   .border-box {
     border-right: 0px;
-    border-bottom: 1.5px solid #a5a5a5;
+    /* border-bottom: 1.5px solid #a5a5a5; */
     margin-bottom: 3px;
   }
 
@@ -4500,5 +4501,6 @@ a.support-que.close {
     box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
     opacity: 1;
     animation: slideIn 0.6s ease forwards;
+    z-index: 999;
   }
 }

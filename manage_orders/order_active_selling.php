@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="styles/addnew.css">
 
+
 <div class="table-responsive box-table mt-3">
 	<table class="table table-bordered buyer-nitin-edit-sec" id="orderSellerActive">
 		<thead>

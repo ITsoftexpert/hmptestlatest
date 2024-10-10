@@ -544,6 +544,48 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
         }
     }
 
+    @media (max-width: 768px) {
+
+        /* Adjust the max-width as needed */
+        .hide-mobile {
+            display: none;
+        }
+    }
+
+    .pull-left-nitin {
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+
+        /* Adjust the width as needed */
+        .pull-left-nitin {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        /* Adjust the width as needed */
+        .mobile-style {
+            color: #000 !important;
+            background-color: #ebebeb !important;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            width: fit-content;
+            border: none;
+            padding: 11px 15px;
+            display: flex;
+            justify-content: center;
+            font-size: 17px !important;
+            font-weight: 600;
+            gap: 8px;
+            align-items: center;
+            margin: auto;
+        }
+    }
+
+
+
     /* respo-nsive-screen-for-size-between-768px-to-1600px-section-end */
 </style>
 <script>
@@ -656,7 +698,8 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
                             <!-- Buyer Contacts -->
                             <div class="row">
                                 <div class="col-md-12 mt-3">
-                                    <h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> text-align-center"><?= $lang["titles"]["manage_contacts"]; ?></h1>
+                                    <h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> text-align-center hide-mobile"><?= $lang["titles"]["manage_contacts"]; ?></h1>
+
                                 </div>
                                 <div class="col-md-12">
                                     <?php include('buyer_contacts.php'); ?>
@@ -680,7 +723,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
                             <!-- Recently Vi ewd Start -->
                             <div class="row" id="card_show">
                                 <div class="col-md-12 mt-5 mb-3 margin-top-25">
-                                    <h1 class="pull-left"> <?= $lang['sidebar']['recently_viewed']; ?> </h1>
+                                    <h1 class="pull-left-nitin"> <?= $lang['sidebar']['recently_viewed']; ?> </h1>
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <div class="row">
@@ -978,7 +1021,9 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
 
                             <div class="row" id="card_hide">
                                 <div class="col-md-12 mt-5 mb-3 margin-top-25">
-                                    <h1 class="pull-left"> <?= $lang['sidebar']['recently_viewed']; ?> </h1>
+                                    <button class="manage-contacts-btn mt-4">Recently Viewed
+                                    </button>
+                                    <!-- <h1 class="pull-left-nitin"> <?= $lang['sidebar']['recently_viewed']; ?> </h1> -->
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <div class="slider-container">
@@ -1224,7 +1269,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12 mt-5">
+                                    <div class="col-md-12 mt-4">
                                         <h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> title-selling-order-headling text-center mobile-view-seller-heading"><?= $lang["titles"]["selling_orders"]; ?></h1>
                                     </div>
                                     <div class="col-md-12 mt-3">
@@ -1233,8 +1278,11 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
                                 </div>
                                 <!-- Buyer request -->
                                 <div class="row buyer-requests">
-                                    <div class="col-md-12 mt-3">
-                                        <h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> text-align-center"><?= $lang["titles"]["buyer_requests"]; ?></h1>
+                                    <div class="col-md-12 mt-5 mb-2">
+                                        <h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> text-align-center mobile-style">
+                                            <?= $lang["titles"]["buyer_requests"]; ?>
+                                        </h1>
+
                                     </div>
                                     <div class="col-md-12">
                                         <?php
@@ -1246,7 +1294,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
                                 <!-- Proposal -->
                                 <div class="row">
                                     <div class="col-md-12 mt-3">
-                                        <h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> text-align-center"><?= $lang["titles"]["view_proposals"]; ?></h1>
+                                        <h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> text-align-center hide-on-mobile"><?= $lang["titles"]["view_proposals"]; ?></h1>
                                     </div>
                                     <div class="append-modal"></div>
                                     <?php
@@ -1258,8 +1306,8 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
                                 <!-- Buyer Contacts -->
                                 <div class="row">
 
-                                    <div class="col-md-12 mt-3">
-                                        <h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> text-align-center"><?= $lang["titles"]["manage_contacts"]; ?> </h1>
+                                    <div class="col-md-12 mt-5">
+                                        <h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> text-align-center mobile-style"><?= $lang["titles"]["manage_contacts"]; ?> </h1>
                                     </div>
                                     <div class="col-md-12 mt-3">
                                         <?php include('seller_contacts.php'); ?>
