@@ -45,6 +45,7 @@
     </a>
     <div class="dropdown-menu messages-dropdown">
     </div>
+    
   </li>
   <li class="list-inline-item align-middle position-relative font-size-18 desktop-view-afterlogin">
     <a href="<?= $site_url; ?>/favorites" class="fa fa-heart-o fa-2x heart-icon-before-login" title="<?= $lang["menu"]["favorites"]; ?>">
