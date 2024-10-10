@@ -522,7 +522,7 @@ $site_border_color = $row_general_settings->site_border_color;
             </div>
           </button>
           <div class="mobile_screen_respo_logo">
-            <img class="mobile_screen_respo_logo_img" src="<?= $site_logo_image; ?>" height="25">
+            <a href="<?= $site_url; ?>"><img class="mobile_screen_respo_logo_img" src="<?= $site_logo_image; ?>" height="25"></a>
             <!-- <a href="<?= $site_url; ?>" class="style-display-flex-a">
                         <img class="mobile-pic-respo-sett" src="<?= $site_logo_image; ?>">
                     </a> -->

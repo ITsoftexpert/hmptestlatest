@@ -47,7 +47,7 @@ $next_icon = "
           </button>
           <div class="flex-xs-4 width-full pt-md-4 pb-md-4 pl-xs-2">
             <h6 id="mobile-catnav-header-title" class="text-left position-absolute vertical-center">
-              <img width="170" class="mobile-menu-logo" src="<?= $site_logo_image; ?>" alt="mobile-menu-logo">
+              <a href="<?= $site_url; ?>"><img width="170" class="mobile-menu-logo" src="<?= $site_logo_image; ?>" alt="mobile-menu-logo"></a>
               <!-- <a href="<?= $site_url; ?>"><img src="images/<?= $site_favicon; ?>" class="rounded" title='Home' alt='Home' /></a> -->
             </h6>
             <h6 id="mobile-sub-catnav-header-title" class="text-center position-absolute position-left position-right vertical-center pl-md-8 pr-md-8"></h6>
@@ -216,7 +216,11 @@ $next_icon = "
               </span>
             </button>
             <div class="flex-xs-4 width-full pt-md-4 pb-md-4 pl-xs-2">
-              <h6 id="mobile-catnav-header-title" class="text-left position-absolute vertical-center">User Menu</h6>
+              <!-- <h6 id="mobile-catnav-header-title" class="text-left position-absolute vertical-center">User Menu</h6> -->
+              <h6 id="mobile-catnav-header-title" class="text-left position-absolute vertical-center">
+                <a href="<?= $site_url; ?>"><img width="170" class="mobile-menu-logo" src="<?= $site_logo_image; ?>" alt="mobile-menu-logo"></a>
+                <!-- <a href="<?= $site_url; ?>"><img src="images/<?= $site_favicon; ?>" class="rounded" title='Home' alt='Home' /></a> -->
+              </h6>
               <h6 id="mobile-sub-catnav-header-title" class="text-center position-absolute position-left position-right vertical-center pl-md-8 pr-md-8"></h6>
               <h6 id="mobile-tertiary-catnav-header-title" class="text-center position-absolute position-left position-right vertical-center pl-md-8 pr-md-8 display-none"></h6>
             </div>
@@ -274,65 +278,7 @@ $next_icon = "
                     </div>
                   </a>
                 </li>
-                <!-- <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only" data-uid="d-1" data-name="<?= $lang["menu"]['dashboard']; ?>">
-                  <a href="#">
-                    <div class="flag">
-                      <span class="gigtodo-icon icon-smaller mr-2">
-                        <?php include($dir . "images/svg/dashboard.svg"); ?>
-                      </span>
-                      <div class="flag-body">
-                        <?= $lang["menu"]['dashboard']; ?>
-                      </div>
-                      <?= $next_icon; ?>
-                    </div>
-                  </a>
-                </li> -->
-                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
-                  <!-- <a href="<?= $site_url; ?>/notifications">
-                    <div class="flag">
-                      <span class="gigtodo-icon icon-smaller mr-2">
-                        <?php include($dir . "images/svg/notification.svg"); ?>
-                      </span>
-                      <div class="flag-body">
-                        Notifications
-                        <?php if ($count_unread_notifications > 0) { ?>
-                          <span class="badge badge-pill badge-danger"> <?= $count_unread_notifications; ?> New</span>
-                        <?php } ?>
-                      </div>
-                    </div>
-                  </a> -->
-                </li>
 
-                <!-- <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
-                  <a href="<?= $site_url; ?>/favorites">
-                    <div class="flag">
-                      <span class="gigtodo-icon icon-smaller mr-2">
-                        <?php include($dir . "images/svg/heart.svg"); ?>
-                      </span>
-                      <div class="flag-body">
-                        Favorites
-                        <?php if ($count_favourites > 0) { ?>
-                          <span class="badge badge-pill badge-danger"> <?= $count_favourites; ?></span>
-                        <?php } ?>
-                      </div>
-                    </div>
-                  </a>
-                </li> -->
-                <!-- <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
-                  <a href="<?= $site_url; ?>/cart">
-                    <div class="flag">
-                      <span class="gigtodo-icon icon-smaller mr-2">
-                        <?php include($dir . "images/svg/basket.svg"); ?>
-                      </span>
-                      <div class="flag-body">
-                        Cart
-                        <?php if ($count_cart > 0) { ?>
-                          <span class="badge badge-pill badge-danger"> <?= $count_cart; ?></span>
-                        <?php } ?>
-                      </div>
-                    </div>
-                  </a>
-                </li> -->
                 <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
                   <a href="<?= $site_url; ?>/logout">
                     <div class="flag">
