@@ -12876,3 +12876,11 @@ button.btn:focus {
   font-size: 18px;
   font-weight: 600;
 }
+.mobile-menu-login:hover {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+.balance-username-nitin:hover {
+  color: #fff !important;
+}

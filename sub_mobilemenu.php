@@ -81,9 +81,9 @@ require_once("social-config.php");
             /* Space between icon and text */
         }
 
-        .menu-item:hover {
+        /* .menu-item:hover {
             background-color: #EBEBEB;
-        }
+        } */
 
         .show {
             display: block;
@@ -104,66 +104,66 @@ require_once("social-config.php");
     <div class="page-container">
         <div class="custom-sidebar">
             <div class="menu-section">
-                <h3><a href="">Dashboard</a></h3>
+                <h3><a href="<?= $site_url; ?>/dashboard">Dashboard</a></h3>
             </div>
             <div class="menu-section">
                 <!-- <h3><a href=""><i class="fas fa-tachometer-alt"></i>&nbsp;&nbsp;Dashboard</a></h3> -->
                 <h3><a href="">Selling </a><i class=" fa-chevron-down dropdown-toggle" onclick="toggleDropdown('hire-dropdown')"></i></h3>
                 <ul class="menu-list dropdown" id="hire-dropdown">
-                    <li class="menu-item"><i class="fas fa-box"></i> Orders</li>
-                    <li class="menu-item"><i class="fas fa-file-alt"></i> My Proposals</li>
-                    <li class="menu-item"><i class="fas fa-tags"></i> Create A Coupon</li>
-                    <li class="menu-item"><i class="fas fa-bullhorn"></i> Buyer Requests</li>
-                    <li class="menu-item"><i class="fas fa-coins"></i> Revenues</li>
-                    <li class="menu-item"><i class="fas fa-wallet"></i> Withdrawal Requests</li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/selling_orders"><i class="fas fa-box"></i> Orders</a></li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/proposals/view_proposals"><i class="fas fa-file-alt"></i> My Proposals</a></li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/proposals/create_coupon"><i class="fas fa-tags"></i> Create A Coupon</a></li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/requests/buyer_requests"><i class="fas fa-bullhorn"></i> Buyer Requests</a></li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/revenue"><i class="fas fa-coins"></i> Revenues</a></li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/withdrawal_requests"><i class="fas fa-wallet"></i> Withdrawal Requests</a></li>
                 </ul>
             </div>
             <div class="menu-section">
                 <h3><a href="">Buying</a> <i class=" fa-chevron-down dropdown-toggle" onclick="toggleDropdown('work-dropdown')"></i></h3>
                 <ul class="menu-list dropdown" id="work-dropdown">
-                    <li class="menu-item"><i class="fas fa-box-open"></i> Orders</li>
-                    <li class="menu-item"><i class="fas fa-shopping-cart"></i> Purchases</li>
-                    <li class="menu-item"><i class="fas fa-heart"></i> Favorites</li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/buying_orders"><i class="fas fa-box-open"></i>Orders</a></li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/purchases"><i class="fas fa-shopping-cart"></i> Purchases</a></li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/favorites"><i class="fas fa-heart"></i> Favorites</a></li>
                 </ul>
             </div>
             <div class="menu-section">
                 <h3><a href="">Requests</a> <i class=" fa-chevron-down dropdown-toggle" onclick="toggleDropdown('requests-dropdown')"></i></h3>
                 <ul class="menu-list dropdown" id="requests-dropdown">
-                    <li class="menu-item"><i class="fas fa-pen"></i> Post A Request</li>
-                    <li class="menu-item"><i class="fas fa-tasks"></i> Manage Requests</li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/requests/post_request"><i class="fas fa-pen"></i> Post A Request</a></li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/requests/manage_requests"><i class="fas fa-tasks"></i> Manage Requests</a></li>
                 </ul>
             </div>
             <div class="menu-section">
                 <h3><a href="">Contacts</a> <i class=" fa-chevron-down dropdown-toggle" onclick="toggleDropdown('contacts-dropdown')"></i></h3>
                 <ul class="menu-list dropdown" id="contacts-dropdown">
-                    <li class="menu-item"><i class="fas fa-users"></i> My Buyers</li>
-                    <li class="menu-item"><i class="fas fa-store"></i> My Sellers</li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/manage_contacts?my_buyers"><i class="fas fa-users"></i> My Buyers</a></li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/manage_contacts?my_sellers"><i class="fas fa-store"></i> My Sellers</a></li>
                 </ul>
             </div>
             <div class="menu-section">
                 <h3><a href="">My Referrals</a> <i class=" fa-chevron-down dropdown-toggle" onclick="toggleDropdown('referrals-dropdown')"></i></h3>
                 <ul class="menu-list dropdown" id="referrals-dropdown">
-                    <li class="menu-item"><i class="fas fa-user-friends"></i> User Referrals</li>
-                    <li class="menu-item"><i class="fas fa-hand-holding-usd"></i> Proposal Referrals</li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/my_referrals"><i class="fas fa-user-friends"></i> User Referrals</a></li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/proposal_referrals"><i class="fas fa-hand-holding-usd"></i> Proposal Referrals</a></li>
                 </ul>
             </div>
             <div class="menu-section">
-                <h3><a href="">Inbox Messages</a></h3>
+                <h3><a href="<?= $site_url; ?>/conversations/inbox">Inbox Messages</a></h3>
             </div>
 
             <div class="menu-section">
-                <h3> <a href="">Notifications</a></h3>
+                <h3> <a href="<?= $site_url; ?>/notifications">Notifications</a></h3>
             </div>
 
             <div class="menu-section">
-                <h3> <a href="">My Profile</a></h3>
+                <h3> <a href="<?= $site_url; ?>/<?= $_SESSION['seller_user_name']; ?>">My Profile</a></h3>
             </div>
             <div class="menu-section">
                 <h3>Settings <i class=" fa-chevron-down dropdown-toggle" onclick="toggleDropdown('settings-dropdown')"></i></h3>
                 <ul class="menu-list dropdown" id="settings-dropdown">
-                    <li class="menu-item"><i class="fas fa-user-cog"></i> Profile Settings</li>
-                    <li class="menu-item"><i class="fas fa-briefcase"></i> Professional Settings</li>
-                    <li class="menu-item"><i class="fas fa-user-shield"></i> Account Settings</li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/settings?profile_settings"><i class="fas fa-user-cog"></i> Profile Settings</a></li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/settings?professional_settings"><i class="fas fa-briefcase"></i> Professional Settings</a></li>
+                    <li class="menu-item"><a href="<?= $site_url; ?>/settings?account_settings"><i class="fas fa-user-shield"></i> Account Settings</a></li>
                 </ul>
             </div>
         </div>

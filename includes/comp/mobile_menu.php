@@ -238,17 +238,17 @@ $next_icon = "
           <div data-ui="mobile-catnav-scroll-wrapper" class="height-full overflow-y-scroll">
             <div class="mobile-topnav bg-white animated">
               <ul class="mobile-top-catnav-container list-unstyled mobile-catnav-margin">
-                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
+                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only ">
                   <a href="#">
                     <div class="flag">
                       <i class="fa-solid fa-user"></i>&nbsp;&nbsp;
-                      <span>Username</span>
+                      <span class="home-page-text-menu">Username</span>
                     </div>
                   </a>
                 </li>
                 <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
                   <i class="fa-solid fa-hand-holding-dollar"></i>&nbsp;&nbsp;
-                  <a href="" class="btn theme-btn m-0">
+                  <a href="" class="btn theme-btn m-0 balance-username-nitin">
                     <span></span>
 
                     <?= showPrice($current_balance); ?>
@@ -258,7 +258,7 @@ $next_icon = "
                   <a href="<?= $site_url; ?>/settings?profile_settings">
                     <div class="flag">
                       <i class="fa-duotone fa-solid fa-gear"></i>&nbsp;&nbsp;
-                      <span>Settings</span>
+                      <span class="home-page-text-menu">Settings</span>
                     </div>
                   </a>
                 </li>
@@ -266,7 +266,7 @@ $next_icon = "
                   <a href="<?= $site_url; ?>/kumarji">
                     <div class="flag">
                       <i class="fa-solid fa-address-card"></i>&nbsp;&nbsp;
-                      <span>My Profile</span>
+                      <span class="home-page-text-menu">My Profile</span>
                     </div>
                   </a>
                 </li>
@@ -274,21 +274,25 @@ $next_icon = "
                   <a href="<?= $site_url; ?>/customer_support">
                     <div class="flag">
                       <i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;
-                      <span>Help</span>
+                      <span class="home-page-text-menu">Help</span>
                     </div>
                   </a>
                 </li>
 
-                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
+                <!-- <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only ">
                   <a href="<?= $site_url; ?>/logout">
                     <div class="flag">
                       <span class="gigtodo-icon icon-smaller mr-2">
                         <?php include($dir . "images/svg/logout.svg"); ?>
                       </span>
-                      <div class="flag-body">
+                      <div class="flag-body ">
                         <?= $lang["menu"]['logout']; ?>
                       </div>
                     </div>
+                  </a>
+                </li> -->
+                <li class="p-xs-1 bb-xs-1 text-body-larger top-nav-item menu-login">
+                  <a href="<?= $site_url; ?>/logout" class=" mobile-menu-login"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Logout
                   </a>
                 </li>
               </ul>
