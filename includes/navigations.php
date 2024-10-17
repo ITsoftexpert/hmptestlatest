@@ -16,6 +16,7 @@
 
   .afterlogin-nitin-bottom-icon {
     font-size: 28px;
+    color: #000;
   }
 
   @media (max-width: 420px) {

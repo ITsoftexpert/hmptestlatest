@@ -33,6 +33,7 @@ $login_seller_id = $row_login_seller->seller_id;
 	<link href="styles/styles.css" rel="stylesheet">
 	<link href="styles/user_nav_styles.css" rel="stylesheet">
 	<link href="font_awesome/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="styles/addnew.css">
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 
 	<?php if (!empty($site_favicon)) { ?>
@@ -63,7 +64,148 @@ $login_seller_id = $row_login_seller->seller_id;
 				font-weight: 500;
 			}
 
-		
+
+		}
+
+
+		@media (max-width: 768px) {
+
+			/* Adjust the max-width according to your design breakpoints */
+			.withdrawal-req-heading {
+				color: #000 !important;
+				background-color: #ebebeb !important;
+				box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+				width: fit-content;
+				border: none;
+				padding: 11px 15px;
+				display: flex;
+				justify-content: center;
+				font-size: 17px;
+				font-weight: 600;
+				gap: 8px;
+				align-items: center;
+				margin: auto;
+			}
+		}
+
+
+		.buyer-active-order-data-nitin {
+			display: flex;
+			gap: 20px;
+			flex-direction: column;
+		}
+
+		@media (min-width: 768px) {
+
+			/* Adjust the min-width according to your design breakpoints */
+			.buyer-active-order-data-nitin {
+				display: none;
+				/* This will hide the element on desktop screens */
+			}
+		}
+
+		.order-card-nitin {
+			border: 1px solid #e0e0e0;
+			border-radius: 8px;
+			padding: 16px;
+			max-width: 100%;
+			background-color: #fff;
+			font-family: Arial, sans-serif;
+		}
+
+		.order-content-nitin {
+			display: flex;
+			gap: 10px;
+			margin-bottom: 10px;
+		}
+
+		.ref-no-nitin {
+			font-size: 1.25em;
+			font-weight: bold;
+			color: #333;
+			margin-bottom: 10px;
+		}
+
+		.ref-value-nitin {
+			color: red;
+			/* Set Ref No value color to red */
+		}
+
+		.info-container-nitin {
+			display: flex;
+			font-size: 0.85em;
+			margin: 12px 0;
+			color: #555;
+			gap: 20px;
+		}
+
+		.buyer-offer-img-nitin {
+			width: 18px;
+		}
+
+		.offer-number-nitin {
+			font-weight: bold;
+			/* Make offer number bold */
+			/* color: red; */
+			/* Set offer number color to red */
+		}
+
+		.order-status-nitin {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			border-top: 1px solid #e0e0e0;
+			padding-top: 10px;
+		}
+
+		.order-status-text-main-nitin {
+			font-size: 1.25em;
+			color: #a7a9ac;
+		}
+
+		.status-completed-nitin {
+			font-weight: bold;
+			color: white;
+			/* Change text color for better visibility */
+			background-color: green;
+			/* Set background color to green */
+			padding: 5px 15px 5px 15px;
+			/* Add some padding for better appearance */
+			border-radius: 4px;
+			/* Round the corners */
+		}
+
+		.status-pending-nitin {
+			font-weight: bold;
+			color: white;
+			/* Change text color for better visibility */
+			background-color: orange;
+			/* Set background color to green */
+			padding: 5px 15px 5px 15px;
+			/* Add some padding for better appearance */
+			border-radius: 4px;
+			/* Round the corners */
+		}
+
+		.status-declined-nitin {
+			font-weight: bold;
+			color: white;
+			/* Change text color for better visibility */
+			background-color: red;
+			/* Set background color to green */
+			padding: 5px 15px 5px 15px;
+			/* Add some padding for better appearance */
+			border-radius: 4px;
+			/* Round the corners */
+		}
+
+		@media (max-width: 767px) {
+
+			/* Adjust this width based on your mobile breakpoint */
+			.withdrawal-req-mobile-hide {
+				display: none;
+				/* Hide on mobile devices */
+			}
 		}
 	</style>
 
@@ -82,18 +224,14 @@ $login_seller_id = $row_login_seller->seller_id;
 			<div class="col-md-12 mt-5">
 				<!-- col-md-12 mt-5 Starts -->
 
-				<h1 class="mb-4 text-align-center"> Withdrawal Requests </h1>
+				<h1 class="mb-4 text-align-center withdrawal-req-heading"> Withdrawal Requests </h1>
 
-				<div class="table-responsive box-table">
+				<div class="table-responsive box-table withdrawal-req-mobile-hide">
 					<!-- table-responsive box-table Starts -->
 
 					<table class="table table-hover">
-						<!-- table table-hover Starts -->
-
 						<thead>
-
 							<tr>
-
 								<th class="font-size-3"><?= $lang['th']['no']; ?></th>
 
 								<th class="font-size-3"><?= $lang['th']['ref_no']; ?></th>
@@ -105,11 +243,8 @@ $login_seller_id = $row_login_seller->seller_id;
 								<th class="font-size-3"><?= $lang['th']['method']; ?></th>
 
 								<th class="font-size-3"><?= $lang['th']['status']; ?></th>
-
 							</tr>
-
 						</thead>
-
 						<tbody>
 
 							<?php
@@ -238,7 +373,102 @@ $login_seller_id = $row_login_seller->seller_id;
 
 					</table><!-- table table-hover Ends -->
 
+
 				</div><!-- table-responsive box-table Ends -->
+
+				<div class="buyer-active-order-data-nitin">
+					<!-- Completed Status -->
+					<div class="order-card-nitin">
+						<div class="order-content-nitin">
+							<div class="order-text-nitin">
+								<span class="ref-no-nitin">Ref No: <span class="ref-value-nitin" style="color: red;">12345</span></span> <!-- Ref No remains bold -->
+								<div class="order-info-nitin">
+									<div class="info-container-nitin">
+										<div class="info-item">
+											<i class="fas fa-calendar"></i> July 24, 2024
+											<span class="heading">Date</span>
+										</div>
+										<div class="info-item">
+											<i class="fa-brands fa-paypal"></i>
+											<span class="offer-number-nitin">Paypal</span> <!-- Offer number -->
+											<span class="heading">Method</span>
+										</div>
+										<div class="info-item">
+											<i class="fa-solid fa-sack-dollar"></i> 22.00
+											<span class="heading">Amount</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="order-status-nitin">
+							<span class="order-status-text-main-nitin">Status: </span>
+							<span class="status-completed-nitin">Completed</span>
+						</div>
+					</div>
+
+					<!-- Pending Status -->
+					<div class="order-card-nitin">
+						<div class="order-content-nitin">
+							<div class="order-text-nitin">
+								<span class="ref-no-nitin">Ref No: <span class="ref-value-nitin" style="color: red;">12346</span></span> <!-- Ref No remains bold -->
+								<div class="order-info-nitin">
+									<div class="info-container-nitin">
+										<div class="info-item">
+											<i class="fas fa-calendar"></i> July 24, 2024
+											<span class="heading">Date</span>
+										</div>
+										<div class="info-item">
+											<i class="fa-brands fa-paypal"></i>
+											<span class="offer-number-nitin">Paypal</span> <!-- Offer number -->
+											<span class="heading">Method</span>
+										</div>
+										<div class="info-item">
+											<i class="fa-solid fa-sack-dollar"></i> 22.00
+											<span class="heading">Amount</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="order-status-nitin">
+							<span class="order-status-text-main-nitin">Status: </span>
+							<span class="status-pending-nitin">Pending</span>
+						</div>
+					</div>
+
+					<!-- Declined Status -->
+					<div class="order-card-nitin">
+						<div class="order-content-nitin">
+							<div class="order-text-nitin">
+								<span class="ref-no-nitin">Ref No: <span class="ref-value-nitin" style="color: red;">12347</span></span> <!-- Ref No remains bold -->
+								<div class="order-info-nitin">
+									<div class="info-container-nitin">
+										<div class="info-item">
+											<i class="fas fa-calendar"></i> July 24, 2024
+											<span class="heading">Date</span>
+										</div>
+										<div class="info-item">
+											<i class="fa-brands fa-paypal"></i>
+											<span class="offer-number-nitin">Paypal</span> <!-- Offer number -->
+											<span class="heading">Method</span>
+										</div>
+										<div class="info-item">
+											<i class="fa-solid fa-sack-dollar"></i> 22.00
+											<span class="heading">Amount</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="order-status-nitin">
+							<span class="order-status-text-main-nitin">Status: </span>
+							<span class="status-declined-nitin">Declined</span>
+						</div>
+					</div>
+				</div>
+
+
 
 			</div><!-- col-md-12 mt-5 Ends -->
 

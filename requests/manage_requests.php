@@ -37,7 +37,7 @@ $login_seller_id = $row_login_seller->seller_id;
             padding: 9px 15px;
         }
 
-        @media (max-width:641px)  and (max-width:767px) {
+        @media (max-width:641px) and (max-width:767px) {
             .top-padding {
                 /* border:1px solid green; */
                 padding: 2px 0px 0px 1px;
@@ -51,15 +51,17 @@ $login_seller_id = $row_login_seller->seller_id;
 
         }
 
-        @media (max-width:640px){
+        @media (max-width:640px) {
             .width-increase-5 {
                 width: 100%;
                 height: 40px;
                 /* box-shadow: 0px 0px 1px gray, inset 0px 0px 15px #d5f5ee; */
             }
+
             .padding-alter4 {
                 padding: 0px 0px;
             }
+
             .top-padding {
                 /* border:1px solid green; */
                 padding: 2px 0px 0px 1px;
@@ -87,6 +89,20 @@ $login_seller_id = $row_login_seller->seller_id;
                 padding: 0px 15px;
             }
         }
+
+        @media (max-width: 767px) {
+            .hide-on-mobile {
+                display: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            .col-md-12.mb-2.pb-3 {
+                margin-bottom: 0 !important;
+                padding-bottom: 0 !important;
+            }
+        }
     </style>
 </head>
 
@@ -95,8 +111,13 @@ $login_seller_id = $row_login_seller->seller_id;
     <div class="container-fluid px-5 py-5">
         <div class="row padding-alter4">
             <div class="col-md-12 mb-2 pb-3">
-                <h1 class="pull-left top-padding mt-1"> <span class="text-align-center1"> <?= $lang["titles"]["manage_requests"]; ?> </span></h1>
-                <a href="post_request" class="btn btn-success pull-right pt-2 mt-1 width-increase-5">
+                <h1 class="pull-left hide-on-mobile">
+                    <span class="text-align-center1">
+                        <?= $lang["titles"]["manage_requests"]; ?>
+                    </span>
+                </h1>
+
+                <a href="post_request" class="btn btn-success pull-right pt-2 mt-1 width-increase-5 hide-on-mobile">
                     <i class="fa fa-plus-circle"></i> Post New Request
                 </a>
             </div>

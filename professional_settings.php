@@ -361,7 +361,7 @@ $form_data = Flash::render("form_data");
                     margin: 1px 0;
                     border-radius: 5px;
                     padding: 10px;
-                    color: #007bff;
+                    color: black;
                     border: 1px solid grey;
                 }
 

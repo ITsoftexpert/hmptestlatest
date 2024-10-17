@@ -2,13 +2,24 @@
   .how_it_works_link a:hover {
     color: grey !important;
   }
+
+  .anchor-tag-text-color {
+    color: black;
+    /* text-decoration: none; */
+  }
+
+  .anchor-tag-text-color:hover {
+    color: #00c8d4;
+    text-decoration: none;
+
+  }
 </style>
 <div class="sub_header col-xs-12 sm-hidden box-shadow-cat-nav">
   <div class="sub_header_inner row">
     <div class="col-sm-6">
       <ul class="sub_header_menu">
         <li>
-          <a href="<?= $site_url ?>/categories/graphics-design">
+          <a class="anchor-tag-text-color" href="<?= $site_url ?>/categories/graphics-design">
             <i class="fa fa-search"></i> Hire By Category
           </a>
         </li>
@@ -18,13 +29,13 @@
           </a> -->
           <?php if (isset($_SESSION['seller_user_name'])) {
           ?>
-            <a href="<?= $site_url ?>/requests/post_request">
+            <a class="anchor-tag-text-color" href="<?= $site_url ?>/requests/post_request">
               <i class="fa fa-pencil"></i> Post Job Free
             </a>
           <?php
           } else {
           ?>
-            <a href="<?= $site_url ?>/login">
+            <a class="anchor-tag-text-color" href="<?= $site_url ?>/login">
               <i class="fa fa-pencil"></i> Post Job Free
             </a>
           <?php
@@ -34,13 +45,13 @@
 
         </li>
         <li>
-          <a href="<?= $site_url ?>/freelancers">
+          <a class="anchor-tag-text-color" href="<?= $site_url ?>/freelancers">
             <i class="fa fa-user"></i> Hire an Expert
           </a>
         </li>
         <?php if (isset($_SESSION['seller_user_name'])) { ?>
           <li>
-            <a href="<?= $site_url ?>/requests/buyer_requests">
+            <a class="anchor-tag-text-color" href="<?= $site_url ?>/requests/buyer_requests">
               <i class="fa fa-user"></i> Find Job
             </a>
           </li>

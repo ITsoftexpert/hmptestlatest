@@ -36,39 +36,45 @@ $login_seller_id = $row_login_seller->seller_id;
     <link rel="shortcut icon" href="<?= $site_favicon; ?>" type="image/x-icon">
   <?php } ?>
   <style>
-    
     .font-size-3 {
-        /* font-size: 11px !important; */
-        padding: 13px !important;
-        text-align: center;
-        /* box-shadow: 0px 0px 5px black, inset 0px 0px 15px #00c8d4; */
-      }
-      .bg-color{
+      /* font-size: 11px !important; */
+      padding: 13px !important;
+      text-align: center;
+      /* box-shadow: 0px 0px 5px black, inset 0px 0px 15px #00c8d4; */
+    }
+
+    .bg-color {
       background-color: #f5c6cb;
       /* height:30vh; */
       /* padding-top:10vh !important; */
       /* box-shadow: inset 0px 0px 75px red; */
       /* margin: auto; */
     }
-    .table{
-      margin-bottom:0px;
+
+    .table {
+      margin-bottom: 0px;
     }
-    .box-shadow-purchase{
+
+    .box-shadow-purchase {
       /* box-shadow: 0px 0px 5px black; */
       border-radius: 3px;
     }
-    .padding-alter-2{
+
+    .padding-alter-2 {
       padding: 2rem 3rem;
     }
+
     @media (max-width:768px) {
       .text-align-center {
         text-align: center;
         /* border: 1px solid green; */
         margin: auto;
       }
-      .padding-alter-2{
-      padding: 5px 15px;
-    }
+
+      .padding-alter-2 {
+        padding: 5px 15px;
+      }
+
       .full-width {
         width: 100%;
         /* border:1px solid blue; */
@@ -87,12 +93,30 @@ $login_seller_id = $row_login_seller->seller_id;
         font-size: 20px;
         width: 100%;
       }
-      
-	
-    .bg-color{
-      background-color: #f5c6cb;
+
+
+      .bg-color {
+        background-color: #f5c6cb;
+      }
+
     }
 
+    @media (max-width: 767px) {
+      .purchase-page-heading-nitin {
+        color: #000 !important;
+        background-color: #ebebeb !important;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        width: fit-content;
+        border: none;
+        padding: 11px 15px;
+        display: flex;
+        justify-content: center;
+        font-size: 17px;
+        font-weight: 600;
+        gap: 8px;
+        align-items: center;
+        margin: auto;
+      }
     }
   </style>
 </head>
@@ -103,7 +127,7 @@ $login_seller_id = $row_login_seller->seller_id;
   <div class="container-fluid padding-alter-2">
     <div class="row">
       <div class="col-md-12 mt-4">
-        <h3 class="mb-4 <?= ($lang_dir == "right" ? 'text-right' : '') ?> full-width"><span class="text-align-center"><?= $lang["titles"]["purchases"]; ?></span></h3>
+        <h3 class="mb-4 <?= ($lang_dir == "right" ? 'text-right' : '') ?> full-width purchase-page-heading-nitin"><span class="text-align-center"><?= $lang["titles"]["purchases"]; ?></span></h3>
         <div class="table-responsive box-table box-shadow-purchase">
           <table class="table table-bordered">
             <thead>

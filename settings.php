@@ -142,8 +142,14 @@ if ($oSellerWeight) {
 			border: 2px solid black;
 			height: 60px;
 			padding-top: 18px;
+			color: #000;
 			font-size: 16px;
 			/* box-shadow:inset 0px 0px 15px gray; */
+		}
+
+		.border12:hover {
+			color: #00c8d4;
+
 		}
 
 		.square-box {
@@ -250,6 +256,14 @@ if ($oSellerWeight) {
 				/* Adjust the margin for mobile */
 			}
 		}
+
+		.com-ac-setting {
+			color: #000;
+		}
+
+		.com-ac-setting:hover {
+			color: #00c8d4;
+		}
 	</style>
 </head>
 
@@ -262,7 +276,7 @@ if ($oSellerWeight) {
 					<div class="card-body box-shadow8">
 						<ul class="nav nav-pills flex-column  mb-4">
 							<li class="nav-item background_color_greys">
-								<a data-toggle="pill" href="#profile_settings" class="nav-link border border12
+								<a data-toggle="pill" href="#profile_settings" class="nav-link border border12 
 						<?php
 						if (!isset($_GET['profile_settings']) and !isset($_GET['account_settings']) and !isset($_GET['professional_settings'])) {
 							echo "active";
@@ -327,7 +341,7 @@ if ($oSellerWeight) {
 						?>
 							<div class="card card1 theme-bg text-white border-0  px-2  py-3 d-flex align-items-center justify-content-space-between w-100 flex-row mb-4 box-shadow-buyer1">
 								<a href="<?= $site_url ?>/settings?account_settings">
-									<h6 class="mb-0 text-white"> <i class="fa fa-money mr-1"></i> <span>Complete your account</span></h6>
+									<h6 class="mb-0 com-ac-setting"> <i class="fa fa-money mr-1"></i> <span>Complete your account</span></h6>
 								</a>
 								<label class="mb-0 text-white font-weight-bold">+20%</label>
 							</div>

@@ -975,4 +975,249 @@
   font-size: 13px;
 }
 
-/* prpposel page vuew my prpposal */
+/* contacts/buuer/seller/page css*/
+
+.freelancer-card {
+  max-width: 330px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.freelancer-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.freelancer-header img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border: 3px solid #a7a9ac;
+  margin-right: 15px;
+}
+
+.freelancer-header .status {
+  position: absolute;
+  left: 48px;
+  top: 48px;
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.freelancer-header .heart-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.freelancer-header .freelancer-info {
+  flex-grow: 1;
+}
+
+.freelancer-info h4 {
+  margin: 0;
+}
+
+.freelancer-info p {
+  margin: 2px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.user-pro {
+  color: #666;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.tag {
+  background-color: #f1f1f1;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.freelancer-image {
+  margin-top: 10px;
+}
+
+.freelancer-image img {
+  width: 100%;
+  height: 170px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.price-section {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e0e0e0;
+
+  align-items: center;
+  margin-top: 15px;
+  padding: 7px 5px 0px 5px;
+}
+
+.price-section .price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.profile-btn {
+  background-color: #00b9f5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.profile-btn:hover {
+  background-color: #008ecf;
+}
+
+.message-icon {
+  background-color: #00cedc;
+  border-radius: 20%;
+  color: #fff;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+}
+
+.amount-spent-buyernitin {
+  color: #a7a9ac;
+}
+
+.completed-orders-container {
+  position: relative;
+  display: inline-block;
+}
+
+.complete-order-badge {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  /* Adjust according to your design */
+  right: -3px;
+  /* Adjust according to your design */
+  background-color: #00b9f5;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 7px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Hide on mobile (screen width less than 768px) */
+@media only screen and (max-width: 768px) {
+  .sellers-from-whom {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .freelancer-card {
+    display: none;
+  }
+}
+
+.whom-slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* Hide overflow */
+}
+
+.whomslider {
+  display: flex;
+  transition: transform 0.5s ease;
+  /* Smooth transition */
+  width: calc(100% * number_of_cards);
+  /* Set total width based on number of cards */
+}
+
+.freelancer-card {
+  min-width: 100%;
+  /* Show one card at a time */
+  box-sizing: border-box;
+  padding: 10px;
+  /* Add some padding */
+}
+
+/* Additional styles for your card here */
+
+.info-item {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Hidden heading initially */
+.info-item .heading {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  white-space: nowrap;
+}
+
+/* Show heading on hover */
+.info-item:hover .heading {
+  opacity: 1;
+  bottom: 100%;
+}
+
+.chat-iconbuyer {
+  cursor: pointer;
+}
+
+.manage-contacts-btn {
+  color: #000 !important;
+  background-color: #ebebeb !important;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  width: fit-content;
+  border: none;
+  padding: 11px 15px;
+  display: flex;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 600;
+  gap: 8px;
+  align-items: center;
+  margin: auto;
+}
+
+@media (min-width: 1024px) {
+  /* Aap is value ko apni zarurat ke hisaab se badal sakte hain */
+  .manage-contacts-btn {
+    display: none;
+  }
+}

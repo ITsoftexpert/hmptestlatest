@@ -349,6 +349,26 @@ if (isset($_POST['submit'])) {
 		.display-sub-sub-none {
 			display: none;
 		}
+
+		@media (max-width: 768px) {
+			.mobile-custom-style {
+				color: #000 !important;
+				background-color: #ebebeb !important;
+				box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+				width: fit-content;
+				border: none;
+				padding: 11px 15px;
+				display: flex;
+				justify-content: center;
+				font-size: 17px !important;
+				font-weight: 600;
+				gap: 8px;
+				align-items: center;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 25px;
+			}
+		}
 	</style>
 </head>
 
@@ -396,11 +416,11 @@ if (isset($_POST['submit'])) {
 	require_once("../includes/user_header.php");
 	?>
 	<div class="container-fluid py-1 px-5">
-		<h1 class="mb-4 taxt-blue padding-alter3 margin-top-30">
-			<i class="fa fa-plus-circle" aria-hidden="true">
-			</i>
+		<h1 class="mb-4 taxt-blue padding-alter3 margin-top-30 mobile-custom-style">
+			<i class="fa fa-plus-circle" aria-hidden="true"></i>
 			<?= $lang["titles"]["post_request"]; ?>
 		</h1>
+
 		<div class="row margin-l padding-alter3">
 			<!--- row Starts --->
 			<div class="col-xl-8 col-lg-8 post-request col-md-12 pl-zero">

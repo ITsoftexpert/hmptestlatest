@@ -37,6 +37,7 @@ $referral_money = $row_general_settings->referral_money;
     <link href="styles/custom.css" rel="stylesheet"> <!-- Custom css code from modified in admin panel --->
     <link href="styles/styles.css" rel="stylesheet">
     <link href="styles/user_nav_styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/addnew.css">
     <link href="font_awesome/css/font-awesome.css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery.min.js"></script>
 
@@ -137,10 +138,161 @@ $referral_money = $row_general_settings->referral_money;
             }
         }
 
-        @media(min-width:1024px){
+        @media(min-width:1024px) {
             .box-shadow-border1 {
-            margin-top: 20px;
+                margin-top: 20px;
+            }
         }
+
+
+
+
+        @media (max-width: 768px) {
+
+            /* Adjust the max-width according to your design breakpoints */
+            .my-referal-heading {
+                color: #000 !important;
+                background-color: #ebebeb !important;
+                box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+                width: fit-content;
+                border: none;
+                padding: 11px 15px;
+                display: flex;
+                justify-content: center;
+                font-size: 17px;
+                font-weight: 600;
+                gap: 8px;
+                align-items: center;
+                margin: auto;
+            }
+        }
+
+
+        .active-buyer-order {
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+        }
+
+
+        @media (min-width: 768px) {
+
+            /* Adjust the min-width according to your design breakpoints */
+            .active-buyer-order {
+                display: none;
+                /* This will hide the element on desktop screens */
+            }
+        }
+
+        .order-card-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            max-width: 100%;
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .content-order {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .user-name {
+            font-size: 1.25em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .name-value {
+            color: red;
+            /* Set User's name value color to red */
+        }
+
+        .info-order-section {
+            display: flex;
+            font-size: 0.85em;
+            margin: 12px 0;
+            color: #555;
+            gap: 20px;
+        }
+
+        .buyer-offer-img {
+            width: 18px;
+        }
+
+        .number-offer {
+            font-weight: bold;
+            /* Make offer number bold */
+            /* color: red; */
+            /* Set offer number color to red */
+        }
+
+        .status-order {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 10px;
+        }
+
+        .status-label {
+            font-size: 1.25em;
+            color: #a7a9ac;
+        }
+
+        .status-completed-item {
+            font-weight: bold;
+            color: white;
+            /* Change text color for better visibility */
+            background-color: green;
+            /* Set background color to green */
+            padding: 5px 15px 5px 15px;
+            /* Add some padding for better appearance */
+            border-radius: 4px;
+            /* Round the corners */
+        }
+
+        .status-pending {
+            font-weight: bold;
+            color: white;
+            /* Change text color for better visibility */
+            background-color: orange;
+            /* Set background color to orange */
+            padding: 5px 15px 5px 15px;
+            /* Add some padding for better appearance */
+            border-radius: 4px;
+            /* Round the corners */
+        }
+
+        .status-declined {
+            font-weight: bold;
+            color: white;
+            /* Change text color for better visibility */
+            background-color: red;
+            /* Set background color to red */
+            padding: 5px 15px 5px 15px;
+            /* Add some padding for better appearance */
+            border-radius: 4px;
+            /* Round the corners */
+        }
+
+        .info-element {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0px;
+        }
+
+
+
+
+        /* Hide the user-referal-page on mobile devices */
+        @media (max-width: 768px) {
+            .user-referal-page {
+                display: none;
+            }
         }
     </style>
 
@@ -160,7 +312,7 @@ $referral_money = $row_general_settings->referral_money;
 
                     <div class="card-body m-1 ">
 
-                        <h1 class="center-align border2"> <?= $lang["titles"]["my_referrals"]; ?> </h1>
+                        <h1 class="center-align border2 my-referal-heading mb-3"> <?= $lang["titles"]["my_referrals"]; ?> </h1>
 
                         <p class="lead mb-4">
 
@@ -185,7 +337,7 @@ $referral_money = $row_general_settings->referral_money;
 
                         <p class="lead text-danger mb-5"><?= $lang['my_referrals']['note']; ?></p>
 
-                        <div class="row mb-5">
+                        <div class="row mb-2">
 
                             <div class="col-md-4 mb-3">
 
@@ -268,7 +420,7 @@ $referral_money = $row_general_settings->referral_money;
                         </div>
 
 
-                        <div class="table-responsive border border-secondary rounded border-4">
+                        <div class="table-responsive border border-secondary rounded border-4 user-referal-page">
 
                             <table class="table table-bordered mb-0">
 
@@ -347,6 +499,90 @@ $referral_money = $row_general_settings->referral_money;
                             </table>
 
                         </div>
+
+
+                        <div class="active-buyer-order">
+                            <!-- Completed Status -->
+                            <div class="order-card-item">
+                                <div class="order-details">
+                                    <div class="order-description">
+                                        <span class="user-name">Username: <span class="name-value" style="color: red;">John Doe</span></span> <!-- User's name instead of Ref No -->
+                                        <div class="order-info-section">
+                                            <div class="info-wrapper">
+                                                <div class="info-element">
+                                                    <span class="signup-label">Signup Date:</span>
+                                                    <span><i class="fas fa-calendar"></i> July 24, 2024</span>
+                                                </div>
+                                                <div class="info-element">
+                                                    <span class="commission-label">Your Commission:</span>
+                                                    <span><i class="fa-solid fa-sack-dollar"></i> 22.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="status-order">
+                                    <span class="status-label">Status: </span>
+                                    <span class="status-completed-item">Completed</span>
+                                </div>
+                            </div>
+                            <!-- pending Status -->
+                            <div class="order-card-item">
+                                <div class="order-details">
+                                    <div class="order-description">
+                                        <span class="user-name">Username: <span class="name-value" style="color: red;">John Doe</span></span> <!-- User's name instead of Ref No -->
+                                        <div class="order-info-section">
+                                            <div class="info-wrapper">
+                                                <div class="info-element">
+                                                    <span class="signup-label">Signup Date:</span>
+                                                    <span><i class="fas fa-calendar"></i> July 24, 2024</span>
+                                                </div>
+                                                <div class="info-element">
+                                                    <span class="commission-label">Your Commission:</span>
+                                                    <span><i class="fa-solid fa-sack-dollar"></i> 22.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="status-order">
+                                    <span class="status-label">Status: </span>
+                                    <span class="status-pending">Pending</span>
+                                </div>
+                            </div>
+                            <!-- declined Status -->
+                            <div class="order-card-item">
+                                <div class="order-details">
+                                    <div class="order-description">
+                                        <span class="user-name">Username: <span class="name-value" style="color: red;">John Doe</span></span> <!-- User's name instead of Ref No -->
+                                        <div class="order-info-section">
+                                            <div class="info-wrapper">
+                                                <div class="info-element">
+                                                    <span class="signup-label">Signup Date:</span>
+                                                    <span><i class="fas fa-calendar"></i> July 24, 2024</span>
+                                                </div>
+                                                <div class="info-element">
+                                                    <span class="commission-label">Your Commission:</span>
+                                                    <span><i class="fa-solid fa-sack-dollar"></i> 22.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="status-order">
+                                    <span class="status-label">Status: </span>
+                                    <span class="status-declined">Declined</span>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+
 
                     </div>
 

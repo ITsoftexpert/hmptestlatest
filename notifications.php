@@ -153,9 +153,9 @@ if (isset($_GET['delete'])) {
 	<div class="container-fluid">
 		<div class="row alter-top-margin0">
 			<div class="col-md-12">
-				<h2 class="full-width-margin"><span class="text-align-center"><?= $lang["titles"]["notifications"]; ?></span></h2>
+				<!-- <h2 class="full-width-margin"><span class="text-align-center"><?= $lang["titles"]["notifications"]; ?></span></h2> -->
 				<div class="table-responsive box-table mt-4">
-					<h2 class="mt-3 mb-3 ml-3 full-width-1"> <span class="text-align-center-1"><?= $lang["notifications"]["all"]; ?> </span></h2>
+					<h2 class="mt-0 mb-3 ml-3 full-width-1 notification-main-page-heading"> <span class="text-align-center-1"><?= $lang["notifications"]["all"]; ?> </span></h2>
 					<table class="table table-bordered inbox-conversations">
 						<thead>
 							<tr>

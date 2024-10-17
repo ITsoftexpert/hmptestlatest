@@ -59,17 +59,15 @@ $follow_id = isset($follow_tbl_data) && $follow_tbl_data ? $follow_tbl_data->id 
 
   @media screen and (min-width: 1024px) and (max-width: 1100px) {
     .user-header-mt {
-        margin-top: 176px;
+      margin-top: 176px;
     }
-}
-  @media screen and  (max-width: 900px) {
-    .user-header-mt {
-        margin-top: 173px;
-    }
-}
-  
+  }
 
-  
+  @media screen and (max-width: 900px) {
+    .user-header-mt {
+      margin-top: 108px;
+    }
+  }
 </style>
 <div class="col-md-12 user-header user-header-mt pl-5 pr-5 pt-5 pb-5">
   <!-- style="background: url(<?= $seller_cover_image; ?>);" -->

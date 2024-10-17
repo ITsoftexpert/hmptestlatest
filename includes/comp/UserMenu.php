@@ -20,6 +20,14 @@
       padding-top: 15px;
     }
   }
+
+  .heart-icon-before-login {
+    color: #000;
+  }
+
+  .heart-icon-before-login:hover {
+    color: #000;
+  }
 </style>
 
 <ul class="list-inline mb-0  nitinafterloginenvloppro">
@@ -39,7 +47,7 @@
     </div>
   </li>
   <li class="list-inline-item align-middle position-relative font-size-18 desktop-view-afterlogin">
-    <a href="<?= $site_url; ?>/favorites" class="fa fa-heart-o fa-2x" title="<?= $lang["menu"]["favorites"]; ?>">
+    <a href="<?= $site_url; ?>/favorites" class="fa fa-heart-o fa-2x heart-icon-before-login" title="<?= $lang["menu"]["favorites"]; ?>">
       <span class="total-user-count count c-favorites"></span>
     </a>
   </li>

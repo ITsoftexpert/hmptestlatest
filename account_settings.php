@@ -342,15 +342,9 @@ if (is_array($form_errors)) {
       <label class=""> <?= $lang['label']['enter_new_pass']; ?> </label>
       <input type="text" name="new_pass" class="form-control box-shadow-acc-set" required="" />
     </div>
-<<<<<<< HEAD
-   
-    <div class="col-md-4">
-    <label class=""> <?= $lang['label']['confirm_new_pass']; ?> </label>
-=======
 
     <div class="col-md-4">
       <label class=""> <?= $lang['label']['confirm_new_pass']; ?> </label>
->>>>>>> press/shubhamhmpproject
       <input type="text" name="new_pass_again" class="form-control box-shadow-acc-set" required="" />
     </div>
   </div>
@@ -362,8 +356,6 @@ if (is_array($form_errors)) {
     </button>
   </div>
 </form>
-<<<<<<< HEAD
-=======
 <!-- two factor varification -->
 <style>
   .toggle_switch_button {
@@ -488,7 +480,6 @@ if (is_array($form_errors)) {
 
 <!-- two factor varification -->
 
->>>>>>> press/shubhamhmpproject
 <?php
 if (isset($_POST['change_password'])) {
   $rules = array(
@@ -578,19 +569,11 @@ if (isset($_POST['change_password'])) {
         <option> <?= $lang['settings']['reason']['10']; ?> </option>
       </select>
     </div>
-<<<<<<< HEAD
-  <div class="submit_paypal_email_btn_style">
-    <button type="submit" name="deactivate_account" class="btn btn-danger box-shadow-submit-btnn">
-      <i class="fa fa-frown-o"></i> &nbsp; <?= $lang['button']['deactivate_account']; ?>
-    </button>
-  </div>
-=======
     <div class="submit_paypal_email_btn_style">
       <button type="submit" name="deactivate_account" class="btn btn-danger box-shadow-submit-btnn">
         <i class="fa fa-frown-o"></i> &nbsp; <?= $lang['button']['deactivate_account']; ?>
       </button>
     </div>
->>>>>>> press/shubhamhmpproject
   <?php } ?>
 </form>
 <?php
