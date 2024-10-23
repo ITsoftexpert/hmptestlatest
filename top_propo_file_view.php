@@ -20,6 +20,7 @@ require_once("social-config.php");
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100" rel="stylesheet">
     <link href="styles/bootstrap.css" rel="stylesheet">
     <link href="styles/styles.css" rel="stylesheet">
+    <link href="styles/forHome.css" rel="stylesheet">
     <link href="styles/categories_nav_styles.css" rel="stylesheet">
     <link href="font_awesome/css/font-awesome.css" rel="stylesheet">
     <link href="styles/owl.carousel.css" rel="stylesheet">
@@ -36,14 +37,42 @@ require_once("social-config.php");
     <script type="text/javascript" src="js/jquery.min.js"></script>
 
     <style>
-        .outer_div_section_style {
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+
+        }
+
+        .pagination button {
+            margin: 0 5px;
+            padding: 10px;
+            border: none;
+            background-color: #ebebeb;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .pagination span {
+            margin: 0 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .pagination span.active {
+            font-weight: bold;
+            color: #00cedc;
+            text-decoration: underline;
+        }
+
+        /* .outer_div_section_style {
             border: 2px solid #00ccdc;
             width: 100%;
             margin: auto;
         }
 
         .img_div_section_style {
-            /* border:2px dotted red; */
+            
             width: 50%;
             border-radius: 40%;
             margin-left: auto;
@@ -104,14 +133,14 @@ require_once("social-config.php");
 
         .input_bar_styling {
             height: 100px;
-            /* background-color: red; */
+            
             border: px solid black;
             margin-top: 20px;
         }
 
         .lens_frames_styling {
             height: 40px;
-            /* background-color: blue; */
+            
             border: px solid black;
             float: right;
         }
@@ -166,10 +195,9 @@ require_once("social-config.php");
 
         .A-whole-world {
             background-color: #f1fef7;
-            /* background-color: red; */
-            /* background-color: red; */
+   
             height: 500px;
-            /* font-family: timezone_location_get; */
+            
             font-size: 28px;
             color: gray;
             padding: 70px 80px 0px 80px;
@@ -181,7 +209,7 @@ require_once("social-config.php");
             font-weight: 900;
             padding: 0px 50px 20px 0px;
             text-align: justify;
-            /* text-transform: ; */
+            
         }
 
         .heading-001 {
@@ -189,11 +217,11 @@ require_once("social-config.php");
             padding: 0px 50px 0px 0px;
             text-indent: 0px;
             text-align: justify;
-        }
+        } */
 
         /* category-list-start-section */
 
-        .container-category-list {
+        /* .container-category-list {
             background-color: none;
             padding-left: 80px;
             height: 550px;
@@ -232,71 +260,68 @@ require_once("social-config.php");
         }
 
         .top-services-1 {
-            /* background-color: red; */
+            
             margin: auto;
             width: 100%;
 
         }
 
         .top-Services {
-            /* background-color: red; */
+            
             margin-left: 95px;
             text-align: left;
-            /* font-size: 50px !important; */
+           
             color: #00C8D4;
             font-size: 40px !important;
             font-weight: 900;
-            /* padding: 0px 0px 0px 0px !important; */
-        }
+           
+        } */
 
 
         /* ##########################  view all start  #################################### */
 
         /* ########################  pagination start ############################## */
 
-        .outer_page_styling {
-            /* background-color: #007bff; */
+        /* .outer_page_styling {
+           
             height: 72px;
         }
 
         .inner_page_styling {
             background-color: white;
-            /* border: 1px solid black; */
+            
             height: 70px;
             margin-top: 40px;
             text-align: center;
-        }
+        } */
 
         /* btn theme-bg text-white */
-        .view_all_styling {
-            /* border:1px solid black; */
+        /* .view_all_styling {
+           
             padding: 10px 25px;
             border-radius: 4px;
             background-color: #00C8D4;
             color: white;
             float: right;
-        }
+        } */
 
 
 
 
-        .t_p_c_section_1 {
+        /* .t_p_c_section_1 {
             box-shadow: 0px 0px 7px 2px lightslategray, inset 2px 2px 50px lightblue;
             border-radius: 40px !important;
         }
 
-        /* .t_p_c_section_1:hover {
-            box-shadow: 0px 0px 3px #00C8D4;
-        } */
 
         #disp-lay-fl-ex {
-            /* border:2px solid blue; */
+           
             margin: auto;
         }
 
         .border-radius-black button {
             border-radius: 22px !important;
-            /* border:3px solid red; */
+           
             box-shadow: 0px 0px 5px black;
         }
 
@@ -310,30 +335,30 @@ require_once("social-config.php");
             }
 
             .t_p_c_section {
-                /* background-color: green; */
+              
                 width: 100% !important;
             }
 
             .t_p_c_section_1 {
-                /* box-shadow: 0px 0px 3px black; */
+                
                 box-shadow: 0px 0px 7px 2px lightslategray, inset 2px 2px 50px lightblue;
                 border-radius: 40px !important;
             }
 
             #disp-lay-fl-ex {
-                /* border:2px solid blue; */
+                
                 margin: auto;
-            }
+            } */
 
-            /* ############################# */
-            .mobile_responsive_screen {
+        /* ############################# */
+        /* .mobile_responsive_screen {
                 display: block;
 
             }
 
             #hire-me-styling-res {
                 padding: 0px;
-                /* border: 2px solid blue; */
+                
                 width: 100%;
             }
 
@@ -359,13 +384,13 @@ require_once("social-config.php");
             }
 
             .btn-view-hire-respo {
-                /* border: 3px solid #00C8D4; */
+                
                 margin: auto;
                 width: 100%;
             }
 
             .second-class-respo {
-                /* border:2px solid red;  */
+                
                 font-size: 13px;
                 margin-left: 5px;
                 margin-right: 5px;
@@ -373,43 +398,43 @@ require_once("social-config.php");
 
 
 
-        }
+        } */
 
         /* ########################### pagination end ################################# */
 
 
         /* ############  startresponsive for scr 768-1600  ############### */
-        @media (min-width:768px) and (max-width:1600px) {
+        /* @media (min-width:768px) and (max-width:1600px) {
             #disp-lay-fl-ex {
-                /* background-color: green; */
+                
                 display: block;
                 margin-top: 50px;
             }
 
             .mobile_responsive_screen {
                 display: flow-root;
-                /* height: 190vh; */
+               
                 width: 90%;
                 flex-flow: wrap;
-                /* border:2px solid green; */
-                /* padding-left: ; */
+                
+               
             }
 
             .outer-frame-for-tpc {
                 width: 33%;
                 float: left;
-                /* margin: auto; */
+                
             }
 
             #hire-me-styling-res {
                 padding: 0px;
-                /* border: 2px solid blue; */
+                
                 width: 100%;
             }
 
             #view-profile-styling-res {
                 padding: 0px;
-                /* border: 2px solid green; */
+               
                 width: 100%;
             }
 
@@ -431,23 +456,20 @@ require_once("social-config.php");
             }
 
             .btn-view-hire-respo {
-                /* border: 2px solid #00C8D4; */
                 margin: auto;
                 width: 100%;
             }
 
             .second-class-respo {
-                /* border:2px solid red;  */
                 font-size: 13px;
                 margin-left: 5px;
                 margin-right: 5px;
             }
-        }
+        } */
 
         /* ############  startresponsive for scr 768-1600  ############### */
-        @media(max-width:420px) {
+        /* @media(max-width:420px) {
             #uno-rder-list-respo {
-                /* border: 2px solid red; */
                 padding-top: 18px !important;
                 padding-right: 0px !important;
             }
@@ -456,7 +478,6 @@ require_once("social-config.php");
 
         @media(max-width:768px) and (min-width:640px) {
             #uno-rder-list-respo {
-                /* border: 2px solid red; */
                 padding-top: 18px !important;
                 padding-right: 0px !important;
             }
@@ -470,7 +491,6 @@ require_once("social-config.php");
 
         @media(max-width:639px) and (min-width:421px) {
             #uno-rder-list-respo {
-                /* border: 2px solid red; */
                 padding-top: 18px !important;
                 padding-right: 0px !important;
             }
@@ -478,7 +498,6 @@ require_once("social-config.php");
 
         @media(max-width:1024px) and (min-width:769px) {
             #uno-rder-list-respo {
-                /* border: 2px solid red; */
                 padding-top: 18px !important;
                 padding-right: 0px !important;
             }
@@ -496,7 +515,6 @@ require_once("social-config.php");
 
         @media(max-width:1023px) and (min-width:992px) {
             #uno-rder-list-respo {
-                /* border: 2px solid red; */
                 padding-top: 18px !important;
                 padding-right: 0px !important;
             }
@@ -504,24 +522,17 @@ require_once("social-config.php");
 
         @media (max-width:991px) and (min-width:900px) {
             #uno-rder-list-respo {
-                /* border: 2px solid red; */
                 padding-top: 18px !important;
                 padding-right: 7px !important;
             }
-        }
+        } */
     </style>
 
 </head>
 
 <body class="is-responsive">
     <?php require_once("includes/header.php"); ?>
-
-
-    <!--  -->
-
-    <!-- ################################### -->
-
-    <div class=" pt-5 home-section6 home-section601 bg-white">
+    <!-- <div class=" pt-5 home-section6 home-section601 bg-white">
         <h2 style="text-align: center;" class="font-weight-bold">Featured Candidates</h2>
         <P style=" text-align: center;" class="text-muted">Leading Employers already using job and talent.</P>
         <div class="nitin-1 mobile_responsive_screen">
@@ -617,10 +628,449 @@ require_once("social-config.php");
                 </div>
             <?php } ?>
         </div>
-    </div>
+    </div> -->
     <!-- ######################################## -->
 
-    <div class="outer_page_styling">
+
+    <!-- nitin created design by featured candidate section  -->
+    <div
+        class="home-section3 body-max-width px-3 pt-2 mb-5 ">
+        <div class="cards">
+            <div class="align-items-center" id="top-propo-div-respon">
+                <h5 class="my-0 text-center textdarkheadingempowerTps">Featured candidates</h5>
+            </div>
+        </div>
+        <h2 class="text-center ">Leading employers already using job and talent.</h2>
+
+        <!-- start of top proposal section-->
+        <div class="container-top-proposal">
+            <div class="container-top-proposal-row">
+                <div class="featured-main-container">
+                    <!-- f-1 -->
+                    <div class="featured-card">
+                        <div class="featured-main-header">
+                            <div class="profile-picture">
+                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+                            </div>
+                            <div class="profile-info">
+                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
+                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+                                <div class="rating">
+                                    <span>⭐ 4.9</span> <span>(1,708)</span>
+                                </div>
+                            </div>
+                            <button class="favorite-button" onclick="toggleFavorite(this)">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="featured-main-tags">
+                            <span>Email Template</span>
+                            <span>Next.js</span>
+                            <span>+17</span>
+                        </div>
+                        <div class="slider featured-main-slider">
+                            <div class="slides">
+                                <!-- Different images for Card 1 -->
+                                <img src="https://plus.unsplash.com/premium_photo-1681666713641-8d722b681edc?w=500&auto=format&fit=crop&q=60" alt="Image 1">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60" alt="Image 2">
+                                <img src="https://plus.unsplash.com/premium_photo-1681666713641-8d722b681edc?w=500&auto=format&fit=crop&q=60" alt="Image 3">
+                            </div>
+                            <div class="dots">
+                                <span class="dot" onclick="currentSlide(1, 1)"></span>
+                                <span class="dot" onclick="currentSlide(1, 2)"></span>
+                                <span class="dot" onclick="currentSlide(1, 3)"></span>
+                            </div>
+                        </div>
+                        <div class="featured-main-footer">
+                            <p>From <br><strong>$195</strong>/project</p>
+                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+                            <button class="see-profile-button">See profile</button>
+                        </div>
+                    </div>
+
+                    <!-- f-2 -->
+                    <div class="featured-card">
+                        <div class="featured-main-header">
+                            <div class="profile-picture">
+                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+                            </div>
+                            <div class="profile-info">
+                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
+                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+                                <div class="rating">
+                                    <span>⭐ 4.9</span> <span>(1,708)</span>
+                                </div>
+                            </div>
+                            <button class="favorite-two-button" onclick="toggletwoFavorite(this)">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="featured-main-tags">
+                            <span>Email Template</span>
+                            <span>Next.js</span>
+                            <span>+17</span>
+                        </div>
+                        <div class="slider featured-main-slider">
+                            <div class="slides">
+                                <img src="https://plus.unsplash.com/premium_photo-1678565999332-1cde462f7b24?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2Vic2l0ZXxlbnwwfHwwfHx8MA%3D%3D" alt="Image 1">
+                                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHdlYnNpdGV8ZW58MHx8MHx8fDA%3D" alt="Image 2">
+                                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdlYnNpdGV8ZW58MHx8MHx8fDA%3D" alt="Image 3">
+                            </div>
+                            <div class="dots">
+                                <span class="dot" onclick="currentSlide(2, 1)"></span>
+                                <span class="dot" onclick="currentSlide(2, 2)"></span>
+                                <span class="dot" onclick="currentSlide(2, 3)"></span>
+                            </div>
+                        </div>
+                        <div class="featured-main-footer">
+                            <p>From <br><strong>$195</strong>/project</p>
+                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+                            <button class="see-profile-button">See profile</button>
+                        </div>
+                    </div>
+                    <!-- f-3 -->
+
+                    <div class="featured-card">
+                        <div class="featured-main-header">
+                            <div class="profile-picture">
+                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+                            </div>
+                            <div class="profile-info">
+                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
+                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+                                <div class="rating">
+                                    <span>⭐ 4.9</span> <span>(1,708)</span>
+                                </div>
+                            </div>
+                            <button class="favorite-three-button" onclick="togglethreeFavorite(this)">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="featured-main-tags">
+                            <span>Email Template</span>
+                            <span>Next.js</span>
+                            <span>+17</span>
+                        </div>
+                        <div class="slider featured-main-slider">
+                            <div class="slides">
+                                <img src="https://media.istockphoto.com/id/508498442/photo/man-using-laptop-working-on-plan-to-increase-website-traffic.webp?a=1&b=1&s=612x612&w=0&k=20&c=RzNNYwU9iTOFVRBv_6eB8kYPTIdGP0YzKLCOsYE7H-U=" alt="Image 1">
+                                <img src="https://media.istockphoto.com/id/1398473177/photo/questionnaire-with-checkboxes-filling-survey-form-online-answer-questions.webp?a=1&b=1&s=612x612&w=0&k=20&c=yfGyijQDY6Toe7ucQFFsnPwy-tC5JKPEkIaJ2SMF-fs=" alt="Image 2">
+                                <img src="https://media.istockphoto.com/id/1062674570/photo/purchasing-thing-online.webp?a=1&b=1&s=612x612&w=0&k=20&c=rIcG89F3Z1KVgHsD3JgBKcIzMIlqy5cKnXW4Rxwnrl8=" alt="Image 3">
+                            </div>
+                            <div class="dots">
+                                <span class="dot" onclick="currentSlide(3, 1)"></span>
+                                <span class="dot" onclick="currentSlide(3, 2)"></span>
+                                <span class="dot" onclick="currentSlide(3, 3)"></span>
+                            </div>
+                        </div>
+                        <div class="featured-main-footer">
+                            <p>From <br><strong>$195</strong>/project</p>
+                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+                            <button class="see-profile-button">See profile</button>
+                        </div>
+                    </div>
+
+                    <!-- f-4 -->
+                    <div class="featured-card">
+                        <div class="featured-main-header">
+                            <div class="profile-picture">
+                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+                            </div>
+                            <div class="profile-info">
+                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
+                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+                                <div class="rating">
+                                    <span>⭐ 4.9</span> <span>(1,708)</span>
+                                </div>
+                            </div>
+                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="featured-main-tags">
+                            <span>Email Template</span>
+                            <span>Next.js</span>
+                            <span>+17</span>
+                        </div>
+                        <div class="slider featured-main-slider">
+                            <div class="slides">
+                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
+                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
+                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
+                            </div>
+                            <div class="dots">
+                                <span class="dot" onclick="currentSlide(4, 1)"></span>
+                                <span class="dot" onclick="currentSlide(4, 2)"></span>
+                                <span class="dot" onclick="currentSlide(4, 3)"></span>
+                            </div>
+                        </div>
+                        <div class="featured-main-footer">
+                            <p>From <br><strong>$195</strong>/project</p>
+                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+                            <button class="see-profile-button">See profile</button>
+                        </div>
+                    </div>
+
+                    <!-- f-5 -->
+                    <div class="featured-card">
+                        <div class="featured-main-header">
+                            <div class="profile-picture">
+                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+                            </div>
+                            <div class="profile-info">
+                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
+                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+                                <div class="rating">
+                                    <span>⭐ 4.9</span> <span>(1,708)</span>
+                                </div>
+                            </div>
+                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="featured-main-tags">
+                            <span>Email Template</span>
+                            <span>Next.js</span>
+                            <span>+17</span>
+                        </div>
+                        <div class="slider featured-main-slider">
+                            <div class="slides">
+                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
+                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
+                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
+                            </div>
+                            <div class="dots">
+                                <span class="dot" onclick="currentSlide(4, 1)"></span>
+                                <span class="dot" onclick="currentSlide(4, 2)"></span>
+                                <span class="dot" onclick="currentSlide(4, 3)"></span>
+                            </div>
+                        </div>
+                        <div class="featured-main-footer">
+                            <p>From <br><strong>$195</strong>/project</p>
+                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+                            <button class="see-profile-button">See profile</button>
+                        </div>
+                    </div>
+
+                    <!-- f-6 -->
+                    <div class="featured-card">
+                        <div class="featured-main-header">
+                            <div class="profile-picture">
+                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+                            </div>
+                            <div class="profile-info">
+                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
+                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+                                <div class="rating">
+                                    <span>⭐ 4.9</span> <span>(1,708)</span>
+                                </div>
+                            </div>
+                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="featured-main-tags">
+                            <span>Email Template</span>
+                            <span>Next.js</span>
+                            <span>+17</span>
+                        </div>
+                        <div class="slider featured-main-slider">
+                            <div class="slides">
+                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
+                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
+                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
+                            </div>
+                            <div class="dots">
+                                <span class="dot" onclick="currentSlide(4, 1)"></span>
+                                <span class="dot" onclick="currentSlide(4, 2)"></span>
+                                <span class="dot" onclick="currentSlide(4, 3)"></span>
+                            </div>
+                        </div>
+                        <div class="featured-main-footer">
+                            <p>From <br><strong>$195</strong>/project</p>
+                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+                            <button class="see-profile-button">See profile</button>
+                        </div>
+                    </div>
+
+                    <!-- f-7 -->
+                    <div class="featured-card">
+                        <div class="featured-main-header">
+                            <div class="profile-picture">
+                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+                            </div>
+                            <div class="profile-info">
+                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
+                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+                                <div class="rating">
+                                    <span>⭐ 4.9</span> <span>(1,708)</span>
+                                </div>
+                            </div>
+                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="featured-main-tags">
+                            <span>Email Template</span>
+                            <span>Next.js</span>
+                            <span>+17</span>
+                        </div>
+                        <div class="slider featured-main-slider">
+                            <div class="slides">
+                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
+                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
+                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
+                            </div>
+                            <div class="dots">
+                                <span class="dot" onclick="currentSlide(4, 1)"></span>
+                                <span class="dot" onclick="currentSlide(4, 2)"></span>
+                                <span class="dot" onclick="currentSlide(4, 3)"></span>
+                            </div>
+                        </div>
+                        <div class="featured-main-footer">
+                            <p>From <br><strong>$195</strong>/project</p>
+                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+                            <button class="see-profile-button">See profile</button>
+                        </div>
+                    </div>
+
+                    <!-- f-8 -->
+                    <div class="featured-card">
+                        <div class="featured-main-header">
+                            <div class="profile-picture">
+                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+                            </div>
+                            <div class="profile-info">
+                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
+                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+                                <div class="rating">
+                                    <span>⭐ 4.9</span> <span>(1,708)</span>
+                                </div>
+                            </div>
+                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="featured-main-tags">
+                            <span>Email Template</span>
+                            <span>Next.js</span>
+                            <span>+17</span>
+                        </div>
+                        <div class="slider featured-main-slider">
+                            <div class="slides">
+                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
+                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
+                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
+                            </div>
+                            <div class="dots">
+                                <span class="dot" onclick="currentSlide(4, 1)"></span>
+                                <span class="dot" onclick="currentSlide(4, 2)"></span>
+                                <span class="dot" onclick="currentSlide(4, 3)"></span>
+                            </div>
+                        </div>
+                        <div class="featured-main-footer">
+                            <p>From <br><strong>$195</strong>/project</p>
+                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+                            <button class="see-profile-button">See profile</button>
+                        </div>
+                    </div>
+                    <!-- f-9 -->
+                    <div class="featured-card">
+                        <div class="featured-main-header">
+                            <div class="profile-picture">
+                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+                            </div>
+                            <div class="profile-info">
+                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
+                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+                                <div class="rating">
+                                    <span>⭐ 4.9</span> <span>(1,708)</span>
+                                </div>
+                            </div>
+                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="featured-main-tags">
+                            <span>Email Template</span>
+                            <span>Next.js</span>
+                            <span>+17</span>
+                        </div>
+                        <div class="slider featured-main-slider">
+                            <div class="slides">
+                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
+                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
+                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
+                            </div>
+                            <div class="dots">
+                                <span class="dot" onclick="currentSlide(4, 1)"></span>
+                                <span class="dot" onclick="currentSlide(4, 2)"></span>
+                                <span class="dot" onclick="currentSlide(4, 3)"></span>
+                            </div>
+                        </div>
+                        <div class="featured-main-footer">
+                            <p>From <br><strong>$195</strong>/project</p>
+                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+                            <button class="see-profile-button">See profile</button>
+                        </div>
+                    </div>
+                    <!-- f-10 -->
+                    <div class="featured-card">
+                        <div class="featured-main-header">
+                            <div class="profile-picture">
+                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+                            </div>
+                            <div class="profile-info">
+                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
+                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
+                                <div class="rating">
+                                    <span>⭐ 4.9</span> <span>(1,708)</span>
+                                </div>
+                            </div>
+                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="featured-main-tags">
+                            <span>Email Template</span>
+                            <span>Next.js</span>
+                            <span>+17</span>
+                        </div>
+                        <div class="slider featured-main-slider">
+                            <div class="slides">
+                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
+                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
+                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
+                            </div>
+                            <div class="dots">
+                                <span class="dot" onclick="currentSlide(4, 1)"></span>
+                                <span class="dot" onclick="currentSlide(4, 2)"></span>
+                                <span class="dot" onclick="currentSlide(4, 3)"></span>
+                            </div>
+                        </div>
+                        <div class="featured-main-footer">
+                            <p>From <br><strong>$195</strong>/project</p>
+                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
+                            <button class="see-profile-button">See profile</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pagination">
+        <button class="prev" onclick="changePage(-1)">&#10094; Prev</button>
+        <span id="page-numbers"></span>
+        <button class="next" onclick="changePage(1)">Next &#10095;</button>
+    </div>
+
+
+    <!-- nitin created design by featured candidate section  -->
+
+    <!-- <div class="outer_page_styling">
         <div class="inner_page_styling">
             <?php
             echo "<a href='top_propo_file_view?$page=1'><li class='pagination_style_first'>FIRST</li></a>";
@@ -631,14 +1081,112 @@ require_once("social-config.php");
             echo "<a href='top_propo_file_view?$page=" . $total_pages . " '> <li class='pagination_style_first'><span class='last_page_style'>LAST</span></li></a>";
             ?>
         </div>
-    </div>
+    </div> -->
 
-    <script>
+    <!-- <script>
         if (href = 'top_propo_file_view?$page = 1') {
             document.querySelector("#disHidden").style.display = "none";
         }
+    </script> -->
+
+
+    <script>
+        let slideIntervals = [];
+
+        function showSlides(cardIndex, n) {
+            const slides = document.querySelectorAll(`.featured-card:nth-child(${cardIndex}) .slides img`);
+            const dots = document.querySelectorAll(`.featured-card:nth-child(${cardIndex}) .dot`);
+
+            let slideIndex = n;
+            if (n > slides.length) slideIndex = 1;
+            if (n < 1) slideIndex = slides.length;
+
+            slides.forEach((slide) => slide.classList.remove("active"));
+            dots.forEach((dot) => dot.classList.remove("active"));
+
+            slides[slideIndex - 1].classList.add("active");
+            dots[slideIndex - 1].classList.add("active");
+            return slideIndex;
+        }
+
+        function currentSlide(cardIndex, n) {
+            slideIntervals[cardIndex] = showSlides(cardIndex, n);
+        }
+
+        function nextSlide(cardIndex) {
+            slideIntervals[cardIndex] = showSlides(cardIndex, slideIntervals[cardIndex] + 1);
+        }
+
+        function startAutoPlay(cardIndex) {
+            slideIntervals[cardIndex] = 1;
+            setInterval(() => nextSlide(cardIndex), 2000);
+        }
+
+        // Start autoplay for each card
+        document.querySelectorAll('.featured-card').forEach((_, index) => {
+            startAutoPlay(index + 1);
+        });
+
+        function toggleFavorite() {
+            const button = document.querySelector('.favorite-button');
+            button.classList.toggle('active');
+        }
+
+        function toggletwoFavorite() {
+            const button = document.querySelector('.favorite-two-button');
+            button.classList.toggle('active');
+        }
+
+        function togglethreeFavorite() {
+            const button = document.querySelector('.favorite-three-button');
+            button.classList.toggle('active');
+        }
+
+        function togglefourFavorite() {
+            const button = document.querySelector('.favorite-four-button');
+            button.classList.toggle('active');
+        }
     </script>
 
+    <script>
+        let currentPage = 1;
+        const cardsPerPage = 4; // Number of cards to show per page
+        const totalCards = document.querySelectorAll('.featured-card').length; // Total number of cards
+        const totalPages = Math.ceil(totalCards / cardsPerPage);
+
+        function displayCards() {
+            const cards = document.querySelectorAll('.featured-card');
+            cards.forEach((card, index) => {
+                card.style.display = (index >= (currentPage - 1) * cardsPerPage && index < currentPage * cardsPerPage) ? 'block' : 'none';
+            });
+            updatePagination();
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            if (currentPage < 1) currentPage = 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+            displayCards();
+        }
+
+        function updatePagination() {
+            const pageNumbers = document.getElementById('page-numbers');
+            pageNumbers.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const span = document.createElement('span');
+                span.innerText = i;
+                span.className = (i === currentPage) ? 'active' : '';
+                span.onclick = () => {
+                    currentPage = i;
+                    displayCards();
+                };
+                pageNumbers.appendChild(span);
+            }
+        }
+
+        // Initialize
+        displayCards();
+    </script>
 
 
 

@@ -1654,8 +1654,6 @@ $slide_image = $row_slides->slide_image;
   <div class="container-top-proposal">
     <div class="container-top-proposal-row">
       <div class="featured-main-container">
-        <!-- Card 1 -->
-        <!-- Card 1 -->
         <div class="featured-card">
           <div class="featured-main-header">
             <div class="profile-picture">
@@ -1721,7 +1719,6 @@ $slide_image = $row_slides->slide_image;
           </div>
           <div class="slider featured-main-slider">
             <div class="slides">
-              <!-- Different images for Card 2 -->
               <img src="https://plus.unsplash.com/premium_photo-1678565999332-1cde462f7b24?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2Vic2l0ZXxlbnwwfHwwfHx8MA%3D%3D" alt="Image 1">
               <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHdlYnNpdGV8ZW58MHx8MHx8fDA%3D" alt="Image 2">
               <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdlYnNpdGV8ZW58MHx8MHx8fDA%3D" alt="Image 3">
@@ -1817,19 +1814,11 @@ $slide_image = $row_slides->slide_image;
           </div>
         </div>
 
-
-        <!-- Repeat for Card 2, Card 3, and Card 4 with different content -->
-
-
-
-
-
-
       </div>
     </div>
   </div>
   <div class="display_flex_position display_flex_positionpart2"><a class="btn theme-bg text-white"
-      id="top-view-response" href="featured_proposals">
+      id="top-view-response" href="top_propo_file_view">
       VIEW ALL
     </a>
   </div>
