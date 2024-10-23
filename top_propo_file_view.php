@@ -40,7 +40,7 @@ require_once("social-config.php");
         .pagination {
             display: flex;
             justify-content: center;
-            margin: 20px;
+            margin: 30px;
 
         }
 
