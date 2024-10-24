@@ -1818,7 +1818,7 @@ $slide_image = $row_slides->slide_image;
     </div>
   </div>
   <div class="display_flex_position display_flex_positionpart2"><a class="btn theme-bg text-white"
-      id="top-view-response" href="">
+      id="top-view-response" href="top_propo_file_view">
       VIEW ALL
     </a>
   </div>
