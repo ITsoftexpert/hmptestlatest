@@ -353,6 +353,7 @@ $show_img1 = getImageUrl2("proposals", "proposal_img1", $proposal_img1);
                                 <option>Inappropriate Proposal</option>
                                 <option>Trademark Violation</option>
                                 <option>Copyrights Violation</option>
+                                <option>Others</option>
                             </select>
                         </div>
                         <!--- form-group Ends --->

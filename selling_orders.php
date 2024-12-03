@@ -56,7 +56,7 @@ $login_seller_id = $row_login_seller->seller_id;
 
 <body class="is-responsive">
 	<?php require_once("includes/user_header.php"); ?>
-	<div class="container-fluid mb-5 pt-5">
+	<div class="container-fluid mb-5 pt-5" style="margin-top: 120px;">
 		<div class="row">
 			<div class="col-md-12">
 				<h1 class="<?= ($lang_dir == "right" ? 'text-right' : '') ?> width-99 hide-on-mobile">
@@ -65,7 +65,7 @@ $login_seller_id = $row_login_seller->seller_id;
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12 mt-4 mb-3">
+			<div class="col-md-12 mt-4 mb-3"> 
 				<?php include('user_selling_orders.php'); ?>
 			</div>
 		</div>

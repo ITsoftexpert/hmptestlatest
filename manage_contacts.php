@@ -52,13 +52,22 @@ $login_seller_id = $row_login_seller->seller_id;
       }
 
       .padding-alter5 {
-            /* margin-top: -115px; */
-            padding: 1.5rem 1.5rem;
-         }
+         /* margin-top: -115px; */
+         padding: 1.5rem 1.5rem;
+      }
+
       @media (max-width:767px) {
          .full-width {
             /* border: 1px solid blue; */
             width: 100%;
+         }
+
+         .mobile_view_dropdown {
+            display: block;
+         }
+
+         .desktop_view_navbar {
+            display: none;
          }
 
          .padding-alter5 {
@@ -129,6 +138,16 @@ $login_seller_id = $row_login_seller->seller_id;
          }
 
       }
+
+      @media (min-width:768px) {
+         .mobile_view_dropdown {
+            display: none;
+         }
+
+         .desktop_view_navbar {
+            display: flex;
+         }
+      }
    </style>
 </head>
 
@@ -137,8 +156,8 @@ $login_seller_id = $row_login_seller->seller_id;
    <div class="container-fluid">
       <div class="row padding-alter5">
          <div class="col-md-12 mt-1">
-            <h1 class="full-width-h"><span class="text-align-center-s"><?= $lang["titles"]["manage_contacts"]; ?></span></h1>
-            <ul class="nav nav-tabs mt-4 mb-4 full-width top-margin"><!-- nav nav-tabs mt-5 mb-3 Starts -->
+            <h1 class="full-width-h"><span class="text-align-center-s desktop_view_navbar"><?= $lang["titles"]["manage_contacts"]; ?></span></h1>
+            <ul class="nav nav-tabs mt-4 mb-4 full-width top-margin desktop_view_navbar"><!-- nav nav-tabs mt-5 mb-3 Starts -->
                <?php
                $count_my_buyers = $db->count("my_buyers", array("seller_id" => $login_seller_id));
                ?>
@@ -170,6 +189,128 @@ $login_seller_id = $row_login_seller->seller_id;
                   </a>
                </li>
             </ul>
+
+            <div class="dropdown-container mobile_view_dropdown">
+               <button class="dropdown-btn" onclick="toggleDropdown()">
+                  Manage Contacts
+                  <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+               </button>
+               <div class="dropdown-content" id="dropdownMenu">
+                  <ul class="nav nav-tabs mt-4 mb-4 full-width top-margin d-block">
+                     <?php
+                     $count_my_buyers = $db->count("my_buyers", array("seller_id" => $login_seller_id));
+                     ?>
+                     <li class="nav-item">
+                        <a href="#my_buyers" data-toggle="tab" class="nav-link make-black padding-11" onclick="selectOption('<?= $lang['tabs']['my_buyers']; ?>')">
+                           <?= $lang['tabs']['my_buyers']; ?> <span class="badge badge-success badge-float-right"><?= $count_my_buyers; ?></span>
+                        </a>
+                     </li>
+                     <?php
+                     $count_my_sellers = $db->count("my_buyers", array("buyer_id" => $login_seller_id));
+                     ?>
+                     <li class="nav-item">
+                        <a href="#my_sellers" data-toggle="tab" class="nav-link make-black padding-11" onclick="selectOption('<?= $lang['tabs']['my_sellers']; ?>')">
+                           <?= $lang['tabs']['my_sellers']; ?> <span class="badge badge-success badge-float-right"><?= $count_my_sellers; ?></span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+
+
+            <script>
+               function toggleDropdown() {
+                  document.getElementById("dropdownMenu").classList.toggle("show");
+               }
+
+               // Function to handle selection of dropdown options
+               function selectOption(optionText) {
+                  // Update the button text with the selected option
+                  var dropdownButton = document.querySelector('.dropdown-btn');
+                  dropdownButton.innerHTML = optionText + ' <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>';
+
+                  // Close the dropdown menu
+                  document.getElementById("dropdownMenu").classList.remove("show");
+               }
+
+               window.onclick = function(event) {
+                  if (!event.target.matches('.dropdown-btn')) {
+                     var dropdowns = document.getElementsByClassName("dropdown-content");
+                     for (var i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                           openDropdown.classList.remove('show');
+                        }
+                     }
+                  }
+               }
+            </script>
+
+
+            <style>
+               .dropdown-container {
+                  position: relative;
+                  /* display: inline-block; */
+               }
+
+               .dropdown-btn {
+                  color: #000 !important;
+                  background-color: #ebebeb !important;
+                  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+                  width: fit-content;
+                  display: flex;
+                  justify-content: center;
+                  font-size: 17px;
+                  font-weight: 600;
+                  gap: 8px;
+                  align-items: center;
+                  margin: auto;
+                  padding: 8px 20px;
+                  border: none;
+                  margin-bottom: 1rem;
+               }
+
+               .dropdown-content {
+                  display: none;
+                  position: absolute;
+                  background-color: #ffffff;
+                  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                  z-index: 1;
+                  width: 100%;
+               }
+
+               .dropdown-content.show {
+                  display: block;
+               }
+
+               .nav-tabs {
+                  padding: 0;
+                  margin: 0;
+                  list-style: none;
+               }
+
+               .nav-item {
+                  padding: 5px 10px;
+               }
+
+               .nav-link {
+                  text-decoration: none;
+                  color: #000;
+                  display: block;
+                  padding: 10px;
+               }
+
+               .nav-link.active {
+                  background-color: #007bff;
+                  color: #fff;
+               }
+
+               .badge {
+                  float: right;
+                  margin-left: 5px;
+               }
+            </style>
+
             <div class="tab-content mt-2">
                <div id="my_buyers" class="tab-pane fade 
       <?php

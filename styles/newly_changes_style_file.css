@@ -66,11 +66,11 @@
 
 .position_absolute_div {
     width: auto;
-    max-width: 600px;
+    max-width: 550px;
     background-color: white;
     border-radius: 10px;
     margin: 5rem auto;
-    padding: 1rem;
+    /* padding: 1rem; */
 }
 
 .span_close_btn_sttyle {

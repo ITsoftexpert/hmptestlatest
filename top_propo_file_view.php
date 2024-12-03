@@ -513,7 +513,7 @@ require_once("social-config.php");
             }
         }
 
-        @media(max-width:1023px) and (min-width:992px) {
+        @media(max-width:1024px) and (min-width:992px) {
             #uno-rder-list-respo {
                 padding-top: 18px !important;
                 padding-right: 0px !important;
@@ -535,11 +535,11 @@ require_once("social-config.php");
     <!-- <div class=" pt-5 home-section6 home-section601 bg-white">
         <h2 style="text-align: center;" class="font-weight-bold">Featured Candidates</h2>
         <P style=" text-align: center;" class="text-muted">Leading Employers already using job and talent.</P>
-        <div class="nitin-1 mobile_responsive_screen">
+        <div class="bluff-1 mobile_responsive_screen">
 
             <?php
             $limit = 9;
-            $query1 =   $query1 = $db->query("SELECT * FROM sellers s INNER JOIN memb_plan_detail mpd ON s.seller_id = mpd.seller_id AND memb_status = 'Active' AND mpd.memb_tbl_id = 10");
+            $query1 = $db->query("SELECT * FROM sellers s INNER JOIN memb_plan_detail mpd ON s.seller_id = mpd.seller_id AND memb_status = 'Active' AND mpd.memb_tbl_id = 10");
             $total_record = $query1->rowCount();
             $total_pages = ceil($total_record / $limit);
 
@@ -574,7 +574,7 @@ require_once("social-config.php");
                 $proposal_desc = $picture1->proposal_desc;
             ?>
                 <div class="outer-frame-for-tpc">
-                    <div class="nitin-2" id="disp-lay-fl-ex">
+                    <div class="bluff-2" id="disp-lay-fl-ex">
                         <div class="col-xl-12">
                             <div class="rampal t_p_c_section">
                                 <div class="col-md-12 mb-5">
@@ -632,7 +632,7 @@ require_once("social-config.php");
     <!-- ######################################## -->
 
 
-    <!-- nitin created design by featured candidate section  -->
+    <!-- bluff created design by featured candidate section  -->
     <div
         class="home-section3 body-max-width px-3 pt-2 mb-5 ">
         <div class="cards">
@@ -642,435 +642,102 @@ require_once("social-config.php");
         </div>
         <h2 class="text-center ">Leading employers already using job and talent.</h2>
 
-        <!-- start of top proposal section-->
+
         <div class="container-top-proposal">
             <div class="container-top-proposal-row">
                 <div class="featured-main-container">
-                    <!-- f-1 -->
-                    <div class="featured-card">
-                        <div class="featured-main-header">
-                            <div class="profile-picture">
-                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
-                            </div>
-                            <div class="profile-info">
-                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
-                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-                                <div class="rating">
-                                    <span>⭐ 4.9</span> <span>(1,708)</span>
-                                </div>
-                            </div>
-                            <button class="favorite-button" onclick="toggleFavorite(this)">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="featured-main-tags">
-                            <span>Email Template</span>
-                            <span>Next.js</span>
-                            <span>+17</span>
-                        </div>
-                        <div class="slider featured-main-slider">
-                            <div class="slides">
-                                <!-- Different images for Card 1 -->
-                                <img src="https://plus.unsplash.com/premium_photo-1681666713641-8d722b681edc?w=500&auto=format&fit=crop&q=60" alt="Image 1">
-                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60" alt="Image 2">
-                                <img src="https://plus.unsplash.com/premium_photo-1681666713641-8d722b681edc?w=500&auto=format&fit=crop&q=60" alt="Image 3">
-                            </div>
-                            <div class="dots">
-                                <span class="dot" onclick="currentSlide(1, 1)"></span>
-                                <span class="dot" onclick="currentSlide(1, 2)"></span>
-                                <span class="dot" onclick="currentSlide(1, 3)"></span>
-                            </div>
-                        </div>
-                        <div class="featured-main-footer">
-                            <p>From <br><strong>$195</strong>/project</p>
-                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-                            <button class="see-profile-button">See profile</button>
-                        </div>
-                    </div>
+                    <?php
+                    $query1 = $db->query("SELECT s.* FROM sellers s INNER JOIN memb_plan_detail mpd ON s.seller_id = mpd.seller_id AND memb_status = 'Active' AND mpd.memb_tbl_id = 10  ORDER BY RAND() LIMIT 4");
+                    while ($get1_data = $query1->fetch()) {
+                        $seller_image = getImageUrl("sellers", $get1_data->seller_image);
+                        $seller_name = $get1_data->seller_name; //seller name
+                        $seller_id = $get1_data->seller_id;
+                        $seller_user_name = $get1_data->seller_user_name;
+                        $seller_city = $get1_data->seller_city;
+                        $seller_country = $get1_data->seller_country;
+                        $seller_headline = $get1_data->seller_headline;
 
-                    <!-- f-2 -->
-                    <div class="featured-card">
-                        <div class="featured-main-header">
-                            <div class="profile-picture">
-                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
-                            </div>
-                            <div class="profile-info">
-                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
-                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-                                <div class="rating">
-                                    <span>⭐ 4.9</span> <span>(1,708)</span>
-                                </div>
-                            </div>
-                            <button class="favorite-two-button" onclick="toggletwoFavorite(this)">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="featured-main-tags">
-                            <span>Email Template</span>
-                            <span>Next.js</span>
-                            <span>+17</span>
-                        </div>
-                        <div class="slider featured-main-slider">
-                            <div class="slides">
-                                <img src="https://plus.unsplash.com/premium_photo-1678565999332-1cde462f7b24?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2Vic2l0ZXxlbnwwfHwwfHx8MA%3D%3D" alt="Image 1">
-                                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHdlYnNpdGV8ZW58MHx8MHx8fDA%3D" alt="Image 2">
-                                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdlYnNpdGV8ZW58MHx8MHx8fDA%3D" alt="Image 3">
-                            </div>
-                            <div class="dots">
-                                <span class="dot" onclick="currentSlide(2, 1)"></span>
-                                <span class="dot" onclick="currentSlide(2, 2)"></span>
-                                <span class="dot" onclick="currentSlide(2, 3)"></span>
-                            </div>
-                        </div>
-                        <div class="featured-main-footer">
-                            <p>From <br><strong>$195</strong>/project</p>
-                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-                            <button class="see-profile-button">See profile</button>
-                        </div>
-                    </div>
-                    <!-- f-3 -->
+                        $quwery_1 = $db->query("SELECT * FROM proposals where proposal_seller_id = $seller_id");
+                        $picture1 = $quwery_1->fetch();
+                        $proposal_rating = $picture1->proposal_rating;
+                        $proposal_url = $picture1->proposal_url;
+                        $proposal_title = $picture1->proposal_title;
+                        $proposal_img1 = $picture1->proposal_img1;
+                        $proposal_desc = $picture1->proposal_desc;
+                        $proposal_price = $picture1->proposal_price;
+                        $proposal_views = $picture1->proposal_views;
+                        $proposal_seller_id = $picture1->proposal_seller_id;
 
-                    <div class="featured-card">
-                        <div class="featured-main-header">
-                            <div class="profile-picture">
-                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
-                            </div>
-                            <div class="profile-info">
-                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
-                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-                                <div class="rating">
-                                    <span>⭐ 4.9</span> <span>(1,708)</span>
+                    ?>
+                        <div class="featured-card">
+                            <div class="featured-main-header">
+                                <div class="profile-picture">
+                                    <img src="" alt="Profile Picture">
                                 </div>
+                                <div class="profile-info">
+                                    <h3><span class="online-indicator"></span> <?= $seller_name; ?></h3>
+                                    <p class="feature-main-text"><?= substr($seller_headline, 0, 40); ?> <?= strlen($seller_headline) > 40 ? '...' : ''; ?></p>
+                                    <div class="rating">
+                                        <span>⭐ <?= $proposal_rating > 0 ? $proposal_rating : 0; ?></span> <span>(<?= $proposal_views; ?>)</span>
+                                    </div>
+                                </div>
+                                <button class="favorite-button" onclick="toggleFavorite(this)">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
                             </div>
-                            <button class="favorite-three-button" onclick="togglethreeFavorite(this)">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="featured-main-tags">
-                            <span>Email Template</span>
-                            <span>Next.js</span>
-                            <span>+17</span>
-                        </div>
-                        <div class="slider featured-main-slider">
-                            <div class="slides">
-                                <img src="https://media.istockphoto.com/id/508498442/photo/man-using-laptop-working-on-plan-to-increase-website-traffic.webp?a=1&b=1&s=612x612&w=0&k=20&c=RzNNYwU9iTOFVRBv_6eB8kYPTIdGP0YzKLCOsYE7H-U=" alt="Image 1">
-                                <img src="https://media.istockphoto.com/id/1398473177/photo/questionnaire-with-checkboxes-filling-survey-form-online-answer-questions.webp?a=1&b=1&s=612x612&w=0&k=20&c=yfGyijQDY6Toe7ucQFFsnPwy-tC5JKPEkIaJ2SMF-fs=" alt="Image 2">
-                                <img src="https://media.istockphoto.com/id/1062674570/photo/purchasing-thing-online.webp?a=1&b=1&s=612x612&w=0&k=20&c=rIcG89F3Z1KVgHsD3JgBKcIzMIlqy5cKnXW4Rxwnrl8=" alt="Image 3">
-                            </div>
-                            <div class="dots">
-                                <span class="dot" onclick="currentSlide(3, 1)"></span>
-                                <span class="dot" onclick="currentSlide(3, 2)"></span>
-                                <span class="dot" onclick="currentSlide(3, 3)"></span>
-                            </div>
-                        </div>
-                        <div class="featured-main-footer">
-                            <p>From <br><strong>$195</strong>/project</p>
-                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-                            <button class="see-profile-button">See profile</button>
-                        </div>
-                    </div>
+                            <div class="featured-main-tags">
+                                <?php
+                                $skill_details = $db->query("SELECT * FROM skills_relation WHERE seller_id = $seller_id");
+                                while ($get_skill_details = $skill_details->fetch()) {
+                                    $skill_sub_child_id = $get_skill_details->skill_sub_child_id;
+                                    $skill_id = $get_skill_details->skill_id;
 
-                    <!-- f-4 -->
-                    <div class="featured-card">
-                        <div class="featured-main-header">
-                            <div class="profile-picture">
-                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
-                            </div>
-                            <div class="profile-info">
-                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
-                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-                                <div class="rating">
-                                    <span>⭐ 4.9</span> <span>(1,708)</span>
-                                </div>
-                            </div>
-                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="featured-main-tags">
-                            <span>Email Template</span>
-                            <span>Next.js</span>
-                            <span>+17</span>
-                        </div>
-                        <div class="slider featured-main-slider">
-                            <div class="slides">
-                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
-                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
-                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
-                            </div>
-                            <div class="dots">
-                                <span class="dot" onclick="currentSlide(4, 1)"></span>
-                                <span class="dot" onclick="currentSlide(4, 2)"></span>
-                                <span class="dot" onclick="currentSlide(4, 3)"></span>
-                            </div>
-                        </div>
-                        <div class="featured-main-footer">
-                            <p>From <br><strong>$195</strong>/project</p>
-                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-                            <button class="see-profile-button">See profile</button>
-                        </div>
-                    </div>
+                                    $select_attribute = $db->query("SELECT * FROM seller_skills WHERE skill_id = $skill_id")->fetch();
+                                    $skill_title = $select_attribute->skill_title;
 
-                    <!-- f-5 -->
-                    <div class="featured-card">
-                        <div class="featured-main-header">
-                            <div class="profile-picture">
-                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
+                                    echo "<span>" . $skill_title . "</span>";
+                                }
+                                ?>
                             </div>
-                            <div class="profile-info">
-                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
-                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-                                <div class="rating">
-                                    <span>⭐ 4.9</span> <span>(1,708)</span>
-                                </div>
-                            </div>
-                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="featured-main-tags">
-                            <span>Email Template</span>
-                            <span>Next.js</span>
-                            <span>+17</span>
-                        </div>
-                        <div class="slider featured-main-slider">
-                            <div class="slides">
-                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
-                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
-                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
-                            </div>
-                            <div class="dots">
-                                <span class="dot" onclick="currentSlide(4, 1)"></span>
-                                <span class="dot" onclick="currentSlide(4, 2)"></span>
-                                <span class="dot" onclick="currentSlide(4, 3)"></span>
-                            </div>
-                        </div>
-                        <div class="featured-main-footer">
-                            <p>From <br><strong>$195</strong>/project</p>
-                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-                            <button class="see-profile-button">See profile</button>
-                        </div>
-                    </div>
 
-                    <!-- f-6 -->
-                    <div class="featured-card">
-                        <div class="featured-main-header">
-                            <div class="profile-picture">
-                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
-                            </div>
-                            <div class="profile-info">
-                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
-                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-                                <div class="rating">
-                                    <span>⭐ 4.9</span> <span>(1,708)</span>
-                                </div>
-                            </div>
-                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="featured-main-tags">
-                            <span>Email Template</span>
-                            <span>Next.js</span>
-                            <span>+17</span>
-                        </div>
-                        <div class="slider featured-main-slider">
-                            <div class="slides">
-                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
-                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
-                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
-                            </div>
-                            <div class="dots">
-                                <span class="dot" onclick="currentSlide(4, 1)"></span>
-                                <span class="dot" onclick="currentSlide(4, 2)"></span>
-                                <span class="dot" onclick="currentSlide(4, 3)"></span>
-                            </div>
-                        </div>
-                        <div class="featured-main-footer">
-                            <p>From <br><strong>$195</strong>/project</p>
-                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-                            <button class="see-profile-button">See profile</button>
-                        </div>
-                    </div>
 
-                    <!-- f-7 -->
-                    <div class="featured-card">
-                        <div class="featured-main-header">
-                            <div class="profile-picture">
-                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
-                            </div>
-                            <div class="profile-info">
-                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
-                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-                                <div class="rating">
-                                    <span>⭐ 4.9</span> <span>(1,708)</span>
-                                </div>
-                            </div>
-                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="featured-main-tags">
-                            <span>Email Template</span>
-                            <span>Next.js</span>
-                            <span>+17</span>
-                        </div>
-                        <div class="slider featured-main-slider">
-                            <div class="slides">
-                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
-                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
-                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
-                            </div>
-                            <div class="dots">
-                                <span class="dot" onclick="currentSlide(4, 1)"></span>
-                                <span class="dot" onclick="currentSlide(4, 2)"></span>
-                                <span class="dot" onclick="currentSlide(4, 3)"></span>
-                            </div>
-                        </div>
-                        <div class="featured-main-footer">
-                            <p>From <br><strong>$195</strong>/project</p>
-                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-                            <button class="see-profile-button">See profile</button>
-                        </div>
-                    </div>
 
-                    <!-- f-8 -->
-                    <div class="featured-card">
-                        <div class="featured-main-header">
-                            <div class="profile-picture">
-                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
-                            </div>
-                            <div class="profile-info">
-                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
-                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-                                <div class="rating">
-                                    <span>⭐ 4.9</span> <span>(1,708)</span>
+                            <div class="slider featured-main-slider">
+                                <div class="slides">
+                                    <!-- Different images for Card 1 -->
+                                    <img src="proposals/proposal_files/<?= $proposal_img1; ?>" alt="Image 1">
+                                    <img src="proposals/proposal_files/<?= $proposal_img1; ?>" alt="Image 1">
+                                    <img src="proposals/proposal_files/<?= $proposal_img1; ?>" alt="Image 1">
+                                </div>
+                                <div class="dots">
+                                    <span class="dot" onclick="currentSlide(1, 1)"></span>
+                                    <span class="dot" onclick="currentSlide(1, 2)"></span>
+                                    <span class="dot" onclick="currentSlide(1, 3)"></span>
                                 </div>
                             </div>
-                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="featured-main-tags">
-                            <span>Email Template</span>
-                            <span>Next.js</span>
-                            <span>+17</span>
-                        </div>
-                        <div class="slider featured-main-slider">
-                            <div class="slides">
-                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
-                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
-                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
-                            </div>
-                            <div class="dots">
-                                <span class="dot" onclick="currentSlide(4, 1)"></span>
-                                <span class="dot" onclick="currentSlide(4, 2)"></span>
-                                <span class="dot" onclick="currentSlide(4, 3)"></span>
-                            </div>
-                        </div>
-                        <div class="featured-main-footer">
-                            <p>From <br><strong>$195</strong>/project</p>
-                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-                            <button class="see-profile-button">See profile</button>
-                        </div>
-                    </div>
-                    <!-- f-9 -->
-                    <div class="featured-card">
-                        <div class="featured-main-header">
-                            <div class="profile-picture">
-                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
-                            </div>
-                            <div class="profile-info">
-                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
-                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-                                <div class="rating">
-                                    <span>⭐ 4.9</span> <span>(1,708)</span>
-                                </div>
-                            </div>
-                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="featured-main-tags">
-                            <span>Email Template</span>
-                            <span>Next.js</span>
-                            <span>+17</span>
-                        </div>
-                        <div class="slider featured-main-slider">
-                            <div class="slides">
-                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
-                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
-                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
-                            </div>
-                            <div class="dots">
-                                <span class="dot" onclick="currentSlide(4, 1)"></span>
-                                <span class="dot" onclick="currentSlide(4, 2)"></span>
-                                <span class="dot" onclick="currentSlide(4, 3)"></span>
-                            </div>
-                        </div>
-                        <div class="featured-main-footer">
-                            <p>From <br><strong>$195</strong>/project</p>
-                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-                            <button class="see-profile-button">See profile</button>
-                        </div>
-                    </div>
-                    <!-- f-10 -->
-                    <div class="featured-card">
-                        <div class="featured-main-header">
-                            <div class="profile-picture">
-                                <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
-                            </div>
-                            <div class="profile-info">
-                                <h3><span class="online-indicator"></span> Sumit kumar</h3>
-                                <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-                                <div class="rating">
-                                    <span>⭐ 4.9</span> <span>(1,708)</span>
-                                </div>
-                            </div>
-                            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-                        </div>
-                        <div class="featured-main-tags">
-                            <span>Email Template</span>
-                            <span>Next.js</span>
-                            <span>+17</span>
-                        </div>
-                        <div class="slider featured-main-slider">
-                            <div class="slides">
-                                <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
-                                <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
-                                <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
-                            </div>
-                            <div class="dots">
-                                <span class="dot" onclick="currentSlide(4, 1)"></span>
-                                <span class="dot" onclick="currentSlide(4, 2)"></span>
-                                <span class="dot" onclick="currentSlide(4, 3)"></span>
-                            </div>
-                        </div>
-                        <div class="featured-main-footer">
-                            <p>From <br><strong>$195</strong>/project</p>
-                            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-                            <button class="see-profile-button">See profile</button>
-                        </div>
-                    </div>
+                            <div class="featured-main-footer">
+                                <p>From <br><strong>$<?= $proposal_price; ?></strong>/project</p>
 
+
+                                <a class="featured-chat-icon" href="<?= $site_url; ?>/proposals/<?= $seller_user_name; ?>/<?= $proposal_url; ?>"><i class="fa-duotone fa-solid fa-comment"></i></a>
+
+
+                                <a href="<?= $site_url; ?>/<?= $seller_user_name; ?>">
+                                    <button class="see-profile-button">See profile</button>
+                                </a>
+                            </div>
+                        </div>
+                    <?php } ?>
 
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="pagination">
-        <button class="prev" onclick="changePage(-1)">&#10094; Prev</button>
-        <span id="page-numbers"></span>
-        <button class="next" onclick="changePage(1)">Next &#10095;</button>
-    </div>
 
+    <!-- bluff created design by featured candidate section  -->
 
-    <!-- nitin created design by featured candidate section  -->
-
-    <!-- <div class="outer_page_styling">
+    <div class="outer_page_styling">
         <div class="inner_page_styling">
             <?php
             echo "<a href='top_propo_file_view?$page=1'><li class='pagination_style_first'>FIRST</li></a>";
@@ -1081,7 +748,7 @@ require_once("social-config.php");
             echo "<a href='top_propo_file_view?$page=" . $total_pages . " '> <li class='pagination_style_first'><span class='last_page_style'>LAST</span></li></a>";
             ?>
         </div>
-    </div> -->
+    </div>
 
     <!-- <script>
         if (href = 'top_propo_file_view?$page = 1') {
@@ -1148,45 +815,6 @@ require_once("social-config.php");
         }
     </script>
 
-    <script>
-        let currentPage = 1;
-        const cardsPerPage = 4; // Number of cards to show per page
-        const totalCards = document.querySelectorAll('.featured-card').length; // Total number of cards
-        const totalPages = Math.ceil(totalCards / cardsPerPage);
-
-        function displayCards() {
-            const cards = document.querySelectorAll('.featured-card');
-            cards.forEach((card, index) => {
-                card.style.display = (index >= (currentPage - 1) * cardsPerPage && index < currentPage * cardsPerPage) ? 'block' : 'none';
-            });
-            updatePagination();
-        }
-
-        function changePage(direction) {
-            currentPage += direction;
-            if (currentPage < 1) currentPage = 1;
-            if (currentPage > totalPages) currentPage = totalPages;
-            displayCards();
-        }
-
-        function updatePagination() {
-            const pageNumbers = document.getElementById('page-numbers');
-            pageNumbers.innerHTML = '';
-            for (let i = 1; i <= totalPages; i++) {
-                const span = document.createElement('span');
-                span.innerText = i;
-                span.className = (i === currentPage) ? 'active' : '';
-                span.onclick = () => {
-                    currentPage = i;
-                    displayCards();
-                };
-                pageNumbers.appendChild(span);
-            }
-        }
-
-        // Initialize
-        displayCards();
-    </script>
 
 
 

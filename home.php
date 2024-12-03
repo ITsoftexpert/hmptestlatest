@@ -38,33 +38,70 @@ $slide_image = $row_slides->slide_image;
       </h1>
       <p class="" id="restyle-for-portal-para">Break free from outdated norms – <br> instantly access the finest talent,
         right at your fingertips.</p>
+      <style>
+        .input_style_mobile_search {
+          padding: 9px 0 9px 9px;
+          border: 1px solid gray;
+          border-radius: 5px 0 0 5px;
+          border-right: none;
+          width: 88%;
+        }
 
-      <div class="gnav-search-inner clearable clearable_rampal" id="inner-search-btn-bar">
-        <div class="search-input-wrapper text-field-wrapper position-relative">
+        .btn_style_mobile_search {
+          border: 1px solid grey;
+          background-color: white;
+          border-left: none;
+          padding: 9px;
+          border-radius: 0 5px 5px 0;
+        }
 
-          <!-- Microphone icon on the left side inside the search bar -->
-          <button class="rampal_btn_primary2 position-absolute" id="voiceSearchIcon" type="button" style="left: 10px; top: 47%; transform: translateY(-50%); border: none; background: transparent;">
-            <i class="fa-solid fa-microphone"></i>
-          </button>
+        .input_style_mobile_search:focus-visible {
+          outline: none;
+          /* This prevents any default focus outline */
+        }
 
-          <!-- Search Input -->
-          <input id="search-query" class="rounded_rampal rounded_rampal2" name="search_query"
-            placeholder="<?= $lang['search']['placeholder']; ?>" value="<?= @$_SESSION["search_query"]; ?>"
-            autocomplete="off" style="padding-left: 40px; padding-right: 40px;">
-
-          <!-- Magnifying glass icon on the right side inside the search bar -->
-          <button class="rampal_btn_primary position-absolute" name="search" type="submit" value="Search"
-            style="right: 10px; top: 40%; transform: translateY(-50%); border: none; background: transparent;">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
+        @media(min-width:768px) {
+          .mobile_view_search_section {
+            display: none;
+          }
+        }
+      </style>
+      <!-- mobile view search bar start -->
+      <div id="mobile_before_scroll_down" class="mobile_view_search_section">
+        <div class="" id="">
+          <form class="" method="post">
+            <div class="" id="inner-search-btn-bar">
+              <div class="d-flex mb-3">
+                <input class="search-query input_style_mobile_search" class="w-100 rounded" name="search_query"
+                  placeholder="<?= $lang['search']['placeholder']; ?>" value="<?= @$_SESSION["search_query"]; ?>"
+                  autocomplete="off">
+                <button class="btn_style_mobile_search"
+                  name="search" type="submit" value="Search">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <ul class="search-bar-panel d-none"></ul>
+          </form>
         </div>
       </div>
+      <?php
+      if (isset($_POST['search'])) {
+        $search_query = $input->post('search_query');
+        $_SESSION['search_query'] = $search_query;
+        echo "<script>window.open('$site_url/search.php','_self')</script>";
+      }
+      ?>
+      <!-- mobile view search bar end -->
+
 
       <div class="d-flex find-job-free_btns" id="f-j-restyle">
-        <a href="<?= $site_url ?>/requests/post_request">
+        <a href="<?= $site_url ?>/login">
           <button class="find_find_free_btn"> Post Job Free </button>
         </a>
-        <a href="<?= $site_url; ?>" data-toggle="modal" data-target="<?= $site_url; ?>register-modal">
+
+
+        <a href="#" data-toggle="modal" data-target="#register-modal">
           <button class="post_job_free_btn"> Find Job </button>
         </a>
       </div>
@@ -223,7 +260,7 @@ $slide_image = $row_slides->slide_image;
 
   <div class="ram_outer">
     <div class="raminer_1">
-      <a href="<?= $site_url; ?>/freelancers" class="full-width-button">
+      <a href="<?= $site_url; ?>/mobile_category" class="full-width-button">
         <i class="fa fa-search"></i>
         Hire By Category
         <i class="fa-solid fa-arrow-right"></i>
@@ -231,7 +268,7 @@ $slide_image = $row_slides->slide_image;
     </div>
 
     <div class="raminer_2">
-      <a href="<?= $site_url; ?>/categories/graphics-design" class="full-width-button">
+      <a href="<?= $site_url; ?>/freelancers" class="full-width-button">
         <i class="fa fa-user"></i>
         Hire an Expert
         <i class="fa-solid fa-arrow-right"></i>
@@ -244,7 +281,7 @@ $slide_image = $row_slides->slide_image;
 
 
 <!-- without scroller start -->
-<div class="home-section2 impro-vise-back-color  display-disappear-2-nitin">
+<div class="home-section2 impro-vise-back-color  display-disappear-2-bluff">
   <div class="body-max-width px-3 ">
     <div class="text-center mb-4 mt-3">
       <h5 class="font-700-weight top-head-ing-respo my-2 text-secondary">How to hire talent on Hiremyprofile</h5>
@@ -410,7 +447,7 @@ $slide_image = $row_slides->slide_image;
 <script src="js/stylishbtn.js"></script>
 
 
-<!-- widthout scroller end -->
+
 <script>
   function goNext0() {
     if (counter0 == 2) {
@@ -453,13 +490,6 @@ $slide_image = $row_slides->slide_image;
     goNext0();
   }
 </script>
-<!-- start section top proposals/services  -->
-
-
-<!-- without scroller section 2 -->
-<style>
-
-</style>
 
 <div
   class="home-section3 body-max-width px-3 pt-2 mb-5 mob-sty-respo-vsi   dummy-video-content-border2  "
@@ -537,77 +567,83 @@ $slide_image = $row_slides->slide_image;
                       data-placement="top" title="Favorite"></i>
                   <?php } ?>
                 <?php } else { ?>
-                  <a href="<?= $site_url; ?>" data-toggle="modal" data-target="<?= $site_url; ?>login-modal">
+                  <a href="#" data-toggle="modal" data-target="#login-modal">
                     <i class="fa fa-heart proposal-favorite additing-some-new modification_class_absolute"
                       data-toggle="tooltip" data-placement="top" title="Favorite"></i>
                   </a>
                 <?php } ?>
               </picture>
-              <div class="card-body">
-                <div class="d-flex">
-                  <div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center user-pic">
-                    <img class="w-100 h-100" src="<?= $seller_image; ?>" alt="">
-                  </div>
-                  <div class="px-3 d-flex justify-content-between w-100 align-items-center">
-                    <div class="">
-                      <h5 class="card-title font-weight-bold mb-0"><?= $seller_user_name; ?> <?= $proposal_id ?></h5>
-                      <small class="text-secondary"><?= $seller_level; ?></small>
-                    </div>
-                    <div class="text-secondary">
-                      <p> From :
-                        <strong class=""><?= showPrice($proposal_price); ?></strong>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <p class="my-3"><?= $proposal_title; ?></p>
-                <div class="star-fill d-flex">
-                  <div class="font-weight-bold text-warning">
-                    <i class="fa fa-star"></i>
-                    <span><?php if ($proposal_rating == "0") {
-                            echo "0.0";
-                          } else {
-                            printf("%.1f", $average_rating);
-                          } ?></span>
-                    <span class="font-weight-normal text-secondary">(<?= $count_reviews; ?>)</span>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class=" d-flex justify-content-between align-items-center py-1 px-1 bt-xs-1 bc-theme-according">
-
-                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1003 1057" height="30px">
-
-                  <path class="a" d="m638.7 275.8h-274.4l-62.7-275.4h399.7z" />
-                  <path class="b" d="m500.4 275.8h-136.1l-62.7-275.4h198.8z" />
-                  <path class="b"
-                    d="m1002.6 965.1c0 50.6-41 91.5-91.6 91.5h-0.5-223.4-371.4-223.3-0.5c-50.6 0-91.6-40.9-91.6-91.5 0-17 11.7-39.8 28.9-62.6-7.2-32.8-11-66.9-11-101.9 0-266.9 216.3-548.9 483.3-548.9 266.8 0 483.2 282 483.2 548.9 0 35-3.9 69-11 101.9 17.2 22.7 28.9 45.6 28.9 62.6z" />
-                  <path class="c"
-                    d="m500.4 1056.6h-408.5c-50.6 0-91.6-40.9-91.6-91.5 0-17 11.7-39.8 28.9-62.6-7.2-32.8-11-66.9-11-101.9 0-266.6 215.8-548.1 482.2-548.9z" />
-                  <path fill-rule="evenodd" class="d"
-                    d="m668.7 304h-334.5c-18.3 0-33.1-14.8-33.1-33 0-18.3 14.8-33.1 33.1-33.1h334.5c18.3 0 33.1 14.8 33.1 33.1 0 18.2-14.8 33-33.1 33zm-13.8-66.3h-307c-18.2 0-33-14.7-33-33 0-18.2 14.8-33.1 33-33.1h307c18.3 0 33.1 14.9 33.1 33.1 0 18.3-14.8 33-33.1 33z" />
-                  <path fill-rule="evenodd" class="e"
-                    d="m701.7 270.8c0 0 0.1 0.1 0.1 0.2 0 18.2-14.8 33-33.1 33h-334.5c-18.3 0-33.1-14.8-33.1-33q0-0.1 0-0.2zm-13.8-66.6c0 0.2 0.1 0.3 0.1 0.5 0 18.3-14.8 33-33 33h-307c-18.3 0-33.1-14.7-33.1-33 0-0.2 0.1-0.3 0.1-0.5z" />
-                  <path class="f"
-                    d="m712.1 676.8c0 116.3-94.3 210.7-210.6 210.7-116.4 0-210.7-94.4-210.7-210.7 0-116.3 94.3-210.6 210.7-210.6 116.3 0 210.6 94.3 210.6 210.6z" />
-                  <path class="g" d="m500.4 887.4c-115.9-0.6-209.6-94.6-209.6-210.6 0-116 93.7-210 209.6-210.6z" />
-                  <path class="e"
-                    d="m483.3 797.6c-46.5-5-61.7-31.6-61.7-66.4h43.1c0.9 18.3 9 28.2 36.2 28.2 25.8 0 37.6-10.8 37.6-37.8 0-28.2-33.5-28.2-58.9-31.6-27-3.4-55.5-16.8-55.5-66.1 0-39 20.8-61.7 59.2-66.7v-33.4h38.1v33.8c31 4.9 51.2 22.6 54.6 62h-43c-1.3-20.1-11.9-26-32.7-26-23.5 0-33.1 7.4-33.1 30 0 30.1 23.9 27.6 60.1 33.2 27.7 4.4 54 15.5 54 63.3 0 47.7-17.9 71.6-59.9 77.2v32.5h-38.1z" />
-                </svg>
-                <div>
-                  <span class="text-secondary"><?= $lang['proposals']['starting_at']; ?> </span>
-                  <strong class="text-largest pl-2"><?= showPrice($proposal_price); ?></strong>
-                </div>
-              </div>
             </a>
+            <div class="card-body">
+              <div class="d-flex">
+                <div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center user-pic">
+                  <img class="w-100 h-100" src="<?= $seller_image; ?>" alt="">
+                </div>
+                <div class="px-3 d-flex justify-content-between w-100 align-items-center">
+                  <div class="">
+                    <a href="<?= $site_url; ?>/<?= $seller_user_name; ?>">
+                      <h5 class="card-title font-weight-bold mb-0"><?= $seller_user_name; ?> <?= $proposal_id ?></h5>
+                    </a>
+                    <small class="text-secondary"><?= $seller_level; ?></small>
+                  </div>
+                  <div class="text-secondary">
+                    <p> From :
+                      <strong class=""><?= showPrice($proposal_price); ?></strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <a href="<?= $site_url; ?>/proposals/<?= $seller_user_name; ?>/<?= $proposal_url; ?>">
+                <p class="my-3"><?= $proposal_title; ?></p>
+              </a>
+              <div class="star-fill d-flex">
+                <div class="font-weight-bold text-warning">
+                  <i class="fa fa-star"></i>
+                  <span><?php if ($proposal_rating == "0") {
+                          echo "0.0";
+                        } else {
+                          printf("%.1f", $average_rating);
+                        } ?></span>
+                  <span class="font-weight-normal text-secondary">(<?= $count_reviews; ?>)</span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class=" d-flex justify-content-between align-items-center py-1 px-1 bt-xs-1 bc-theme-according">
+
+              <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1003 1057" height="30px">
+
+                <path class="a" d="m638.7 275.8h-274.4l-62.7-275.4h399.7z" />
+                <path class="b" d="m500.4 275.8h-136.1l-62.7-275.4h198.8z" />
+                <path class="b"
+                  d="m1002.6 965.1c0 50.6-41 91.5-91.6 91.5h-0.5-223.4-371.4-223.3-0.5c-50.6 0-91.6-40.9-91.6-91.5 0-17 11.7-39.8 28.9-62.6-7.2-32.8-11-66.9-11-101.9 0-266.9 216.3-548.9 483.3-548.9 266.8 0 483.2 282 483.2 548.9 0 35-3.9 69-11 101.9 17.2 22.7 28.9 45.6 28.9 62.6z" />
+                <path class="c"
+                  d="m500.4 1056.6h-408.5c-50.6 0-91.6-40.9-91.6-91.5 0-17 11.7-39.8 28.9-62.6-7.2-32.8-11-66.9-11-101.9 0-266.6 215.8-548.1 482.2-548.9z" />
+                <path fill-rule="evenodd" class="d"
+                  d="m668.7 304h-334.5c-18.3 0-33.1-14.8-33.1-33 0-18.3 14.8-33.1 33.1-33.1h334.5c18.3 0 33.1 14.8 33.1 33.1 0 18.2-14.8 33-33.1 33zm-13.8-66.3h-307c-18.2 0-33-14.7-33-33 0-18.2 14.8-33.1 33-33.1h307c18.3 0 33.1 14.9 33.1 33.1 0 18.3-14.8 33-33.1 33z" />
+                <path fill-rule="evenodd" class="e"
+                  d="m701.7 270.8c0 0 0.1 0.1 0.1 0.2 0 18.2-14.8 33-33.1 33h-334.5c-18.3 0-33.1-14.8-33.1-33q0-0.1 0-0.2zm-13.8-66.6c0 0.2 0.1 0.3 0.1 0.5 0 18.3-14.8 33-33 33h-307c-18.3 0-33.1-14.7-33.1-33 0-0.2 0.1-0.3 0.1-0.5z" />
+                <path class="f"
+                  d="m712.1 676.8c0 116.3-94.3 210.7-210.6 210.7-116.4 0-210.7-94.4-210.7-210.7 0-116.3 94.3-210.6 210.7-210.6 116.3 0 210.6 94.3 210.6 210.6z" />
+                <path class="g" d="m500.4 887.4c-115.9-0.6-209.6-94.6-209.6-210.6 0-116 93.7-210 209.6-210.6z" />
+                <path class="e"
+                  d="m483.3 797.6c-46.5-5-61.7-31.6-61.7-66.4h43.1c0.9 18.3 9 28.2 36.2 28.2 25.8 0 37.6-10.8 37.6-37.8 0-28.2-33.5-28.2-58.9-31.6-27-3.4-55.5-16.8-55.5-66.1 0-39 20.8-61.7 59.2-66.7v-33.4h38.1v33.8c31 4.9 51.2 22.6 54.6 62h-43c-1.3-20.1-11.9-26-32.7-26-23.5 0-33.1 7.4-33.1 30 0 30.1 23.9 27.6 60.1 33.2 27.7 4.4 54 15.5 54 63.3 0 47.7-17.9 71.6-59.9 77.2v32.5h-38.1z" />
+              </svg>
+              <div>
+                <span class="text-secondary"><?= $lang['proposals']['starting_at']; ?> </span>
+                <strong class="text-largest pl-2"><?= showPrice($proposal_price); ?></strong>
+              </div>
+            </div>
+
           </div>
         </div>
       <?php } ?>
     </div>
   </div>
+  <!-- href="featured_proposals">   -->
   <div class="display_flex_position display_flex_positionpart2"><a class="btn theme-bg text-white"
-      id="top-view-response" href="featured_proposals">
+      id="top-view-response" href="<?= $site_url; ?>/categories/graphics-design">
       VIEW ALL
     </a>
   </div>
@@ -684,25 +720,21 @@ $slide_image = $row_slides->slide_image;
 
     <ul>
       <li>
-        <a href="<?= $site_url; ?>/categories/programming-tech/AI-Development" class="left_cat_item">AI Development</a>
+        <a href="<?= $site_url; ?>/categories/programming-amp-tech/AI-Development" class="left_cat_item">AI Development</a>
       </li>
-
-
-
-
-      <li> <a href="<?= $site_url; ?>programming-tech/Website-Development/E-Commerce-Development"
+      <li> <a href="<?= $site_url; ?>/categories/programming-amp-tech/Website-Development/E-Commerce-Development"
           class="left_cat_item">E-Commerce Development</a> </li>
-      <li> <a href="<?= $site_url; ?>categories/graphics-design/Logo-Brand-Identity/Logo-Design" class="left_cat_item">Logo
+      <li> <a href="<?= $site_url; ?>/categories/graphics-design/Logo-Brand-Identity/Logo-Design" class="left_cat_item">Logo
           Design</a> </li>
       <li> <a href="<?= $site_url; ?>/categories/video-animation/Editing-Post-Production/Video-Editing"
           class="left_cat_item">Video Editing</a> </li>
-      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Mobile-App-Development" class="left_cat_item">Mobile App
+      <li> <a href="<?= $site_url; ?>/categories/programming-amp-tech/Mobile-App-Development" class="left_cat_item">Mobile App
           Development</a> </li>
       <li> <a href="<?= $site_url; ?>/categories/graphics-design/Art-Illustration" class="left_cat_item">Art & Illustration</a> </li>
-      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Data-Science-ML" class="left_cat_item">Data Science & ML</a> </li>
-      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Website-Platforms/Shopify" class="left_cat_item">Shopify
+      <li> <a href="<?= $site_url; ?>/categories/programming-amp-tech/Data-Science-ML" class="left_cat_item">Data Science & ML</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-amp-tech/Website-Platforms/Shopify" class="left_cat_item">Shopify
           Developer</a> </li>
-      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Game-Development" class="left_cat_item">Game Development</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-amp-tech/Game-Development" class="left_cat_item">Game Development</a> </li>
       <li> <a href="<?= $site_url; ?>/categories/graphics-design/3D-Design" class="left_cat_item">3D Design</a> </li>
       <li> <a href="<?= $site_url; ?>/categories/writing-translation/Career-Writing/Resume-Writing"
           class="left_cat_item">Resume Writer</a> </li>
@@ -718,23 +750,23 @@ $slide_image = $row_slides->slide_image;
 
 
       <li> <a href="<?= $site_url; ?>/categories/digital-marketing/Social/seo" class="left_cat_item">SEO</a> </li>
-      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Website-Development" class="left_cat_item">Website
+      <li> <a href="<?= $site_url; ?>/categories/programming-amp-tech/Website-Development" class="left_cat_item">Website
           Development</a> </li>
       <li> <a href="<?= $site_url; ?>/categories/digital-marketing/Social/Social-Media-Marketing" class="left_cat_item">Social
           Media Marketing</a> </li>
       <li> <a href="<?= $site_url; ?>/categories/writing-translation/Content-Writing" class="left_cat_item">Content Writer</a> </li>
-      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Software-Development" class="left_cat_item">Software
+      <li> <a href="<?= $site_url; ?>/categories/programming-amp-tech/Software-Development" class="left_cat_item">Software
           Development</a> </li>
       <li> <a href="<?= $site_url; ?>/categories/writing-translation/Content-Writing/Scriptwriting"
           class="left_cat_item">Scriptwriting</a> </li>
-      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Software-Development" class="left_cat_item">Software
+      <li> <a href="<?= $site_url; ?>/categories/programming-amp-tech/Software-Development" class="left_cat_item">Software
           Development</a> </li>
-      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Data-Science-ML" class="left_cat_item">Data Science & ML</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-amp-tech/Data-Science-ML" class="left_cat_item">Data Science & ML</a> </li>
       <li> <a href="<?= $site_url; ?>/categories/music-audio/Sound-Design" class="left_cat_item">Sound Design</a> </li>
       <li> <a href="<?= $site_url; ?>/categories/personal-growth/fashion-amp-style" class="left_cat_item">Fashion & Style</a> </li>
       <li> <a href="<?= $site_url; ?>/categories/ai-services/ai-for-businesses" class="left_cat_item">AI for Businesses</a> </li>
-      <li> <a href="<?= $site_url; ?>/categories/programming-tech/Game-Development" class="left_cat_item">Game Development</a> </li>
-      <li> <a href="<?= $site_url; ?>/categories/programming-tech/AI-Development" class="left_cat_item">AI Development</a>
+      <li> <a href="<?= $site_url; ?>/categories/programming-amp-tech/Game-Development" class="left_cat_item">Game Development</a> </li>
+      <li> <a href="<?= $site_url; ?>/categories/programming-amp-tech/AI-Development" class="left_cat_item">AI Development</a>
     </ul>
 
     </ul>
@@ -933,72 +965,7 @@ $slide_image = $row_slides->slide_image;
     }
   }
 </style>
-<div class="mobile-view-only">
-  <h5 class="text-center text-secondary">Popular categories</h5>
-  <h2 class="text-center">Explore and hire from our most popular service categories today!</h2>
-</div>
-<div class="popular_section-slider mobile-view-only mb-5">
-  <div class="popular_section-slides">
-    <div class="popular_section-slide">
-      <img src="images/hmp/web-development-icon.png" alt="">
-      <a href="<?= $site_url; ?>/categories/programming-tech/Website-Development">
-        <p class="category_popular_paragraph2">Website Development</p>
-      </a>
-    </div>
-    <div class="popular_section-slide">
-      <img src="images/hmp/logo-design-icon.png" alt="">
-      <p class="category_popular_paragraph2">Logo Design</p>
-    </div>
-    <div class="popular_section-slide">
-      <img src="images/hmp/seo-icon.png" alt="">
-      <p class="category_popular_paragraph2">SEO</p>
-    </div>
-    <div class="popular_section-slide">
-      <img src="images/hmp/software-development-icon.png" alt="">
-      <p class="category_popular_paragraph2">Software
-        Development</p>
-    </div>
-    <div class="popular_section-slide">
-      <img src="images/hmp/Social-Media-Marketing-icon.png" alt="">
-      <p class="category_popular_paragraph2">Social Media
-        Marketing</p>
-    </div>
-    <div class="popular_section-slide">
-      <img src="images/hmp/Web-Traffic-icon.png" alt="">
-      <p class="category_popular_paragraph2">Web Traffic</p>
-    </div>
-    <div class="popular_section-slide">
-      <img src="images/hmp/Architecture-icon.png" alt="">
-      <p class="category_popular_paragraph2">Architecture &
-        Interior Design</p>
-    </div>
-    <div class="popular_section-slide">
-      <img src="images/hmp/Data-Science-ml-icon.png" alt="">
-      <p class="category_popular_paragraph2">Data Science & ML</p>
-    </div>
-    <div class="popular_section-slide">
-      <img src="images/hmp/product-photoshoot-icon.png" alt="">
-      <p class="category_popular_paragraph2">Product
-        Photography</p>
-    </div>
-    <div class="popular_section-slide">
-      <img src="images/hmp/E-Commerce-Marketing-icon.png" alt="">
-      <p class="category_popular_paragraph2">E-Commerce
-        Marketing</p>
-    </div>
-    <div class="popular_section-slide">
-      <img src="images/hmp/video-editing-icon.png" alt="">
-      <p class="category_popular_paragraph2">Video
-        Editing</p>
-    </div>
-    <div class="popular_section-slide">
-      <img src="images/hmp/Voice-Over-icon.png" alt="">
-      <p class="category_popular_paragraph2">Voice Over</p>
-    </div>
-  </div>
-  <button class="popular_section-prev" onclick="prevSlide()">&<?= $site_url; ?>10094;</button>
-  <button class="popular_section-next" onclick="nextSlide()">&<?= $site_url; ?>10095;</button>
-</div>
+
 
 <script>
   let currentIndex = 0;
@@ -1031,115 +998,6 @@ $slide_image = $row_slides->slide_image;
   setInterval(nextSlide, 5000);
 </script>
 
-<!-- <div class="popular_service_div desktop-view-only">
-  <h5 class="text-center text-secondary">Popular categories</h5>
-  <h2 class="text-center">Explore and hire from our most popular service categories today!</h2>
-  <div class="popular_service_div_60">
-
-    <div class="popular_service_title">
-      <a href="<?= $site_url; ?>/categories/programming-tech/Website-Development" class="margin-auto-link">
-        <img src="images/hmp/web-development-icon.png" alt="" width="100%">
-      </a>
-      <a href="<?= $site_url; ?>/categories/programming-tech/Website-Development" class="margin-auto-link-paragraph">
-        <p class="category_popular_paragraph">Website <br>
-          Development</p>
-      </a>
-    </div>
-    <div class="popular_service_title">
-      <a href="<?= $site_url; ?>/categories/graphics-design/Logo-Brand-Identity/Logo-Design" class="margin-auto-link">
-        <img src="images/hmp/logo-design-icon.png" alt="" width="100%"></a>
-      <a href="<?= $site_url; ?>/categories/graphics-design/Logo-Brand-Identity/Logo-Design"
-        class="margin-auto-link-paragraph">
-        <p class="category_popular_paragraph">Logo <br> Design</p>
-      </a>
-    </div>
-    <div class="popular_service_title">
-      <a href="<?= $site_url; ?>/categories/digital-marketing/Search/Search-Engine-Optimization-(SEO)"
-        class="margin-auto-link">
-        <img src="images/hmp/seo-icon.png" alt="" width="100%"></a>
-      <a href="<?= $site_url; ?>/categories/digital-marketing/Search/Search-Engine-Optimization-(SEO)"
-        class="margin-auto-link-paragraph">
-        <p class="category_popular_paragraph">SEO</p>
-      </a>
-    </div>
-    <div class="popular_service_title">
-      <a href="<?= $site_url; ?>/categories/programming-tech/Software-Development" class="margin-auto-link">
-        <img src="images/hmp/software-development-icon.png" alt="" width="100%"></a>
-      <a href="<?= $site_url; ?>/categories/programming-tech/Software-Development" class="margin-auto-link-paragraph">
-        <p class="category_popular_paragraph">Software <br>
-          Development</p>
-      </a>
-    </div>
-    <div class="popular_service_title">
-      <a href="<?= $site_url; ?>/categories/digital-marketing/Social/Social-Media-Marketing" class="margin-auto-link">
-        <img src="images/hmp/Social-Media-Marketing-icon.png" alt="" width="100%"></a>
-      <a href="<?= $site_url; ?>/categories/digital-marketing/Social/Social-Media-Marketing"
-        class="margin-auto-link-paragraph">
-        <p class="category_popular_paragraph">Social Media <br>
-          Marketing</p>
-      </a>
-    </div>
-    <div class="popular_service_title">
-      <a href="<?= $site_url; ?>/categories/ai-services/ai-development" class="margin-auto-link">
-        <img src="images/hmp/ai-management.png" alt="" width="100%"></a>
-      <a href="<?= $site_url; ?>/categories/ai-services/ai-development" class="margin-auto-link-paragraph">
-        <p class="category_popular_paragraph">AI <br> Development</p>
-      </a>
-    </div>
-    <div class="popular_service_title">
-      <a href="<?= $site_url; ?>/categories/graphics-design/Architecture-Building-Design" class="margin-auto-link">
-        <img src="images/hmp/Architecture-icon.png" alt="" width="100%"></a>
-      <a href="<?= $site_url; ?>/categories/graphics-design/Architecture-Building-Design"
-        class="margin-auto-link-paragraph">
-        <p class="category_popular_paragraph">Architecture <br> &
-          Interior Design</p>
-      </a>
-    </div>
-    <div class="popular_service_title">
-      <a href="<?= $site_url; ?>/categories/programming-tech/Data-Science-ML" class="margin-auto-link">
-        <img src="images/hmp/Data-Science-ml-icon.png" alt="" width="100%"></a>
-      <a href="<?= $site_url; ?>/categories/programming-tech/Data-Science-ML" class="margin-auto-link-paragraph">
-        <p class="category_popular_paragraph">Data Science <br> &
-          ML</p>
-      </a>
-    </div>
-    <div class="popular_service_title">
-      <a href="<?= $site_url; ?>/categories/video-animation/photography" class="margin-auto-link">
-        <img src="images/hmp/product-photoshoot-icon.png" alt="" width="100%"></a>
-      <a href="<?= $site_url; ?>/categories/video-animation/photography" class="margin-auto-link-paragraph">
-        <p class="category_popular_paragraph">Product <br>
-          Photography</p>
-      </a>
-    </div>
-    <div class="popular_service_title">
-      <a href="<?= $site_url; ?>/categories/digital-marketing/Methods-Techniques/E-Commerce-Marketing"
-        class="margin-auto-link">
-        <img src="images/hmp/E-Commerce-Marketing-icon.png" alt="" width="100%"></a>
-      <a href="<?= $site_url; ?>/categories/digital-marketing/Methods-Techniques/E-Commerce-Marketing"
-        class="margin-auto-link-paragraph">
-        <p class="category_popular_paragraph">E-Commerce <br>
-          Marketing</p>
-      </a>
-    </div>
-    <div class="popular_service_title">
-      <a href="<?= $site_url; ?>/categories/video-animation/Editing-Post-Production/Video-Editing"
-        class="margin-auto-link">
-        <img src="images/hmp/video-editing-icon.png" alt="" width="100%"></a>
-      <a href="<?= $site_url; ?>/categories/video-animation/Editing-Post-Production/Video-Editing"
-        class="margin-auto-link-paragraph">
-        <p class="category_popular_paragraph">Video <br>
-          Editing</p>
-      </a>
-    </div>
-    <div class="popular_service_title">
-      <a href="<?= $site_url; ?>/categories/ai-services/ai-content" class="margin-auto-link">
-        <img src="images/hmp/Voice-Over-icon.png" alt="" width="100%"></a>
-      <a href="<?= $site_url; ?>/categories/ai-services/ai-content" class="margin-auto-link-paragraph">
-        <p class="category_popular_paragraph"> AI <br> Content</p>
-      </a>
-    </div>
-  </div>
-</div> -->
 
 <div class="popular_service_div desktop-view-only">
   <h5 class="text-center text-secondary">Popular categories</h5>
@@ -1252,66 +1110,7 @@ $slide_image = $row_slides->slide_image;
 
 
 
-<!-- <script src="script.js"></script> -->
 
-<!-- review section -->
-
-<!-- <div class=" py-5 home-section5">
-  <div class="body-max-width px-3">
-    <div class="row align-items-center justify-content-between">
-      <div class="col-md-6">
-        <h2><?= $section_heading_5; ?></h2>
-        <?php
-        echo html_entity_decode($section_short_heading_5); ?>
-
-      </div>
-      <div class="col-md-6">
-        <iframe width="100%" height="100%" src="<?= $section_video_url_5; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- video section  -->
-
-
-<!-- js start -->
-<!-- <script>
-  const goPrev = () => {
-    if (counter == 0) {
-      counter = 7;
-      slideImage()
-    } else {
-      counter--
-      slideImage()
-    }
-  }
-
-  const goNext = () => {
-    if (counter == 7) {
-      counter = -1;
-      slideImage()
-    } else {
-      counter++
-      slideImage()
-    }
-  }
-
-  const slidering = document.querySelectorAll(".slideres");
-  let counter = 0;
-  slidering.forEach(
-    (slideres, index) => {
-      slideres.style.left = `${index * 100}%`;
-    })
-
-  const slideImage = () => {
-    slidering.forEach(
-      (slideres) => {
-        slideres.style.transform = `translateX(-${counter * 100}%)`;
-      }
-    )
-  }
-</script> -->
 <link href="<?= $site_url; ?>/styles/update-style.css" rel="stylesheet">
 <link href="<?= $site_url; ?>/styles/featured-candidate-style.css" rel="stylesheet">
 <!-- old code -->
@@ -1369,79 +1168,7 @@ $slide_image = $row_slides->slide_image;
 </style>
 
 
-<div class="mobile-view-only">
-  <p class="margin_according_content color_theme_color text-center">Freelance talent hub</p>
-  <h2 class="margin_according_content text-center mb-3">Access a world of independent talent.</h2>
-</div>
-<div class="talent_hub-slider mobile-view-only">
-  <div class="talent_hub-slides">
-    <div class="talent_hub-slide">
-      <p><img src="images/first_icon.png" alt="no image" width="100%" class="m-auto"></p>
-      <p class="px-4">
-        "Hiremyprofile" offers a user-friendly platform where individuals can build comprehensive profiles showcasing
-        their skills, experience, and expertise across various industries.
-      </p>
-    </div>
-    <div class="talent_hub-slide">
-      <p><img src="images/quality_icon.png" alt="no image" width="100%" class="m-auto"></p>
 
-      <p class="px-4">
-        Employers can efficiently explore these profiles to identify candidates who align with their project needs or
-        job openings.
-      </p>
-    </div>
-    <div class="talent_hub-slide">
-      <p><img src="images/payment_icon.png" alt="no image" width="100%" class="m-auto"></p>
-      <p class="px-4">
-        The platform enhances communication channels, enabling direct interaction between employers and job seekers to
-        discuss opportunities.
-      </p>
-    </div>
-    <div class="talent_hub-slide">
-      <p><img src="images/fourth_icon.png" alt="no image" width="100%" class="m-auto"></p>
-      <p class="px-4">
-        <!--  -->
-        With detailed insights into each candidate's qualifications, "Hiremyprofile" aims to facilitate successful
-        matches and productive collaborations in the hiring process.
-      </p>
-    </div>
-  </div>
-  <div class="talent_hub-controls">
-    <span class="talent_hub-prev" onclick="goToPreviousSlide()">&<?= $site_url; ?>10094;</span>
-    <span class="talent_hub-next" onclick="goToNextSlide()">&<?= $site_url; ?>10095;</span>
-  </div>
-</div>
-
-<script>
-  let currentSlideIndex = 0;
-
-  function showCurrentSlide(newIndex) {
-    const allSlides = document.querySelectorAll('.talent_hub-slide');
-    const totalNumberOfSlides = allSlides.length;
-
-    if (newIndex >= totalNumberOfSlides) {
-      currentSlideIndex = 0;
-    } else if (newIndex < 0) {
-      currentSlideIndex = totalNumberOfSlides - 1;
-    } else {
-      currentSlideIndex = newIndex;
-    }
-
-    const translationOffset = -currentSlideIndex * 100;
-    document.querySelector('.talent_hub-slides').style.transform = `translateX(${translationOffset}%)`;
-  }
-
-  function goToNextSlide() {
-    showCurrentSlide(currentSlideIndex + 1);
-  }
-
-  function goToPreviousSlide() {
-    showCurrentSlide(currentSlideIndex - 1);
-  }
-
-  // Automatically show the next slide every 5 seconds
-  setInterval(goToNextSlide, 5000);
-</script>
 
 
 
@@ -1541,106 +1268,9 @@ $slide_image = $row_slides->slide_image;
 <!-- 9202023 end -->
 
 
-<!-- <?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?><?= $site_url; ?> -->
 
-<!-- <div class=" pt-2 home-section6 b-t-m-resize display-disappear-1">
-  <h5 style="text-align: center;" id="featured-candi-response" class="font-weight-bold">Featured candidates</h5>
-  <h2 style="text-align: center;" class="">Leading employers already using job and talent.</h2>
-  <div class="respo-for-mob-scr">
-    <div class="position-relative1 nitin-1" id="mobile_responsive_screen">
-      <?php
-      $query1 = $db->query("SELECT s.* FROM sellers s INNER JOIN memb_plan_detail mpd ON s.seller_id = mpd.seller_id AND memb_status = 'Active' AND mpd.memb_tbl_id = 10  ORDER BY RAND() LIMIT 3");
-      while ($get1_data = $query1->fetch()) {
-        $seller_image = getImageUrl("sellers", $get1_data->seller_image);
-        $seller_name = $get1_data->seller_name;
-        $seller_id = $get1_data->seller_id;
-        $seller_user_name = $get1_data->seller_user_name;
-        $seller_city = $get1_data->seller_city;
-        $seller_country = $get1_data->seller_country;
-        $seller_headline = $get1_data->seller_headline;
 
-        $quwery_1 = $db->query("SELECT * FROM proposals where proposal_seller_id = $seller_id");
-        $picture1 = $quwery_1->fetch();
-        $proposal_rating = $picture1->proposal_rating;
-        $proposal_url = $picture1->proposal_url;
-        $proposal_title = $picture1->proposal_title;
-        $proposal_img1 = $picture1->proposal_img1;
-        $proposal_desc = $picture1->proposal_desc;
-      ?>
-        <div class="outer-frame-for-tpc slideres2">
-          <div class="nitin-2" id="disp-lay-fl-ex">
-            <div class="col-xl-12">
-              <div class="rampal t_p_c_section">
-                <div class="col-md-12 mb-5">
-                  <div class="card pt-0 t_p_c_section_1">
-                    <div class="d-flex justify-content-space-between px-4 align-items-center position-relative"
-                      style="top: 15px;">
-                      <label class="mb-0 text-secondary font-weight-bold">$60/Hr</label>
-                      <i class="fa fa-heart rounded-circle d-flex justify-content-center align-items-center"></i>
-                    </div>
-                    <div class="d-flex flex-column align-items-center">
-                      <div
-                        class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center user-pic">
-                        <img class="w-100 h-100" src="<?php echo $seller_image ?>" alt="Image not found">
-                      </div>
-                      <div class="my-4 text-center">
-                        <h3 class="mb-0 "><?php echo $seller_name; ?></h3>
-                        <p class="mb-0 text-primary"><?php echo $seller_headline ?></p>
-                      </div>
-                    </div>
-
-                    <div class="d-flex justify-content-between px-5">
-                      <ul class="list-inline text-muted second-class-respo">
-                        <li class="list-inline-item color_golden">
-                          <?php for ($seller_i = 0; $seller_i < $proposal_rating; $seller_i++) {
-                            echo "<i class='fa fa-star'></i>";
-                          }
-                          for ($seller_i = $proposal_rating; $seller_i < 5; $seller_i++) {
-                            echo " <i class='fa fa-star-o'></i> ";
-                          }
-
-                          ?>
-                        </li>
-                      </ul>
-                      <span class="font-weight-bold second-class-respo"><i
-                          class="fa fa-map-marker mr-2"></i><?php echo $seller_city . " " . $seller_country; ?></span>
-                    </div>
-                    <div class="d-flex btn-view-hire-respo border-radius-black">
-                      <a href="<?= $seller_user_name; ?>" class="btn-view-hire-respo pl-2 pr-1 py-2">
-                        <button class="btn w-100  theme-btn text-white padding_why_3">
-                          View Profile
-                        </button>
-                      </a>
-                      <a href="<?= $site_url; ?>" data-toggle="modal" data-target="<?= $site_url; ?>login-modal"
-                        class="btn-view-hire-respo pl-1 pr-2 py-2">
-                        <button class="btn w-100  btn-white text-primary padding_why_3">
-                          Hire Me
-                        </button>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <?php } ?>
-    </div>
-  </div>
-  <div class="plus-minus-one">
-    <button class="fa fa-chevron-left  nav-new-1-0a" type="button" onclick="goNext2()"></button>
-    <button class="fa fa-chevron-right nav-new-1-1a" type="button" onclick="goPrev2()"></button>
-  </div>
-  <div class="o-view_all_styling-div">
-    <a class="view_all_styling" href="<?= $site_url; ?>/top_propo_file_view">
-      VIEW ALL
-    </a>
-  </div>
-</div> -->
-
-<!-- next to change -->
-
-<!-- nitin created design by featured candidate section  -->
+<!-- bluff created design by featured candidate section  -->
 <div
   class="home-section3 body-max-width px-3 pt-2 mb-5 ">
   <div class="cards">
@@ -1650,173 +1280,107 @@ $slide_image = $row_slides->slide_image;
   </div>
   <h2 class="text-center ">Leading employers already using job and talent.</h2>
 
-  <!-- start of top proposal section-->
+
+
   <div class="container-top-proposal">
     <div class="container-top-proposal-row">
       <div class="featured-main-container">
-        <div class="featured-card">
-          <div class="featured-main-header">
-            <div class="profile-picture">
-              <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
-            </div>
-            <div class="profile-info">
-              <h3><span class="online-indicator"></span> Sumit kumar</h3>
-              <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-              <div class="rating">
-                <span>⭐ 4.9</span> <span>(1,708)</span>
-              </div>
-            </div>
-            <button class="favorite-button" onclick="toggleFavorite(this)">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-          </div>
-          <div class="featured-main-tags">
-            <span>Email Template</span>
-            <span>Next.js</span>
-            <span>+17</span>
-          </div>
-          <div class="slider featured-main-slider">
-            <div class="slides">
-              <!-- Different images for Card 1 -->
-              <img src="https://plus.unsplash.com/premium_photo-1681666713641-8d722b681edc?w=500&auto=format&fit=crop&q=60" alt="Image 1">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60" alt="Image 2">
-              <img src="https://plus.unsplash.com/premium_photo-1681666713641-8d722b681edc?w=500&auto=format&fit=crop&q=60" alt="Image 3">
-            </div>
-            <div class="dots">
-              <span class="dot" onclick="currentSlide(1, 1)"></span>
-              <span class="dot" onclick="currentSlide(1, 2)"></span>
-              <span class="dot" onclick="currentSlide(1, 3)"></span>
-            </div>
-          </div>
-          <div class="featured-main-footer">
-            <p>From <br><strong>$195</strong>/project</p>
-            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-            <button class="see-profile-button">See profile</button>
-          </div>
-        </div>
+        <?php
+        $query1 = $db->query("SELECT s.* FROM sellers s INNER JOIN memb_plan_detail mpd ON s.seller_id = mpd.seller_id AND memb_status = 'Active' AND mpd.memb_tbl_id = 10  ORDER BY RAND() LIMIT 4");
+        while ($get1_data = $query1->fetch()) {
+          $seller_image = getImageUrl("sellers", $get1_data->seller_image);
+          $seller_name = $get1_data->seller_name; //seller name
+          $seller_id = $get1_data->seller_id;
+          $seller_user_name = $get1_data->seller_user_name;
+          $seller_city = $get1_data->seller_city;
+          $seller_country = $get1_data->seller_country;
+          $seller_headline = $get1_data->seller_headline;
 
-        <!-- Repeat for 3 more cards -->
-        <div class="featured-card">
-          <div class="featured-main-header">
-            <div class="profile-picture">
-              <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
-            </div>
-            <div class="profile-info">
-              <h3><span class="online-indicator"></span> Sumit kumar</h3>
-              <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-              <div class="rating">
-                <span>⭐ 4.9</span> <span>(1,708)</span>
-              </div>
-            </div>
-            <button class="favorite-two-button" onclick="toggletwoFavorite(this)">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-          </div>
-          <div class="featured-main-tags">
-            <span>Email Template</span>
-            <span>Next.js</span>
-            <span>+17</span>
-          </div>
-          <div class="slider featured-main-slider">
-            <div class="slides">
-              <img src="https://plus.unsplash.com/premium_photo-1678565999332-1cde462f7b24?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2Vic2l0ZXxlbnwwfHwwfHx8MA%3D%3D" alt="Image 1">
-              <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHdlYnNpdGV8ZW58MHx8MHx8fDA%3D" alt="Image 2">
-              <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdlYnNpdGV8ZW58MHx8MHx8fDA%3D" alt="Image 3">
-            </div>
-            <div class="dots">
-              <span class="dot" onclick="currentSlide(2, 1)"></span>
-              <span class="dot" onclick="currentSlide(2, 2)"></span>
-              <span class="dot" onclick="currentSlide(2, 3)"></span>
-            </div>
-          </div>
-          <div class="featured-main-footer">
-            <p>From <br><strong>$195</strong>/project</p>
-            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-            <button class="see-profile-button">See profile</button>
-          </div>
-        </div>
-        <div class="featured-card">
-          <div class="featured-main-header">
-            <div class="profile-picture">
-              <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
-            </div>
-            <div class="profile-info">
-              <h3><span class="online-indicator"></span> Sumit kumar</h3>
-              <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-              <div class="rating">
-                <span>⭐ 4.9</span> <span>(1,708)</span>
-              </div>
-            </div>
-            <button class="favorite-three-button" onclick="togglethreeFavorite(this)">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-          </div>
-          <div class="featured-main-tags">
-            <span>Email Template</span>
-            <span>Next.js</span>
-            <span>+17</span>
-          </div>
-          <div class="slider featured-main-slider">
-            <div class="slides">
-              <img src="https://media.istockphoto.com/id/508498442/photo/man-using-laptop-working-on-plan-to-increase-website-traffic.webp?a=1&b=1&s=612x612&w=0&k=20&c=RzNNYwU9iTOFVRBv_6eB8kYPTIdGP0YzKLCOsYE7H-U=" alt="Image 1">
-              <img src="https://media.istockphoto.com/id/1398473177/photo/questionnaire-with-checkboxes-filling-survey-form-online-answer-questions.webp?a=1&b=1&s=612x612&w=0&k=20&c=yfGyijQDY6Toe7ucQFFsnPwy-tC5JKPEkIaJ2SMF-fs=" alt="Image 2">
-              <img src="https://media.istockphoto.com/id/1062674570/photo/purchasing-thing-online.webp?a=1&b=1&s=612x612&w=0&k=20&c=rIcG89F3Z1KVgHsD3JgBKcIzMIlqy5cKnXW4Rxwnrl8=" alt="Image 3">
-            </div>
-            <div class="dots">
-              <span class="dot" onclick="currentSlide(3, 1)"></span>
-              <span class="dot" onclick="currentSlide(3, 2)"></span>
-              <span class="dot" onclick="currentSlide(3, 3)"></span>
-            </div>
-          </div>
-          <div class="featured-main-footer">
-            <p>From <br><strong>$195</strong>/project</p>
-            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-            <button class="see-profile-button">See profile</button>
-          </div>
-        </div>
-        <div class="featured-card">
-          <div class="featured-main-header">
-            <div class="profile-picture">
-              <img src="https://hmpnitintesting.itsoftexpert.net///user_images/pic_1721118582.png" alt="Profile Picture">
-            </div>
-            <div class="profile-info">
-              <h3><span class="online-indicator"></span> Sumit kumar</h3>
-              <p class="feature-main-text">Lorem ipsum dolor sit amet, consectetur.......</p>
-              <div class="rating">
-                <span>⭐ 4.9</span> <span>(1,708)</span>
-              </div>
-            </div>
-            <button class="favorite-four-button" onclick="togglefourFavorite(this)">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-          </div>
-          <div class="featured-main-tags">
-            <span>Email Template</span>
-            <span>Next.js</span>
-            <span>+17</span>
-          </div>
-          <div class="slider featured-main-slider">
-            <div class="slides">
-              <img src="https://media.istockphoto.com/id/1477183258/photo/woman-holding-ai-icons-with-laptop.webp?a=1&b=1&s=612x612&w=0&k=20&c=RTy3cj2HXeN3LBwpCvFtTvv2G8DIDh5S6-U-iCkEXSc=" alt="Image 1">
-              <img src="https://media.istockphoto.com/id/1464536813/photo/happy-business-people-technology-and-planning-in-cafe-collaboration-on-website-branding-logo.webp?a=1&b=1&s=612x612&w=0&k=20&c=b0kYyv6mh3kyqP4vLJKaP8EQEWzQ3H0LpDnvXs4OykE=" alt="Image 2">
-              <img src="https://media.istockphoto.com/id/1700212440/photo/update-software-application-and-hardware-upgrade-technology-concept-firmware-or-operating.webp?a=1&b=1&s=612x612&w=0&k=20&c=hHjC1xjpYdDb6tBYPhmPyyLu0RIV87eq6nNcPNk5k9c=" alt="Image 3">
-            </div>
-            <div class="dots">
-              <span class="dot" onclick="currentSlide(4, 1)"></span>
-              <span class="dot" onclick="currentSlide(4, 2)"></span>
-              <span class="dot" onclick="currentSlide(4, 3)"></span>
-            </div>
-          </div>
-          <div class="featured-main-footer">
-            <p>From <br><strong>$195</strong>/project</p>
-            <a class="featured-chat-icon" href=""><i class="fa-duotone fa-solid fa-comment"></i></a>
-            <button class="see-profile-button">See profile</button>
-          </div>
-        </div>
+          $quwery_1 = $db->query("SELECT * FROM proposals where proposal_seller_id = $seller_id");
+          $picture1 = $quwery_1->fetch();
+          $proposal_rating = $picture1->proposal_rating;
+          $proposal_url = $picture1->proposal_url;
+          $proposal_id = $picture1->proposal_id;
+          $proposal_title = $picture1->proposal_title;
+          $proposal_img1 = $picture1->proposal_img1;
+          $proposal_img2 = $picture1->proposal_img2;
+          $proposal_img3 = $picture1->proposal_img3;
+          $proposal_img4 = $picture1->proposal_img4;
+          $proposal_desc = $picture1->proposal_desc;
+          $proposal_price = $picture1->proposal_price;
+          $proposal_views = $picture1->proposal_views;
+          $proposal_seller_id = $picture1->proposal_seller_id;
 
+        ?>
+          <div class="featured-card">
+            <div class="featured-main-header">
+              <div class="profile-picture">
+                <a href="<?= $site_url; ?>/<?= $seller_user_name; ?>">
+                  <img src="<?= $seller_image; ?>" alt="Profile Picture">
+                </a>
+              </div>
+              <div class="profile-info">
+              <a href="<?= $site_url; ?>/<?= $seller_user_name; ?>">
+                <h3><span class="online-indicator"></span> <?= substr($seller_name , 0, 15); ?> <?= strlen($seller_name) > 15 ? '..' : '' ?></h3>
+              </a>
+                <p class="feature-main-text"><?= substr($seller_headline, 0, 40); ?> <?= strlen($seller_headline) > 40 ? '...' : ''; ?></p>
+                <div class="rating">
+                  <span>⭐ <?= $proposal_rating > 0 ? $proposal_rating : 0; ?></span> <span>(<?= $proposal_views; ?>)</span>
+                </div>
+              </div>
+              <button class="favorite-button" onclick="toggleFavorite(this)">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+            
+            <div class="featured-main-tags">
+              <?php
+              $skill_details = $db->query("SELECT * FROM skills_relation WHERE seller_id = $seller_id");
+              while ($get_skill_details = $skill_details->fetch()) {
+                $skill_sub_child_id = $get_skill_details->skill_sub_child_id;
+                $skill_id = $get_skill_details->skill_id;
+
+                $select_attribute = $db->query("SELECT * FROM seller_skills WHERE skill_id = $skill_id")->fetch();
+                $skill_title = $select_attribute->skill_title;
+
+                echo "<span>" . $skill_title .$proposal_id.  "</span>";
+              }
+              ?>
+            </div>
+
+            <div class="slider featured-main-slider">
+            <a href="<?= $site_url; ?>/proposals/<?= $seller_user_name; ?>/<?= $proposal_url; ?>">
+              <div class="slides">
+                <!-- Different images for Card 1 -->
+                <img src="proposals/proposal_files/<?= $proposal_img1; ?>" alt="Image 1">
+                <img src="proposals/proposal_files/<?= $proposal_img2; ?>" alt="Image 2">
+                <img src="proposals/proposal_files/<?= $proposal_img3; ?>" alt="Image 3">
+                <img src="proposals/proposal_files/<?= $proposal_img4; ?>" alt="Image 4">
+              </div>
+            </a>
+              <div class="dots">
+                <span class="dot" onclick="currentSlide(1, 1)"></span>
+                <span class="dot" onclick="currentSlide(1, 2)"></span>
+                <span class="dot" onclick="currentSlide(1, 3)"></span>
+                <span class="dot" onclick="currentSlide(1, 4)"></span>
+              </div>
+            </div>
+            <div class="featured-main-footer">
+              <p>From <br><strong>$<?= $proposal_price; ?></strong>/project</p>
+              <a class="featured-chat-icon" href="<?= $site_url; ?>/proposals/<?= $seller_user_name; ?>/<?= $proposal_url; ?>"><i class="fa-duotone fa-solid fa-comment"></i></a>
+              <a href="<?= $site_url; ?>/<?= $seller_user_name; ?>">
+                <button class="see-profile-button">See profile</button>
+              </a>
+            </div>
+          </div>
+        <?php } ?>
       </div>
     </div>
   </div>
+
+
+  <!-- start of top proposal section-->
+
   <div class="display_flex_position display_flex_positionpart2"><a class="btn theme-bg text-white"
       id="top-view-response" href="top_propo_file_view">
       VIEW ALL
@@ -1824,7 +1388,7 @@ $slide_image = $row_slides->slide_image;
   </div>
 </div>
 
-<!-- nitin created design by featured candidate section  -->
+<!-- bluff created design by featured candidate section  -->
 
 
 <style>
@@ -1837,95 +1401,7 @@ $slide_image = $row_slides->slide_image;
   }
 </style>
 
-<!-- <div class=" pt-4 home-section6 b-t-m-resize display-disappear-2">
-  <h5 style="text-align: center;" id="featured-candi-response" class="font-weight-bold">Featured candidates</h5>
-  <h2 style="text-align: center;" class="content-font-resize">Leading employers already using job and talent.</h2>
-  <div class="respo-for-mob-scr">
-    <div class="nitin-1" id="mobile_responsive_screen">
-      <?php
-      $query1 = $db->query("SELECT s.* FROM sellers s INNER JOIN memb_plan_detail mpd ON s.seller_id = mpd.seller_id AND memb_status = 'Active' AND mpd.memb_tbl_id = 10  ORDER BY RAND() LIMIT 3");
-      while ($get1_data = $query1->fetch()) {
-        $seller_image = getImageUrl("sellers", $get1_data->seller_image);
-        $seller_name = $get1_data->seller_name;
-        $seller_id = $get1_data->seller_id;
-        $seller_user_name = $get1_data->seller_user_name;
-        $seller_city = $get1_data->seller_city;
-        $seller_country = $get1_data->seller_country;
-        $seller_headline = $get1_data->seller_headline;
 
-        $quwery_1 = $db->query("SELECT * FROM proposals where proposal_seller_id = $seller_id");
-        $picture1 = $quwery_1->fetch();
-        $proposal_rating = $picture1->proposal_rating;
-        $proposal_url = $picture1->proposal_url;
-        $proposal_title = $picture1->proposal_title;
-        $proposal_img1 = $picture1->proposal_img1;
-        $proposal_desc = $picture1->proposal_desc;
-      ?>
-        <div class="outer-frame-for-tpc Featured-candidates-nitin">
-          <div class="nitin-2" id="disp-lay-fl-ex">
-            <div class="col-xl-12">
-              <div class="rampal t_p_c_section">
-                <div class="card pt-0 t_p_c_section_1">
-                  <div class="d-flex justify-content-space-between px-4 align-items-center position-relative"
-                    style="top: 15px;">
-                    <label class="mb-0 text-secondary font-weight-bold">$60/Hr</label>
-                    <i class="fa fa-heart rounded-circle d-flex justify-content-center align-items-center"></i>
-                  </div>
-                  <div class="d-flex flex-column align-items-center">
-                    <div
-                      class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center user-pic">
-                      <img class="w-100 h-100" src="<?php echo $seller_image ?>" alt="Image not found">
-                    </div>
-                    <div class="my-4 text-center">
-
-                      <h3 class="mb-0 "><?php echo $seller_name; ?></h3>
-                      <p class="mb-0  seller_headline_paragraph"><?php echo $seller_headline ?></p>
-                    </div>
-                  </div>
-
-                  <div class="d-flex justify-content-between px-5">
-                    <ul class="list-inline text-muted second-class-respo">
-                      <li class="list-inline-item color_golden">
-
-                        <?php for ($seller_i = 0; $seller_i < $proposal_rating; $seller_i++) {
-                          echo "<i class='fa fa-star'></i>";
-                        }
-                        for ($seller_i = $proposal_rating; $seller_i < 5; $seller_i++) {
-                          echo "<i class='fa fa-star-o'></i>";
-                        }
-                        ?>
-                      </li>
-                    </ul>
-                    <span class="font-weight-bold second-class-respo"><i
-                        class="fa fa-map-marker mr-2"></i><?php echo $seller_city . " " . $seller_country; ?></span>
-                  </div>
-                  <div class="d-flex btn-view-hire-respo border-radius-black">
-                    <a href="<?= $seller_user_name; ?>" class="btn-view-hire-respo pl-3 pr-2 py-3">
-                      <button class="btn w-100 theme-btn text-white View_Profile_btn">
-                        View Profile
-                      </button>
-                    </a>
-                    <a href="<?= $site_url; ?>" data-toggle="modal" data-target="<?= $site_url; ?>login-modal"
-                      class="btn-view-hire-respo pl-2 pr-3 py-3">
-                      <button class="btn w-100 btn-white  Hire_Me_btn">
-                        Hire Me
-                      </button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <?php } ?>
-    </div>
-  </div>
-  <div class="o-view_all_styling-div">
-    <a class="view_all_styling" href="<?= $site_url; ?>/top_propo_file_view">
-      VIEW ALL
-    </a>
-  </div>
-</div> -->
 
 <!-- end to change -->
 <script>
@@ -2178,7 +1654,7 @@ $slide_image = $row_slides->slide_image;
 
     if (active_length == 1) {
       slider.carousel('pause');
-      console.log('paused');
+      // console.log('paused');
       $(".carousel-indicators").css({
         "bottom": "90px"
       });
@@ -2191,7 +1667,7 @@ $slide_image = $row_slides->slide_image;
       var video = $(event.relatedTarget).find("video");
       if (video.length == 1) {
         slider.carousel('pause');
-        console.log('paused');
+        // console.log('paused');
         $(".carousel-indicators").css({
           "bottom": "90px"
         });
@@ -2207,7 +1683,7 @@ $slide_image = $row_slides->slide_image;
       slider.carousel({
         'pause': false
       });
-      console.log('started');
+      // console.log('started');
     });
 
   });

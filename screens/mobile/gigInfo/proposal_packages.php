@@ -9,7 +9,7 @@
 	$package_name = $row->package_name;
 	?>
 	<li class="nav-item">
-		<a class="nav-link <?php if($package_name == "Standard"){ echo " active"; } ?>" href="#tab_<?= $package_id; ?>" style="font-size:19px; font-weight:350;" data-toggle="tab" formid="checkoutForm<?= $i; ?>">
+		<a class="nav-link <?php if($package_name == "Standard"){ echo " active"; } ?>" href="#tab_<?= $package_id; ?>" style="font-size:17px; font-weight:350;" data-toggle="tab" formid="checkoutForm<?= $i; ?>">
 			<?= $lang['packages'][strtolower($package_name)]; ?>
 		</a>
 	</li>

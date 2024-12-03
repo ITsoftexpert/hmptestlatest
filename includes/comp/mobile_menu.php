@@ -53,7 +53,7 @@ $next_icon = "
             <h6 id="mobile-sub-catnav-header-title" class="text-center position-absolute position-left position-right vertical-center pl-md-8 pr-md-8"></h6>
             <h6 id="mobile-tertiary-catnav-header-title" class="text-center position-absolute position-left position-right vertical-center pl-md-8 pr-md-8 display-none"></h6>
           </div>
-          <div class="flex-xs-1 width-full">
+          <div class="flex-xs-1 width-full sdgdgg">
             <button class="show-xs show-sm btn-link p-xs-2 overlay-close border-0 float-right" data-overlay-close="">
               <span class="screen-reader-only">Close Menu</span>
               <span class="gigtodo-icon">
@@ -69,42 +69,58 @@ $next_icon = "
           <div class="mobile-topnav bg-white animated">
             <ul data-ui="mobile-top-catnav-container" class="mobile-top-catnav-container list-unstyled mobile-catnav-margin">
 
-              <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="<?= $site_url; ?>/requests/post_request" class="home-page-text-menu"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Post a Job
-                </a>
-              </li>
-              <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="<?= $site_url; ?>/freelancers" class="home-page-text-menu"><i class="fa fa-user"></i>&nbsp;&nbsp;Hire an Expert
-                </a>
-              </li>
-              <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="<?= $site_url; ?>/categories/graphics-design" class="home-page-text-menu"><i class="fa fa-search"></i>&nbsp;&nbsp;Hire by Category
-                </a>
-              </li>
-              <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="<?= $site_url; ?>/requests/buyer_requests" class="home-page-text-menu"><i class="fa-solid fa-shop"></i>&nbsp;&nbsp;Become a Seller
-                </a>
-              </li>
-              <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="<?= $site_url; ?>/how-it-works" class="home-page-text-menu">
-                  <i class="fa-solid fa-gears"></i>&nbsp;&nbsp;How it Works?
-                </a>
-              </li>
-              <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="<?= $site_url; ?>/requests/buyer_requests" class="home-page-text-menu"><i class="fa-solid fa-person-circle-question"></i>&nbsp;&nbsp;Why us
-                </a>
-              </li>
-              <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
-                <a href="<?= $site_url; ?>/customer_support" class="home-page-text-menu"><i class="fa fa-handshake-angle"></i>&nbsp;&nbsp;Help/Contact
 
+              <?php if (isset($_SESSION['seller_user_name'])) {
+              ?>
+                <a href="<?= $site_url; ?>/requests/post_request" class="home-page-text-menu">
+                  <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
+                    <i class="fa fa-pencil"></i>&nbsp;&nbsp;
+                    Post a Job
+                  </li>
                 </a>
-              </li>
-              <li class="p-xs-1 bb-xs-1 text-body-larger top-nav-item menu-login">
-                <a href="<?= $site_url; ?>" class="mobile-menu-login"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login
-                </a>
-              </li>
               <?php
-
+              } else {
+              ?>
+               <a href="<?= $site_url; ?>/login" class="home-page-text-menu">
+                  <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
+                    <i class="fa fa-pencil"></i>&nbsp;&nbsp;
+                    Post a Job
+                  </li>
+                </a>
+              <?php
+              }
+              ?>
+              <a href="<?= $site_url; ?>/freelancers" class="home-page-text-menu">
+                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
+                  <i class="fa fa-user"></i>&nbsp;&nbsp;Hire an Expert
+                </li>
+              </a>            
+                <a href="<?= $site_url; ?>/mobile_category" class="home-page-text-menu">
+                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
+                  <i class="fa fa-search"></i>&nbsp;&nbsp;Hire by Category
+                </li>
+                </a>
+                <a href="<?= $site_url; ?>/requests/buyer_requests" class="home-page-text-menu">
+                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
+                <i class="fa-solid fa-shop"></i>&nbsp;&nbsp;Become a Seller
+                </li>
+                </a>
+                <a href="<?= $site_url; ?>/how-it-works" class="home-page-text-menu">
+                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
+                  <i class="fa-solid fa-gears"></i>&nbsp;&nbsp;How it Works?
+                </li>
+                </a>
+                <a href="<?= $site_url; ?>/customer_support" class="home-page-text-menu">
+                <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item">
+                <i class="fa fa-handshake-angle"></i>&nbsp;&nbsp;Help/Contact
+                </li>
+                </a>   
+                <a href="<?= $site_url; ?>/login" class="home-page-text-menu">
+                <li class="p-xs-1 bb-xs-1 text-body-larger top-nav-item menu-login">
+                <i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login
+                </li>
+              </a>
+              <?php
               $get_categories = $db->query("select * from categories where cat_featured='yes'" . ($lang_dir == "right" ? 'order by 1 DESC' : '') . " LIMIT 0,10");
               while ($row_categories = $get_categories->fetch()) {
                 $cat_id = $row_categories->cat_id;
@@ -242,13 +258,13 @@ $next_icon = "
                   <a href="#">
                     <div class="flag">
                       <i class="fa-solid fa-user"></i>&nbsp;&nbsp;
-                      <span class="home-page-text-menu">Username</span>
+                      <span class="home-page-text-menu"><?= $_SESSION['seller_user_name']; ?></span>
                     </div>
                   </a>
-                </li> -->
+                </li>
                 <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
                   <i class="fa-solid fa-hand-holding-dollar"></i>&nbsp;&nbsp;
-                  <a href="" class="btn theme-btn m-0 balance-username-nitin">
+                  <a href="" class="btn theme-btn m-0 balance-username-bluff">
                     <span></span>
 
                     <?= showPrice($current_balance); ?>
@@ -260,7 +276,7 @@ $next_icon = "
                       <i class="fa-duotone fa-solid fa-gear"></i>&nbsp;&nbsp;
                       <span class="home-page-text-menu">Settings</span>
                     </div>
-                  </a> -->
+                  </a>
                 </li>
                 <li class="p-xs-2 bb-xs-1 text-body-larger top-nav-item a11y-focus-only">
                   <a href="<?= $site_url; ?>/kumarji">

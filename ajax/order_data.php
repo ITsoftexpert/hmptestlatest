@@ -59,6 +59,7 @@ if ($rowCount > 0) {
 
     //Display records fetched from database.
     $data = "";
+    $data2 = "";
     while ($oResult = $query->fetch()) { //fetch values
         $order_id = $oResult->order_id;
         $proposal_id = $oResult->proposal_id;
@@ -86,6 +87,35 @@ if ($rowCount > 0) {
         $data .= "<td>" . showPrice($order_price) . "</td>";
         $data .= "<td><button class='btn btn-success'>" . ucwords($order_status) . "</button></td>";
         $data .= "</tr>";
+        
+        // small device view
+        $data2 .= "<div class='order-card'>";
+        $data2 .= "<div class='order-content'>";
+        $data2 .= "<div class='order-image'>";
+        $data2 .= "<img src='" . $proposal_img1 . "' alt='Order Image'>";
+        $data2 .= "</div>"; // order-image
+
+        $data2 .= "<div class='order-text'>";
+        $data2 .= "<p>" . $proposal_title . " <a href='#'>read more</a></p>";
+        $data2 .= "<div class='order-info'>";
+        $data2 .= "<div class='info-container'>";
+        $data2 .= "<div class='info-item'>";
+        $data2 .= "<i class='fas fa-calendar'></i> " . $order_date . "<span class='heading'>Due On</span>";
+        $data2 .= "</div>"; // info-item
+        $data2 .= "<div class='info-item'>";
+        $data2 .= "<i class='fa-solid fa-sack-dollar'></i> " . showPrice($order_price) . "<span class='heading'>Total Order</span>";
+        $data2 .= "</div>"; // info-item
+        $data2 .= "</div>"; // info-container
+        $data2 .= "</div>"; // order-info
+        $data2 .= "</div>"; // order-text
+        $data2 .= "</div>"; // order-content
+
+        $data2 .= "<div class='order-status'>";
+        $data2 .= "<span class='Order-Status-textmain'>Order Status</span>";
+        $data2 .= "<button class='status-" . strtolower($order_status) . "'>" . ucfirst($order_status) . "</button>";
+        $data2 .= "</div>"; // order-status
+
+        $data2 .= "</div>"; // order-card
     }
 
     /* We call the pagination function here to generate Pagination link for us.
@@ -100,5 +130,5 @@ if ($rowCount > 0) {
     $paginationData = null;
 }
 
-echo json_encode(["data" => $data, "pagination" => $paginationData]);
+echo json_encode(["data" => $data, "data2" => $data2, "pagination" => $paginationData]);
 exit;

@@ -74,7 +74,6 @@ $(document).ready(function () {
 		nav: true,
 		autoplaySpeed: 1000,
 		responsiveClass: true,
-
 	});
 
 	$('[data-toggle="tooltip"]').tooltip();
@@ -151,7 +150,7 @@ $(document).ready(function () {
 		}
 	});
 
-	$("#search-query").keyup(function (e) {
+	$(".search-query").keyup(function (e) {
 		var val = $(this).val();
 		if (val != "") {
 			$.ajax({
@@ -300,7 +299,7 @@ $(document).ready(function () {
 				url: base_url + "/includes/comp/c-messages-header",
 				data: { seller_id: seller_id }
 			}).done(function (data) {
-				if (data > 0) { 
+				if (data > 0) {
 					$(".c-messages-header").html(data);
 				} else {
 					$(".c-messages-header").html("");
@@ -334,6 +333,7 @@ $(document).ready(function () {
 			});
 		}
 		c_messages_body();
+		var maxLength = 1; // Set your maximum display length here
 
 		var c_notifications_header = function () {
 			$.ajax({
@@ -342,13 +342,22 @@ $(document).ready(function () {
 				data: { seller_id: seller_id }
 			}).done(function (data) {
 				if (data > 0) {
-					$(".c-notifications-header").html(data);
+					// Convert data to string and check its length
+					var displayData = data.toString();
+					if (displayData.length > maxLength) {
+						// Truncate and add "+" if length exceeds maxLength
+						displayData = displayData.slice(0, maxLength) + "+";
+					}
+					$(".c-notifications-header").html(displayData);
 				} else {
 					$(".c-notifications-header").html("");
 				}
-				setTimeout(c_notifications_header, 1000);
+				setTimeout(c_notifications_header, 1000); // Repeat every 1 second
 			});
-		}
+		};
+
+		c_notifications_header();
+
 		c_notifications_header();
 
 		var c_notifications_body = function () {

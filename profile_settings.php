@@ -769,7 +769,7 @@ else {
         $image_crop.croppie('bind', {
           url: event.target.result
         }).then(function() {
-          console.log('jQuery bind complete');
+          // console.log('jQuery bind complete');
         });
       }
       reader.readAsDataURL(data.files[0]);

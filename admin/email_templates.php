@@ -366,9 +366,9 @@ echo "<script>window.open('login','_self');</script>";
       
       var template = $(this).parent().parent().find('input').val().replace('.php','');
 
-      console.log(template);
+      // console.log(template);
       var template_address = "template_preview?template="+template+"&lang=<?= $template_folder ?>";
-      console.log(template_address);
+      // console.log(template_address);
       window.open(template_address,"_blank");
       
    });

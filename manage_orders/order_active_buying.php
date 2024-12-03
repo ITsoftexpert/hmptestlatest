@@ -1,6 +1,62 @@
+<style>
+	.order-card {
+		border: 1px solid #ddd;
+		padding: 16px;
+		margin-bottom: 16px;
+		border-radius: 8px;
+		/* display: flex; */
+		align-items: center;
+	}
+
+	.order-card-image {
+		width: 80px;
+		height: 80px;
+		border-radius: 4px;
+		margin-right: 16px;
+	}
+
+	.order-card-content {
+		flex: 1;
+	}
+
+	.order-card-title {
+		font-size: 1.2em;
+		margin-bottom: 8px;
+	}
+
+	.order-status {
+		/* background-color: lightgray; */
+		color: white;
+
+		border: 1px solid lightgrey;
+		padding: 8px 16px;
+		border-radius: 4px;
+	}
+
+	@media(max-width: 767px) {
+		.desktop_view_only_lg {
+			display: none;
+		}
+
+		.mobile_view_only_sm {
+			display: block;
+		}
+	}
+
+	@media(min-width: 768px) {
+		.desktop_view_only_lg {
+			display: block;
+		}
+
+		.mobile_view_only_sm {
+			display: none;
+		}
+	}
+</style>
+
 <link rel="stylesheet" href="styles/addnew.css">
-<div class="table-responsive box-table mt-3 mb-3 ">
-	<table class="table table-bordered buyer-nitin-edit-sec" id="orderActive">
+<div class="table-responsive box-table mt-3 mb-3 desktop_view_only_lg">
+	<table class="table table-bordered buyer-carvel-edit-sec" id="orderActive">
 		<thead>
 			<tr>
 				<th class="font-size-3"><?= $lang['th']['order_summary']; ?></th>
@@ -18,126 +74,14 @@
 			</tr>
 		</tbody>
 	</table>
-
-	<div class="buyer-active-orderdataby-nitin">
-		<div class="order-card">
-			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
-			<div class="order-content">
-				<div class="order-image">
-					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
-				</div>
-				<div class="order-text">
-					<p>Lorem Ipsum has been the industry's standard dummy text ever since the adnjd...<a href="#">read more</a></p>
-					<div class="order-info">
-						<div class="info-container">
-							<div class="info-item">
-								<i class="fas fa-calendar"></i> July 24, 2024
-								<span class="heading">Due On</span>
-							</div>
-							<div class="info-item">
-								<i class="fa-solid fa-sack-dollar"></i> 700
-								<span class="heading">Total Order</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="order-status">
-				<span class="Order-Status-textmain">Order Status</span>
-				<button class="status-active">Active</button>
-			</div>
-		</div>
-		<div class="order-card">
-			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
-			<div class="order-content">
-				<div class="order-image">
-					<img src="https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
-				</div>
-				<div class="order-text">
-					<p>Lorem Ipsum has been the industry's standard dummy text ever since the adnjd...<a href="#">read more</a></p>
-					<div class="order-info">
-						<div class="info-container">
-							<div class="info-item">
-								<i class="fas fa-calendar"></i> July 24, 2024
-								<span class="heading">Due On</span>
-							</div>
-							<div class="info-item">
-								<i class="fa-solid fa-sack-dollar"></i> 700
-								<span class="heading">Total Order</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="order-status">
-				<span class="Order-Status-textmain">Order Status</span>
-				<button class="status-delivered">Delivered</button>
-			</div>
-		</div>
-		<div class="order-card">
-			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
-			<div class="order-content">
-				<div class="order-image">
-					<img src="https://images.unsplash.com/photo-1719581863356-f5f455386066?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
-				</div>
-				<div class="order-text">
-					<p>Lorem Ipsum has been the industry's standard dummy text ever since the adnjd...<a href="#">read more</a></p>
-					<div class="order-info">
-						<div class="info-container">
-							<div class="info-item">
-								<i class="fas fa-calendar"></i> July 24, 2024
-								<span class="heading">Due On</span>
-							</div>
-							<div class="info-item">
-								<i class="fa-solid fa-sack-dollar"></i> 700
-								<span class="heading">Total Order</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="order-status">
-				<span class="Order-Status-textmain">Order Status</span>
-				<button class="status-completed">Completed</button>
-			</div>
-		</div>
-		<div class="order-card">
-			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
-			<div class="order-content">
-				<div class="order-image">
-					<img src="https://images.unsplash.com/photo-1684966610091-f6beda2d025a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
-				</div>
-				<div class="order-text">
-					<p>Lorem Ipsum has been the industry's standard dummy text ever since the adnjd...<a href="#">read more</a></p>
-					<div class="order-info">
-						<div class="info-container">
-							<div class="info-item">
-								<i class="fas fa-calendar"></i> July 24, 2024
-								<span class="heading">Due On</span>
-							</div>
-							<div class="info-item">
-								<i class="fa-solid fa-sack-dollar"></i> 700
-								<span class="heading">Total Order</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="order-status">
-				<span class="Order-Status-textmain">Order Status</span>
-				<button class="status-cancelled">Cancelled</button>
-			</div>
-		</div>
-
-	</div>
-
-
 	<!-- FontAwesome Icons (optional, but adds icons as in your example) -->
 	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 	<nav id="pagination-order-yes" aria-label="Active order navigation">
 	</nav>
 </div>
+<div id="orderActiveSmall" class="mobile_view_only_sm"></div>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		var activeOrder = function(userId, status, limit, page = 1) {
@@ -152,6 +96,7 @@
 				}
 			}).done(function(data) {
 				$('body #orderActive tbody').html(data.data);
+				$('#orderActiveSmall').html(data.data2);
 				$('body #pagination-order-yes').html(data.pagination);
 				$('body #wait').removeClass("loader");
 			});

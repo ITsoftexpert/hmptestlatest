@@ -77,7 +77,7 @@ $login_seller_id = $row_login_seller->seller_id;
 			}
 		}
 
-		@media (max-width: 768px) {
+		@media (max-width: 768px) { 
 
 			/* Aap is value ko apni zarurat ke hisaab se badal sakte hain */
 			.hide-on-mobile {

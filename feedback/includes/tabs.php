@@ -7,14 +7,14 @@
 			<div class="form-group">
 				<!--- form-group Starts --->
 
-				<h5> I suggest you ...</h5>
+				<h5 class="mb-3"> I suggest you ...</h5>
 
 				<div class="input-group mb-3">
 
 					<input type="text" name="title" class="form-control form-control-lg" placeholder="Enter your idea" required />
 
 					<div class="input-group-addon bg-success">
-						<button class="btn bg-transparent text-white rounded-right" name="post_idea" type="submit">Post idea</button>
+						<button class="bg-transparent text-white rounded-right no_border px-1" name="post_idea" type="submit">Post idea</button>
 					</div>
 
 				</div>

@@ -35,14 +35,14 @@
 		margin-right: -9px !important;
 	}
 
-	.seller-active-order-nitin {
+	.seller-active-order-bluff {
 		padding: 5px 8px 5px 8px;
 		background: #00cedc;
 		width: fit-content;
 		color: #fff !important;
 	}
 
-	.border-none-dropdownnitin {
+	.border-none-dropdownbluff {
 		border: none;
 		background-color: #00cedc !important;
 		color: #fff !important;
@@ -50,16 +50,16 @@
 		font-size: 17px !important;
 	}
 
-	.active-order-text-nitin {
+	.active-order-text-bluff {
 		color: #fff;
 	}
 
-	.seller-drop-nitin {
+	.seller-drop-bluff {
 		left: -105px !important;
 	}
 
 	@media (min-width: 768px) {
-		.seller-active-order-nitin {
+		.seller-active-order-bluff {
 			display: none;
 		}
 	}
@@ -68,6 +68,23 @@
 
 		/* For screens smaller than 768px */
 		.oldseller-section {
+			display: none;
+		}
+
+		.firstsellerdropdown-content {
+			display: none;
+		}
+
+		.firstsellerdropdown-content.active {
+			display: block;
+		}
+
+		.tab-content-section {
+			padding: 10px;
+			border: 1px solid #ddd;
+		}
+
+		.desktop_view_only_uso {
 			display: none;
 		}
 	}
@@ -276,57 +293,57 @@
 		}
 	}
 </style>
-
 <div class="firstsellerdropdown-dropdown" id="firstsellerdropdownContainer">
-	<button class="firstsellerdropdown-btn" onclick="toggleFirstsellerDropdown()">Manage Proposals
+	<button class="firstsellerdropdown-btn" id="firstsellerdropdownBtn" onclick="toggleFirstsellerDropdown()">
+		Manage Proposals
 		<span class="firstsellerdropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
 	</button>
 	<div class="firstsellerdropdown-content" id="firstsellerdropdownMenu">
-		<ul class="firstsellerdropdown-list">
-			<li class="firstsellerdropdown-item-active">
-				<a href="#" class="firstsellerdropdown-link-active">ACTIVE <span class="firstsellerdropdown-badge-active">0</span></a>
+		<ul class="nav nav-tabs flex-column">
+			<li class="nav-item width-increase my-2">
+				<?php
+				$count_orders_active = $db->count("orders", array("seller_id" => $login_seller_id, "order_active" => 'yes'));
+				?>
+				<a href="#seller_active" data-toggle="tab" class="nav-link make-black active pt-pr text-left">
+					<?= $lang['tabs']['active']; ?> <span class="badge badge-success badge-float-right"><?= $count_orders_active; ?></span>
+				</a>
 			</li>
-			<li class="firstsellerdropdown-item-delivered">
-				<a href="#" class="firstsellerdropdown-link-delivered">DELIVERED <span class="firstsellerdropdown-badge-delivered">0</span></a>
+			<li class="nav-item width-increase my-2">
+				<?php
+				$count_orders_delivered = $db->count("orders", array("seller_id" => $login_seller_id, "order_status" => 'delivered'));
+				?>
+				<a href="#seller_delivered" data-toggle="tab" class="nav-link make-black pt-pr text-left">
+					<?= $lang['tabs']['delivered']; ?> <span class="badge badge-success badge-float-right"><?= $count_orders_delivered; ?></span>
+				</a>
 			</li>
-			<li class="firstsellerdropdown-item-completed">
-				<a href="#" class="firstsellerdropdown-link-completed">COMPLETED <span class="firstsellerdropdown-badge-completed">1</span></a>
+			<li class="nav-item width-increase my-2">
+				<?php
+				$count_orders_completed = $db->count("orders", array("seller_id" => $login_seller_id, "order_status" => 'completed'));
+				?>
+				<a href="#seller_completed" data-toggle="tab" class="nav-link make-black pt-pr text-left">
+					<?= $lang['tabs']['completed']; ?> <span class="badge badge-success badge-float-right"><?= $count_orders_completed; ?></span>
+				</a>
 			</li>
-			<li class="firstsellerdropdown-item-cancelled">
-				<a href="#" class="firstsellerdropdown-link-cancelled">CANCELLED <span class="firstsellerdropdown-badge-cancelled">1</span></a>
+			<li class="nav-item width-increase my-2">
+				<?php
+				$count_orders_cancelled = $db->count("orders", array("seller_id" => $login_seller_id, "order_status" => 'cancelled'));
+				?>
+				<a href="#seller_cancelled" data-toggle="tab" class="nav-link make-black pt-pr text-left">
+					<?= $lang['tabs']['cancelled']; ?> <span class="badge badge-success badge-float-right"><?= $count_orders_cancelled; ?></span>
+				</a>
 			</li>
-			<li class="firstsellerdropdown-item-all">
-				<a href="#" class="firstsellerdropdown-link-all">ALL <span class="firstsellerdropdown-badge-all">0</span></a>
+			<li class="nav-item width-increase my-2">
+				<?php
+				$count_orders_all = $db->count("orders", array("seller_id" => $login_seller_id));
+				?>
+				<a href="#seller_all" data-toggle="tab" class="nav-link make-black pt-pr text-left">
+					<?= $lang['tabs']['all']; ?> <span class="badge badge-success badge-float-right"><?= $count_orders_all; ?></span>
+				</a>
 			</li>
 		</ul>
-		<button class="firstsellerdropdown-btn-ok">OK</button>
 	</div>
 </div>
 
-
-<!-- <div class="dropdown seller-active-order-nitin">
-	<span class="font-weight-bold active-order-text-nitin">Active Orders</span>
-	<button class="btn btn-secondary dropdown-toggle border-none-dropdownnitin" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		<?= $lang['tabs']['select_order_status']; ?>
-	</button>
-	<div class="dropdown-menu seller-drop-nitin" aria-labelledby="dropdownMenuButton">
-		<a class="dropdown-item" href="#seller_active" data-toggle="tab">
-			<?= $lang['tabs']['active']; ?> <span class="badge badge-success badge-float-right"><?= $db->count("orders", array("seller_id" => $login_seller_id, "order_active" => 'yes')); ?></span>
-		</a>
-		<a class="dropdown-item" href="#seller_delivered" data-toggle="tab">
-			<?= $lang['tabs']['delivered']; ?> <span class="badge badge-success badge-float-right"><?= $db->count("orders", array("seller_id" => $login_seller_id, "order_status" => 'delivered')); ?></span>
-		</a>
-		<a class="dropdown-item" href="#seller_completed" data-toggle="tab">
-			<?= $lang['tabs']['completed']; ?> <span class="badge badge-success badge-float-right"><?= $db->count("orders", array("seller_id" => $login_seller_id, "order_status" => 'completed')); ?></span>
-		</a>
-		<a class="dropdown-item" href="#seller_cancelled" data-toggle="tab">
-			<?= $lang['tabs']['cancelled']; ?> <span class="badge badge-success badge-float-right"><?= $db->count("orders", array("seller_id" => $login_seller_id, "order_status" => 'cancelled')); ?></span>
-		</a>
-		<a class="dropdown-item" href="#seller_all" data-toggle="tab">
-			<?= $lang['tabs']['all']; ?> <span class="badge badge-success badge-float-right"><?= $db->count("orders", array("seller_id" => $login_seller_id)); ?></span>
-		</a>
-	</div>
-</div> -->
 
 <ul class="nav nav-tabs flex-column flex-sm-row oldseller-section">
 	<li class="nav-item width-increase">
@@ -371,26 +388,76 @@
 	</li>
 </ul>
 <div class="tab-content">
-	<div class="tab-pane fade show active" id="seller_active">
+	<div class="tab-pane tab-content-section fade show active" id="seller_active">
 		<?php require_once("manage_orders/order_active_selling.php") ?>
 	</div>
-	<div class="tab-pane" id="seller_delivered">
+	<div class="tab-pane tab-content-section" id="seller_delivered">
 		<?php require_once("manage_orders/order_delivered_selling.php") ?>
 	</div>
-	<div class="tab-pane" id="seller_completed">
+	<div class="tab-pane tab-content-section" id="seller_completed">
 		<?php require_once("manage_orders/order_completed_selling.php") ?>
 	</div>
-	<div class="tab-pane" id="seller_cancelled">
+	<div class="tab-pane tab-content-section" id="seller_cancelled">
 		<?php require_once("manage_orders/order_cancelled_selling.php") ?>
 	</div>
-	<div class="tab-pane" id="seller_all">
+	<div class="tab-pane tab-content-section" id="seller_all">
 		<?php require_once("manage_orders/order_all_selling.php") ?>
 	</div>
 </div>
 
-	<script>
-		function toggleFirstsellerDropdown() {
-			var dropdownMenu = document.getElementById("firstsellerdropdownMenu");
-			dropdownMenu.classList.toggle("active"); // Use class to toggle visibility
+<script>
+	// Function to toggle dropdown visibility
+	function toggleFirstsellerDropdown() {
+		var dropdownMenu = document.getElementById("firstsellerdropdownMenu");
+		dropdownMenu.classList.toggle("active");
+	}
+
+	// Function to handle tab content display and button text update
+	function handleTabSelection(event) {
+		event.preventDefault(); // Prevent default link behavior
+
+		// Get the clicked link
+		var clickedLink = event.currentTarget;
+
+		// Extract the tab ID from href attribute
+		var tabId = clickedLink.getAttribute('href').substring(1); // e.g., 'seller_active'
+
+		// Hide all tab content sections
+		var contentSections = document.querySelectorAll('.tab-content-section');
+		contentSections.forEach(function(section) {
+			section.classList.remove('show', 'active');
+		});
+
+		// Remove 'active' class from all nav links
+		var navLinks = document.querySelectorAll('.firstsellerdropdown-content .nav-link');
+		navLinks.forEach(function(link) {
+			link.classList.remove('active');
+		});
+
+		// Show the selected tab content
+		var selectedContent = document.getElementById(tabId);
+		if (selectedContent) {
+			selectedContent.classList.add('show', 'active');
 		}
-	</script>
+
+		// Add 'active' class to the clicked link
+		clickedLink.classList.add('active');
+
+		// Update the button text to the selected tab's text
+		var button = document.getElementById("firstsellerdropdownBtn");
+		var selectedText = clickedLink.innerHTML.split('<span')[0].trim(); // Get text before the badge
+		button.innerHTML = selectedText + ' <span class="firstsellerdropdown-icon"><i class="fa-solid fa-caret-down"></i></span>';
+
+		// Close the dropdown menu
+		var dropdownMenu = document.getElementById("firstsellerdropdownMenu");
+		dropdownMenu.classList.remove("active");
+	}
+
+	// Attach event listeners to all dropdown nav links
+	document.addEventListener('DOMContentLoaded', function() {
+		var dropdownLinks = document.querySelectorAll('.firstsellerdropdown-content .nav-link');
+		dropdownLinks.forEach(function(link) {
+			link.addEventListener('click', handleTabSelection);
+		});
+	});
+</script>

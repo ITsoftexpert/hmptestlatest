@@ -168,6 +168,111 @@ if (isset($_GET['skill_url'])) {
     <script src="<?= $site_url; ?>/js/ie.js"></script>
     <script type="text/javascript" src="<?= $site_url; ?>/js/sweat_alert.js"></script>
     <script type="text/javascript" src="<?= $site_url; ?>/js/jquery.min.js"></script>
+    <style>
+        .page-container {
+            margin-top: 11rem;
+        }
+
+        .logo-section-mobile-third-view-pro {
+            padding: 1rem;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+        }
+
+        .logo-title-mobile-third-view-pro {
+            font-size: 35px;
+            font-weight: 500 !important;
+            text-align: center;
+        }
+
+        .logo-description-mobile-third-view-pro {
+            font-size: 16px;
+            text-align: center;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .filter-slider-mobile-third-view-pro {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            padding: 0.5rem;
+            scrollbar-width: none;
+        }
+
+        .filter-slider-mobile-third-view-pro::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-option-mobile-third-view-pro {
+            flex-shrink: 0;
+            padding: 5px 25px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            cursor: pointer;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .filter-option-mobile-third-view-pro.active {
+            background-color: #00cedc;
+            border-color: grey;
+            color: #fff;
+            /* padding: 8px 25px; */
+        }
+
+        .filter-content-mobile-third-view-pro {
+            margin-top: 1rem;
+        }
+
+        .content-box-mobile-third-view-pro {
+            display: flex;
+            overflow-x: auto;
+        }
+
+        .content-box-mobile-third-view-pro.hidden-mobile-third-view-pro {
+            display: none;
+        }
+
+        .logo-slider-mobile-third-view-pro {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .logo-slider-mobile-third-view-pro::-webkit-scrollbar {
+            display: none;
+        }
+
+        .logo-box-mobile-third-view-pro {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            text-align: center;
+            min-width: 100px;
+            max-width: 100px;
+            min-height: 145px;
+            flex-shrink: 0;
+            box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+        }
+
+        .logo-box-image-third-vew {
+            width: 100%;
+            height: 70px;
+            border-radius: 5px;
+            margin-bottom: 12px;
+        }
+
+        .logo-text-mobile-third-view-pro {
+            margin: 0;
+        }
+
+        @media(max-width:768px) {
+            .category_sidebar_d_none {
+                display: none;
+            }
+        }
+    </style>
     <?php if (!empty($site_favicon)) { ?>
         <link rel="shortcut icon" href="<?= $site_favicon; ?>" type="image/x-icon">
     <?php } ?>
@@ -181,10 +286,7 @@ if (isset($_GET['skill_url'])) {
     <div class="container-fluid pb-4 pt-4 px-4">
         <!-- Container start -->
 
-        <!-- display_images.php -->
-
-
-        <div class="row padding-alter11 padding-alter11a">
+             <div class="row padding-alter11 padding-alter11a">
             <div class="col-md-12 margin-bottom-minus">
                 <center>
                     <?php
@@ -195,7 +297,7 @@ if (isset($_GET['skill_url'])) {
                         $cat_title = $row_meta->cat_title;
                         $cat_desc = $row_meta->cat_desc;
                     ?>
-                        <h1 class="margin-top-minus"> <?= $cat_title; ?> </h1>
+                        <h2 class="margin-top-minus"> <?= $cat_title; ?> </h2>
                         <p class="lead background-green"><?= $cat_desc; ?></p>
 
                     <?php } ?>
@@ -209,7 +311,7 @@ if (isset($_GET['skill_url'])) {
                         $child_title = $row_meta->child_title;
                         $child_desc = $row_meta->child_desc;
                     ?>
-                        <h1> <?= $child_title; ?> </h1>
+                        <h2> <?= $child_title; ?> </h2>
                         <p class="lead"><?= $child_desc; ?></p>
                     <?php  } ?>
                     <!-- sub category -->
@@ -222,7 +324,7 @@ if (isset($_GET['skill_url'])) {
                         $sub_subcategory_name = $row_meta->sub_subcategory_name;
                         // $child_desc = $row_meta->child_desc;
                     ?>
-                        <h1> <?= $sub_subcategory_name; ?> </h1>
+                        <h2> <?= $sub_subcategory_name; ?> </h2>
                         <!-- <p class="lead"><?= $child_desc; ?></p> -->
                     <?php  } ?>
                     <!-- attribute -->
@@ -235,56 +337,62 @@ if (isset($_GET['skill_url'])) {
                         $skill_title = $row_meta->skill_title;
                         // $child_desc = $row_meta->child_desc;
                     ?>
-                        <h1> <?= $skill_title; ?></h1>
+                        <h2> <?= $skill_title; ?></h2>
                         <!-- <meta name="description" content="<?= $child_desc; ?>"> -->
                     <?php } ?>
                     <!-- attribute end -->
                 </center>
-                <div class="sub-sub-category-slider-outer ">
-                    <div class="sub-sub-category-slider">
-                        <?php
-                        if (isset($_SESSION['cat_child_id'])) {
-                            $cat_child_id = $_SESSION['cat_child_id'];
+                <div class="filter-content-mobile-third-view-pro">
+                    <div class="content-box-mobile-third-view-pro" data-filter="all">
+                        <div class="logo-slider-mobile-third-view-pro">
+                            <?php
+                            if (isset($_SESSION['cat_child_id'])) {
+                                $cat_child_id = $_SESSION['cat_child_id'];
 
-                            $get_senior_cat =  $db->select("categories_children", array("child_id" => $cat_child_id));
-                            $row_senior_cat = $get_senior_cat->fetch();
-                            $child_url = $row_senior_cat->child_url;
-                            $child_parent_id = $row_senior_cat->child_parent_id;
+                                $get_senior_cat =  $db->select("categories_children", array("child_id" => $cat_child_id));
+                                $row_senior_cat = $get_senior_cat->fetch();
+                                $child_url = $row_senior_cat->child_url;
+                                $child_parent_id = $row_senior_cat->child_parent_id;
 
-                            $get_parent_cat =  $db->select("categories", array("cat_id" => $child_parent_id));
-                            $row_parent_cat = $get_parent_cat->fetch();
-                            $cat_url = $row_parent_cat->cat_url;
+                                $get_parent_cat =  $db->select("categories", array("cat_id" => $child_parent_id));
+                                $row_parent_cat = $get_parent_cat->fetch();
+                                $cat_url = $row_parent_cat->cat_url;
 
-                            $get_sub_sub_cat = $db->select("cat_attribute", array("child_id" => $cat_child_id, "language_id" => $siteLanguage));
-                            while ($row_sub_sub_cat = $get_sub_sub_cat->fetch()) {
-                                $attr_id = $row_sub_sub_cat->attr_id;
-                                $cat_attr = $row_sub_sub_cat->cat_attr;
+                                $get_sub_sub_cat = $db->select("cat_attribute", array("child_id" => $cat_child_id, "language_id" => $siteLanguage));
+                                while ($row_sub_sub_cat = $get_sub_sub_cat->fetch()) {
+                                    $attr_id = $row_sub_sub_cat->attr_id;
+                                    $cat_attr = $row_sub_sub_cat->cat_attr;
 
-                                // Fetching sub-subcategory details
-                                $get_sub_meta = $db->select("sub_subcategories", array("attr_id" => $attr_id, "language_id" => $siteLanguage));
-                                while ($row_sub_meta = $get_sub_meta->fetch()) {
-                                    $sub_subcategory_name = $row_sub_meta->sub_subcategory_name;
-                                    $image = $row_sub_meta->image;
-                                    $image_path = $site_url . "/uploads/icons/" . $image; // Adjust this path according to your setup
-                        ?>
-                                    <div class="sub-sub-category-tablet">
+                                    // Fetching sub-subcategory details
+                                    $get_sub_meta = $db->select("sub_subcategories", array("attr_id" => $attr_id, "language_id" => $siteLanguage));
+                                    while ($row_sub_meta = $get_sub_meta->fetch()) {
+                                        $sub_subcategory_name = $row_sub_meta->sub_subcategory_name;
+                                        $image = $row_sub_meta->image;
+                                        $image_path = $site_url . "/uploads/icons/" . $image; // Adjust this path according to your setup
+                            ?>
 
-                                        <a class="nav-link text-info d-flex p-0 <?php if ($attr_id == @$_SESSION['attr_id']) {
-                                                                                    echo "active";
-                                                                                } ?>" href="<?= $site_url; ?>/categories/<?= $cat_url; ?>/<?= $child_url; ?>/<?= $cat_attr; ?>">
-                                            <div class="icon-sub-sub-category"><img class="image-style-icon" src="<?= $image_path; ?>" alt="img"></div>
-                                            <div class="sub_subcategory_name_showing"><?= $sub_subcategory_name; ?> </div>
+
+                                        <a class="<?php if ($attr_id == @$_SESSION['attr_id']) {
+                                                        echo "active";
+                                                    } ?>" href="<?= $site_url; ?>/categories/<?= $cat_url; ?>/<?= $child_url; ?>/<?= $cat_attr; ?>">
+
+                                            <div class="logo-box-mobile-third-view-pro">
+                                                <img class="logo-box-image-third-vew" src="<?= $image_path; ?>" alt="Flat Logo" class="logo-image-mobile-third-view-pro" />
+                                                <p class="logo-text-mobile-third-view-pro"><?= $sub_subcategory_name; ?></p>
+                                            </div>
+
                                         </a>
-                                    </div>
-                        <?php
+
+
+                            <?php
+                                    }
                                 }
                             }
-                        }
-                        ?>
+                            ?>
+                        </div>
                     </div>
-                    <button class="prev-slide slide-button" onclick="moveSlide(-1)">&#10094;</button>
-                    <button class="next-slide slide-button" onclick="moveSlide(1)">&#10095;</button>
                 </div>
+
 
                 <style>
                     .sub-sub-category-slider-outer {
@@ -393,10 +501,6 @@ if (isset($_GET['skill_url'])) {
                 <div class="w-100 d-flex">
                     <?php
 
-
-
-
-
                     if (isset($_SESSION['attr_id'])) {
                         $attr_id = $_SESSION['attr_id'];
                         $get_meta = $db->select("sub_subcategories", array("attr_id" => $attr_id));
@@ -436,7 +540,11 @@ if (isset($_GET['skill_url'])) {
                                                                         echo "active";
                                                                     } ?>" href="<?= $site_url; ?>/categories/<?= $cat_url; ?>/<?= $child_url; ?>/<?= $cat_attr; ?>/<?= $skill_url; ?>">
                                 <!-- <div class="icon-sub-sub-category"></div> -->
-                                <div class="skills_name_showing"><?= $skill_title; ?></div>
+
+                                <div class="logo-box-mobile-third-view-pro">
+                                    <img class="logo-box-image-third-vew" src="<?= $image_path; ?>" alt="Flat Logo" class="logo-image-mobile-third-view-pro" />
+                                    <p class="logo-text-mobile-third-view-pro"><?= $skill_title; ?></p>
+                                </div>
                             </a>
                     <?php
                         }
@@ -452,7 +560,7 @@ if (isset($_GET['skill_url'])) {
             </div>
         </div>
         <div class="row mt-3 padding-alter11a">
-            <div class="col-lg-3 col-md-4 col-sm-12 <?= ($lang_dir == "right" ? 'order-2 order-sm-1' : '') ?>">
+            <div class="col-lg-3 col-md-4 col-sm-12 category_sidebar_d_none <?= ($lang_dir == "right" ? 'order-2 order-sm-1' : '') ?>">
                 <?php require_once("../includes/category_sidebar.php"); ?>
             </div>
             <div class="col-lg-9 col-md-8 col-sm-12 <?= ($lang_dir == "right" ? 'order-1 order-sm-2' : '') ?>">
@@ -783,7 +891,7 @@ if (isset($_GET['skill_url'])) {
                                 city.removeClass('d-none');
                                 if (city.length) {
                                     cities[iKey] = city_name;
-                                    console.log(city_name);
+                                    // console.log(city_name);
                                 }
                                 iKey++;
                             };
@@ -889,6 +997,28 @@ if (isset($_GET['skill_url'])) {
                 $('.get_seller_language').prop('checked', false);
                 get_category_proposals();
             }
+        </script>
+
+
+        <script>
+            document.querySelectorAll('.filter-option-mobile-third-view-pro').forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove active class from all options
+                    document.querySelectorAll('.filter-option-mobile-third-view-pro').forEach(opt => opt.classList.remove('active'));
+
+                    // Add active class to the clicked option
+                    this.classList.add('active');
+
+                    // Get the filter type from data attribute
+                    const filter = this.getAttribute('data-filter');
+
+                    // Hide all content boxes
+                    document.querySelectorAll('.content-box-mobile-third-view-pro').forEach(box => box.classList.add('hidden-mobile-third-view-pro'));
+
+                    // Show the relevant content box
+                    document.querySelector(`.content-box-mobile-third-view-pro[data-filter="${filter}"]`).classList.remove('hidden-mobile-third-view-pro');
+                });
+            });
         </script>
     <?php } ?>
 </body>

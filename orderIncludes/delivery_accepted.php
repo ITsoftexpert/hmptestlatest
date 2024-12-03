@@ -8,8 +8,8 @@ $login_seller_level = $row_login_seller->seller_level;
 
 
 // update order
-$update_order = $db->update("orders", array("order_status" => "Delivery accepted", "order_active" => "no"), array("order_id" => $order_id));
-$db->update("milestone", array("milestone_status" => "Delivery accepted", "order_id" => $order_id), array("milestone_id" => $milestone_id));
+$update_order = $db->update("orders", array("order_status" => "delivery_accepted", "order_active" => "no"), array("order_id" => $order_id));
+$db->update("milestone", array("milestone_status" => "delivery_accepted", "order_id" => $order_id), array("milestone_id" => $milestone_id));
 
 // update messages
 $update_messages = $db->update("order_conversations", array("status" => "message"), array("order_id" => $order_id, "status" => "delivered"));

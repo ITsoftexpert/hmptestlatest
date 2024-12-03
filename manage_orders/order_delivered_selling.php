@@ -1,5 +1,27 @@
+<style>
+	@media(max-width:767px) {
+		.mobile_view_only_delivered {
+			display: block;
+		}
+
+		.desktop_view_only_delivered {
+			display: none;
+		}
+	}
+
+	@media(min-width:768px) {
+		.mobile_view_only_delivered {
+			display: none;
+		}
+
+		.desktop_view_only_delivered {
+			display: block;
+		}
+	}
+</style>
+
 <div class="table-responsive box-table mt-3">
-	<table class="table table-bordered" id="orderSellerDelivered">
+	<table class="table table-bordered desktop_view_only_delivered" id="orderSellerDelivered">
 		<thead>
 			<style>
 				@media (max-width:768px) {
@@ -25,6 +47,9 @@
 			</tr>
 		</tbody>
 	</table>
+
+	<div id="orderDeliveredSellingSmall" class="mobile_view_only_delivered">
+	</div>
 	<nav id="pagination-seller-order-delivered" aria-label="Active order navigation">
 	</nav>
 </div>
@@ -42,6 +67,7 @@
 				}
 			}).done(function(data) {
 				$('body #orderSellerDelivered tbody').html(data.data);
+				$('#orderDeliveredSellingSmall').html(data.dataCard4);
 				$('body #pagination-seller-order-delivered').html(data.pagination);
 				$('body #wait').removeClass("loader");
 			});

@@ -25,8 +25,7 @@ if ($enable_unlimited_revisions == 1) {
 ?>
 <table class="table table-bordered packages">
 	<thead>
-		<tr>
-			<th></th>
+		<tr>			
 			<th>Basic</th>
 			<th>Standard</th>
 			<th>Advance</th>
@@ -38,11 +37,10 @@ if ($enable_unlimited_revisions == 1) {
 			<input type="hidden" name="proposal_packages[2][package_id]" form="pricing-form" value="<?= $row_2->package_id; ?>">
 			<input type="hidden" name="proposal_packages[3][package_id]" form="pricing-form" value="<?= $row_3->package_id; ?>">
 
+			<tr><td colspan="3">Description
+			<small class="text-dark d-block">min: 5 max: 50 characters</small></td></tr>
 			<tr>
-				<td>
-					Description
-					<small class="text-dark d-block">min: 5 max: 50 characters</small>
-				</td>
+			
 				<td class="p-0">
 					<textarea name="proposal_packages[1][description]" id="basic-desc" required form="pricing-form" class="form-control" placeholder="Description" rows="3" minlength="5" maxlength="50"><?= trim($row_1->description); ?></textarea>
 					<span class="text-dark d-block"><span class="pull-right"><i class="text-danger" id="basic-typed-characters"><?=strlen($row_1->description) > 0 ? strlen($row_1->description) : 0; ?></i> characters</span></span>
@@ -96,7 +94,7 @@ if ($enable_unlimited_revisions == 1) {
 			<?php } ?>
 
 			<tr class="delivery-time">
-				<td>Delivery Time</td>
+				
 				<td class="p-0">
 					<select name="proposal_packages[1][delivery_time]" class="form-control">
 						<?php
@@ -133,7 +131,7 @@ if ($enable_unlimited_revisions == 1) {
 			</tr>
 
 			<tr>
-				<td>Revisions</td>
+				
 				<td class="p-0">
 					<select name="proposal_packages[1][revisions]" form="pricing-form" class="form-control">
 						<?php
@@ -164,7 +162,7 @@ if ($enable_unlimited_revisions == 1) {
 			</tr>
 
 			<tr>
-				<td>Price (<b>$</b>) </td>
+				
 				<td class="p-0">
 
 					<input type="number" min='<?= $min_proposal_price; ?>' required name="proposal_packages[1][price]" form="pricing-form" value="<?= $row_1->price; ?>" class="form-control">

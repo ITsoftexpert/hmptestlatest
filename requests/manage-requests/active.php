@@ -105,7 +105,7 @@
 	}
 
 	@media (max-width: 767px) {
-		.buyer-nitin-edit-sec {
+		.buyer-bluff-edit-sec {
 			display: none;
 		}
 	}
@@ -143,14 +143,37 @@
 		bottom: 100%;
 	}
 
-	.buyer-active-orderdataby-nitin {
+	.buyer-active-orderdataby-bluff {
 		display: flex;
 		gap: 20px;
 		flex-direction: column;
 	}
+
+	@media (max-width:767px) {
+
+		.desktop_view_req_active {
+			display: none;
+		}
+
+		.mobile_view_req_active {
+			display: block;
+		}
+	}
+
+	@media (min-width:768px) {
+
+		.desktop_view_req_active {
+			display: block;
+		}
+
+		.mobile_view_req_active {
+			display: none;
+		}
+	}
 </style>
+
 <div class="table-responsive box-table  box-shadow-req-act">
-	<table class="table table-bordered buyer-nitin-edit-sec" id="requestActive">
+	<table class="table table-bordered buyer-bluff-edit-sec desktop_view_req_active" id="requestActive">
 		<thead>
 			<tr>
 				<th class="font-size-3"><?= $lang['th']['title']; ?></th>
@@ -169,178 +192,10 @@
 			</tr>
 		</tbody>
 	</table>
-
-	<div class="buyer-active-orderdataby-nitin">
-		<div class="order-card">
-			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
-			<div class="order-content">
-				<!-- <div class="order-image">
-					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
-				</div> -->
-				<div class="order-text">
-					<h3 class="manage-req-heading-main">I want to make my website in wordpress from expert testing</h3>
-					<div class="order-info">
-						<div class="info-container">
-							<div class="info-item">
-								<i class="fas fa-calendar"></i> July 24, 2024
-								<span class="heading">date</span>
-							</div>
-							<div class="info-item">
-								<img class="buyer-offer-img" src="images/buyer-offer-img.png" alt=""> 0
-								<span class="heading">offer</span>
-							</div>
-							<div class="info-item">
-								<i class="fa-solid fa-sack-dollar"></i> 22.00
-								<span class="heading">Budget</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="order-status">
-				<span class="Order-Status-textmain">Actions</span>
-				<div class="custom-dropdown">
-					<button class="dropdown-button-one" id="dropdownBtn">
-						<i class="fa-solid fa-caret-down"></i>
-					</button>
-					<div class="dropdown-content-one" id="dropdownMenu">
-						<a href="#">View Offers</a>
-						<a href="#">Pause</a>
-						<a href="#">Edit</a>
-						<a href="#">Delete</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="order-card">
-			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
-			<div class="order-content">
-				<!-- <div class="order-image">
-					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
-				</div> -->
-				<div class="order-text">
-					<h3 class="manage-req-heading-main">i want to make my website in wordpress from expert testing</h3>
-					<div class="order-info">
-						<div class="info-container">
-							<div class="info-item">
-								<i class="fas fa-calendar"></i> July 24, 2024
-								<span class="heading">date</span>
-							</div>
-							<div class="info-item">
-								<img class="buyer-offer-img" src="images/buyer-offer-img.png" alt=""> 0
-								<span class="heading">offer</span>
-							</div>
-							<div class="info-item">
-								<i class="fa-solid fa-sack-dollar"></i> 22.00
-								<span class="heading">Budget</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="order-status">
-				<span class="Order-Status-textmain">Actions</span>
-				<div class="custom-dropdown">
-					<button class="dropdown-button-one" id="dropdownBtn">
-						<i class="fa-solid fa-caret-down"></i>
-					</button>
-					<div class="dropdown-content-one" id="dropdownMenu">
-						<a href="#">View Offers</a>
-						<a href="#">Pause</a>
-						<a href="#">Edit</a>
-						<a href="#">Delete</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="order-card">
-			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
-			<div class="order-content">
-				<!-- <div class="order-image">
-					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
-				</div> -->
-				<div class="order-text">
-					<h3 class="manage-req-heading-main">i want to make my website in wordpress from expert testing</h3>
-					<div class="order-info">
-						<div class="info-container">
-							<div class="info-item">
-								<i class="fas fa-calendar"></i> July 24, 2024
-								<span class="heading">date</span>
-							</div>
-							<div class="info-item">
-								<img class="buyer-offer-img" src="images/buyer-offer-img.png" alt=""> 0
-								<span class="heading">offer</span>
-							</div>
-							<div class="info-item">
-								<i class="fa-solid fa-sack-dollar"></i> 22.00
-								<span class="heading">Budget</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="order-status">
-				<span class="Order-Status-textmain">Actions</span>
-				<div class="custom-dropdown">
-					<button class="dropdown-button-one" id="dropdownBtn">
-						<i class="fa-solid fa-caret-down"></i>
-					</button>
-					<div class="dropdown-content-one" id="dropdownMenu">
-						<a href="#">View Offers</a>
-						<a href="#">Pause</a>
-						<a href="#">Edit</a>
-						<a href="#">Delete</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="order-card">
-			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
-			<div class="order-content">
-				<!-- <div class="order-image">
-					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
-				</div> -->
-				<div class="order-text">
-					<h3 class="manage-req-heading-main">i want to make my website in wordpress from expert testing</h3>
-					<div class="order-info">
-						<div class="info-container">
-							<div class="info-item">
-								<i class="fas fa-calendar"></i> July 24, 2024
-								<span class="heading">date</span>
-							</div>
-							<div class="info-item">
-								<img class="buyer-offer-img" src="images/buyer-offer-img.png" alt=""> 0
-								<span class="heading">offer</span>
-							</div>
-							<div class="info-item">
-								<i class="fa-solid fa-sack-dollar"></i> 22.00
-								<span class="heading">Budget</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="order-status">
-				<span class="Order-Status-textmain">Actions</span>
-				<div class="custom-dropdown">
-					<button class="dropdown-button-one" id="dropdownBtn">
-						<i class="fa-solid fa-caret-down"></i>
-					</button>
-					<div class="dropdown-content-one" id="dropdownMenu">
-						<a href="#">View Offers</a>
-						<a href="#">Pause</a>
-						<a href="#">Edit</a>
-						<a href="#">Delete</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
+	<div class="mobile_view_req_active" id="orderCardReqActive">
 	</div>
 	<nav id="pagination-request-active" aria-label="Active request navigation"></nav>
 </div>
-
-
 
 
 
@@ -358,6 +213,7 @@
 				}
 			}).done(function(data) {
 				$('body #requestActive tbody').html(data.data);
+				$('#orderCardReqActive').html(data.cardData);
 				$('body #pagination-request-active').html(data.pagination);
 				$('body #wait').removeClass("loader");
 			});
@@ -389,18 +245,3 @@
 		});
 	});
 </script>
-<!-- <script>
-	document.querySelectorAll(".dropdown-button-one").forEach(button => {
-		button.addEventListener("click", function(event) {
-			const dropdownMenu = this.nextElementSibling;
-			dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
-			event.stopPropagation(); // Prevent event from bubbling up
-		});
-	});
-
-	window.addEventListener("click", function() {
-		document.querySelectorAll(".dropdown-content-one").forEach(menu => {
-			menu.style.display = "none"; // Hide all dropdowns
-		});
-	});
-</script> -->

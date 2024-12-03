@@ -347,7 +347,7 @@ if (!isset($_SESSION['seller_user_name'])) {
               city.removeClass('d-none');
               if (city.length) {
                 cities[iKey] = city_name;
-                console.log(city_name);
+                // console.log(city_name);
               }
               iKey++;
             };

@@ -107,6 +107,35 @@ if ($rowCount > 0) {
         $data .= "<td>" . showPrice($order_price) . "</td>";
         $data .= "<td><button class='btn btn-success'>" . ucwords($order_status) . "</button></td>";
         $data .= "</tr>";
+
+        // CARD FORMAT
+        $dataCard4 .= "<div class='order-card'>";
+        $dataCard4 .= "<div class='order-content'>";
+        $dataCard4 .= "<div class='order-image'>";
+        $dataCard4 .= "<img src='" . $proposal_img1 . "' alt='Order Image'>";
+        $dataCard4 .= "</div>"; // order-image
+    
+        $dataCard4 .= "<div class='order-text'>";
+        $dataCard4 .= "<p>" . $proposal_title . " <a href='#'>read more</a></p>";
+        $dataCard4 .= "<div class='order-info'>";
+        $dataCard4 .= "<div class='info-container'>";
+        $dataCard4 .= "<div class='info-item'>";
+        $dataCard4 .= "<i class='fas fa-calendar'></i> " . $order_date . "<span class='heading'>Due On</span>";
+        $dataCard4 .= "</div>"; // info-item
+        $dataCard4 .= "<div class='info-item'>";
+        $dataCard4 .= "<i class='fa-solid fa-sack-dollar'></i> " . showPrice($order_price) . "<span class='heading'>Total Order</span>";
+        $dataCard4 .= "</div>"; // info-item
+        $dataCard4 .= "</div>"; // info-container
+        $dataCard4 .= "</div>"; // order-info
+        $dataCard4 .= "</div>"; // order-text
+        $dataCard4 .= "</div>"; // order-content
+    
+        $dataCard4 .= "<div class='order-status'>";
+        $dataCard4 .= "<span class='Order-Status-textmain'>Order Status</span>";
+        $dataCard4 .= "<button class='status-" . strtolower($order_status) . "'>" . ucfirst($order_status) . "</button>";
+        $dataCard4 .= "</div>"; // order-status
+    
+        $dataCard4 .= "</div>"; // order-card
     }
 
     /* We call the pagination function here to generate Pagination link for us.
@@ -121,5 +150,5 @@ As you can see I have passed several parameters to the function. */
     $paginationData = null;
 }
 
-echo json_encode(["data" => $data, "pagination" => $paginationData]);
+echo json_encode(["data" => $data, "dataCard4" => $dataCard4, "pagination" => $paginationData]);
 exit;

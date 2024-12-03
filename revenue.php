@@ -356,7 +356,7 @@ EOT;
 					<?php } ?>
 
 				<?php } else { ?>
-					<div class="centered-container">
+					<!-- <div class="centered-container">
 						<label class="lead mt-1 "> Withdraw To: </label>
 						<div class="btn-group ml-2">
 							<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -377,7 +377,7 @@ EOT;
 								</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 
 					<label class="lead pull-left mt-1 align-center"> Withdraw To: </label>

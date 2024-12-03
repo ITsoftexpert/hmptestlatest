@@ -615,7 +615,7 @@ if (isset($_POST['deactivate_account'])) {
         }
       }).then(function(){
         window.open('settings?profile_settings','');
-        console.log('Account deactivated successfully');
+        // console.log('Account deactivated successfully');
       })
       </script>";
   }

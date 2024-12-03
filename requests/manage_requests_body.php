@@ -173,6 +173,17 @@ $activeReqTab = isset($_GET['tab']) ? $_GET['tab'] : "approved_request";
         top: 100%;
     }
 
+    .dropdown-content-manage.show {
+        display: block;
+        /* Show dropdown when it has the 'show' class */
+    }
+
+    .section-request {
+        display: none;
+        /* Hide sections by default */
+    }
+
+
     /* List styling */
     .proposal-list {
         list-style: none;
@@ -271,68 +282,86 @@ $activeReqTab = isset($_GET['tab']) ? $_GET['tab'] : "approved_request";
     }
 </style>
 
-<!-- <div class="ram_1_dropdown" id="dropdownContainer">
-    <button class="ram_1_dropbtn dropdown-toggle"> Manage Request </button>
-    <div class="ram_1_dropdown-content">
-        <ul class="nav nav-tabs flex-column flex-sm-row mt-1">
-            <li class="nav-item width-increase1">
-                <a href="#activeBuyerReq" data-toggle="tab" class="nav-link make-black <?= $activeReqTab == 'approved_request' ? "active" : "" ?> padding-10">
-                    <?= $lang['tabs']['active_requests']; ?> <span class="badge badge-success badge-float-right"><?= $countRequestsActive; ?></span>
-                </a>
-            </li>
-            <li class="nav-item width-increase1">
-                <a href="#pauseBuyerReq" data-toggle="tab" class="nav-link make-black <?= $activeReqTab == 'pause_request' ? "active" : "" ?> padding-10">
-                    <?= $lang['tabs']['pause_requests']; ?> <span class="badge badge-success badge-float-right"><?= $countRequestsPause; ?></span>
-                </a>
-            </li>
-            <li class="nav-item width-increase1">
-                <a href="#pendingBuyerReq" data-toggle="tab" class="nav-link make-black <?= $activeReqTab == 'pending_request' ? "active" : "" ?> padding-10">
-                    <?= $lang['tabs']['pending_approval']; ?> <span class="badge badge-success badge-float-right"><?= $countRequestsPending; ?></span>
-                </a>
-            </li>
-            <li class="nav-item width-increase12">
-                <a href="#modificationBuyerReq" data-toggle="tab" class="nav-link make-black <?= $activeReqTab == 'modification_request' ? "active" : "" ?> padding-10">
-                    <?= $lang['tabs']['requires_modification']; ?> <span class="badge badge-success badge-float-right"><?= $countRequestsModification; ?></span>
-                </a>
-            </li>
-            <li class="nav-item width-increase13">
-                <a href="#unapprovedBuyerReq" data-toggle="tab" class="nav-link make-black <?= $activeReqTab == 'unapproved_request' ? "active" : "" ?> padding-10">
-                    <?= $lang['tabs']['unapproved']; ?> <span class="badge badge-success badge-float-right"><?= $countRequestsUnapproved; ?></span>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div> -->
 
 <div class="dropdown-manage-proposals mt-4" id="dropdownContainer">
-    <button class="dropdown-btn-manage" onclick="toggleDropdown()">Manage Requests
+    <button class="dropdown-btn-manage" id="dropdownBtnManageReq" onclick="toggleDropdown()">Manage Requests
         <span class="drop-icon"><i class="fa-solid fa-caret-down"></i></span>
     </button>
-    <div class="dropdown-content-manage" id="dropdownMenu">
-        <ul class="proposal-list">
-            <li class="proposal-item-active">
-                <a href="#" class="proposal-link-active">Active Requests <span class="badge badge-active">0</span></a>
+    <div class="dropdown-content-manage" id="dropdownMenuManageReq">
+        <ul class="nav nav-tabs flex-column flex-sm-row mt-1">
+            <li class="nav-item mb-2">
+                <a href="#activeBuyerReq" data-toggle="tab" class="nav-link text-left make-black padding-10" onclick="selectSection(event, 'activeBuyerReq', '<?= $lang['tabs']['active_requests']; ?>')">
+                    <?= $lang['tabs']['active_requests']; ?> <span class="badge badge-success badge-float-right ml-5"><?= $countRequestsActive; ?></span>
+                </a>
             </li>
-            <li class="proposal-item-delivered">
-                <a href="#" class="proposal-link-delivered">Paused Requests <span class="badge badge-delivered">0</span></a>
+            <li class="nav-item my-2">
+                <a href="#pauseBuyerReq" data-toggle="tab" class="nav-link text-left make-black padding-10" onclick="selectSection(event, 'pauseBuyerReq', '<?= $lang['tabs']['pause_requests']; ?>')">
+                    <?= $lang['tabs']['pause_requests']; ?> <span class="badge badge-success badge-float-right ml-5"><?= $countRequestsPause; ?></span>
+                </a>
             </li>
-            <li class="proposal-item-completed">
-                <a href="#" class="proposal-link-completed">Pending Approvel <span class="badge badge-completed">1</span></a>
+            <li class="nav-item my-2">
+                <a href="#pendingBuyerReq" data-toggle="tab" class="nav-link text-left make-black padding-10" onclick="selectSection(event, 'pendingBuyerReq', '<?= $lang['tabs']['pending_approval']; ?>')">
+                    <?= $lang['tabs']['pending_approval']; ?> <span class="badge badge-success badge-float-right ml-5"><?= $countRequestsPending; ?></span>
+                </a>
             </li>
-            <li class="proposal-item-cancelled">
-                <a href="#" class="proposal-link-unapproved">Requires Modification <span class="badge badge-cancelled">1</span></a>
+            <li class="nav-item my-2">
+                <a href="#modificationBuyerReq" data-toggle="tab" class="nav-link text-left make-black padding-10" onclick="selectSection(event, 'modificationBuyerReq', '<?= $lang['tabs']['requires_modification']; ?>')">
+                    <?= $lang['tabs']['requires_modification']; ?> <span class="badge badge-success badge-float-right ml-5"><?= $countRequestsModification; ?></span>
+                </a>
             </li>
-            <li class="proposal-item-cancelled">
-                <a href="#" class="proposal-link-unapproved">Unapproved <span class="badge badge-cancelled">1</span></a>
+            <li class="nav-item my-2">
+                <a href="#unapprovedBuyerReq" data-toggle="tab" class="nav-link text-left make-black padding-10" onclick="selectSection(event, 'unapprovedBuyerReq', '<?= $lang['tabs']['unapproved']; ?>')">
+                    <?= $lang['tabs']['unapproved']; ?> <span class="badge badge-success badge-float-right ml-5"><?= $countRequestsUnapproved; ?></span>
+                </a>
             </li>
-            <!-- <li class="proposal-item-all">
-                <a href="#" class="proposal-link-all">ALL <span class="badge badge-all">0</span></a>
-            </li> -->
+            <li class="nav-item my-2">
+                <a href="#milestoneBuyerReq" data-toggle="tab" class="nav-link text-left make-black padding-10" onclick="selectSection(event, 'milestoneBuyerReq', 'Milestone')">
+                    Milestone <span class="badge badge-success badge-float-right ml-5"><?= $milstoneRowCount; ?></span>
+                </a>
+            </li>
         </ul>
-        <button class="btn-submit-ok">OK</button>
     </div>
 </div>
 
+
+
+<script>
+    function toggleDropdown() {
+        const dropdownMenuManageReq = document.getElementById("dropdownMenuManageReq");
+        dropdownMenuManageReq.classList.toggle("show");
+    }
+
+    // Function to handle section display, close dropdown, and update button text
+    function selectSection(event, sectionId, newText) {
+        event.preventDefault();
+
+        // Update button text with the selected option
+        const dropdownBtnManageReq = document.getElementById("dropdownBtnManageReq");
+        dropdownBtnManageReq.innerHTML = newText + ' <span class="drop-icon"><i class="fa-solid fa-caret-down"></i></span>';
+
+        // Hide all section elements (if any specific content is required)
+        const sections = document.querySelectorAll(".section-request");
+        sections.forEach(section => {
+            section.style.display = "none";
+        });
+
+        // Show selected section content
+        document.getElementById(sectionId).style.display = "block";
+
+        // Close the dropdown menu
+        toggleDropdown();
+    }
+
+    // Close dropdown when clicking outside of it
+    window.onclick = function(event) {
+        const dropdownBtnManageReq = document.getElementById("dropdownBtnManageReq");
+        const dropdownMenuManageReq = document.getElementById("dropdownMenuManageReq");
+
+        if (!event.target.closest('.dropdown-manage-proposals') && dropdownMenuManageReq.classList.contains('show')) {
+            dropdownMenuManageReq.classList.remove('show');
+        }
+    }
+</script>
 
 
 
@@ -371,68 +400,22 @@ $activeReqTab = isset($_GET['tab']) ? $_GET['tab'] : "approved_request";
 </ul>
 
 <div class="tab-content mt-4">
-    <div id="activeBuyerReq" class="tab-pane fade <?= $activeReqTab == 'approved_request' ? "show active" : "" ?>">
+    <div id="activeBuyerReq" class="tab-pane section-request fade <?= $activeReqTab == 'approved_request' ? "show active" : "" ?>">
         <?php require_once("manage-requests/active.php") ?>
     </div>
-    <div id="pauseBuyerReq" class="tab-pane fade <?= $activeReqTab == 'pause_request' ? "show active" : "" ?>">
+    <div id="pauseBuyerReq" class="tab-pane section-request fade <?= $activeReqTab == 'pause_request' ? "show active" : "" ?>">
         <?php require_once("manage-requests/pause.php") ?>
     </div>
-    <div id="pendingBuyerReq" class="tab-pane fade <?= $activeReqTab == 'pending_request' ? "show active" : "" ?>">
+    <div id="pendingBuyerReq" class="tab-pane section-request fade <?= $activeReqTab == 'pending_request' ? "show active" : "" ?>">
         <?php require_once("manage-requests/pending.php") ?>
     </div>
-    <div id="modificationBuyerReq" class="tab-pane fade <?= $activeReqTab == 'modification_request' ? "show active" : "" ?>">
+    <div id="modificationBuyerReq" class="tab-pane section-request fade <?= $activeReqTab == 'modification_request' ? "show active" : "" ?>">
         <?php require_once("manage-requests/modification.php") ?>
     </div>
-    <div id="unapprovedBuyerReq" class="tab-pane fade <?= $activeReqTab == 'unapproved_request' ? "show active" : "" ?>">
+    <div id="unapprovedBuyerReq" class="tab-pane section-request fade <?= $activeReqTab == 'unapproved_request' ? "show active" : "" ?>">
         <?php require_once("manage-requests/unapproved.php") ?>
     </div>
-    <div id="milestoneBuyerReq" class="tab-pane">
+    <div id="milestoneBuyerReq" class="tab-pane section-request">
         <?php require_once("manage-requests/milestone.php") ?>
     </div>
 </div>
-
-<!-- Include jQuery if not already included -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Add JavaScript to update the button text on dropdown item click and handle dropdown visibility -->
-<script>
-    $(document).ready(function() {
-        var dropdownButton = document.querySelector(".ram_1_dropbtn");
-        var dropdown = document.querySelector(".ram_1_dropdown");
-        var dropdownContent = document.querySelector(".ram_1_dropdown-content");
-
-        dropdownButton.addEventListener("click", function() {
-            dropdown.classList.toggle("show");
-        });
-
-        dropdownContent.addEventListener("click", function(event) {
-            var target = event.target;
-            if (target.tagName === 'A') {
-                dropdownButton.textContent = target.textContent;
-                // Trigger a click event on the corresponding tab
-                var tabId = target.getAttribute('href').substring(1);
-                var tab = document.getElementById(tabId);
-                if (tab) {
-                    var tabPane = new bootstrap.Tab(tab);
-                    tabPane.show();
-                }
-                dropdown.classList.remove("show");
-            }
-        });
-
-
-    });
-</script>
-
-<script>
-    function toggleDropdown() {
-        var dropdownMenu = document.getElementById("dropdownMenu");
-        if (dropdownMenu.style.display === "block") {
-            dropdownMenu.style.display = "none";
-        } else {
-            dropdownMenu.style.display = "block";
-        }
-    }
-</script>
-
-<!-- Bootstrap JavaScript (required for dropdown functionality) -->

@@ -1,14 +1,37 @@
 <style>
-@media (max-width:768px){
-	.font-size-3 {
-				font-size: 13px !important;
-				padding: 10px !important;
-			}
+	@media(max-width:767px) {
+		.mobile_view_only_all {
+			display: block;
 		}
-	
+
+		.desktop_view_only_all {
+			display: none;
+		}
+
+		.font-size-3 {
+			font-size: 13px !important;
+			padding: 10px !important;
+		}
+
+		.font-size-3 {
+			font-size: 13px !important;
+			padding: 10px !important;
+		}
+	}
+
+
+	@media(min-width:768px) {
+		.mobile_view_only_all {
+			display: none;
+		}
+
+		.desktop_view_only_all {
+			display: block;
+		}
+	}
 </style>
 <div class="table-responsive box-table mt-3">
-	<table class="table table-bordered" id="orderSellerAll">
+	<table class="table table-bordered desktop_view_only_all" id="orderSellerAll">
 		<thead>
 			<tr>
 				<th class="font-size-3"><?= $lang['th']['order_summary']; ?></th>
@@ -26,6 +49,9 @@
 			</tr>
 		</tbody>
 	</table>
+	<div id="orderAllSellingSmall" class="mobile_view_only_all">
+
+	</div>
 	<nav id="pagination-seller-order-all" aria-label="Active order navigation">
 	</nav>
 </div>
@@ -43,6 +69,7 @@
 				}
 			}).done(function(data) {
 				$('body #orderSellerAll tbody').html(data.data);
+				$('#orderAllSellingSmall').html(data.dataCard4);
 				$('body #pagination-seller-order-all').html(data.pagination);
 				$('body #wait').removeClass("loader");
 			});

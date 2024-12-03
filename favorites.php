@@ -73,7 +73,7 @@ $login_seller_image = getImageUrl2("sellers", "seller_image", $row_login_seller-
 
     .favorite-contain {
       display: flex;
-      min-height: 100vh;
+      /* min-height: 100vh; */
       background-color: #f8f9fa;
     }
 
@@ -196,66 +196,26 @@ $login_seller_image = getImageUrl2("sellers", "seller_image", $row_login_seller-
       }
     }
     ?>
-    <!-- <div class="row justify-content-center mb-3 ">
-      <div class="row" id="favorites">
-
-        <div class="col-lg-3 col-md-4 pt-5 border collected-by-heading-nitin">
-          <div class="favorite-owner mb-lg-5 mb-md-0 mb-0">
-            <?php if (!empty($login_seller_image)) { ?>
-              <img src="<?= $login_seller_image; ?>">
-            <?php } else { ?>
-              <img src="user_images/empty-image.png">
-            <?php } ?>
-            <?= $lang['favorites']['collected_by']; ?>
-            <br>
-            <a href="#"><strong><?= $login_seller_user_name; ?></strong></a>
-          </div>
-          <div class="addthis_inline_share_toolbox_d0jy"></div>
-        </div>
-        <div class="col-lg-8 col-md-8 mb-3 ">
-          <h2 class="text_under_line">
-            <span class="heading_4-h"><?= $lang["titles"]["favorites"]["title"]; ?></span>
-          </h2>
-          <p class="full-width-p"><small
-              class="font-size-4"><?= str_replace("{count}", $count_favorites, $lang['favorites']['count']); ?></small>
-          </p>
-          <p class="favorite-description favorite_desc ramcol-8"><?= $lang["titles"]["favorites"]["desc"]; ?></p>
-        </div>
-      </div>
-    </div> -->
     <div class="favorite-contain">
-      <!-- <div class="sidebar">
-        <h2>Lists</h2>
-        <button class="new-list">+ New List</button>
-        <div class="users">
-          <h3>Users</h3>
-          <ul>
-            <li><i class="icon-heart"></i> Favorites</li>
-            <li><i class="icon-bag"></i> My Hires</li>
-            <li><i class="icon-eye"></i> Recently Viewed</li>
-          </ul>
-        </div>
-        <div class="group-posts">
-          <h3>Group posts</h3>
-          <ul>
-            <li><i class="icon-bookmark"></i> Bookmarks</li>
-          </ul>
-        </div>
-      </div> -->
-
       <div class="main-content">
-        <h2>Favorites <span class="privacy">Private</span> <span class="members">0 members</span></h2>
+        <h2>Favorites <span class="privacy">Private</span> <span class="members"><?= $count_favorites; ?> members</span></h2>
         <div class="empty-list">
-          <img src="images/fav-page-img.png" alt="Freelancers">
-          <p>Your favorites page is empty.</p>
+          <?php if (!empty($login_seller_image)) { ?>
+            <img src="<?= $login_seller_image; ?>" alt="freelancer">
+          <?php } else { ?>
+            <img src="user_images/empty-image.png" alt="freelancer">
+          <?php } ?>
+          <p class="full-width-p">
+            <small class="font-size-4"><?= str_replace("{count}", $count_favorites, $lang['favorites']['count']); ?></small>
+          </p>
           <p>Add freelancers to your list for the most convenient way to access them later.</p>
-          <button class="browse-btn">Browse hireMyprofile</button>
+          <a href="<?= $site_url; ?>/categories/graphics-design"><button class="browse-btn">Browse hireMyprofile</button></a>
         </div>
       </div>
     </div>
-
   </div>
-  <div class="container pt-1 bg-color1 d-none">
+  <hr>
+  <div class="container pt-1 bg-color1">
     <div class="row mb-4">
       <?php
       $get_favorites = $db->select("favorites", array("seller_id" => $login_seller_id));

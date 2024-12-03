@@ -129,16 +129,16 @@ $relevant_requests = $row_general_settings->relevant_requests;
     }
 
     @media only screen and (max-width: 768px) {
-        .buyer-request-head-nitin {
+        .buyer-request-head-bluff {
             display: none;
         }
     }
 </style>
 
 <style>
-    /* Hide the element with class buyerrequesttbl-nitin on mobile */
+    /* Hide the element with class buyerrequesttbl-bluff on mobile */
     @media (max-width: 767px) {
-        .buyerrequesttbl-nitin {
+        .buyerrequesttbl-bluff {
             display: none;
         }
     }
@@ -212,7 +212,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
         /* margin-top: 5px; */
     }
 
-    .rate-date-nitin-seller {
+    .rate-date-bluff-seller {
         display: flex;
         gap: 20px;
     }
@@ -228,22 +228,22 @@ $relevant_requests = $row_general_settings->relevant_requests;
 
 
 
-    /* Hide the element with class buyerrequesttbl-nitin on mobile */
+    /* Hide the element with class buyerrequesttbl-bluff on mobile */
     @media (max-width: 767px) {
-        .buyerrequesttbl-nitin {
+        .buyerrequesttbl-bluff {
             display: none;
         }
     }
 
-    /* Hide the element with class offer-submitted-nitin on desktop and larger screens */
+    /* Hide the element with class offer-submitted-bluff on desktop and larger screens */
     @media (min-width: 768px) {
-        .offer-submitted-nitin {
+        .offer-submitted-bluff {
             display: none;
         }
     }
 
     /* General Styles */
-    .offer-card.offer-submitted-nitin {
+    .offer-card.offer-submitted-bluff {
         display: flex;
         background-color: #FAFAFA;
         border-radius: 10px;
@@ -252,50 +252,50 @@ $relevant_requests = $row_general_settings->relevant_requests;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    .offer-icon.offer-submitted-nitin {
+    .offer-icon.offer-submitted-bluff {
         width: 40px;
         margin-right: 15px;
     }
 
-    .offer-icon.offer-submitted-nitin img {
+    .offer-icon.offer-submitted-bluff img {
         width: 100%;
     }
 
-    .offer-info.offer-submitted-nitin {
+    .offer-info.offer-submitted-bluff {
         flex: 1;
     }
 
-    .offer-title.offer-submitted-nitin {
+    .offer-title.offer-submitted-bluff {
         font-size: 16px;
         font-weight: bold;
         margin: 0;
     }
 
-    .offer-des.offer-submitted-nitin {
+    .offer-des.offer-submitted-bluff {
         font-size: 14px;
         color: #6c757d;
         margin: 5px 0;
     }
 
-    .offer-price.offer-submitted-nitin {
+    .offer-price.offer-submitted-bluff {
         font-size: 14px;
         color: #28a745;
         font-weight: bold;
     }
 
-    .offer-time.offer-submitted-nitin {
+    .offer-time.offer-submitted-bluff {
         font-size: 12px;
         color: #6c757d;
     }
 
-    .rate-date.offer-submitted-nitin {
+    .rate-date.offer-submitted-bluff {
         display: flex;
         gap: 20px;
     }
 
     /* Mobile Styles */
     @media screen and (max-width: 600px) {
-        .offer-card.offer-submitted-nitin {
+        .offer-card.offer-submitted-bluff {
             flex-direction: row;
         }
     }
@@ -305,6 +305,74 @@ $relevant_requests = $row_general_settings->relevant_requests;
         /* Make the weeks bold if desired */
         color: #000;
         /* Change color if necessary */
+    }
+
+    .text_decoration_style {
+        text-decoration: underline
+    }
+
+    .request-price i {
+        margin-right: 5px;
+        /* Icon aur text ke beech gap */
+    }
+
+    .request-time i {
+        margin-right: 5px;
+        /* Icon aur text ke beech gap */
+    }
+
+
+    .action-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        /* Adjust this value for the desired gap */
+    }
+
+    .action-buttons-offer-sent {
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+        gap: 10px;
+        /* Adjust this value for the desired gap */
+    }
+
+    .remove-request {
+        margin: 0;
+        text-decoration: underline;
+    }
+
+    .send-offer-btn {
+        padding: 5px 10px;
+        background-color: #00cedc;
+        /* Example color, you can change it */
+        color: white;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .send-offer-btn:hover {
+        background-color: #00cedc;
+        /* Example hover color */
+    }
+
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        /* Space between the skills */
+    }
+
+    .skill {
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        /* Light gray border around each skill */
+        border-radius: 5px;
+        font-size: 14px;
+        background-color: #f9f9f9;
+        /* Background color to distinguish skills */
     }
 </style>
 <ul class="nav nav-tabs mt-3">
@@ -360,10 +428,10 @@ $relevant_requests = $row_general_settings->relevant_requests;
         </li>
     <?php } ?>
 </ul>
-<div class="tab-content mt-4 seller-recent-buyer-req-nitin">
+<div class="tab-content mt-4 seller-recent-buyer-req-bluff">
     <div id="active-requests" class="tab-pane fade <?= $activetab == "active" ? "show active" : "" ?> box-shadow-buyer-request">
         <div class="box-table width-99  box-shadow-head31">
-            <h3 class="float_left ml-2 mt-3 mb-3 heading-31 buyer-request-head-nitin"> Buyer Requests </h3>
+            <h3 class="float_left ml-2 mt-3 mb-3 heading-31 buyer-request-head-bluff"> Buyer Requests </h3>
             <?php // if (isset($_SESSION['seller_user_name']) && !(isset($homePerPage))) {
             ?>
             <select id="sub-category" class="form-control float-right sort-by mt-3 mb-3 mr-0">
@@ -383,7 +451,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
             </select>
             <?php // }
             ?>
-            <table class="table-responsive table table-bordered buyerrequesttbl-nitin" id="buyerRequestsTbl">
+            <table class="table-responsive table table-bordered buyerrequesttbl-bluff" id="buyerRequestsTbl">
                 <thead class="mt-3">
                     <tr>
                         <th class="font-size-th width_55">Request</th>
@@ -402,73 +470,9 @@ $relevant_requests = $row_general_settings->relevant_requests;
                 </tbody>
             </table>
 
+            <div class="request-list mobile-request-card" id="freelancerActiveOffers">
 
-
-            <br>
-            <br>
-            <div class="request-list mobile-request-card">
-                <div class="request-card">
-                    <div class="icon">
-                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
-                    </div>
-                    <div class="request-info">
-                        <h3 class="request-title">Amazon Sales Growth Expert for Paradice...</h3>
-                        <p class="request-des">Amazon FBA, Internet Marketing...</p>
-                        <div class="rate-date-nitin-seller">
-                            <p class="request-price">$30 - 250 USD</p>
-                            <p class="request-time">September, 24, 2024 </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="request-card">
-                    <div class="icon">
-                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
-                    </div>
-                    <div class="request-info">
-                        <h3 class="request-title">Hotel Application Mobile App Develop...</h3>
-                        <p class="request-des">PHP, Mobile App Development Iphone...</p>
-                        <div class="rate-date-nitin-seller">
-                            <p class="request-price">$30 - 250 USD</p>
-                            <p class="request-time">August, 28, 2024</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="request-card">
-                    <div class="icon">
-                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
-                    </div>
-                    <div class="request-info">
-                        <h3 class="request-title">ASP.NET Developer Needed for Web...</h3>
-                        <p class="request-des">.NET, C# Programming, ASP.NET Micro...</p>
-                        <div class="rate-date-nitin-seller">
-                            <p class="request-price">$30 - 250 USD</p>
-                            <p class="request-time">August, 28, 2024</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="request-card">
-                    <div class="icon">
-                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
-                    </div>
-                    <div class="request-info">
-                        <h3 class="request-title">All-in-One Web & Mobile Sales..</h3>
-                        <p class="request-des">PHP, Website Design, Software archi...</p>
-                        <div class="rate-date-nitin-seller">
-                            <p class="request-price">$30 - 250 USD</p>
-                            <p class="request-time">August, 28, 2024</p>
-                        </div>
-                    </div>
-                </div>
             </div>
-
-
-
-
-
-
 
             <nav id="pagination-buyer-requests-ajax" aria-label="Active request navigation">
             </nav>
@@ -477,7 +481,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
     <div id="sent-offers" class="tab-pane fade <?= $activetab == "offers" ? "show active" : "" ?>">
         <div class="table-responsive box-table box-shadow-rdpy">
             <h3 class="ml-2 mt-3 mb-3 font-size-4 text-align-center padding"> OFFERS SUBMITTED </h3>
-            <table class="table table-bordered buyerrequesttbl-nitin" id="offerSentTbl">
+            <table class="table table-bordered buyerrequesttbl-bluff" id="offerSentTbl">
                 <thead>
                     <tr>
                         <th class="font-size-th">Request</th>
@@ -495,70 +499,9 @@ $relevant_requests = $row_general_settings->relevant_requests;
                 </tbody>
             </table>
 
-            <div class="offer-list offer-submitted-nitin">
-                <div class="offer-card offer-submitted-nitin">
-                    <div class="offer-icon offer-submitted-nitin">
-                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
-                    </div>
-                    <div class="offer-info offer-submitted-nitin">
-                        <h3 class="offer-title offer-submitted-nitin">Amazon Sales Growth Expert for...</h3>
-                        <p class="offer-des offer-submitted-nitin">Amazon FBA, Internet Marketing...</p>
-                        <div class="rate-date offer-submitted-nitin">
-                            <p class="offer-price offer-submitted-nitin">$30 - 250 USD</p>
-                            <p class="offer-duration offer-submitted-nitin">Duration: <span class="duration-weeks">2 weeks</span></p>
-                        </div>
-                    </div>
-                </div>
+            <div class="offer-list offer-submitted-bluff" id="offerSentDetails">
 
-                <div class="offer-card offer-submitted-nitin">
-                    <div class="offer-icon offer-submitted-nitin">
-                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
-                    </div>
-                    <div class="offer-info offer-submitted-nitin">
-                        <h3 class="offer-title offer-submitted-nitin">Hotel Application Mobile App..</h3>
-                        <p class="offer-des offer-submitted-nitin">PHP, Mobile App Development...</p>
-                        <div class="rate-date offer-submitted-nitin">
-                            <p class="offer-price offer-submitted-nitin">$30 - 250 USD</p>
-                            <p class="offer-duration offer-submitted-nitin">Duration: <span class="duration-weeks">2 weeks</span></p>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="offer-card offer-submitted-nitin">
-                    <div class="offer-icon offer-submitted-nitin">
-                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
-                    </div>
-                    <div class="offer-info offer-submitted-nitin">
-                        <h3 class="offer-title offer-submitted-nitin">ASP.NET Developer Needed for...</h3>
-                        <p class="offer-des offer-submitted-nitin">.NET, C# Programming, ASP.NET...</p>
-                        <div class="rate-date offer-submitted-nitin">
-                            <p class="offer-price offer-submitted-nitin">$30 - 250 USD</p>
-                            <p class="offer-duration offer-submitted-nitin">Duration: <span class="duration-weeks">2 weeks</span></p>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="offer-card offer-submitted-nitin">
-                    <div class="offer-icon offer-submitted-nitin">
-                        <img src="images/seller-buyer-request-img.png" alt="Folder Icon">
-                    </div>
-                    <div class="offer-info offer-submitted-nitin">
-                        <h3 class="offer-title offer-submitted-nitin">All-in-One Web & Mobile Sales..</h3>
-                        <p class="offer-des offer-submitted-nitin">PHP, Website Design, Software....</p>
-                        <div class="rate-date offer-submitted-nitin">
-                            <p class="offer-price offer-submitted-nitin">$30 - 250 USD</p>
-                            <p class="offer-duration offer-submitted-nitin">Duration: <span class="duration-weeks">2 weeks</span></p>
-
-                        </div>
-                    </div>
-                </div>
             </div>
-
-
-
-
             <nav id="pagination-buyer-offer-sent" aria-label="buyer offer send navigation">
             </nav>
         </div>
@@ -581,6 +524,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
                 }
             }).done(function(data) {
                 $('body #buyerRequestsTbl tbody').html(data.data);
+                $('#freelancerActiveOffers').html(data.cardData2);
                 $('body #pagination-buyer-requests-ajax').html(data.pagination);
                 $('body #activeReqSpan').html(data.total);
                 $('body #wait').removeClass("loader");
@@ -636,6 +580,7 @@ $relevant_requests = $row_general_settings->relevant_requests;
                 }
             }).done(function(data) {
                 $('body #offerSentTbl tbody').html(data.data);
+                $('#offerSentDetails').html(data.dataData3);
                 $('body #pagination-buyer-offer-sent').html(data.pagination);
                 $('body #wait').removeClass("loader");
             });

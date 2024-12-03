@@ -229,7 +229,7 @@
 				</ul>
 
 				<h3 class="h3Border mb-lg-4 mt-4">Contact us</h3>
-				<ul class="p-0 footer-ul-nitin">
+				<ul class="p-0 footer-ul-bluff">
 					<li class="font-normal"><a href="mailto:info@hiremyprofile.com" class=""><i
 								class="fa fa-envelope"></i> info@hiremyprofile.com</a></li>
 					<li><a href=""><i class="fa fa-home"></i></a> <a href=""><span class="fontnormal">126, FIRST FLOOR

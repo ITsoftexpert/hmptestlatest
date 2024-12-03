@@ -1,18 +1,46 @@
 <?php
-
 session_start();
-
 require_once("includes/db.php");
 
 if (!isset($_SESSION['seller_user_name'])) {
-
   echo "<script>window.open('login','_self')</script>";
+  exit;
 }
 
 $login_seller_user_name = $_SESSION['seller_user_name'];
 $select_login_seller = $db->select("sellers", array("seller_user_name" => $login_seller_user_name));
 $row_login_seller = $select_login_seller->fetch();
 $login_seller_id = $row_login_seller->seller_id;
+
+// Pagination and search setup
+$per_page = 10; // Number of records per page
+$page = isset($_GET['view_purchases']) && is_numeric($_GET['view_purchases']) ? (int)$_GET['view_purchases'] : 1;
+if ($page < 1) $page = 1;
+
+$start_from = ($page - 1) * $per_page;
+$search = isset($_GET['search']) ? trim($_GET['search']) : "";
+
+// Base query and parameters
+$query = "SELECT * FROM purchases WHERE seller_id = :seller_id";
+$params = ["seller_id" => $login_seller_id];
+
+if (!empty($search)) {
+  $query .= " AND (amount LIKE :search OR date LIKE :search)";
+  $params['search'] = "%$search%";
+}
+
+$query .= " ORDER BY date DESC LIMIT $per_page OFFSET $start_from"; // Use LIMIT/OFFSET directly
+
+$get_purchases = $db->query($query, $params);
+
+$total_query = "SELECT COUNT(*) as total FROM purchases WHERE seller_id = :seller_id";
+$total_params = ["seller_id" => $login_seller_id];
+if (!empty($search)) {
+  $total_query .= " AND (amount LIKE :search OR date LIKE :search)";
+  $total_params['search'] = "%$search%";
+}
+$total_purchases = $db->query($total_query, $total_params)->fetch()->total;
+$count_purchases = $get_purchases->rowCount();
 
 ?>
 <!DOCTYPE html>
@@ -102,7 +130,7 @@ $login_seller_id = $row_login_seller->seller_id;
     }
 
     @media (max-width: 767px) {
-      .purchase-page-heading-nitin {
+      .purchase-page-heading-bluff {
         color: #000 !important;
         background-color: #ebebeb !important;
         box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
@@ -125,9 +153,26 @@ $login_seller_id = $row_login_seller->seller_id;
 
   <?php require_once("includes/user_header.php"); ?>
   <div class="container-fluid padding-alter-2">
+
+    <!-- Search Form -->
+    <form method="get" action="">
+      <input type="hidden" name="view_purchases" value="<?= $page; ?>">
+      <div class="input-group mb-2">
+        <input type="text" name="search" class="form-control" placeholder="Search by amount or date" value="<?= htmlspecialchars($search); ?>">
+
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-success">Search</button>
+        </div>
+      </div>
+      <div class=" float-right input-group-append">
+        <a href="?view_purchases=<?= $page; ?>" class="btn btn-secondary">Clear</a>
+      </div>
+    </form>
+
+
     <div class="row">
       <div class="col-md-12 mt-4">
-        <h3 class="mb-4 <?= ($lang_dir == "right" ? 'text-right' : '') ?> full-width purchase-page-heading-nitin"><span class="text-align-center"><?= $lang["titles"]["purchases"]; ?></span></h3>
+        <h3 class="mb-4 <?= ($lang_dir == "right" ? 'text-right' : '') ?> full-width purchase-page-heading-bluff"><span class="text-align-center"><?= $lang["titles"]["purchases"]; ?></span></h3>
         <div class="table-responsive box-table box-shadow-purchase">
           <table class="table table-bordered">
             <thead>
@@ -139,7 +184,7 @@ $login_seller_id = $row_login_seller->seller_id;
             </thead>
             <tbody>
               <?php
-              $get_purchases = $db->select("purchases", array("seller_id" => $login_seller_id), "DESC");
+
               $count_purchases = $get_purchases->rowCount();
               while ($row_purchases = $get_purchases->fetch()) {
                 $order_id = $row_purchases->order_id;
@@ -208,6 +253,21 @@ $login_seller_id = $row_login_seller->seller_id;
           }
           ?>
         </div>
+
+        <!-- Pagination -->
+        <?php
+        $total_pages = ceil($total_purchases / $per_page);
+        if ($total_pages > 1): ?>
+          <nav>
+            <ul class="pagination">
+              <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                <li class="page-item <?= ($i == $page) ? 'active' : ''; ?>">
+                  <a class="page-link" href="?view_purchases=<?= $i; ?>&search=<?= urlencode($search); ?>"><?= $i; ?></a>
+                </li>
+              <?php endfor; ?>
+            </ul>
+          </nav>
+        <?php endif; ?>
       </div>
     </div>
   </div>

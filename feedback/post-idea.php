@@ -36,7 +36,7 @@ require_once("../includes/db.php");
 
 	<?php require_once("../includes/header.php"); ?>
 
-	<div class="container mt-5 pt-5 pb-5">
+	<div class="container-fluid mt-5 pt-5 pb-5">
 		<!-- Container starts -->
 
 		<h2><a class="text-dark" href="#">General</a></h2>

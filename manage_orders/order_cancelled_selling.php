@@ -1,17 +1,32 @@
 <style>
-@media (max-width:768px){
-	.font-size-3 {
-				font-size: 13px !important;
-				padding: 10px !important;
-			}
+	@media(max-width:767px) {
+		.mobile_view_only_cancelled {
+			display: block;
 		}
-		.box-shadow-order-1{
-		/* box-shadow: 0px 0px 2px gray; */
+
+		.desktop_view_only_cancelled {
+			display: none;
+		}
+
+		.font-size-3 {
+			font-size: 13px !important;
+			padding: 10px !important;
+		}
+	}
+
+	@media(min-width:768px) {
+		.mobile_view_only_cancelled {
+			display: none;
+		}
+
+		.desktop_view_only_cancelled {
+			display: block;
+		}
 	}
 </style>
 
 <div class="table-responsive box-table mt-3">
-	<table class="table table-bordered" id="orderSellerCancelled">
+	<table class="table table-bordered desktop_view_only_cancelled" id="orderSellerCancelled">
 		<thead>
 			<tr>
 				<th class="font-size-3"><?= $lang['th']['order_summary']; ?></th>
@@ -29,6 +44,7 @@
 			</tr>
 		</tbody>
 	</table>
+	<div id="orderCancelledSellingSmall" class="mobile_view_only_cancelled"></div>
 	<nav id="pagination-seller-order-cancelled" aria-label="Active order navigation">
 	</nav>
 </div>
@@ -46,6 +62,7 @@
 				}
 			}).done(function(data) {
 				$('body #orderSellerCancelled tbody').html(data.data);
+				$('#orderCancelledSellingSmall').html(data.dataCard4);
 				$('body #pagination-seller-order-cancelled').html(data.pagination);
 				$('body #wait').removeClass("loader");
 			});

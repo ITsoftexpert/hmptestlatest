@@ -113,7 +113,7 @@ if (isset($_GET['remove_proposal'])) {
 			margin-top:35px;
 		}
 		}
-		@media (max-width:1023px) and (min-width:769px){
+		@media (max-width:1024px) and (min-width:769px){
 			.gnav-header #mobilemenu{
         padding-left:2px !important;
       }

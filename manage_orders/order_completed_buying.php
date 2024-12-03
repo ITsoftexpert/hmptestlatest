@@ -1,20 +1,61 @@
-
 <style>
-	@media (max-width:768px){
-		.font-size-3 {
-            font-size: 13px !important;
-            padding: 10px !important;
-            text-align: center;
-         }
-		
+	.order-card {
+		border: 1px solid #ddd;
+		padding: 16px;
+		margin-bottom: 16px;
+		border-radius: 8px;
+		/* display: flex; */
+		align-items: center;
 	}
-	.box-shadow-order-1{
-		/* box-shadow: 0px 0px 2px gray; */
+
+	.order-card-image {
+		width: 80px;
+		height: 80px;
+		border-radius: 4px;
+		margin-right: 16px;
+	}
+
+	.order-card-content {
+		flex: 1;
+	}
+
+	.order-card-title {
+		font-size: 1.2em;
+		margin-bottom: 8px;
+	}
+
+	.order-status {
+		/* background-color: lightgray; */
+		color: white;
+
+		border: 1px solid lightgrey;
+		padding: 8px 16px;
+		border-radius: 4px;
+	}
+
+	@media(max-width: 767px) {
+		.desktop_view_only_lg {
+			display: none;
+		}
+
+		.mobile_view_only_sm {
+			display: block;
+		}
+	}
+
+	@media(min-width: 768px) {
+		.desktop_view_only_lg {
+			display: block;
+		}
+
+		.mobile_view_only_sm {
+			display: none;
+		}
 	}
 </style>
 
 
-<div class="table-responsive box-table mt-3">
+<div class="table-responsive box-table mt-3 desktop_view_only_lg">
 	<table class="table table-bordered" id="orderCompleted">
 		<thead>
 			<tr>
@@ -37,6 +78,7 @@
 	</nav>
 </div>
 
+<div id="orderCompletedSmall" class="mobile_view_only_sm"></div>
 <script type="text/javascript">
 	$(document).ready(function() {
 		var activeOrder = function(userId, status, limit, page = 1) {
@@ -51,6 +93,7 @@
 				}
 			}).done(function(data) {
 				$('body #orderCompleted tbody').html(data.data);
+				$('#orderCompletedSmall').html(data.data2);
 				$('body #pagination-order-completed').html(data.pagination);
 				$('body #wait').removeClass("loader");
 			});

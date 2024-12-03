@@ -66,12 +66,12 @@ $login_seller_language = $row_login_seller->seller_language;
       }
     }
 
-    .coupon-page-nitin {
+    .coupon-page-bluff {
       margin: 200px 0px 55px 0px;
     }
 
     @media (max-width: 768px) {
-      .coupon-page-nitin {
+      .coupon-page-bluff {
         margin: 150px 0px 40px 0px;
         /* Adjust values as needed */
       }
@@ -81,9 +81,10 @@ $login_seller_language = $row_login_seller->seller_language;
 
 <body class="is-responsive">
   <?php require_once("../includes/user_header.php"); ?>
-  <div class="container coupon-page-nitin"><!--- container Starts --->
+  <div class="container coupon-page-bluff"><!--- container Starts --->
     <div class="row">
       <div class="col-md-10 m-auto">
+        <h4><a href="<?= $site_url; ?>/proposals/view_coupons"><button>View All Coupons</button></a></h4>
         <div class="card"><!--- card Starts --->
           <div class="card-header"><!--- card-header Starts --->
             <h4 class="h4 text-center"><?= $lang['create_coupon']['title']; ?></h4>
@@ -131,6 +132,7 @@ $login_seller_language = $row_login_seller->seller_language;
                   <input type="number" name="coupon_limit" class="form-control" value="1" min="1" required>
                 </div>
               </div>
+              <input type="hidden" name="seller_id" class="" value="<?= $login_seller_id; ?>" required>
               <!--- form-group row Ends --->
               <div class="form-group row">
                 <!--- form-group row Starts --->
@@ -187,7 +189,8 @@ $login_seller_language = $row_login_seller->seller_language;
       "coupon_type" => "required",
       "coupon_code" => "required",
       "coupon_limit" => "number|required",
-      "proposal_id" => "required"
+      "proposal_id" => "required",
+      "seller_id" => "required"
     );
     $messages = array("proposal_id" => "You must need to select a proposal for coupon.");
     $val = new Validator($_POST, $rules, $messages);

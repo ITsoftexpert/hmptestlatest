@@ -245,13 +245,13 @@ if ($oSellerWeight) {
 			border: 2px solid #00cedc !important;
 		}
 
-		.profile-setting-nitin {
+		.profile-setting-bluff {
 			margin-top: 200px;
 		}
 
 		/* Media query for mobile devices */
 		@media (max-width: 768px) {
-			.profile-setting-nitin {
+			.profile-setting-bluff {
 				margin-top: 150px;
 				/* Adjust the margin for mobile */
 			}
@@ -269,7 +269,7 @@ if ($oSellerWeight) {
 
 <body class="is-responsive">
 	<?php require_once("includes/user_header.php"); ?>
-	<div class="profile-setting-nitin">
+	<div class="profile-setting-bluff">
 		<div class="row terms-page justify-content-center" style="<?= ($lang_dir == "right" ? 'direction: rtl;' : '') ?>">
 			<div class="col-md-3 mb-3">
 				<div class="card">

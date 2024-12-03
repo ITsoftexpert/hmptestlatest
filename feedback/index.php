@@ -52,7 +52,7 @@ if (isset($_GET["delete_comment"])) {
 
 <body class="is-responsive">
   <?php require_once("../includes/header.php"); ?>
-  <div class="container-fluid p-6">
+  <div class="container-fluid p-3">
     <!-- Container starts -->
 
     <h2 class="<?= $textRight; ?>"><a class="text-dark" href="#">General</a></h2>

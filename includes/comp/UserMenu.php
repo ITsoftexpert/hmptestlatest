@@ -16,8 +16,8 @@
 
   /* Mobile-specific styles */
   @media (max-width: 768px) {
-    .nitinafterloginenvloppro {
-      padding-top: 15px;
+    .bluffafterloginenvloppro {
+      /* padding-top: 15px; */
     }
   }
 
@@ -30,9 +30,9 @@
   }
 </style>
 
-<ul class="list-inline mb-0  nitinafterloginenvloppro">
+<ul class="list-inline mb-0  bluffafterloginenvloppro">
   <li class="list-inline-item align-middle position-relative font-size-18 desktop-view-afterlogin">
-    <label class="rounded-circle  theme-bg text-white position-absolute text-smaller mb-0 badge-custm d-flex align-items-center justify-content-center d-flex total-user-count count c-notifications-header"></label>
+    <!-- <label class="rounded-circle  theme-bg text-white position-absolute text-smaller mb-0 badge-custm d-flex align-items-center justify-content-center d-flex total-user-count count"></label> -->
     <a class="fa fa-bell-o fa-2x bell menuItem" data-toggle="dropdown" title="<?= $lang['popup']['notifications']; ?>">
       <span class="total-user-count count c-notifications-header"></span>
     </a>

@@ -1,17 +1,61 @@
-
 <style>
-	@media (max-width:768px){
-		.font-size-3 {
-            font-size: 13px !important;
-            padding: 10px !important;
-            text-align: center;
-         }
-		
+	.order-card {
+		border: 1px solid #ddd;
+		padding: 16px;
+		margin-bottom: 16px;
+		border-radius: 8px;
+		/* display: flex; */
+		align-items: center;
 	}
-	
+
+	.order-card-image {
+		width: 80px;
+		height: 80px;
+		border-radius: 4px;
+		margin-right: 16px;
+	}
+
+	.order-card-content {
+		flex: 1;
+	}
+
+	.order-card-title {
+		font-size: 1.2em;
+		margin-bottom: 8px;
+	}
+
+	.order-status {
+		/* background-color: lightgray; */
+		color: white;
+
+		border: 1px solid lightgrey;
+		padding: 8px 16px;
+		border-radius: 4px;
+	}
+
+	@media(max-width: 767px) {
+		.desktop_view_only_lg {
+			display: none;
+		}
+
+		.mobile_view_only_sm {
+			display: block;
+		}
+	}
+
+	@media(min-width: 768px) {
+		.desktop_view_only_lg {
+			display: block;
+		}
+
+		.mobile_view_only_sm {
+			display: none;
+		}
+	}
 </style>
 
-<div class="table-responsive box-table mt-3">
+
+<div class="table-responsive box-table mt-3 desktop_view_only_lg">
 	<table class="table table-bordered" id="orderAll">
 		<thead>
 			<tr>
@@ -33,6 +77,8 @@
 	<nav id="pagination-order-all" aria-label="all order navigation">
 	</nav>
 </div>
+<div id="orderAllSmall" class="mobile_view_only_sm"></div>
+
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -48,6 +94,7 @@
 				}
 			}).done(function(data) {
 				$('body #orderAll tbody').html(data.data);
+				$('#orderAllSmall').html(data.data2);
 				$('body #pagination-order-all').html(data.pagination);
 				$('body #wait').removeClass("loader");
 			});

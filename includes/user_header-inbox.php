@@ -58,9 +58,13 @@ $site_border_color = $row_general_settings->site_border_color;
 
 
 <style>
+  .border_lightgrey {
+    border: 1px solid lightgray;
+  }
 
-
-
+  .no_border {
+    border: none;
+  }
 </style>
 
 <div id="gnav-header" class="gnav-header global-nav clear gnav-3">
@@ -97,8 +101,8 @@ $site_border_color = $row_general_settings->site_border_color;
           <form id="gnav-search" class="search-nav expanded-search apply-nav-height" method="post">
             <div class="gnav-search-inner clearable">
               <label for="search-query" class="screen-reader-only">Search for items</label>
-              <div class="search-input-wrapper text-field-wrapper">
-                <input id="search-query" class="rounded" name="search_query" placeholder="<?= $lang['search']['placeholder']; ?>" value="<?= @$_SESSION["search_query"]; ?>" autocomplete="off">
+              <div class="w-100 search-input-wrapper text-field-wrapper border_lightgrey">
+                <input id="search-query" class="rounded w-100 p-2 no_border" name="search_query" placeholder="<?= $lang['search']['placeholder']; ?>" value="<?= @$_SESSION["search_query"]; ?>" autocomplete="off">
               </div>
               <div class="search-button-wrapper hide">
                 <button class="btn " name="search" type="submit" value="Search" style="background-color: <?= $site_color; ?>;color: #FFF;border-top-left-radius: 0;

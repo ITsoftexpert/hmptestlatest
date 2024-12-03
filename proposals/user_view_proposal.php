@@ -128,7 +128,7 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 		position: fixed;
 	}
 
-	.active-proposals-nitin {
+	.active-proposals-carvel {
 		background-color: #00cedc !important;
 		border: none !important;
 		color: #fff !important;
@@ -407,7 +407,7 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 	}
 
 	@media (max-width: 767px) {
-		.buyer-nitin-edit-sec {
+		.buyer-carvel-edit-sec {
 			display: none;
 		}
 	}
@@ -445,10 +445,10 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 		bottom: 100%;
 	}
 
-	.buyer-active-orderdataby-nitin {
+	.buyer-active-orderdataby-carvel {
 		display: flex;
-		gap: 20px;
-		flex-direction: column;
+		/* gap: 20px;
+		flex-direction: column; */
 	}
 
 	.mobile-d-nones {
@@ -462,9 +462,6 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 	<div class="col_md_12 display_flex-1 mt-0 mb-0 float_right justify-content-center">
 		<?php if ($totalProposal >= $num_gigs) { ?>
 			<a class="btn btn-success box-shadow-new-propo hide-on-mobile mobile-d-nones" href="<?= $site_url ?>/start_selling"><i class="fa fa-plus-circle"></i> <?= $lang['button']['add_new_proposal']; ?></a>
-		<?php } else { ?>
-
-			<a class="btn btn-success box-shadow-new-propo text_center margin-auto" href="<?= $site_url ?>/proposals/create_proposal"><i class="fa fa-plus-circle"></i> <?= $lang['button']['add_new_proposal']; ?></a>
 		<?php } ?>
 	</div>
 	<!-- 
@@ -473,60 +470,75 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 </div> -->
 
 	<div class="secondsellerdropdown-dropdown" id="secondsellerdropdownContainer">
-		<button class="secondsellerdropdown-btn" onclick="toggleSecondsellerDropdown()">Manage Requests
+		<button class="secondsellerdropdown-btn" onclick="toggleSecondsellerDropdown()">
+			<span id="selectedProposal">Active Proposals</span> <!-- Display selected option -->
 			<span class="secondsellerdropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
 		</button>
 		<div class="secondsellerdropdown-content" id="secondsellerdropdownMenu">
 			<ul class="secondsellerdropdown-list">
 				<li class="secondsellerdropdown-item-active">
-					<a href="#" class="secondsellerdropdown-link-active">Active Proposals <span class="secondsellerdropdown-badge-active">0</span></a>
+					<a href="#active-proposals-small" class="secondsellerdropdown-link-active" onclick="showSection('active-proposals-small', 'Active Proposals'); closeDropdown()">Active Proposals
+						<span class="secondsellerdropdown-badge-active"><?= $count_active_proposals; ?></span>
+					</a>
 				</li>
 				<li class="secondsellerdropdown-item-paused">
-					<a href="#" class="secondsellerdropdown-link-paused">Paused Proposals <span class="secondsellerdropdown-badge-paused">0</span></a>
+					<a href="#pause-proposals-small" class="secondsellerdropdown-link-paused" onclick="showSection('pause-proposals-small', 'Paused Proposals'); closeDropdown()">Paused Proposals
+						<span class="secondsellerdropdown-badge-paused"><?= $count_pause_proposals; ?></span>
+					</a>
 				</li>
 				<li class="secondsellerdropdown-item-pending">
-					<a href="#" class="secondsellerdropdown-link-pending">Pending Proposals <span class="secondsellerdropdown-badge-pending">0</span></a>
+					<a href="#pending-proposals-small" class="secondsellerdropdown-link-pending" onclick="showSection('pending-proposals-small', 'Pending Proposals'); closeDropdown()">Pending Proposals
+						<span class="secondsellerdropdown-badge-pending"><?= $count_pending_proposals; ?></span>
+					</a>
 				</li>
 				<li class="secondsellerdropdown-item-modification">
-					<a href="#" class="secondsellerdropdown-link-modification">Requires Modification <span class="secondsellerdropdown-badge-modification">0</span></a>
+					<a href="#modification-proposals-small" class="secondsellerdropdown-link-modification" onclick="showSection('modification-proposals-small', 'Requires Modification'); closeDropdown()">Requires Modification
+						<span class="secondsellerdropdown-badge-modification"><?= $count_modification_proposals; ?></span>
+					</a>
 				</li>
 				<li class="secondsellerdropdown-item-draft">
-					<a href="#" class="secondsellerdropdown-link-draft">Draft <span class="secondsellerdropdown-badge-draft">0</span></a>
+					<a href="#draft-proposals-small" class="secondsellerdropdown-link-draft" onclick="showSection('draft-proposals-small', 'Draft'); closeDropdown()">Draft
+						<span class="secondsellerdropdown-badge-draft"><?= $count_draft_proposals; ?></span>
+					</a>
 				</li>
 				<li class="secondsellerdropdown-item-declined">
-					<a href="#" class="secondsellerdropdown-link-declined">Declined <span class="secondsellerdropdown-badge-declined">0</span></a>
+					<a href="#declined-proposals-small" class="secondsellerdropdown-link-declined" onclick="showSection('declined-proposals-small', 'Declined'); closeDropdown()">Declined
+						<span class="secondsellerdropdown-badge-declined"><?= $count_declined_proposals; ?></span>
+					</a>
 				</li>
 			</ul>
-			<button class="secondsellerdropdown-btn-ok">OK</button>
 		</div>
 	</div>
 
-	<div class="clearfix"></div>
-	<!-- <div class="dropdown mt-3 seller-active-order-nitin">
-		<button class="btn btn-secondary dropdown-toggle active-proposals-nitin" type="button" id="proposalDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Active Proposals
-		</button>
-		<div class="dropdown-menu" aria-labelledby="proposalDropdown">
-			<a class="dropdown-item <?= $active; ?>" href="#active-proposals" data-toggle="tab">
-				<?= $lang['tabs']['active_proposals']; ?> &nbsp; &nbsp; <span class="badge badge-success float-right"><?= $count_active_proposals; ?></span>
-			</a>
-			<a class="dropdown-item <?= (isset($_GET['paused'])) ? "active" : ""; ?>" href="#pause-proposals" data-toggle="tab">
-				<?= $lang['tabs']['pause_proposals']; ?> &nbsp; &nbsp; <span class="badge badge-success float-right"><?= $count_pause_proposals; ?></span>
-			</a>
-			<a class="dropdown-item <?= (isset($_GET['pending'])) ? "active" : ""; ?>" href="#pending-proposals" data-toggle="tab">
-				<?= $lang['tabs']['pending_proposals']; ?> &nbsp; &nbsp; <span class="badge badge-success float-right"><?= $count_pending_proposals; ?></span>
-			</a>
-			<a class="dropdown-item <?= (isset($_GET['modification'])) ? "active" : ""; ?>" href="#modification-proposals" data-toggle="tab">
-				<?= $lang['tabs']['requires_modification']; ?> &nbsp; &nbsp; <span class="badge badge-success float-right"><?= $count_modification_proposals; ?></span>
-			</a>
-			<a class="dropdown-item <?= (isset($_GET['draft'])) ? "active" : ""; ?>" href="#draft-proposals" data-toggle="tab">
-				<?= $lang['tabs']['draft']; ?> &nbsp; &nbsp; <span class="badge badge-success float-right"><?= $count_draft_proposals; ?></span>
-			</a>
-			<a class="dropdown-item <?= (isset($_GET['declined'])) ? "active" : ""; ?>" href="#declined-proposals" data-toggle="tab">
-				<?= $lang['tabs']['declined']; ?> &nbsp; &nbsp; <span class="badge badge-success float-right"><?= $count_declined_proposals; ?></span>
-			</a>
+	<div class="buyer-active-orderdataby-carvel mt-4">
+		<div id="active-proposals-small" class="proposal-section" style="display: block;"> <!-- Set to block by default -->
+			<?php require_once("active-proposal-small.php"); ?>
 		</div>
-	</div> -->
+		<hr>
+		<div id="pause-proposals-small" class="proposal-section" style="display: none;">
+			<?php require_once("pause-proposals-small.php"); ?>
+		</div>
+		<hr>
+		<div id="pending-proposals-small" class="proposal-section" style="display: none;">
+			<?php require_once("pending-proposals-small.php"); ?>
+		</div>
+		<hr>
+		<div id="modification-proposals-small" class="proposal-section" style="display: none;">
+			<?php require_once("modification-proposals-small.php"); ?>
+		</div>
+		<hr>
+		<div id="draft-proposals-small" class="proposal-section" style="display: none;">
+			<?php require_once("draft-proposals-small.php") ?>
+		</div>
+		<hr>
+		<div id="declined-proposals-small" class="proposal-section" style="display: none;">
+			<?php require_once("declined-proposals-small.php") ?>
+		</div>
+	</div>
+
+
+	<div class="clearfix"></div>
+
 
 	<ul class="nav nav-tabs flex-column flex-sm-row mt-3 oldseller-section view-my-proposal-hide-on-mobile">
 		<li class="nav-item width-increased">
@@ -562,636 +574,33 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 	</ul>
 
 
-	<script>
+	<!-- <script>
 		function notifyYou() {
 			alert('hello');
 		}
-	</script>
+	</script> -->
 
 	<div class="tab-content active-proposel-seller-sec">
 		<div id="active-proposals" class="tab-pane fade show <?= $active; ?>">
-			<div class="table-responsive box-table mt-3 box-shadow-act-pro">
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th class="font-size-3"><?= $lang['th']['proposal_title']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['proposal_price']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['views']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['orders']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['actions']; ?></th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-						if (isset($_GET["page"]) && $active == "active") {
-							$dPageNumber = filter_var($_GET["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
-							if (!is_numeric($dPageNumber)) {
-								die('Invalid page number!');
-							} //incase of invalid page number
-						} else {
-							$dPageNumber = 1; //if there's no page number, set it to 1
-						}
-
-						$start_from =  (($dPageNumber - 1) * $limit);
-						$where_limit = " order by proposal_id DESC LIMIT $start_from, $limit";
-
-						$q_page =  $db->query("SELECT * FROM proposals WHERE proposal_seller_id=:proposal_seller_id AND proposal_status=:proposal_status", array("proposal_seller_id" => $login_seller_id, "proposal_status" => 'active'));
-						$totalDRows = $q_page->rowCount();
-
-						//break records into pages
-						$totalDPages = ceil($totalDRows / $limit);
-						if ($totalDRows > 0) {
-							$select_proposals =  $db->query("SELECT * FROM proposals WHERE proposal_seller_id=:proposal_seller_id AND proposal_status=:proposal_status $where_limit", array("proposal_seller_id" => $login_seller_id, "proposal_status" => 'active'));
-
-							while ($row_proposals = $select_proposals->fetch()) {
-								$proposal_id = $row_proposals->proposal_id;
-								$proposal_title = $row_proposals->proposal_title;
-								$proposal_views = $row_proposals->proposal_views;
-								$proposal_price = $row_proposals->proposal_price;
-								if ($proposal_price == 0) {
-									$get_p = $db->select("proposal_packages", array("proposal_id" => $proposal_id, "package_name" => "Basic"));
-									$proposal_price = $get_p->fetch()->price;
-								}
-								$proposal_img1 = getImageUrl2("proposals", "proposal_img1", $row_proposals->proposal_img1);
-								$proposal_url = $row_proposals->proposal_url;
-								$proposal_featured = $row_proposals->proposal_featured;
-								$count_orders = $db->count("orders", array("proposal_id" => $proposal_id));
-						?>
-								<tr>
-									<td class="proposal-title"> <?= $proposal_title; ?> </td>
-									<td class="text-success"> <?= showPrice($proposal_price); ?> </td>
-									<td><?= $proposal_views; ?></td>
-									<td><?= $count_orders; ?></td>
-									<td class="text-center">
-										<div class="dropdown">
-											<button class="btn btn-success dropdown-toggle" data-toggle="dropdown"></button>
-											<div class="dropdown-menu">
-												<a href="<?= $site_url; ?>/proposals/<?= $login_seller_user_name; ?>/<?= $proposal_url; ?>" class="dropdown-item"> Preview </a>
-												<?php if ($proposal_featured == "no") { ?>
-													<a href="#" class="dropdown-item" id="featured-button-<?= $proposal_id; ?>">Make Proposal Featured</a>
-												<?php } else { ?>
-													<a href="#" class="dropdown-item text-success">Already Featured </a>
-												<?php } ?>
-												<a href="<?= $site_url; ?>/proposals/pause_proposal?proposal_id=<?= $proposal_id; ?>" class="dropdown-item"> Deactivate Proposal</a>
-												<a href="<?= $site_url; ?>/proposals/view_coupons?proposal_id=<?= $proposal_id; ?>" class="dropdown-item"> View Coupons</a>
-												<a href="<?= $site_url; ?>/proposals/view_referrals?proposal_id=<?= $proposal_id; ?>" class="dropdown-item"> View Referrals</a>
-												<a href="<?= $site_url; ?>/proposals/edit_proposal?proposal_id=<?= $proposal_id; ?>" class="dropdown-item"> Edit </a>
-												<a href="<?= $site_url; ?>/proposals/delete_proposal?proposal_id=<?= $proposal_id; ?>" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this proposal?')"> Delete </a>
-											</div>
-										</div>
-										<script>
-											$("#featured-button-<?= $proposal_id; ?>").click(function() {
-												proposal_id = "<?= $proposal_id; ?>";
-												$.ajax({
-														method: "POST",
-														url: "<?= $site_url; ?>/proposals/pay_featured_listing",
-														data: {
-															proposal_id: proposal_id
-														}
-													}).done(function(data) {
-														$("#featured-proposal-modal").html(data);
-													})
-													.fail((jqXHR, textStatus, errorThrown) => {
-														console.log('fail', jqXHR.status);
-														alert(jqXHR.status)
-													});
-											});
-										</script>
-									</td>
-								</tr>
-							<?php }
-						} else {
-							?>
-							<tr class="table-danger box-shadow-bg-color">
-								<td colspan="5" class="box-shadow-cs5">
-									<center>
-										<h3 class='pb-4 pt-4 heading_3'>
-											<i class='fa fa-meh-o'></i> You currently have no proposals/services to sell.
-										</h3>
-									</center>
-								</td>
-							</tr>
-						<?php } ?>
-					</tbody>
-				</table>
-				<nav id="pagination-proposals-acive" aria-label="Draft proposals navigation">
-					<?= pagination($limit, $dPageNumber, $totalDRows, $totalDPages, $site_url . "/proposals/view_proposals?page="); ?>
-				</nav>
-			</div>
+			<?php require_once("active-proposals.php") ?>
 		</div>
 		<div id="pause-proposals" class="tab-pane fade show <?= (isset($_GET['paused'])) ? "active" : ""; ?>">
-			<div class="table-responsive box-table mt-3 box-shadow-act-pro">
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th class="font-size-3"><?= $lang['th']['proposal_title']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['proposal_price']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['views']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['orders']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['actions']; ?></th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-						if (isset($_GET["page"]) && isset($_GET['paused'])) {
-							$dPageNumber = filter_var($_GET["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
-							if (!is_numeric($dPageNumber)) {
-								die('Invalid page number!');
-							} //incase of invalid page number
-						} else {
-							$dPageNumber = 1; //if there's no page number, set it to 1
-						}
-
-						$start_from =  (($dPageNumber - 1) * $limit);
-						$where_limit = " order by proposal_id DESC LIMIT $start_from, $limit";
-
-						$q_page =  $db->query("SELECT * FROM proposals WHERE proposal_seller_id=:proposal_seller_id AND (proposal_status='pause' or proposal_status='admin_pause')", array("proposal_seller_id" => $login_seller_id));
-						$totalDRows = $q_page->rowCount();
-
-						//break records into pages
-						$totalDPages = ceil($totalDRows / $limit);
-						if ($totalDRows > 0) {
-							$select_proposals =  $db->query("SELECT * FROM proposals WHERE proposal_seller_id=:proposal_seller_id AND (proposal_status='pause' or proposal_status='admin_pause') $where_limit", array("proposal_seller_id" => $login_seller_id));
-
-							while ($row_proposals = $select_proposals->fetch()) {
-								$proposal_id = $row_proposals->proposal_id;
-								$proposal_title = $row_proposals->proposal_title;
-								$proposal_views = $row_proposals->proposal_views;
-								$proposal_price = $row_proposals->proposal_price;
-								if ($proposal_price == 0) {
-									$get_p = $db->select("proposal_packages", array("proposal_id" => $proposal_id, "package_name" => "Basic"));
-									$proposal_price = $get_p->fetch()->price;
-								}
-								$proposal_img1 = getImageUrl2("proposals", "proposal_img1", $row_proposals->proposal_img1);
-								$proposal_url = $row_proposals->proposal_url;
-								$proposal_featured = $row_proposals->proposal_featured;
-								$proposal_status = $row_proposals->proposal_status;
-
-								$count_orders = $db->count("orders", array("proposal_id" => $proposal_id));
-
-								if ($proposal_status == "admin_pause") {
-									$onclick = <<<EOT
-								onclick="return confirm('{$lang['view_proposals']['admin_pause_proposal']}')"
-								EOT;
-								} else {
-									$onclick = "";
-								}
-
-						?>
-								<tr>
-									<td class="proposal-title"> <?= $proposal_title; ?> </td>
-									<td class="text-success"> <?= showPrice($proposal_price); ?> </td>
-									<td><?= $proposal_views; ?></td>
-									<td><?= $count_orders; ?></td>
-									<td class="text-center">
-										<div class="dropdown">
-											<button class="btn btn-success dropdown-toggle" data-toggle="dropdown"></button>
-											<div class="dropdown-menu">
-												<a href="<?= $site_url; ?>/proposals/<?= $login_seller_user_name; ?>/<?= $proposal_url; ?>" class="dropdown-item"> Preview </a>
-												<a href="<?= $site_url; ?>/proposals/activate_proposal?proposal_id=<?= $proposal_id; ?>" class="dropdown-item" <?= $onclick; ?>>
-													Activate
-												</a>
-												<a href="<?= $site_url; ?>/proposals/view_referrals?proposal_id=<?= $proposal_id; ?>" class="dropdown-item"> View Referrals</a>
-												<a href="<?= $site_url; ?>/proposals/edit_proposal?proposal_id=<?= $proposal_id; ?>" class="dropdown-item"> Edit </a>
-												<a href="<?= $site_url; ?>/proposals/delete_proposal?proposal_id=<?= $proposal_id; ?>" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this proposal?')"> Delete </a>
-											</div>
-										</div>
-									</td>
-								</tr>
-							<?php }
-						} else {
-							?>
-							<tr class="table-danger box-shadow-bg-color">
-								<td colspan="5" class="box-shadow-cs5">
-									<center>
-										<h3 class='pb-4 pt-4 heading_3'>
-											<i class='fa fa-meh-o'></i> You currently have no paused proposals/services
-										</h3>
-									</center>
-								</td>
-							</tr>
-						<?php } ?>
-					</tbody>
-				</table>
-				<nav id="pagination-proposals-pause" aria-label="Draft proposals navigation">
-					<?= pagination($limit, $dPageNumber, $totalDRows, $totalDPages, $site_url . "/proposals/view_proposals?pause&page="); ?>
-				</nav>
-			</div>
+			<?php require_once("pause-proposals.php") ?>
 		</div>
 		<div id="pending-proposals" class="tab-pane fade show <?= (isset($_GET['pending'])) ? "active" : ""; ?>">
-			<div class="table-responsive box-table mt-3 box-shadow-act-pro">
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th class="font-size-3"><?= $lang['th']['proposal_title']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['proposal_price']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['views']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['orders']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['actions']; ?></th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-						if (isset($_GET["page"]) && isset($_GET['pending'])) {
-							$dPageNumber = filter_var($_GET["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
-							if (!is_numeric($dPageNumber)) {
-								die('Invalid page number!');
-							} //incase of invalid page number
-						} else {
-							$dPageNumber = 1; //if there's no page number, set it to 1
-						}
-
-						$start_from =  (($dPageNumber - 1) * $limit);
-						$where_limit = " order by proposal_id DESC LIMIT $start_from, $limit";
-
-						$q_page =  $db->query("SELECT * FROM proposals WHERE proposal_seller_id=:proposal_seller_id AND proposal_status=:proposal_status", array("proposal_seller_id" => $login_seller_id, "proposal_status" => 'pending'));
-						$totalDRows = $q_page->rowCount();
-
-						//break records into pages
-						$totalDPages = ceil($totalDRows / $limit);
-						if ($totalDRows > 0) {
-							$select_proposals =  $db->query("SELECT * FROM proposals WHERE proposal_seller_id=:proposal_seller_id AND proposal_status=:proposal_status $where_limit", array("proposal_seller_id" => $login_seller_id, "proposal_status" => 'pending'));
-
-							while ($row_proposals = $select_proposals->fetch()) {
-								$proposal_id = $row_proposals->proposal_id;
-								$proposal_title = $row_proposals->proposal_title;
-								$proposal_views = $row_proposals->proposal_views;
-								$proposal_price = $row_proposals->proposal_price;
-								if ($proposal_price == 0) {
-									$get_p = $db->select("proposal_packages", array("proposal_id" => $proposal_id, "package_name" => "Basic"));
-									$proposal_price = $get_p->fetch()->price;
-								}
-								$proposal_img1 = getImageUrl2("proposals", "proposal_img1", $row_proposals->proposal_img1);
-								$proposal_url = $row_proposals->proposal_url;
-								$proposal_featured = $row_proposals->proposal_featured;
-								$count_orders = $db->count("orders", array("proposal_id" => $proposal_id));
-						?>
-								<tr>
-									<td class="proposal-title"> <?= $proposal_title; ?> </td>
-									<td class="text-success"> <?= showPrice($proposal_price); ?> </td>
-									<td><?= $proposal_views; ?></td>
-									<td><?= $count_orders; ?></td>
-									<td class="text-center">
-										<div class="dropdown">
-											<button class="btn btn-success dropdown-toggle" data-toggle="dropdown"></button>
-											<div class="dropdown-menu">
-												<a href="<?= $site_url; ?>/proposals/<?= $login_seller_user_name; ?>/<?= $proposal_url; ?>" class="dropdown-item"> Preview </a>
-												<a href="<?= $site_url; ?>/proposals/edit_proposal?proposal_id=<?= $proposal_id; ?>" class="dropdown-item"> Edit </a>
-												<a href="<?= $site_url; ?>/proposals/delete_proposal?proposal_id=<?= $proposal_id; ?>" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this proposal?')"> Delete </a>
-											</div>
-										</div>
-									</td>
-								</tr>
-							<?php }
-						} else {
-							?>
-							<tr class="table-danger box-shadow-bg-color">
-								<td colspan="5" class="box-shadow-cs5">
-									<center>
-										<h3 class='pb-4 pt-4 heading_3'>
-											<i class='fa fa-meh-o'></i> You currently have no proposals/services pending.
-										</h3>
-									</center>
-								</td>
-							</tr>
-						<?php } ?>
-					</tbody>
-				</table>
-				<nav id="pagination-proposals-pending" aria-label="Draft proposals navigation">
-					<?= pagination($limit, $dPageNumber, $totalDRows, $totalDPages, $site_url . "/proposals/view_proposals?pending&page="); ?>
-				</nav>
-			</div>
+			<?php require_once("pending-proposals.php") ?>
 		</div>
 		<div id="modification-proposals" class="tab-pane fade show <?= (isset($_GET['modification'])) ? "active" : ""; ?>">
-			<div class="table-responsive box-table mt-3 box-shadow-act-pro">
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th class="font-size-3"><?= $lang['th']['modification_proposal_title']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['modification_message']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['actions']; ?></th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-						if (isset($_GET["page"]) && isset($_GET['modification'])) {
-							$dPageNumber = filter_var($_GET["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
-							if (!is_numeric($dPageNumber)) {
-								die('Invalid page number!');
-							} //incase of invalid page number
-						} else {
-							$dPageNumber = 1; //if there's no page number, set it to 1
-						}
-
-						$start_from =  (($dPageNumber - 1) * $limit);
-						$where_limit = " order by proposal_id DESC LIMIT $start_from, $limit";
-
-						$q_page =  $db->query("SELECT * FROM proposals WHERE proposal_seller_id=:proposal_seller_id AND proposal_status=:proposal_status", array("proposal_seller_id" => $login_seller_id, "proposal_status" => 'modification'));
-						$totalDRows = $q_page->rowCount();
-
-						//break records into pages
-						$totalDPages = ceil($totalDRows / $limit);
-						if ($totalDRows > 0) {
-							$select_proposals =  $db->query("SELECT * FROM proposals WHERE proposal_seller_id=:proposal_seller_id AND proposal_status=:proposal_status $where_limit", array("proposal_seller_id" => $login_seller_id, "proposal_status" => 'modification'));
-
-							while ($row_proposals = $select_proposals->fetch()) {
-								$proposal_id = $row_proposals->proposal_id;
-								$proposal_title = $row_proposals->proposal_title;
-								$proposal_url = $row_proposals->proposal_url;
-								$select_modification = $db->select("proposal_modifications", array("proposal_id" => $proposal_id));
-								$row_modification = $select_modification->fetch();
-								$modification_message = $row_modification->modification_message;
-						?>
-								<tr>
-									<td class="proposal-title"> <?= $proposal_title; ?> </td>
-									<td> <?= $modification_message; ?></td>
-									<td class="text-center">
-										<div class="dropdown">
-											<button class="btn btn-success dropdown-toggle" data-toggle="dropdown"></button>
-											<div class="dropdown-menu">
-												<a href="<?= $site_url; ?>/proposals/submit_approval?proposal_id=<?= $proposal_id; ?>" class="dropdown-item"> Submit For Approval </a>
-												<a href="<?= $site_url; ?>/proposals/<?= $login_seller_user_name; ?>/<?= $proposal_url; ?>" class="dropdown-item"> Preview </a>
-												<a href="<?= $site_url; ?>/proposals/edit_proposal?proposal_id=<?= $proposal_id; ?>" class="dropdown-item"> Edit </a>
-												<a href="<?= $site_url; ?>/proposals/delete_proposal?proposal_id=<?= $proposal_id; ?>" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this proposal?')"> Delete </a>
-											</div>
-										</div>
-									</td>
-								</tr>
-							<?php }
-						} else {
-							?>
-							<tr class="table-danger box-shadow-bg-color">
-								<td colspan="5" class="box-shadow-cs5">
-									<center>
-										<h3 class='pb-4 pt-4 heading_3'>
-											<i class='fa fa-meh-o'></i> You currently have no modifications requested.
-										</h3>
-									</center>
-								</td>
-							</tr>
-						<?php } ?>
-					</tbody>
-				</table>
-				<nav id="pagination-proposals-modification" aria-label="modification proposals navigation">
-					<?= pagination($limit, $dPageNumber, $totalDRows, $totalDPages, $site_url . "/proposals/view_proposals?modification&page="); ?>
-				</nav>
-			</div>
+			<?php require_once("modification-proposals.php") ?>
 		</div>
 		<div id="draft-proposals" class="tab-pane fade show <?= (isset($_GET['draft'])) ? "active" : ""; ?>">
-			<div class="table-responsive box-table mt-3 box-shadow-act-pro">
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th class="font-size-3"><?= $lang['th']['proposal_title']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['proposal_price']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['views']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['orders']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['actions']; ?></th>
-						</tr>
-					</thead>
-					<tbody class="box-shadow-draft">
-						<?php
-						if (isset($_GET["page"]) && isset($_GET['draft'])) {
-							$dPageNumber = filter_var($_GET["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
-							if (!is_numeric($dPageNumber)) {
-								die('Invalid page number!');
-							} //incase of invalid page number
-						} else {
-							$dPageNumber = 1; //if there's no page number, set it to 1
-						}
-
-						$start_from =  (($dPageNumber - 1) * $limit);
-						$where_limit = " order by proposal_id DESC LIMIT $start_from, $limit";
-
-						$q_page =  $db->query("SELECT * FROM proposals WHERE proposal_seller_id=:proposal_seller_id AND proposal_status=:proposal_status", array("proposal_seller_id" => $login_seller_id, "proposal_status" => 'draft'));
-						$totalDRows = $q_page->rowCount();
-
-						//break records into pages
-						$totalDPages = ceil($totalDRows / $limit);
-						if ($totalDRows > 0) {
-							$select_proposals =  $db->query("SELECT * FROM proposals WHERE proposal_seller_id=:proposal_seller_id AND proposal_status=:proposal_status $where_limit", array("proposal_seller_id" => $login_seller_id, "proposal_status" => 'draft'));
-							while ($row_proposals = $select_proposals->fetch()) {
-								$proposal_id = $row_proposals->proposal_id;
-								$proposal_title = $row_proposals->proposal_title;
-								$proposal_views = $row_proposals->proposal_views;
-								$proposal_price = $row_proposals->proposal_price;
-								if ($proposal_price == 0) {
-									$get_p = $db->select("proposal_packages", array("proposal_id" => $proposal_id, "package_name" => "Basic"));
-									$proposal_price = $get_p->fetch()->price;
-								}
-								$proposal_img1 = getImageUrl2("proposals", "proposal_img1", $row_proposals->proposal_img1);
-								$proposal_url = $row_proposals->proposal_url;
-								$proposal_featured = $row_proposals->proposal_featured;
-								$count_orders = $db->count("orders", array("proposal_id" => $proposal_id));
-						?>
-								<tr>
-									<td class="proposal-title"> <?= $proposal_title; ?> </td>
-									<td class="text-success"> <?= showPrice($proposal_price); ?> </td>
-									<td><?= $proposal_views; ?></td>
-									<td><?= $count_orders; ?></td>
-									<td class="text-center">
-										<div class="dropdown">
-											<button class="btn btn-success dropdown-toggle" data-toggle="dropdown"></button>
-											<div class="dropdown-menu">
-												<a href="<?= $site_url; ?>/proposals/edit_proposal?proposal_id=<?= $proposal_id; ?>" class="dropdown-item"> Edit </a>
-												<a href="<?= $site_url; ?>/proposals/delete_proposal?proposal_id=<?= $proposal_id; ?>" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this proposal?')"> Delete </a>
-											</div>
-										</div>
-									</td>
-								</tr>
-							<?php }
-						} else {
-							?>
-							<tr class="table-danger box-shadow-bg-color">
-								<td colspan="5" class="box-shadow-cs5">
-									<center>
-										<h3 class='pb-4 pt-4 heading_3'>
-											<i class='fa fa-meh-o'></i> You currently have no proposals/services in draft.
-										</h3>
-									</center>
-								</td>
-							</tr>
-						<?php } ?>
-					</tbody>
-				</table>
-				<nav id="pagination-proposals-draft" aria-label="Draft proposals navigation">
-					<?= pagination($limit, $dPageNumber, $totalDRows, $totalDPages, $site_url . "/proposals/view_proposals?draft&page="); ?>
-				</nav>
-			</div>
+			<?php require_once("draft-proposals.php") ?>
 		</div>
 		<div id="declined-proposals" class="tab-pane fade show <?= (isset($_GET['declined'])) ? "active" : ""; ?>">
-			<div class="table-responsive box-table mt-3 box-shadow-act-pro">
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th class="font-size-3"><?= $lang['th']['proposal_title']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['proposal_price']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['views']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['orders']; ?></th>
-							<th class="font-size-3"><?= $lang['th']['actions']; ?></th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-						if (isset($_GET["page"]) && isset($_GET['declined'])) {
-							$dPageNumber = filter_var($_GET["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
-							if (!is_numeric($dPageNumber)) {
-								die('Invalid page number!');
-							} //incase of invalid page number
-						} else {
-							$dPageNumber = 1; //if there's no page number, set it to 1
-						}
-
-						$start_from =  (($dPageNumber - 1) * $limit);
-						$where_limit = " order by proposal_id DESC LIMIT $start_from, $limit";
-
-						$q_page =  $db->query("SELECT * FROM proposals WHERE proposal_seller_id=:proposal_seller_id AND proposal_status=:proposal_status", array("proposal_seller_id" => $login_seller_id, "proposal_status" => 'declined'));
-						$totalDRows = $q_page->rowCount();
-
-						//break records into pages
-						$totalDPages = ceil($totalDRows / $limit);
-						if ($totalDRows > 0) {
-							$select_proposals =  $db->query("SELECT * FROM proposals WHERE proposal_seller_id=:proposal_seller_id AND proposal_status=:proposal_status $where_limit", array("proposal_seller_id" => $login_seller_id, "proposal_status" => 'declined'));
-							while ($row_proposals = $select_proposals->fetch()) {
-								$proposal_id = $row_proposals->proposal_id;
-								$proposal_title = $row_proposals->proposal_title;
-								$proposal_views = $row_proposals->proposal_views;
-								$proposal_price = $row_proposals->proposal_price;
-								if ($proposal_price == 0) {
-									$get_p = $db->select("proposal_packages", array("proposal_id" => $proposal_id, "package_name" => "Basic"));
-									$proposal_price = $get_p->fetch()->price;
-								}
-								$proposal_img1 = getImageUrl2("proposals", "proposal_img1", $row_proposals->proposal_img1);
-								$proposal_url = $row_proposals->proposal_url;
-								$proposal_featured = $row_proposals->proposal_featured;
-								$count_orders = $db->count("orders", array("proposal_id" => $proposal_id));
-						?>
-								<tr>
-									<td class="proposal-title"> <?= $proposal_title; ?> </td>
-									<td class="text-success"> <?= showPrice($proposal_price); ?> </td>
-									<td><?= $proposal_views; ?></td>
-									<td><?= $count_orders; ?></td>
-									<td class="text-center">
-										<div class="dropdown">
-											<button class="btn btn-success dropdown-toggle" data-toggle="dropdown"></button>
-											<div class="dropdown-menu">
-												<a href="<?= $site_url; ?>/proposals/delete_proposal?proposal_id=<?= $proposal_id; ?>" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this proposal?')"> Delete </a>
-											</div>
-										</div>
-									</td>
-								</tr>
-							<?php }
-						} else {
-							?>
-							<tr class="table-danger box-shadow-bg-color">
-								<td colspan="5" class="box-shadow-cs5">
-									<center>
-										<h3 class='pb-4 pt-4 heading_3'>
-											<i class='fa fa-meh-o'></i> You currently have no proposals/services declined.
-										</h3>
-									</center>
-								</td>
-							</tr>
-						<?php } ?>
-					</tbody>
-				</table>
-				<nav id="pagination-proposals-draft" aria-label="Draft proposals navigation">
-					<?= pagination($limit, $dPageNumber, $totalDRows, $totalDPages, $site_url . "/proposals/view_proposals?declined&page="); ?>
-				</nav>
-			</div>
+			<?php require_once("declined-proposals.php") ?>
 		</div>
 	</div>
-	<!-- nitin add mobile view seller active proposals -->
-	<div class="buyer-active-orderdataby-nitin mt-4">
-		<div class="order-card">
-			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
-			<div class="order-content">
-				<!-- <div class="order-image">
-					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
-				</div> -->
-				<div class="order-text">
-					<h3 class="manage-req-heading-main">Expert nnnnnn in CSS and HTML: Crafting Responsive and Accessible Web Designs</h3>
-					<div class="order-info">
-						<div class="info-container">
-							<div class="info-item">
-								<i class="fa-solid fa-basket-shopping"></i> 0
-								<span class="heading">Orders</span>
-							</div>
-							<div class="info-item">
-								<i class="fa-solid fa-eye"></i> 0
-								<span class="heading"> Views</span>
-							</div>
-							<div class="info-item">
-								<i class="fa-solid fa-sack-dollar"></i> 25.00
-								<span class="heading">Proposal's Price</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="order-status">
-				<span class="Order-Status-textmain">Actions</span>
-				<div class="custom-dropdown">
-					<button class="custom-dropdown-button" id="dropdownBtn">
-						<i class="fa-solid fa-caret-down"></i>
-					</button>
-					<div class="custom-dropdown-content" id="dropdownMenu">
-						<a href="#">Preview</a>
-						<a href="#">Make Proposal Featured</a>
-						<a href="#">Deactivate Proposal</a>
-						<a href="#">View Coupons</a>
-						<a href="#">View Referrals</a>
-						<a href="#">Edit</a>
-						<a href="#">Delete</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="order-card">
-			<!-- <h3 class="Order-Summary">Order Summary</h3> -->
-			<div class="order-content">
-				<!-- <div class="order-image">
-					<img src="https://images.unsplash.com/photo-1688888745596-da40843a8d45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Order Image">
-				</div> -->
-				<div class="order-text">
-					<h3 class="manage-req-heading-main">2Experienced Web Developer Specializing in User-Friendly, Responsive Websites </h3>
-					<div class="order-info">
-						<div class="info-container">
-							<div class="info-item">
-								<i class="fa-solid fa-basket-shopping"></i> 0
-								<span class="heading">Orders</span>
-							</div>
-							<div class="info-item">
-								<i class="fa-solid fa-eye"></i> 0
-								<span class="heading"> Views</span>
-							</div>
-							<div class="info-item">
-								<i class="fa-solid fa-sack-dollar"></i> 25.00
-								<span class="heading">Proposal's Price</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="order-status">
-				<span class="Order-Status-textmain">Actions</span>
-				<div class="custom-dropdown">
-					<button class="custom-dropdown-button" id="dropdownBtn">
-						<i class="fa-solid fa-caret-down"></i>
-					</button>
-					<div class="custom-dropdown-content" id="dropdownMenu">
-						<a href="#">Preview</a>
-						<a href="#">Make Proposal Featured</a>
-						<a href="#">Deactivate Proposal</a>
-						<a href="#">View Coupons</a>
-						<a href="#">View Referrals</a>
-						<a href="#">Edit</a>
-						<a href="#">Delete</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
 	<script>
 		document.querySelectorAll(".custom-dropdown-button").forEach(button => {
 			button.addEventListener("click", function(event) {
@@ -1209,8 +618,44 @@ $limit = isset($homePerPage) ? $homePerPage : 5;
 	</script>
 	<script>
 		function toggleSecondsellerDropdown() {
-			var dropdownMenu = document.getElementById("secondsellerdropdownMenu");
-			dropdownMenu.classList.toggle("active"); // Use class to toggle visibility
+			const dropdown = document.getElementById('secondsellerdropdownMenu');
+			dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+		}
+
+		function closeDropdown() {
+			const dropdown = document.getElementById('secondsellerdropdownMenu');
+			dropdown.style.display = 'none';
+		}
+
+		// Function to show the selected proposal section and hide others
+		function showSection(sectionId, selectedText) {
+			// Hide all sections
+			const sections = document.querySelectorAll('.proposal-section');
+			sections.forEach(section => {
+				section.style.display = 'none';
+			});
+
+			// Show the selected section
+			const selectedSection = document.getElementById(sectionId);
+			if (selectedSection) {
+				selectedSection.style.display = 'block';
+			}
+
+			// Update the selected text in the button
+			document.getElementById('selectedProposal').innerText = selectedText;
+		}
+
+		// Close the dropdown if the user clicks outside of it
+		window.onclick = function(event) {
+			if (!event.target.matches('.secondsellerdropdown-btn')) {
+				const dropdowns = document.getElementsByClassName("secondsellerdropdown-content");
+				for (let i = 0; i < dropdowns.length; i++) {
+					const openDropdown = dropdowns[i];
+					if (openDropdown.style.display === 'block') {
+						openDropdown.style.display = 'none';
+					}
+				}
+			}
 		}
 	</script>
 

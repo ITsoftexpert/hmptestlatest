@@ -43,23 +43,23 @@
     font-weight: 500;
   }
 
-  .color-nitin-text {
+  .color-bluff-text {
     color: #000 !important;
   }
 
-  .color-nitin-text-two {
+  .color-bluff-text-two {
     color: #00cedc !important;
   }
 </style>
 
 <div class="card card1 theme-bg text-white border-0 px-sm-4 px-2  py-3 w-100 mb-4 box-shadow-buyer">
-  <label class="mb-0 color-nitin-text"><?= $lang['welcome']; ?>.</label>
-  <h4 class="color-nitin-text"><?= ucfirst($login_user_name); ?></h4>
+  <label class="mb-0 color-bluff-text"><?= $lang['welcome']; ?>.</label>
+  <h4 class="color-bluff-text"><?= ucfirst($login_user_name); ?></h4>
   <div class="d-flex align-items-center justify-content-space-between">
-    <h5><a class=" color-nitin-text-two" href="">@<?= ($login_user_name); ?></a></h5>
+    <h5><a class=" color-bluff-text-two" href="">@<?= ($login_user_name); ?></a></h5>
   </div>
   <div>
-    <h6 class="color-nitin-text"><span>Current Membership - &nbsp;&nbsp;</span><?php echo strtoupper($row_purchsed_plan->plan_name); ?></h6>
+    <h6 class="color-bluff-text"><span>Current Membership - &nbsp;&nbsp;</span><?php echo strtoupper($row_purchsed_plan->plan_name); ?></h6>
   </div>
 </div>
 

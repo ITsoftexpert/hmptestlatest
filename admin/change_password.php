@@ -106,7 +106,7 @@ $admin_user_name = $row_admin->admin_user_name;
                 // Read more about handling dismissals
                 window.open('$site_url/admin/login.php','_self')
               ) {
-                console.log('Succesfully changed password')
+                // console.log('Succesfully changed password')
               }
             })
         </script>";

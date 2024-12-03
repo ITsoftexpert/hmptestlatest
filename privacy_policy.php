@@ -99,6 +99,12 @@ require_once("social-config.php");
             text-align: justify;
         }
 
+        .paragrapgh_privacy_policy_alt {
+            font-size: 1.3rem;
+            line-height: 2.5rem;
+            text-align: justify;
+        }
+
         .list_privacy_policy {
             font-size: 1.3rem;
             line-height: 2.5rem;
@@ -126,6 +132,18 @@ require_once("social-config.php");
                 height: auto !important;
                 overflow-y: unset !important;
 
+            }
+
+            .address_copyright_policy {
+                font-size: 1.1rem;
+                line-height: 2rem;
+                text-align: center;
+            }
+
+            .paragrapgh_privacy_policy_alt {
+                font-size: 1.3rem;
+                line-height: 2.5rem;
+                text-align: center;
             }
         }
 
@@ -319,8 +337,8 @@ require_once("social-config.php");
 
                 <br>
                 <h5 id="ram4">By Email:-</h5>
-                <p class="paragrapgh_privacy_policy">Alternatively you can submit the Notice electronically to
-                    copyrights@hiremyprofile.com.
+                <p class="paragrapgh_privacy_policy_alt">Alternatively you can submit the Notice electronically to
+                    <i style="color:blue;">copyrights@hiremyprofile.com</i>.
                 </p>
 
                 <p class="paragrapgh_privacy_policy"><b>Note: </b> that we will provide the user who is allegedly
@@ -343,11 +361,11 @@ require_once("social-config.php");
     </div>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             var sticky = $('.sticky');
             var stickyOffset = sticky.offset().top;
 
-            $(window).scroll(function () {
+            $(window).scroll(function() {
                 var scroll = $(window).scrollTop();
 
                 if (scroll >= stickyOffset) {

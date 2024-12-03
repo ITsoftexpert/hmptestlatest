@@ -90,7 +90,7 @@ $count_declined_proposals = $db->count("proposals", array("proposal_seller_id" =
 		}
 
 		
-		@media(min-width:900px) and (max-width:1023px){
+		@media(min-width:900px) and (max-width:1024px){
 			.alter-margin-top{
 			/* border:1px solid green; */
 			padding:10px 7px;

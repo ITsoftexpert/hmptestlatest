@@ -1,22 +1,38 @@
 <style>
-	@media (max-width:768px) {
+	@media (max-width:767px) {
+
+		.desktop_view_req_pending {
+			display: none;
+		}
+
+		.mobile_view_req_pending {
+			display: block;
+		}
 		.font-size-3 {
 			font-size: 13px !important;
 			padding: 10px !important;
 			text-align: center;
 		}
 
-		.desc-wrap {		
+		.desc-wrap {
 			/* border: 1px solid red !important; */
-			word-break:break-all;			
+			word-break: break-all;
 		}
 	}
-	.box-shadow-reqpend{
-		/* box-shadow: 0px 0px 5px black, inset 0px 0px 25px gray; */
+
+	@media (min-width:768px) {
+
+		.desktop_view_req_pending {
+			display: block;
+		}
+
+		.mobile_view_req_pending {
+			display: none;
+		}
 	}
 </style>
 
-<div class="table-responsive box-table box-shadow-req-act">
+<div class="table-responsive box-table box-shadow-req-act desktop_view_req_pending">
 	<table class="table table-bordered" id="requestPending">
 		<thead>
 			<tr>
@@ -38,6 +54,8 @@
 	</table>
 	<nav id="pagination-request-pending" aria-label="pending request navigation"></nav>
 </div>
+<div class="mobile_view_req_pending" id="orderCardReqPending">
+</div>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -53,6 +71,7 @@
 				}
 			}).done(function(data) {
 				$('body #requestPending tbody').html(data.data);
+				$('#orderCardReqPending').html(data.cardData);
 				$('body #pagination-request-pending').html(data.pagination);
 				$('body #wait').removeClass("loader");
 			});

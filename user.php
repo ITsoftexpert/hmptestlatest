@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("includes/db.php");
-require_once("functions/functions.php"); 
+require_once("functions/functions.php");
 
 if (isset($_SESSION['seller_user_name'])) {
 
@@ -14,23 +14,21 @@ if (isset($_SESSION['seller_user_name'])) {
     $delete_language_id = $input->get('delete_language');
     $delete_language = $db->delete("languages_relation", array("relation_id" => $delete_language_id, "seller_id" => $login_seller_id));
     if ($delete_language->rowCount() == 1) {
-     echo "<script>alert('One Language has been deleted.')</script>";
-     echo "<script> window.open('$login_seller_user_name','_self') </script>";
-      
+      echo "<script>alert('One Language has been deleted.')</script>";
+      echo "<script> window.open('$login_seller_user_name','_self') </script>";
     } else {
       echo "<script> window.open('$login_seller_user_name','_self') </script>";
-     echo "<script>alert('One Language has been deleted.')</script>";
-     
+      echo "<script>alert('One Language has been deleted.')</script>";
     }
   }
-  if (isset($_GET['delete_skill'])) {   
+  if (isset($_GET['delete_skill'])) {
     $delete_skill_id = $input->get('delete_skill');
     $delete_skill = $db->delete("skills_relation", array("relation_id" => $delete_skill_id, "seller_id" => $login_seller_id));
     if ($delete_skill->rowCount() == 1) {
       echo "<script>alert('One skill has been deleted.')</script>";
-       echo "<script> window.open('$login_seller_user_name','_self') </script>";
+      echo "<script> window.open('$login_seller_user_name','_self') </script>";
     } else {
-       echo "<script> window.open('$login_seller_user_name','_self') </script>";
+      echo "<script> window.open('$login_seller_user_name','_self') </script>";
       echo "<script>alert('One skill hasn't been deleted.')</script>";
     }
   }
@@ -65,7 +63,7 @@ if (isset($row_plan_detail) && $row_plan_detail) {
 /* seller skills details*/
 
 if ($count_seller == 0) {
-//  echo "<script>window.open('$get_seller_user_name','_self');</script>";
+  //  echo "<script>window.open('$get_seller_user_name','_self');</script>";
 }
 
 ?>
@@ -108,21 +106,22 @@ if ($count_seller == 0) {
       z-index: 100;
     }
 
-  
 
-   
+
+
     @media(min-width:768px) and (max-width:1440px) {
       .padding-alter8 {
         margin: 0px 0px;
       }
     }
+
     @media(min-width:640px) and (max-width:767px) {
       .padding-alter8 {
         margin: 0px 10px;
       }
     }
 
-    @media (max-width:767px) {   
+    @media (max-width:767px) {
       .padding-alter8a {
         border: 1px solid green;
         margin-top: 0px !important;
@@ -139,12 +138,12 @@ if ($count_seller == 0) {
   <div class="container">
     <!-- Container starts -->
     <div class="row padding-alter8">
-      <div class="col-md-4 mt-5 mb-4 ">   
-        <?php require_once("includes/user_sidebar.php"); ?>  
+      <div class="col-md-4 mt-5 mb-4 ">
+        <?php require_once("includes/user_sidebar.php"); ?>
       </div>
       <div class="col-md-8">
         <div class="row">
-          <div class="col-md-12"> 
+          <div class="col-md-12">
             <div class="card mt-5 mb-4 rounded-0 padding-alter8a">
               <div class="card-body box-shadow-6a">
                 <h2>
@@ -180,7 +179,7 @@ if ($count_seller == 0) {
                 </h3>
               <?php } ?>
             </div>
-          <?php 
+          <?php
           }
           while ($row_proposals = $get_proposals->fetch()) {
             $proposal_id = $row_proposals->proposal_id;
@@ -242,6 +241,13 @@ if ($count_seller == 0) {
             </a>
           <?php } ?>
         </div>
+        <div>
+        <?php include("portfolio_details.php"); ?>
+         
+        </div>
+
+
+
         <?php include("includes/user_footer.php"); ?>
       </div>
     </div>

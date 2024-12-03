@@ -33,6 +33,7 @@ if ($rowCount > 0) {
     $qOffers =  $db->query("SELECT * FROM send_offers WHERE sender_id=:sender_id $whereLimit", array("sender_id" => $senderId));
     //Display records fetched from database.
     $data = "";
+    $dataData3 = "";
     while ($oOffers = $qOffers->fetch()) {
         $request_id = $oOffers->request_id;
         $proposal_id = $oOffers->proposal_id;
@@ -94,14 +95,34 @@ if ($rowCount > 0) {
             <p>
                ' . $description . '
             </p>
-            <p><a href="' . $site_url . '/offer-edit?id='. $oOffers->offer_id .'" class="text-primary">Edit</a> | <a href="javascript:;" class="text-danger withdrawOffer" data-id="' . $oOffers->offer_id . '">Withdraw</a> <p>
+            <p><a href="' . $site_url . '/offer-edit?id=' . $oOffers->offer_id . '" class="text-primary">Edit</a> | <a href="javascript:;" class="text-danger withdrawOffer" data-id="' . $oOffers->offer_id . '">Withdraw</a> <p>
         </td>';
         $data .= "</tr>";
+
+        // card design for mobile view
+
+        $dataData3 .= "<div class='offer-card offer-submitted-bluff'>";
+        $dataData3 .= "    <div class='offer-icon offer-submitted-bluff'>";
+        $dataData3 .= "        <img src='{$request_seller_image}' alt='Seller Image'>";
+        $dataData3 .= "    </div>";
+        $dataData3 .= "    <div class='offer-info offer-submitted-bluff'>";
+        $dataData3 .= "        <h3 class='offer-title offer-submitted-bluff'>{$request_title}</h3>";
+        $dataData3 .= "        <p class='offer-des offer-submitted-bluff'>{$request_description}</p>";
+        $dataData3 .= "        <div class='rate-date offer-submitted-bluff'>";
+        $dataData3 .= "            <p class='offer-price offer-submitted-bluff'><i class='fa-solid fa-sack-dollar'></i> {$s_currency}{$amount}</p>";
+        $dataData3 .= "            <p class='offer-duration offer-submitted-bluff'><span class='duration-weeks'><i class='far fa-clock'></i> {$delivery_time}</span></p>";
+        $dataData3 .= "        </div>";
+        $dataData3 .= "        <div class='action-buttons-offer-sent'>";
+        $dataData3 .= "            <button class='send-offer-btn' onclick=\"window.location.href='{$site_url}/offer-edit?id={$oOffers->offer_id}'\">Edit</button>";
+        $dataData3 .= "            <button class='send-offer-btn withdrawOffer' data-id='{$oOffers->offer_id}'>Withdraw</button>";
+        $dataData3 .= "        </div>";
+        $dataData3 .= "    </div>";
+        $dataData3 .= "</div>";
     }
 
     /* We call the pagination function here to generate Pagination link for us.
         As you can see I have passed several parameters to the function. */
-        $paginationData = paginate($limit, $pageNumber, $rowCount, $totalPages);
+    $paginationData = paginate($limit, $pageNumber, $rowCount, $totalPages);
 } else {
     $data = "
     <tr class='table-danger'>
@@ -111,5 +132,5 @@ if ($rowCount > 0) {
     $paginationData = null;
 }
 
-echo json_encode(["data" => $data, "pagination" => $paginationData]);
+echo json_encode(["data" => $data, "dataData3" => $dataData3, "pagination" => $paginationData]);
 exit;

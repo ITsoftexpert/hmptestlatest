@@ -27,12 +27,11 @@
     margin: 10px auto;
   }
 
-  .closeFormOcancelbtn {
+  .closeFormOcancelbtn {   
     border: 1px solid grey;
     float: inline-end;
-    padding: 1px 5px;
-    color: white;
-    background-color: grey;
+    font-size: 20px;
+    padding: 1px 6px;       
     border-radius: 3px;
   }
 </style>
@@ -41,7 +40,7 @@
   <div class="order_cancelation_section_div" id="order_cancelation_action">
     <div class="order_cancelation_section_form">
       <h3 class="text-center mb-4">Order Cancellation <span class="closeFormOcancelbtn" onclick="closeFormOcancel()"> X </span></h3>
-      <h5> Your order delivery time has expired. Do you want to cancel this order?</h5>
+      <h6> Your order delivery time has expired. Do you want to cancel this order?</h6>
       <form method="post">
         <textarea name="order_cancel_reason" class="order_cancelation_section_input" placeholder="Please be as detailed as possible..." rows="5" class="form-control" required></textarea>
         <div class="w-100 d-flex"><button type="submit" name="order_cancelled_submission" class="order_cancellation_btn">Order Cancel</button>

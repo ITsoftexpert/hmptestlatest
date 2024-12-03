@@ -77,7 +77,49 @@ $login_seller_vacation = $row_login_seller->seller_vacation;
                   $get_coupons = $db->select("coupons", array("proposal_id" => $proposal_id));
                   $count_coupons = $get_coupons->rowCount();
                   if ($count_coupons == 0) {
-                    echo "<td colspan='6' align='center'><h5>You Have Not Created Any Coupons Of This Proposal Yet.</h5></td>";
+                    $row_coupons_details = $db->select("coupons", array("seller_id" => $seller_id));
+                    while ($fetch_coupons = $row_coupons_details->fetch()) {
+                      $coupon_id = $fetch_coupons->coupon_id;
+                      $coupon_title = $fetch_coupons->coupon_title;
+                      $coupon_type = $fetch_coupons->coupon_type;
+                      $coupon_price = $fetch_coupons->coupon_price;
+                      $coupon_code = $fetch_coupons->coupon_code;
+                      $coupon_limit = $fetch_coupons->coupon_limit;
+                      $coupon_used = $fetch_coupons->coupon_used;
+                      $proposal_id = $fetch_coupons->proposal_id;
+                  ?>
+                      <tr align="center">
+                        <td><?= $coupon_title; ?></td>
+                        <td><?= $coupon_code; ?></td>
+                        <td>
+                          <?php if ($coupon_type == "fixed_price") { ?>
+                            <?= showPrice($coupon_price); ?>
+                          <?php } else { ?>
+                            <?= $coupon_price; ?>%
+                          <?php } ?>
+                        </td>
+                        <td><?= $coupon_limit; ?></td>
+                        <td><?= $coupon_used; ?></td>
+                        <td>
+                          <div class="dropdown">
+                            <!--- dropdown Starts --->
+                            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Actions</button>
+                            <div class="dropdown-menu">
+                              <!--- dropdown-menu Starts --->
+                              <a class="dropdown-item" data-toggle="modal" href="#" data-target="#edit-<?= $coupon_id; ?>">
+                                <i class="fa fa-pencil-alt"></i> Edit
+                              </a>
+                              <a class="dropdown-item" href="view_coupons?proposal_id=<?= $proposal_id; ?>&delete_coupon=<?= $coupon_id; ?>">
+                                <i class="fa fa-trash-alt"></i> Delete
+                              </a>
+                            </div>
+                            <!--- dropdown-menu Ends --->
+                          </div>
+                          <!--- dropdown Ends --->
+                        </td>
+                      </tr>
+                    <?php
+                    }
                   }
                   while ($row_coupons = $get_coupons->fetch()) {
                     $coupon_id = $row_coupons->coupon_id;
@@ -88,7 +130,7 @@ $login_seller_vacation = $row_login_seller->seller_vacation;
                     $coupon_limit = $row_coupons->coupon_limit;
                     $coupon_used = $row_coupons->coupon_used;
                     $proposal_id = $row_coupons->proposal_id;
-                  ?>
+                    ?>
                     <tr align="center">
                       <td><?= $coupon_title; ?></td>
                       <td><?= $coupon_code; ?></td>

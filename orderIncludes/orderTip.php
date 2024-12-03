@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Do You Want To Give a Tip To Seller?</h5>
+          <h5 class="" id="exampleModalLabel">Do You Want To Give a Tip To Seller?</h5>
           <button type="button" class="close" data-dismiss="modal">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -31,7 +31,7 @@
 
             <div class="form-group row justify-content-center mt-2">
 
-              <div class="input-group col-md-6">
+              <div class="input-group col-md-12">
                 <span class="input-group-addon">
                   <b><i class="fa fa-dollar"></i></b>
                 </span>

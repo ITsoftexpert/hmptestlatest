@@ -69,7 +69,7 @@ $site_border_color = $row_general_settings->site_border_color;
       <div class="col-md-4">
         <div class="middle position-relative ">
           <div class="bg-white d-flex justify-content-center align-items-center">
-
+ 
           </div>
         </div>
       </div>

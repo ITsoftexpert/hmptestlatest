@@ -364,6 +364,9 @@ body {
   .br {
     display: none;
   }
+  .style-display-flex {   
+    padding-top: 5px;   
+}
 }
 
 #new-mob-design-style .card-body {
@@ -394,14 +397,14 @@ body {
 .new-design-style {
   box-shadow: 1px 1px 15px grey;
 }
-/* nitin new css add home page Featured candidates section 04-09-2024 start */
-.Featured-candidates-nitin {
+/* bluff new css add home page Featured candidates section 04-09-2024 start */
+.Featured-candidates-bluff {
   /* width: 24%;
   padding: 0.8rem;
   margin: auto;
   border-radius: 3px; */
 }
-/* nitin new css add home page Featured candidates section 04-09-2024 end */
+/* bluff new css add home page Featured candidates section 04-09-2024 end */
 
 .additing-some-new {
   /* background-color: red; */
@@ -1125,7 +1128,7 @@ body {
 
   .is-responsive .gnav-header .account-nav {
     position: absolute;
-    top: -10px;
+    top: -19px;
     right: 0;
   }
 
@@ -1158,15 +1161,25 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   #bg-video {
     display: none;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767.8px) {
   .contenthire {
     padding: 0 !important;
+  }
+
+  
+  .style-display-flex {
+    display: flex;
+    /* padding-right: 15%; */
+    /* margin-left: 6px; */
+    /* margin-top: 13px; */
+    padding-top: 10px;
+    height: 48px;
   }
 
   #powerful-job-respon div {
@@ -1180,7 +1193,7 @@ body {
     height: fit-content;
   }
 
-  .display-disappear-2-nitin {
+  .display-disappear-2-bluff {
     display: none;
   }
 
@@ -1218,14 +1231,6 @@ body {
     padding-bottom: 2rem;
   }
 
-  .style-display-flex {
-    display: flex;
-    /* padding-right: 15%; */
-    /* margin-left: 6px; */
-    /* margin-top: 13px; */
-    padding-top: 10px;
-    height: 48px;
-  }
 
   .is-responsive .gnav-header .account-nav {
     position: absolute;
@@ -2033,7 +2038,7 @@ body {
 @media (max-width: 767px) and (min-width: 420px) {
   .is-responsive .gnav-header .account-nav {
     position: absolute;
-    top: -15px;
+    top: -19px;
     right: 0;
   }
 
@@ -2153,7 +2158,7 @@ body {
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   .mobile_screen_respo_logo {
     display: none;
   }
@@ -2214,21 +2219,7 @@ body {
   width: 100%;
 }
 
-/* .ram_container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); 
-  z-index: 1;
-} */
+
 
 .ram_container > * {
   position: relative;
@@ -2333,7 +2324,7 @@ body {
   .new-design-style {
     width: 100%;
   }
-  /* .Featured-candidates-nitin {
+  /* .Featured-candidates-bluff {
     width: 100%;
   } */
 
@@ -2348,7 +2339,7 @@ body {
   .new-design-style {
     width: 100%;
   }
-  /* .Featured-candidates-nitin {
+  /* .Featured-candidates-bluff {
     width: 100%;
   } */
 }
@@ -2412,8 +2403,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgb(0 0 0 / 69%); /* Black overlay with 50% opacity */
-    z-index: 1;
+    background: rgb(0 0 0 / 69%); /* Black overlay with 50% opacity */   
   }
 
   .ram_container > * {
@@ -2487,18 +2477,18 @@ body {
   }
 }
 @media (max-width: 1024px) {
-  .Featured-candidates-nitin {
+  .Featured-candidates-bluff {
     flex: 0 0 48%;
   }
 }
 
 @media (max-width: 650px) {
-  .Featured-candidates-nitin {
+  .Featured-candidates-bluff {
     flex: 0 0 100%;
   }
 }
 
-/* ###########################nitin-start-css################# */
+/* ###########################bluff-start-css################# */
 
 .home-page-text-menu {
   color: #000;
@@ -2528,7 +2518,7 @@ body {
   /* padding: 15px; */
 }
 
-/* nitin created css featured candidate sec */
+/* bluff created css featured candidate sec */
 .featured-main-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

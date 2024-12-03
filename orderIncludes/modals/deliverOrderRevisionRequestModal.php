@@ -1,6 +1,6 @@
 <?php if ($seller_id == $login_seller_id) { ?>
 
-  <?php if ($order_status == "progress" or $order_status == "Extend Time Accepted" or $order_status == "Extend Time Declined" or $order_status == "revision requested" or $order_status == "delivered") { ?>
+  <?php if ($order_status == "progress" or $order_status == "Extend Time Accepted" or $order_status == "Extend Time Declined" or $order_status == "revision requested" or $order_status == "delivered" or $order_status == "completed") { ?>
 
     <div id="deliver-order-modal" class="modal fade">
       <!--- deliver-order-modal Starts --->
@@ -9,7 +9,7 @@
           <div class="modal-header">
             <h5 class="modal-title"> Deliver Your Order Now </h5>
             <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
-          </div>
+          </div> 
           <div class="modal-body">
             <form method="post" enctype="multipart/form-data">
               <div class="form-group">

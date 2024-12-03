@@ -32,7 +32,7 @@ echo "<script>window.open('login','_self');</script>";
               }).then(function(){
               
               if(window.open('index?view_proposals_paused','_self')){
-                console.log('Proposal paused successfully');
+                // console.log('Proposal paused successfully');
               }
             
           });

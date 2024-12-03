@@ -120,7 +120,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
         display: none;
     }
 
-    /* .nitin-1 {
+    /* .bluff-1 {
         margin: auto;
         width: 100%;
         display: flex;
@@ -143,7 +143,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
 
         .alter-top-margin {
             /* margin-top: 50px !important; */
-            padding-top: 2.5rem;
+            /* padding-top: 2.5rem; */
         }
 
         .b-t-m-resize {
@@ -552,14 +552,14 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
         }
     }
 
-    .pull-left-nitin {
+    .pull-left-bluff {
         text-align: center;
     }
 
     @media (max-width: 768px) {
 
         /* Adjust the width as needed */
-        .pull-left-nitin {
+        .pull-left-bluff {
             display: none;
         }
     }
@@ -723,7 +723,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
                             <!-- Recently Vi ewd Start -->
                             <div class="row" id="card_show">
                                 <div class="col-md-12 mt-5 mb-3 margin-top-25">
-                                    <h1 class="pull-left-nitin"> <?= $lang['sidebar']['recently_viewed']; ?> </h1>
+                                    <h1 class="pull-left-bluff"> <?= $lang['sidebar']['recently_viewed']; ?> </h1>
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <div class="row">
@@ -1023,7 +1023,7 @@ if (isset($_COOKIE["bkmark_seller_" . $_SESSION['seller_user_name']])) {
                                 <div class="col-md-12 mt-5 mb-3 margin-top-25">
                                     <button class="manage-contacts-btn mt-4">Recently Viewed
                                     </button>
-                                    <!-- <h1 class="pull-left-nitin"> <?= $lang['sidebar']['recently_viewed']; ?> </h1> -->
+                                    <!-- <h1 class="pull-left-bluff"> <?= $lang['sidebar']['recently_viewed']; ?> </h1> -->
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <div class="slider-container">

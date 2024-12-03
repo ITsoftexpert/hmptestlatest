@@ -33,5 +33,4 @@ $data['cancel_url'] = "$site_url/cancel_payment?reference_no=$reference_no";
 $data['redirect_url'] = "$site_url/paypal_order?reference_no=$reference_no";
 
 $payment = new Payment();
-$payment = new Payment();
 $payment->paypal($data, $processing_fee);

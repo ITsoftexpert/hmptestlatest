@@ -6322,7 +6322,7 @@ a.bg-dark:hover {
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   .d-lg-none {
     display: none !important;
   }
@@ -8069,7 +8069,7 @@ a.bg-dark:hover {
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   .m-lg-0 {
     margin: 0 !important;
   }

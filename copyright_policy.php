@@ -41,6 +41,19 @@ require_once("social-config.php");
             text-align: justify;
         }
 
+        .paragrapgh_copyright_policy_alt {
+            font-size: 1.3rem;
+            line-height: 2.5rem;
+            text-align: justify;
+        }
+
+        .address_copyright_policy_alt {
+            font-size: 1.1rem;
+            line-height: 2rem;
+            text-align: justify;
+        }
+
+
         .list_copyright_policy {
             font-size: 1.3rem;
             line-height: 2.5rem;
@@ -52,8 +65,6 @@ require_once("social-config.php");
             line-height: 2rem;
             text-align: justify;
         }
-
-
 
         .termandconditiondivthird {
             width: 75%;
@@ -151,6 +162,18 @@ require_once("social-config.php");
                 overflow-y: unset !important;
 
             }
+
+            .paragrapgh_copyright_policy_alt {
+                font-size: 1.3rem;
+                line-height: 2.5rem;
+                text-align: center;
+            }
+
+            .address_copyright_policy_alt {
+                font-size: 1.1rem;
+                line-height: 2rem;
+                text-align:center;
+            }
         }
 
         .termandconditiondivthird {
@@ -205,7 +228,7 @@ require_once("social-config.php");
     <div class="container-fluid mt-5 mb-5 pb-1 pt-5 site-theme-color overflow_ram">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h1>Copyright Policy</h1>
+                <h1 style="font-size: 2.5rem;">Copyright Policy</h1>
                 <p class="paragrapgh_copyright_policy text-center lead pb-0"> Copyright & Intellectual Property Claims
                     Policy </p>
                 <hr>
@@ -339,7 +362,7 @@ require_once("social-config.php");
 
 
                 <h5>By Mail:</h5>
-                <address class="address_copyright_policy">
+                <address class="address_copyright_policy_alt">
                     Preferred Outsourcing Pvt. Ltd.<br>
                     Attn: Copyright claims<br>
                     126, FIRST FLOOR BANK ROAD<br>
@@ -348,8 +371,8 @@ require_once("social-config.php");
 
                 <br>
                 <h5>By Email:-</h5>
-                <p class="paragrapgh_copyright_policy">Alternatively you can submit the Notice electronically to
-                    copyrights@hiremyprofile.com.
+                <p class="paragrapgh_copyright_policy_alt">Alternatively you can submit the Notice electronically to
+                   <i style="color:blue;"> copyrights@hiremyprofile.com </i>.
                 </p>
 
                 <p class="paragrapgh_copyright_policy"><b>Note: </b> that we will provide the user who is allegedly

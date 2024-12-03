@@ -49,7 +49,6 @@ $referral_money = $row_general_settings->referral_money;
         <link rel="shortcut icon" href="<?= $site_favicon; ?>" type="image/x-icon">
     <?php } ?>
     <style>
-        
         .alter-margin-top {
             /* margin-top: -150px; */
         }
@@ -58,7 +57,7 @@ $referral_money = $row_general_settings->referral_money;
             font-size: 17px;
         }
 
-       
+
 
         .width-1001 {
             width: 74%;
@@ -77,7 +76,7 @@ $referral_money = $row_general_settings->referral_money;
         .bg-color {
             background-color: #f5c6cb;
         }
-     
+
         @media (max-width:768px) {
             .heading_3 {
                 font-size: 20px;
@@ -122,42 +121,186 @@ $referral_money = $row_general_settings->referral_money;
                 margin-bottom: 2vh;
             }
 
-          
+
             .bg-color {
                 background-color: #f5c6cb;
             }
         }
 
-        @media(min-width:900px) and (max-width:1023px){
-           
-        .width-1001 {
-            width: 82%;
-            display: flex;
-            margin: auto;        
-        } 
+        @media(min-width:900px) and (max-width:1024px) {
+
+            .width-1001 {
+                width: 82%;
+                display: flex;
+                margin: auto;
+            }
         }
-        @media(min-width:768px) and (max-width:899px){
-           
-           .width-1001 {
-               width: 83%;
-               display: flex;
-               margin: auto;        
-           } 
-           }
-           @media(max-width:767px){
-           
-           .width-1001 {
-               width: 100%;
-               display: flex;
-               margin: auto;        
-           } 
-           }
-           @media(min-width:1025px){
-            .box-shadow-rounded-0{
+
+        @media(min-width:768px) and (max-width:899px) {
+
+            .width-1001 {
+                width: 83%;
+                display: flex;
+                margin: auto;
+            }
+        }
+
+        @media(max-width:767px) {
+
+            .width-1001 {
+                width: 100%;
+                display: flex;
+                margin: auto;
+            }
+        }
+
+        @media(min-width:1025px) {
+            .box-shadow-rounded-0 {
                 margin-top: 20px;
             }
-           }
+        }
     </style>
+    <style>
+        /* mobile responsive css on proposal referals */
+        @media (max-width: 768px) {
+            .proposal-referal-mobile-hide {
+                display: none;
+            }
+        }
+
+        @media (min-width: 767px) {
+
+            .active-proposal-referas {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .my-referal-heading {
+                color: #000 !important;
+                background-color: #ebebeb !important;
+                box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+                width: fit-content;
+                border: none;
+                padding: 11px 15px;
+                display: flex;
+                justify-content: center;
+                font-size: 17px;
+                font-weight: 600;
+                gap: 8px;
+                align-items: center;
+                margin: auto;
+            }
+        }
+
+        .active-proposal-referas {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-direction: column;
+        }
+
+        .order-card-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            max-width: 100%;
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .content-order {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .ow-ner {
+            font-size: 17px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .bu-yer {
+            font-size: 17px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .name-value {
+            color: red;
+        }
+
+        .info-order-section {
+            display: flex;
+            font-size: 0.85em;
+            margin: 12px 0;
+            color: #555;
+            gap: 20px;
+        }
+
+        .buyer-offer-img {
+            width: 18px;
+        }
+
+        .number-offer {
+            font-weight: bold;
+        }
+
+        .status-order {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 10px;
+        }
+
+        .status-label {
+            font-size: 1.25em;
+            color: #a7a9ac;
+        }
+
+        .status-completed-item {
+            font-weight: bold;
+            color: white;
+            background-color: green;
+            padding: 5px 15px 5px 15px;
+            border-radius: 4px;
+
+        }
+
+        .status-pending-item {
+            font-weight: bold;
+            color: white;
+            background-color: orange;
+            padding: 5px 15px 5px 15px;
+            border-radius: 4px;
+
+        }
+
+        .status-declined-item {
+            font-weight: bold;
+            color: white;
+            background-color: red;
+            padding: 5px 15px 5px 15px;
+            border-radius: 4px;
+
+        }
+
+        .info-element {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0px;
+        }
+
+        .dec-proposal {
+            margin-top: 12px;
+        }
+    </style>
+
+
 
 </head>
 
@@ -257,23 +400,14 @@ $referral_money = $row_general_settings->referral_money;
                                                                 ?>
 
                                         </div>
-
                                         <div class="font-weight-bold"><?= $lang['referrals']['declined']; ?></div>
-
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
         <div class="table-responsive border border-secondary rounded mb-5 div-border width-1001" style="overflow-x:hidden; overflow-y:hidden;">
@@ -374,7 +508,7 @@ $referral_money = $row_general_settings->referral_money;
 
                                 <td class="font-weight-bold
 
-<?php
+                         <?php
 
                             if ($status == "approved") {
 
@@ -387,8 +521,8 @@ $referral_money = $row_general_settings->referral_money;
                                 echo "text-danger";
                             }
 
-?>
-"> <?= $status; ?>
+                            ?>
+                        "> <?= $status; ?>
 
                                 </td>
 
@@ -401,13 +535,104 @@ $referral_money = $row_general_settings->referral_money;
 
             </table>
 
+
+
         </div>
 
+        <div class="active-proposal-referas">
+            <?php
+
+            $sel_referrals_small = $db->select("proposal_referrals", array("referrer_id" => $login_seller_id), "DESC");
+
+            $count_referrals_small = $sel_referrals_small->rowCount();
+
+            if ($count_referrals_small == 0) {
+
+                echo "              
+                    <h3 class='pb-2 pt-2 heading_3'>
+                     <i class='fa fa-meh-o'></i>  {$lang['proposal_referrals']['no_referrals']}
+                    </h3>                 
+              
+             ";
+            } else {
+
+                while ($row_referrals_small = $sel_referrals_small->fetch()) {
+
+                    $proposal_id = $row_referrals_small->proposal_id;
+
+                    $seller_id = $row_referrals_small->seller_id;
+
+                    $buyer_id = $row_referrals_small->buyer_id;
+
+                    $comission = $row_referrals_small->comission;
+
+                    $date = $row_referrals_small->date;
+
+                    $status = $row_referrals_small->status;
+
+
+                    $select_seller = $db->select("sellers", array("seller_id" => $seller_id));
+
+                    $row_seller = $select_seller->fetch();
+
+                    $seller_user_name = $row_seller->seller_user_name;
+
+
+
+                    $select_buyer = $db->select("sellers", array("seller_id" => $buyer_id));
+
+                    $row_buyer = $select_buyer->fetch();
+
+                    $buyer_user_name = $row_buyer->seller_user_name;
+
+
+
+                    $select_proposals = $db->select("proposals", array("proposal_id" => $proposal_id));
+
+                    $row_proposals = $select_proposals->fetch();
+
+                    $proposal_title = $row_proposals->proposal_title;
+
+            ?>
+                    <div class="order-card-item">
+                        <div class="order-details">
+                            <div class="order-description">
+                                <span class="ow-ner">Owner: <span class="name-value" style="color: red;"><?= ucwords($seller_user_name); ?></span></span><br>
+                                <span class="bu-yer">Buyer: <span class="name-value" style="color: red;"><?= ucwords($buyer_user_name); ?></span></span>
+                                <div class="order-info-section">
+                                    <p class="dec-proposal"><?= $proposal_title; ?></p>
+                                    <div class="info-wrapper">
+                                        <div class="info-element">
+                                            <span class="purchase-label">Purchase Date:</span>
+                                            <span><i class="fas fa-calendar"></i> <?= $date; ?></span>
+                                        </div>
+                                        <div class="info-element">
+                                            <span class="commission-label">Your Commission:</span>
+                                            <span><i class="fa-solid fa-sack-dollar"></i> <?= $s_currency; ?><?= $comission; ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="status-order">
+                            <span class="status-label">Status: </span>
+                            <?php
+
+                            if ($status == "approved") {
+                                echo "<span class='status-completed-item'>" . ucwords($status) . "</span>";
+                            } elseif ($status == "pending") {
+                                echo "<span class='status-pending-item'>" . ucwords($status) . "</span>";
+                            } elseif ($status == "declined") {
+                                echo "<span class='status-declined-item'>" . ucwords($status) . "</span>";
+                            }
+                            ?>
+                        </div>
+                    </div>
+            <?php }
+            } ?>
+        </div>
     </div>
-
-
     <?php require_once("includes/footer.php"); ?>
-
 </body>
 
 </html>

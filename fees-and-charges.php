@@ -122,38 +122,38 @@ require_once("social-config.php");
       .termcondtionsidebar,
       .termconditoncontent {
         height: 70vh;
-       
+
         overflow-y: auto;
-      
+
         padding-right: 15px;
-        
+
       }
 
-    
+
       .termcondtionsidebar::-webkit-scrollbar,
       .termconditoncontent::-webkit-scrollbar {
         width: 5px;
-    
+
       }
 
       .termcondtionsidebar::-webkit-scrollbar-track,
       .termconditoncontent::-webkit-scrollbar-track {
         background: #f1f1f1;
-        
+
         border-radius: 10px;
-       
+
       }
 
       .termcondtionsidebar::-webkit-scrollbar-thumb,
       .termconditoncontent::-webkit-scrollbar-thumb {
         background-color: #00CEDC;
-      
+
         border-radius: 10px;
-       
+
         height: 5px;
-        
+
         min-height: 5px;
-   
+
       }
 
       .termcondtionsidebar::-webkit-scrollbar-thumb:hover,
@@ -175,8 +175,12 @@ require_once("social-config.php");
           padding-right: 0.5rem !important;
 
         }
-        .termconditoncontent{
+
+        /* .termconditoncontent{
           scr  
+        } */
+        .text-center-mobile {
+          text-align: center;
         }
 
       }
@@ -239,7 +243,7 @@ require_once("social-config.php");
         </p>
 
         <br>
-        <h2 id="2">Refund timeline</h2>
+        <h2 id="2" class="text-center-mobile">Refund timeline</h2>
         <p class="paragraphtermcondition">Once a refund is initiated, the refund will take different amounts of time to
           reflect—depending on which method you choose to receive the funds.
           Example: PayPal or Credit Card. </p>
@@ -260,7 +264,7 @@ require_once("social-config.php");
         </table>
 
         <br>
-        <h2 id="3">Incomplete refunds</h2>
+        <h2 id="3" class="text-center-mobile">Incomplete refunds</h2>
         <p class="paragraphtermcondition">If the funds credited to your payment provider are incomplete, remember that
           orders are refunded to your Hiremyprofile balance, and sometimes those funds are reused when you make any new
           purchases. This is why the funds credited to your payment provider may seem incomplete. Check your most recent
@@ -270,14 +274,14 @@ require_once("social-config.php");
         </p>
 
         <br>
-        <h2 id="4">Refunds to a different card or PayPal account</h2>
+        <h2 id="4" class="text-center-mobile">Refunds to a different card or PayPal account</h2>
         <p class="paragraphtermcondition">We are only able to refund funds to the original payment source used to
           process the payment. Hiremyprofile is not able to change the card or PayPal account to where the funds will be
           credited.
         </p>
 
         <br>
-        <h2 id="5">Refund currency</h2>
+        <h2 id="5" class="text-center-mobile">Refund currency</h2>
         <p class="paragraphtermcondition">If you paid for your order using a currency other than US dollars, your refund
           will be processed in the same currency and amount used in the payment.
         </p>
@@ -286,14 +290,14 @@ require_once("social-config.php");
         </p>
 
         <br>
-        <h2 id="6">Cancellations</h2>
+        <h2 id="6" class="text-center-mobile">Cancellations</h2>
         <p class="paragraphtermcondition">While you should always aim to satisfy your buyers’ needs, sometimes things
           don’t work as planned and cancellation is the best way to resolve an ongoing order. When addressing an issue,
           be sure to communicate clearly and politely throughout the entire cancellation process.
         </p>
 
         <br>
-        <h3 id="7">Different kinds of cancellations</h3>
+        <h3 id="7" class="text-center-mobile">Different kinds of cancellations</h3>
         <p class="paragraphtermcondition">Important! Cancellations should always be considered as a last resort.
           Canceling orders negatively affects the buyer experience, as well as your valuable time and potential income.
         </p>
@@ -323,7 +327,7 @@ require_once("social-config.php");
         </ul>
 
         <br>
-        <h2 id="8">Using the Resolution Center</h2>
+        <h2 id="8" class="text-center-mobile">Using the Resolution Center</h2>
         <p class="paragraphtermcondition">We always encourage both our sellers and buyers to try and resolve disputes
           within ongoing orders and to avoid cancellations. To easily resolve any disputes with your buyer, use the <a
             href="https://www.hiremyprofile.com/customer_support" class="text-primary">Resolution Center</a>.
@@ -332,14 +336,14 @@ require_once("social-config.php");
 
 
         <br>
-        <h2 id="9">Cancellations & your seller level</h2>
+        <h2 id="9" class="text-center-mobile">Cancellations & your seller level</h2>
         <p class="paragraphtermcondition">When evaluating a seller, all cancellations are taken into account. We are
           aware that some cancellations are inevitable and those cancellations have a lower impact on your performance
           scores.
         </p>
 
         <br>
-        <h3 id="10">Order Completion Rate (OCR)</h3>
+        <h3 id="10" class="text-center-mobile">Order Completion Rate (OCR)</h3>
         <p class="paragraphtermcondition">Order completion refers to the successful conclusion of an order—where a buyer
           receives and approves the service that they purchased. One of the ways your performance as a seller is
           evaluated through the OCR:
@@ -350,7 +354,7 @@ require_once("social-config.php");
         </p>
 
         <br>
-        <h3 id="11">Tips to decrease cancellations</h3>
+        <h3 id="11" class="text-center-mobile">Tips to decrease cancellations</h3>
         <br>
         <h4 id="12">Delivery</h4>
         <p class="paragraphtermcondition">Always do your best to deliver on time: </p>

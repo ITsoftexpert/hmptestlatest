@@ -47,7 +47,7 @@ $child_title = $row_meta->child_title;
 		<!--- form-group row Starts --->
 		<div class="col-md-3"><?= $lang['label']['proposal_title']; ?></div>
 		<div class="col-md-9">
-			<textarea name="proposal_title" id="proposal_title" rows="2" placeholder="I Will" required="" class="form-control" minlength="50" maxlength="200"><?= $d_proposal_title; ?></textarea>
+			<textarea name="proposal_title" id="proposal_title" rows="2" placeholder="I Will" required="" class="form-control" minlength="30" maxlength="100"><?= $d_proposal_title; ?></textarea>
 			<small class="form-text text-danger"><?= ucfirst($form_errors['proposal_title'] ?? ""); ?></small>
 			<span class="text-dark d-block">min: 30  max: 100 characters <span class="pull-right"><i class="text-danger" id="typed-characters"><?= strlen($d_proposal_title) ?></i> characters</span></span>
 		</div>
@@ -72,7 +72,7 @@ $child_title = $row_meta->child_title;
 				<?php } ?>
 			</select>
 			<small class="form-text text-danger"><?= ucfirst($form_errors['proposal_cat_id'] ?? ""); ?></small>
-			<select name="proposal_child_id" id="sub-category" class="form-control" required>
+			<select name="proposal_child_id" id="sub-category" class="form-control mb-3" required>
 				<option value="<?= $d_proposal_child_id; ?>" selected> <?= $child_title; ?> </option>
 				<?php
 				$get_c_cats = $db->query("select * from categories_children where child_parent_id='$d_proposal_cat_id' and not child_id='$d_proposal_child_id'");

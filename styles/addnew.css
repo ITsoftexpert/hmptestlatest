@@ -925,7 +925,7 @@
 }
 
 @media (max-width: 767px) {
-  .buyer-nitin-edit-sec {
+  .buyer-bluff-edit-sec {
     display: none;
   }
 }
@@ -963,7 +963,7 @@
   bottom: 100%;
 }
 
-.buyer-active-orderdataby-nitin {
+.buyer-active-orderdataby-bluff {
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -1104,7 +1104,7 @@
   cursor: pointer;
 }
 
-.amount-spent-buyernitin {
+.amount-spent-buyerbluff {
   color: #a7a9ac;
 }
 
@@ -1115,7 +1115,7 @@
 
 .complete-order-badge {
   position: absolute;
-  width: 20px;
+  /* width: 20px; */
   height: 20px;
   top: -10px;
   /* Adjust according to your design */
@@ -1124,17 +1124,12 @@
   background-color: #00b9f5;
   color: white;
   border-radius: 50%;
-  padding: 2px 7px;
+  padding: 2px 4px;
   font-size: 12px;
   font-weight: bold;
 }
 
-/* Hide on mobile (screen width less than 768px) */
-@media only screen and (max-width: 768px) {
-  .sellers-from-whom {
-    display: none;
-  }
-}
+
 
 @media only screen and (min-width: 1024px) {
   .freelancer-card {
@@ -1150,7 +1145,7 @@
 }
 
 .whomslider {
-  display: flex;
+  /* display: flex; */
   transition: transform 0.5s ease;
   /* Smooth transition */
   width: calc(100% * number_of_cards);

@@ -21,7 +21,7 @@ $(document).on('click', '.message-recipients', function(e){
     <?php if($enable_websocket == 1){ ?>
       websocket.close();
     <?php } ?>
-    console.log("connected closed");
+    // console.log("connected closed");
   }
 
   addRemoveSelected(this);

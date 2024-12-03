@@ -2,7 +2,7 @@
   <?php if ($enableVideo == 0 and $proposal_price == 0) {
     include("sidebar/proposal_packages.php");
   } ?>
-  <div class="card-body order-box tab-content box-shadow-cbody2">
+  <div class="card-body order-box tab-content">
     <!--- card-body Starts --->
     <?php
     if ($proposal_seller_vacation == "on") {
@@ -11,10 +11,10 @@
       include("sidebar/sellerVacationOff.php");
     }
     ?>
-  </div> 
+  </div>
   <!--- card-body Ends --->
 </div>
-<?php 
+<?php
 include('sidebar/referralBox.php');
 include('sidebar/sellerBio.php');
 include('sidebar/copyrightBox.php');

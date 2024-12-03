@@ -1,16 +1,34 @@
-
 <style>
-	@media (max-width:768px){
-		.font-size-3 {
+    @media (max-width:768px) {
+        .font-size-3 {
             font-size: 13px !important;
             padding: 10px !important;
             text-align: center;
-         }
-		
-	}
+        }
+
+        .desktop_view_req_modification {
+            display: none;
+        }
+
+        .mobile_view_req_modification {
+            display: block;
+        }
+
+    }
+
+    @media (min-width:768px) {
+
+        .desktop_view_req_modification {
+            display: block;
+        }
+
+        .mobile_view_req_modification {
+            display: none;
+        }
+    }
 </style>
 
-<div class="table-responsive box-table box-shadow-req-act">
+<div class="table-responsive box-table box-shadow-req-act desktop_view_req_modification">
     <table class="table table-bordered" id="requestModification">
         <thead>
             <tr>
@@ -29,6 +47,8 @@
     </table>
     <nav id="pagination-request-modification" aria-label="modification request navigation"></nav>
 </div>
+<div class="mobile_view_req_modification" id="orderCardReqModification">
+</div>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -44,6 +64,7 @@
                 }
             }).done(function(data) {
                 $('body #requestModification tbody').html(data.data);
+                $('#orderCardReqModification').html(data.cardData);
                 $('body #pagination-request-modification').html(data.pagination);
                 $('body #wait').removeClass("loader");
             });

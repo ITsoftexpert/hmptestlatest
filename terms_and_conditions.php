@@ -143,7 +143,7 @@ require_once("social-config.php");
       .termandconditiondivside,
       .termandconditiondivthird {
 
-
+        height: auto;
         overflow-y: visible;
         width: 100%;
         padding: 0 !important;
@@ -214,7 +214,7 @@ require_once("social-config.php");
   <div class="container-fluid mt-5 mb-5 pb-1 pt-5 site-theme-color site-theme-color_rampal">
     <div class="row">
       <div class="col-md-12 text-center">
-        <h1>Terms & conditions</h1>
+        <h1 style="font-size: 2.5rem;">Terms & conditions</h1>
         <p class="paragrapgh_term_and_conditions text-center lead pb-0"> Welcome to HIREMYPROFILE a Product of
           Preferred Outsourcing Pvt. Ltd. </p>
         <hr>
@@ -1443,7 +1443,7 @@ require_once("social-config.php");
         </ul>
 
         <br>
-        <h4class="ai">Service Commercial Use License</h4>
+        <h4 class="ai">Service Commercial Use License</h4>
           <p class="paragrapgh_term_and_conditions">"By purchasing a ""Commercial Use License"" with your order,
             you gain the exclusive right to use the delivered work for any business purpose you like, forever
             and anywhere in the world. This includes using it in your advertising, promotions, website, product,

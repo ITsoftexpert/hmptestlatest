@@ -446,13 +446,13 @@ $referral_money = $row_general_settings->referral_money;
 
                                     if ($count_referrals == 0) {
                                         echo "
-                        <tr>
-                           <td class='text-center bg-color m-4 box-shadow-bordered' colspan='4'>
-                              <h3 class='pb-2 pt-2 heading_3'>
-                                 <i class='fa fa-meh-o'></i> {$lang['my_referrals']['no_referrals']}
-                              </h3>
-                           </td>
-                        </tr>";
+                                        <tr>
+                                        <td class='text-center bg-color m-4 box-shadow-bordered' colspan='4'>
+                                         <h3 class='pb-2 pt-2 heading_3'>
+                                            <i class='fa fa-meh-o'></i> {$lang['my_referrals']['no_referrals']}
+                                         </h3>
+                                          </td>
+                                          </tr>";
                                     } else {
 
                                         while ($row_referrals = $sel_referrals->fetch()) {
@@ -475,7 +475,7 @@ $referral_money = $row_general_settings->referral_money;
                                                 <td><?= $s_currency; ?><?= $comission; ?></td>
 
                                                 <td class="font-weight-bold
-                   <?php
+                                        <?php
 
                                             if ($status == "approved") {
                                                 echo "text-success";
@@ -485,7 +485,7 @@ $referral_money = $row_general_settings->referral_money;
                                                 echo "text-danger";
                                             }
 
-                    ?>"> <?= $status; ?>
+                                        ?>"> <?= $status; ?>
 
                                                 </td>
 
@@ -499,101 +499,65 @@ $referral_money = $row_general_settings->referral_money;
                             </table>
 
                         </div>
-
-
                         <div class="active-buyer-order">
-                            <!-- Completed Status -->
-                            <div class="order-card-item">
-                                <div class="order-details">
-                                    <div class="order-description">
-                                        <span class="user-name">Username: <span class="name-value" style="color: red;">John Doe</span></span> <!-- User's name instead of Ref No -->
-                                        <div class="order-info-section">
-                                            <div class="info-wrapper">
-                                                <div class="info-element">
-                                                    <span class="signup-label">Signup Date:</span>
-                                                    <span><i class="fas fa-calendar"></i> July 24, 2024</span>
-                                                </div>
-                                                <div class="info-element">
-                                                    <span class="commission-label">Your Commission:</span>
-                                                    <span><i class="fa-solid fa-sack-dollar"></i> 22.00</span>
+                            <?php
+
+                            $select_s_referrals = $db->select("referrals", array("seller_id" => $login_seller_id), "DESC");
+                            $count_s_referrals = $select_s_referrals->rowCount();
+                            if ($count_s_referrals == 0) {
+                                echo " <h3 class='pb-2 pt-2 heading_3'>
+                                            <i class='fa fa-meh-o'></i>
+                                             {$lang['my_referrals']['no_referrals']}
+                                         </h3>";
+                            } else {
+                                while ($row_s_referrals = $select_s_referrals->fetch()) {
+                                    $referred_id_s = $row_s_referrals->referred_id;
+                                    $comission_s = $row_s_referrals->comission;
+                                    $date_s = $row_s_referrals->date;
+                                    $status_s = $row_s_referrals->status;
+
+                                    $select_seller_s = $db->select("sellers", array("seller_id" => $referred_id_s));
+                                    $row_seller_s = $select_seller_s->fetch();
+                                    $seller_user_name_s = $row_seller_s->seller_user_name;
+                            ?>
+
+                                    <div class="order-card-item">
+                                        <div class="order-details">
+                                            <div class="order-description">
+                                                <span class="user-name">Username: <span class="name-value" style="color: red; float:right;"><?= ucfirst($seller_user_name_s); ?></span></span> <!-- User's name instead of Ref No -->
+                                                <div class="order-info-section">
+                                                    <div class="info-wrapper">
+                                                        <div class="info-element">
+                                                            <span class="signup-label">Signup Date:</span>
+                                                            <span><i class="fas fa-calendar"></i> <?= $date_s; ?></span>
+                                                        </div>
+                                                        <div class="info-element">
+                                                            <span class="commission-label">Your Commission:</span>
+                                                            <span><i class="fa-solid fa-sack-dollar"></i> <?= $comission_s; ?></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="status-order">
-                                    <span class="status-label">Status: </span>
-                                    <span class="status-completed-item">Completed</span>
-                                </div>
-                            </div>
-                            <!-- pending Status -->
-                            <div class="order-card-item">
-                                <div class="order-details">
-                                    <div class="order-description">
-                                        <span class="user-name">Username: <span class="name-value" style="color: red;">John Doe</span></span> <!-- User's name instead of Ref No -->
-                                        <div class="order-info-section">
-                                            <div class="info-wrapper">
-                                                <div class="info-element">
-                                                    <span class="signup-label">Signup Date:</span>
-                                                    <span><i class="fas fa-calendar"></i> July 24, 2024</span>
-                                                </div>
-                                                <div class="info-element">
-                                                    <span class="commission-label">Your Commission:</span>
-                                                    <span><i class="fa-solid fa-sack-dollar"></i> 22.00</span>
-                                                </div>
-                                            </div>
+                                        <div class="status-order">
+                                            <span class="status-label">Status: </span>
+                                            <?php if ($status_s == "pending") { ?>
+                                                <span class="status-pending"><?= ucfirst($status_s); ?></span>
+                                            <?php } elseif ($status_s == "approved") { ?>
+                                                <span class="status-completed-item"><?= ucfirst($status_s); ?></span>
+                                            <?php } elseif ($status_s == "declined") { ?>
+                                                <span class="status-declined"><?= ucfirst($status_s); ?></span>
+                                            <?php } ?>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="status-order">
-                                    <span class="status-label">Status: </span>
-                                    <span class="status-pending">Pending</span>
-                                </div>
-                            </div>
-                            <!-- declined Status -->
-                            <div class="order-card-item">
-                                <div class="order-details">
-                                    <div class="order-description">
-                                        <span class="user-name">Username: <span class="name-value" style="color: red;">John Doe</span></span> <!-- User's name instead of Ref No -->
-                                        <div class="order-info-section">
-                                            <div class="info-wrapper">
-                                                <div class="info-element">
-                                                    <span class="signup-label">Signup Date:</span>
-                                                    <span><i class="fas fa-calendar"></i> July 24, 2024</span>
-                                                </div>
-                                                <div class="info-element">
-                                                    <span class="commission-label">Your Commission:</span>
-                                                    <span><i class="fa-solid fa-sack-dollar"></i> 22.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="status-order">
-                                    <span class="status-label">Status: </span>
-                                    <span class="status-declined">Declined</span>
-                                </div>
-                            </div>
-
-
-
+                            <?php }
+                            } ?>
                         </div>
-
-
-
-
-
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
     <?php require_once("includes/footer.php"); ?>
 
 </body>

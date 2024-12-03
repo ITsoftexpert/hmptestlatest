@@ -37,7 +37,7 @@ if ($requests_query != "")
 	// if ($relevant_requests == "no") {
 	// 	$requests_query = "";
 	// }
-; 
+;
 
 
 $data = "
@@ -46,7 +46,7 @@ $data = "
 			Please create a proposal in order to find relevant job. <a href='{$site_url}/proposals/create_proposal' class='text-info'>Click here</a> to create proposal
 		</h3></center></td>
 		</tr>
-	"; 
+	";
 $paginationData = null;
 $total = 0;
 // if (!empty($requests_query) or $relevant_requests == "no") {
@@ -77,6 +77,7 @@ if (!empty($requests_query)) {
 	if ($total > 0) {
 		//Display records fetched from database.
 		$data = "";
+		$cardData2 = "";
 		while ($oResult = $query->fetch()) { //fetch values
 			$request_id = $oResult->request_id;
 			$seller_id = $oResult->seller_id;
@@ -133,7 +134,7 @@ if (!empty($requests_query)) {
 			if (strpos($delivery_time, 'days') === false) {
 				$delivery_time .= ' days';
 			}
-			$data .= "<td class='text-align-center'>{$delivery_time} <a href='#' class='remove-link remove_request' data-remove-id='{$request_id}'> Remove Request </a></td>";
+			$data .= "<td class='text-align-center'>{$delivery_time} <a href='#' class='remove-link text_decoration_style remove_request' data-remove-id='{$request_id}'> Remove Request </a></td>";
 			$data .= "<td class='text-info font-weight-bold text-align-center'>$";
 			if (!empty($request_budget))
 				$data .= $request_budget;
@@ -154,6 +155,40 @@ if (!empty($requests_query)) {
 			$data .= "</tr>";
 			// $total++;
 			// } // count_offers
+
+			// Create card structure
+			$cardData2 .= "<div class='request-card'>";
+			$cardData2 .= "<div class='icon'>";
+			$cardData2 .= !empty($request_seller_image) ? "<img src='{$request_seller_image}' alt='Seller Image'>" : "<img src='{$site_url}/user_images/empty-image.png' alt='No Image'>";
+			$cardData2 .= "</div>";
+			$cardData2 .= "<div class='request-info'>";
+			$cardData2 .= "<h3 class='request-title'>{$request_title}</h3>";
+
+			$cardData2 .= "<div class='skills mt-3 mb-2'>";
+			$cardData2 .= "<span class='skill'>{$cat_title}</span>";
+			$cardData2 .= "<span class='skill'>{$child_title}</span>";
+			$cardData2 .= "</div>";
+
+			$cardData2 .= "<div class='rate-date-bluff-seller mt-3'>";
+			$cardData2 .= "<p class='request-price'><i class='fa-solid fa-sack-dollar'></i>" . ($request_budget ? $request_budget : "---") . "</p>";
+			$cardData2 .= "<p class='request-time'><i class='fa-solid fa-calendar-days'></i>{$request_date}</p>";
+			$cardData2 .= "<p class='request-time'><i class='fa-solid fa-gift'></i>{$delivery_time}</p>";
+			$cardData2 .= "</div>";
+
+			$cardData2 .= "<div class='action-buttons'>";
+			$cardData2 .= "<p class='remove-request'><a href='#' class='text_decoration_style remove_request' data-remove-id='{$request_id}'>Remove request</a></p>";
+			if ($login_seller_offers == "0") {
+				$cardData2 .= "<button class='btn btn-success btn-sm mt-4 send_button' data-send-id='0'>
+						{$lang['button']['send_offer']}
+					</button>";
+			} else {
+				$cardData2 .= "<button class='btn btn-success btn-sm mt-4 send_button' data-send-id='{$request_id}'>
+						{$lang['button']['send_offer']}
+					</button>";
+			}
+			$cardData2 .= "</div>";
+			$cardData2 .= "</div>";
+			$cardData2 .= "</div>";
 		}
 
 		//break records into pages
@@ -171,5 +206,5 @@ if (!empty($requests_query)) {
 			";
 	}
 }
-echo json_encode(["data" => $data, "pagination" => $paginationData, "total" => $total]);
+echo json_encode(["data" => $data, "cardData2" => $cardData2, "pagination" => $paginationData, "total" => $total]);
 exit;

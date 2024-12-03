@@ -89,7 +89,7 @@ $login_seller_id = $row_login_seller->seller_id;
 		}
 
 
-		.buyer-active-order-data-nitin {
+		.buyer-active-order-data-bluff {
 			display: flex;
 			gap: 20px;
 			flex-direction: column;
@@ -98,13 +98,13 @@ $login_seller_id = $row_login_seller->seller_id;
 		@media (min-width: 768px) {
 
 			/* Adjust the min-width according to your design breakpoints */
-			.buyer-active-order-data-nitin {
+			.buyer-active-order-data-bluff {
 				display: none;
 				/* This will hide the element on desktop screens */
 			}
 		}
 
-		.order-card-nitin {
+		.order-card-bluff {
 			border: 1px solid #e0e0e0;
 			border-radius: 8px;
 			padding: 16px;
@@ -113,25 +113,25 @@ $login_seller_id = $row_login_seller->seller_id;
 			font-family: Arial, sans-serif;
 		}
 
-		.order-content-nitin {
+		.order-content-bluff {
 			display: flex;
 			gap: 10px;
 			margin-bottom: 10px;
 		}
 
-		.ref-no-nitin {
+		.ref-no-bluff {
 			font-size: 1.25em;
 			font-weight: bold;
 			color: #333;
 			margin-bottom: 10px;
 		}
 
-		.ref-value-nitin {
+		.ref-value-bluff {
 			color: red;
 			/* Set Ref No value color to red */
 		}
 
-		.info-container-nitin {
+		.info-container-bluff {
 			display: flex;
 			font-size: 0.85em;
 			margin: 12px 0;
@@ -139,18 +139,18 @@ $login_seller_id = $row_login_seller->seller_id;
 			gap: 20px;
 		}
 
-		.buyer-offer-img-nitin {
+		.buyer-offer-img-bluff {
 			width: 18px;
 		}
 
-		.offer-number-nitin {
+		.offer-number-bluff {
 			font-weight: bold;
 			/* Make offer number bold */
 			/* color: red; */
 			/* Set offer number color to red */
 		}
 
-		.order-status-nitin {
+		.order-status-bluff {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -158,12 +158,12 @@ $login_seller_id = $row_login_seller->seller_id;
 			padding-top: 10px;
 		}
 
-		.order-status-text-main-nitin {
+		.order-status-text-main-bluff {
 			font-size: 1.25em;
 			color: #a7a9ac;
 		}
 
-		.status-completed-nitin {
+		.status-completed-bluff {
 			font-weight: bold;
 			color: white;
 			/* Change text color for better visibility */
@@ -175,7 +175,7 @@ $login_seller_id = $row_login_seller->seller_id;
 			/* Round the corners */
 		}
 
-		.status-pending-nitin {
+		.status-pending-bluff {
 			font-weight: bold;
 			color: white;
 			/* Change text color for better visibility */
@@ -187,7 +187,7 @@ $login_seller_id = $row_login_seller->seller_id;
 			/* Round the corners */
 		}
 
-		.status-declined-nitin {
+		.status-declined-bluff {
 			font-weight: bold;
 			color: white;
 			/* Change text color for better visibility */
@@ -376,96 +376,105 @@ $login_seller_id = $row_login_seller->seller_id;
 
 				</div><!-- table-responsive box-table Ends -->
 
-				<div class="buyer-active-order-data-nitin">
-					<!-- Completed Status -->
-					<div class="order-card-nitin">
-						<div class="order-content-nitin">
-							<div class="order-text-nitin">
-								<span class="ref-no-nitin">Ref No: <span class="ref-value-nitin" style="color: red;">12345</span></span> <!-- Ref No remains bold -->
-								<div class="order-info-nitin">
-									<div class="info-container-nitin">
-										<div class="info-item">
-											<i class="fas fa-calendar"></i> July 24, 2024
-											<span class="heading">Date</span>
-										</div>
-										<div class="info-item">
-											<i class="fa-brands fa-paypal"></i>
-											<span class="offer-number-nitin">Paypal</span> <!-- Offer number -->
-											<span class="heading">Method</span>
-										</div>
-										<div class="info-item">
-											<i class="fa-solid fa-sack-dollar"></i> 22.00
-											<span class="heading">Amount</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="order-status-nitin">
-							<span class="order-status-text-main-nitin">Status: </span>
-							<span class="status-completed-nitin">Completed</span>
-						</div>
-					</div>
+				<div class="buyer-active-order-data-bluff">
+					<?php
+					$i = 0;
 
-					<!-- Pending Status -->
-					<div class="order-card-nitin">
-						<div class="order-content-nitin">
-							<div class="order-text-nitin">
-								<span class="ref-no-nitin">Ref No: <span class="ref-value-nitin" style="color: red;">12346</span></span> <!-- Ref No remains bold -->
-								<div class="order-info-nitin">
-									<div class="info-container-nitin">
-										<div class="info-item">
-											<i class="fas fa-calendar"></i> July 24, 2024
-											<span class="heading">Date</span>
-										</div>
-										<div class="info-item">
-											<i class="fa-brands fa-paypal"></i>
-											<span class="offer-number-nitin">Paypal</span> <!-- Offer number -->
-											<span class="heading">Method</span>
-										</div>
-										<div class="info-item">
-											<i class="fa-solid fa-sack-dollar"></i> 22.00
-											<span class="heading">Amount</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="order-status-nitin">
-							<span class="order-status-text-main-nitin">Status: </span>
-							<span class="status-pending-nitin">Pending</span>
-						</div>
-					</div>
+					$get = $db->select("payouts", array('seller_id' => $login_seller_id), "DESC");
+					$count = $get->rowCount();
+					if ($count > 0) {
+						while ($row = $get->fetch()) {
+							$id = $row->id;
+							$ref = $row->ref;
+							$amount = $row->amount;
+							$method = $row->method;
+							$date = $row->date;
+							$status = $row->status;
 
-					<!-- Declined Status -->
-					<div class="order-card-nitin">
-						<div class="order-content-nitin">
-							<div class="order-text-nitin">
-								<span class="ref-no-nitin">Ref No: <span class="ref-value-nitin" style="color: red;">12347</span></span> <!-- Ref No remains bold -->
-								<div class="order-info-nitin">
-									<div class="info-container-nitin">
-										<div class="info-item">
-											<i class="fas fa-calendar"></i> July 24, 2024
-											<span class="heading">Date</span>
+							if ($method == "bank_transfer") {
+								$m_text = "Bank Transfer";
+							} else {
+								$m_text = ucfirst($method);
+							}
+
+							// Increment counter
+							$i++;
+					?>
+							<div class="order-card-bluff">
+								<div class="order-content-bluff">
+									<div class="order-text-bluff">
+										<span class="ref-no-bluff">Ref No: <span class="ref-value-bluff" style="color: red;"><?= $ref; ?></span></span>
+										<div class="order-info-bluff">
+											<div class="info-container-bluff">
+												<div class="info-item">
+													<i class="fas fa-calendar"></i> <?= $date; ?>
+													<span class="heading">Date</span>
+												</div>
+												<div class="info-item">
+													<i class="fa-brands fa-paypal"></i>
+													<span class="offer-number-bluff"><?= $m_text; ?></span>
+													<span class="heading">Method</span>
+												</div>
+												<div class="info-item">
+													<i class="fa-solid fa-sack-dollar"></i> <?= "$s_currency$amount.00"; ?>
+													<span class="heading">Amount</span>
+												</div>
+											</div>
 										</div>
-										<div class="info-item">
-											<i class="fa-brands fa-paypal"></i>
-											<span class="offer-number-nitin">Paypal</span> <!-- Offer number -->
-											<span class="heading">Method</span>
+									</div>
+								</div>
+								<div class="order-status-bluff">
+									<span class="order-status-text-main-bluff">Status: </span>
+									<span class="<?php echo ($status == "pending" || $status == "declined") ? 'status-declined-bluff' : 'status-completed-bluff'; ?>">
+										<?= ucfirst($status); ?>
+									</span>
+									<?php if ($method == "moneygram" && $status == "completed" && $paymentGateway == 1) { ?>
+										<a href="#" data-toggle="modal" data-target="#ref-<?= $id; ?>" class="float-right small">View Ref No</a>
+									<?php } ?>
+									<?php if ($status == "declined") { ?>
+										<a href="#" data-toggle="modal" data-target="#reason-<?= $id; ?>" class="float-right small">View Reason</a>
+									<?php } ?>
+								</div>
+							</div>
+
+							<!-- Modal for reason -->
+							<div id="reason-<?= $id; ?>" class="modal fade">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title"> Reason </h5>
+											<button class="close" data-dismiss="modal"> <span> &times; </span> </button>
 										</div>
-										<div class="info-item">
-											<i class="fa-solid fa-sack-dollar"></i> 22.00
-											<span class="heading">Amount</span>
+										<div class="modal-body text-center">
+											<p><?= $row->message; ?></p>
 										</div>
 									</div>
 								</div>
 							</div>
+
+							<?php if (isset($_GET['id']) && $_GET['id'] == $id) { ?>
+								<script type="text/javascript">
+									$(document).ready(function() {
+										<?php if ($status == "completed" && $method == "moneygram" && $paymentGateway == 1) { ?>
+											$('#ref-<?= $id; ?>').modal('show');
+										<?php } elseif ($status == "declined") { ?>
+											$('#reason-<?= $id; ?>').modal('show');
+										<?php } ?>
+									});
+								</script>
+							<?php } ?>
+						<?php
+						}
+					} else {
+						?>
+						<div class="order-card-bluff">
+							<div class="order-content-bluff">
+								<div class="order-text-bluff">
+									<span class="ref-no-bluff">No records found.</span>
+								</div>
+							</div>
 						</div>
-						<div class="order-status-nitin">
-							<span class="order-status-text-main-nitin">Status: </span>
-							<span class="status-declined-nitin">Declined</span>
-						</div>
-					</div>
+					<?php } ?>
 				</div>
 
 

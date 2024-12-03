@@ -32,6 +32,7 @@ if (isset($_GET["delete_comment"])) {
   <link href="../styles/owl.theme.default.css" rel="stylesheet">
   <link href="../styles/sweat_alert.css" rel="stylesheet">
   <link href="../styles/animate.css" rel="stylesheet">
+  <link href="../styles/scoped_responsive_and_nav.css" rel="stylesheet">
   <?php if (!empty($site_favicon)) { ?>
     <link rel="shortcut icon" href="<?= $site_favicon; ?>" type="image/x-icon">
   <?php } ?>
@@ -43,16 +44,19 @@ if (isset($_GET["delete_comment"])) {
       width: 280px;
       height: 150px;
     }
-    .mt-6{
-      margin-top:60px;
+
+    .margin-top-150px {
+      margin-top: 10rem;
     }
-    .px-6{
+
+    .px-6 {
       padding: 0 25px;
     }
-    @media(min-width:1025px){
-      .mt-6{
-      margin-top:105px;
-    }
+
+    @media(max-width:1025px) {
+      .margin-top-150px {
+        margin-top: 105px;
+      }
     }
   </style>
 
@@ -61,7 +65,7 @@ if (isset($_GET["delete_comment"])) {
 <body class="is-responsive blog">
   <?php require_once("../includes/header.php"); ?>
 
-  <header id="how_to" class="mt-6">
+  <header id="how_to" class="margin-top-150px">
     <!--- how_to Starts --->
     <div class="cell">
       <h2 class="text-center text-white"><?= $lang['blog']['title']; ?></h2>
@@ -73,6 +77,8 @@ if (isset($_GET["delete_comment"])) {
   <br><br>
   <div class="container mb-5 px-6">
     <!--- container Starts --->
+
+
     <div class="row">
       <!--- row Starts --->
 

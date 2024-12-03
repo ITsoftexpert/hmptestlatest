@@ -62,6 +62,309 @@ $count_offers = $get_offers->rowCount()
 		<link rel="shortcut icon" href="<?= $site_favicon; ?>" type="image/x-icon">
 	<?php } ?>
 
+	<style>
+		.bg-site-color {
+			background-color: #00cdce;
+			color: white;
+		}
+
+		/* Custom Dropdown */
+		.custom-dropdown-code {
+			position: relative;
+			display: inline-block;
+		}
+
+		.custom-btn {
+			background-color: #00cecc;
+			color: white;
+			padding: 5px 10px;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+
+		.custom-btn:hover {
+			background-color: #00cedc;
+		}
+
+		.custom-dropdown-code-toggle {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.custom-dropdown-code-menu {
+			display: none;
+			position: absolute;
+			top: 100%;
+			left: -10;
+			right: -17px;
+			min-width: 160px;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+			z-index: 1;
+			border-radius: 5px;
+		}
+
+		.custom-dropdown-code-menu a {
+			color: #333;
+			padding: 10px;
+			text-decoration: none;
+			display: block;
+		}
+
+		.custom-dropdown-code-menu a:hover {
+			background-color: #f1f1f1;
+		}
+
+		.custom-dropdown-code.open .custom-dropdown-code-menu {
+			display: block;
+		}
+	</style>
+	<style>
+		/* Additional Styling for New Row Structure */
+		.milestone-card-row {
+			display: flex;
+			align-items: center;
+			/* margin-bottom: 6px; */
+		}
+
+		.milestone-card-row-status {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+		}
+
+		.milestone-header-title {
+			font-weight: bold;
+			color: #000;
+			font-size: 15px;
+			margin-right: 8px;
+			white-space: nowrap;
+			width: 75px;
+		}
+
+		.milestone-job-title,
+		.milestone-title,
+		.milestone-description {
+			font-size: 1em;
+			color: #333;
+			flex: 1;
+		}
+
+		/* General Styling for Milestone Card */
+		.milestone-card {
+			border: 1px solid #ccc;
+			border-radius: 8px;
+			padding: 16px;
+			background-color: #fff;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			font-family: Arial, sans-serif;
+			/* margin: 20px; */
+		}
+
+		/* Header */
+		.milestone-card-header {
+			font-weight: bold;
+			font-size: 1em;
+			margin-bottom: 10px;
+		}
+
+		/* Details Section */
+		.milestone-card-details {
+			display: flex;
+			align-items: center;
+			font-size: 0.9em;
+			color: #555;
+			margin-bottom: 10px;
+			justify-content: flex-start;
+		}
+
+		.milestone-card-item {
+			display: flex;
+			align-items: center;
+		}
+
+		.milestone-icon {
+			margin-right: 4px;
+			font-weight: bold;
+			color: #000;
+			font-size: 15px;
+
+		}
+
+		.w-75px {
+			width: 75px;
+		}
+
+		/* Footer */
+		.milestone-card-footer {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 0.9em;
+			color: #777;
+			position: relative;
+		}
+
+		.milestone-actions {
+			font-weight: bold;
+			font-size: 15px;
+			color: #000;
+		}
+
+		.milestone-action-button {
+			background-color: #00c4cc;
+			color: white;
+			border: none;
+			padding: 4px 8px;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 1em;
+		}
+
+		/* Dropdown Menu */
+		.dropdown-menu-milestone {
+			display: none;
+			position: absolute;
+			top: 30px;
+			right: 0 !important;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			z-index: 1;
+			width: 150px;
+		}
+
+		.dropdown-item-milestone {
+			padding: 3px 10px;
+			font-size: 0.9em;
+			color: #333;
+			cursor: pointer;
+		}
+
+		.dropdown-item-milestone:hover {
+			background-color: #f0f0f0;
+		}
+
+
+		.horizontal-milestone {
+			margin: 5px 0px 5px 0px;
+
+		}
+
+		.milestone-status.btn-style-status button {
+			color: #fff;
+			background-color: grey;
+			padding: 5px 10px;
+			border-radius: 5px;
+			border: none;
+		}
+
+		.milestone-status.completed {
+			color: green;
+		}
+
+		.milestone-status.cancel-request {
+			color: orange;
+		}
+
+
+		/* Responsive */
+		@media (max-width: 768px) {
+			.mobile_details_milestone {
+				display: block;
+			}
+
+			.desktop_details_milestone {
+				display: none;
+			}
+		}
+
+		@media (min-width: 769px) {
+			.mobile_details_milestone {
+				display: none;
+			}
+
+			.desktop_details_milestone {
+				display: block;
+			}
+		}
+
+		.custom-btn-styling {
+			color: #fff;
+			background-color: grey;
+			padding: 5px 10px;
+			border-radius: 5px;
+			border: none;
+		}
+
+		.bg-danger-color {
+			background-color: #f5c6cb;
+		}
+	</style>
+	<style>
+		.new_form_designinner {
+			width: auto;
+			max-width: 550px;
+			background-color: #f7f7f7;
+			border-radius: 10px;
+			margin: 8rem auto;
+			padding: 2rem;
+		}
+
+		.new_form_designinner2 {
+			width: auto;
+			display: none;
+			max-width: 550px;
+			background-color: #f7f7f7;
+			border-radius: 10px;
+			margin: auto;
+			padding: 2rem;
+		}
+
+		/* Mobile view adjustment with !important */
+		@media (max-width: 768px) {
+			.new_form_designinner {
+				margin: 9rem 2rem 0px 2rem !important;
+			}
+		}
+
+		.close_miles_form_span {
+			border: 1px solid;
+			padding: 5px 10px 1px;
+			float: inline-end;
+			/* color: #000; */
+			font-weight: 100;
+			border-radius: 5px;
+			/* background-color: black; */
+		}
+
+		.task-input-field-design {
+			box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+				rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+			border: none;
+			border-radius: 5px;
+		}
+
+		.task-title-label-design {
+			color: gray;
+			font-weight: 600;
+		}
+
+		.create-milestone-title-n:hover {
+			color: #00cedc !important;
+		}
+
+		.milestone-d-action-drop {
+			padding: 10px;
+		}
+	</style>
+
 	<!-- Include the PayPal JavaScript SDK -->
 	<script src="https://www.paypal.com/sdk/js?client-id=<?= $paypal_client_id; ?>&disable-funding=credit,card&currency=<?= $paypal_currency_code; ?>"></script>
 
@@ -87,7 +390,7 @@ $count_offers = $get_offers->rowCount()
 				</div>
 				<?php if ($count_offers == "0") { ?>
 					<div class="card rounded-0 mb-3">
-						<div class="card-body">
+						<div class="card-body bg-danger-color">
 							<h3 class="text-center">
 								<i class="fa fa-frown-o"></i> Unfortunately, no offers yet. Please wait a little longer.
 							</h3>
@@ -216,33 +519,31 @@ $count_offers = $get_offers->rowCount()
 												</div>
 												<hr>
 
-												<div class="form_milestone_div">
-													<div class="milestone_form_display">
-														<form method="post">
-															<h4 class="mb-4"><u>Create Milestone</u></h4>
-															<div class="row">
-																<div class="col-md-12">
-																	<label for="">Task Title</label><br>
-																	<input class="col-md-12 p-2" type="text" name="task_title" id="" required><br>
-																</div>
-																<div class="col-md-12">
-																	<label for="">Task Description</label><br>
-																	<input class="col-md-12 p-2" type="text" name="task_description" id="" required><br>
-																</div>
-																<div class="col-md-6 mt-3">
-																	<label for="">Task Amount ( In $ )</label> <br>
-																	<input class="col-md-12 p-2" type="number" name="task_amount" id="" required><br>
-																</div>
-																<div class="col-md-6 mt-3">
-																	<label for="">Delivery Time</label><br>
-																	<input class="col-md-12 p-2" type="number" name="delivery_time" id="" required><br>
-																</div>
+												<div class="new_form_designinner2 milestone_form_display">
+													<form method="post">
+														<h4 class="mb-4"><u>Create Milestone</u></h4>
+														<div class="row">
+															<div class="col-md-12">
+																<label for="" class="task-title-label-design">Task Title</label><br>
+																<input class="col-md-12 p-2 task-input-field-design" type="text" name="task_title" placeholder="Enter your task" id="" required>
 															</div>
-															<div class="w-100 d-flex pt-5 pb-2">
-																<button type="submit" class="m-auto submit_milestone_btn_style" name="submit_milestone">Submit</button>
+															<div class="col-md-12 mt-3">
+																<label for="" class="task-title-label-design">Task Description</label><br>
+																<input class="col-md-12 p-2 task-input-field-design" type="text" name="task_description" placeholder="Enter your description" id="" required>
 															</div>
-														</form>
-													</div>
+															<div class="col-md-6 mt-3">
+																<label for="" class="task-title-label-design">Task Amount ( In $ )</label> <br>
+																<input class="col-md-12 p-2 task-input-field-design" type="number" name="task_amount" placeholder="Enter your amount" id="" required>
+															</div>
+															<div class="col-md-6 mt-3">
+																<label for="" class="task-title-label-design">Delivery Time</label><br>
+																<input class="col-md-12 p-2 task-input-field-design" type="number" name="delivery_time" placeholder="Enter your delivery time" id="" required>
+															</div>
+														</div>
+														<div class="w-100 d-flex pt-5">
+															<button type="submit" class="m-auto submit_milestone_btn_style" name="submit_milestone">Submit</button>
+														</div>
+													</form>
 												</div>
 												<div class="full_payment_btn_display form_milestone_div_btn" style="display:none;">
 													<h4 class="mb-3"><u>Full Payment</u></h4>
@@ -361,9 +662,89 @@ $count_offers = $get_offers->rowCount()
 
 	// $fetchAllMiles->$task_description;
 	?>
+	<div class="page-container mobile_details_milestone p-3">
+		<h2 class="mb-3 text-center">Milestone Details </h2>
+		<?php
+		$display_milestone_sec = $db->select("milestone", array("seller_id" => $login_seller_id));
+		if ($display_milestone_sec->rowCount() > 0) {
+			while ($fetch_milestone_sec = $display_milestone_sec->fetch()) {
+				$task_amount = $fetch_milestone_sec->task_amount;
+				$delivery_time = $fetch_milestone_sec->delivery_time;
+				$task_description = $fetch_milestone_sec->task_description;
+				$request_id = $fetch_milestone_sec->request_id;
+				$sender_id = $fetch_milestone_sec->sender_id;
+				$proposal_id = $fetch_milestone_sec->proposal_id;
+				$offer_id = $fetch_milestone_sec->offer_id;
+				$task_title = $fetch_milestone_sec->task_title;
+				$milestone_id = $fetch_milestone_sec->milestone_id;
+				$milestone_status = $fetch_milestone_sec->milestone_status;
+				$order_number = $fetch_milestone_sec->order_number;
+				$order_id = $fetch_milestone_sec->order_id;
+				$buyer_requests_miles_sec = $db->select("buyer_requests", array("request_id" => $request_id));
+				$fetch_buyer_miles_req_sec = $buyer_requests_miles_sec->fetch();
+				$request_title = $fetch_buyer_miles_req_sec->request_title;
+		?>
 
-	<div class="width_ninty_percent">
+				<!-- Mobile-only Card Format -->
+				<div class="milestone-card">
+					<!-- Job Title Row -->
+					<div class="milestone-card-row">
+						<p class="milestone-header-title">Job:</p>
+						<p class="milestone-job-title"><?= $request_title; ?></p>
+					</div>
+					<!-- Milestone Title Row -->
+					<div class="milestone-card-row">
+						<p class="milestone-header-title">Milestone:</p>
+						<p class="milestone-title"><?= $task_title; ?></p>
+					</div>
+					<!-- Milestone Description Row -->
+					<div class="milestone-card-row">
+						<p class="milestone-header-title">Desc:</p>
+						<p class="milestone-description"><?= $task_description; ?></p>
+					</div>
+					<!-- Details Section -->
+					<div class="milestone-card-details">
+						<div class="milestone-card-item">
+							<span class="milestone-icon w-75px">Amount: </span>
+							<span class="milestone-amount">$<?= $task_amount; ?></span>
+						</div>
+						<div class="milestone-card-item">
+							<span class="milestone-icon ml-5">Delivery Time:</span>
+							<span class="milestone-date"><?= $delivery_time; ?> Days</span>
+						</div>
+					</div>
+					<!-- Status Row -->
+					<div class="milestone-card-row-status">
+						<p class="milestone-header-title">Status:</p>
+						<p class="milestone-status btn-style-status">
+							<?php
+							$milestone_view_status = ($milestone_status == "not paid") ? '<button class="order-now-' . $milestone_id . '">Order Now</button>' : $milestone_status;
+							echo $milestone_view_status;
+							?></p> <!-- Add "completed" or "cancel-request" for other statuses -->
+					</div>
+					<hr class="horizontal-milestone">
+					<!-- Actions Section -->
 
+					<div class="milestone-card-footer">
+						<p class="milestone-actions">Actions</p>
+
+						<div class="custom-dropdown-code">
+							<button class="custom-btn custom-btn-success custom-dropdown-code-toggle" onclick="toggleDropdownCustom()">▼</button>
+							<div class="custom-dropdown-code-menu">
+								<p class="mb-0"><a href="<?= $site_url; ?>/customer_support?enquiry_id=1&order_number=<?= $order_number ?>">Dispute</a></p>
+								<p class="mb-0"><a href="<?= $site_url; ?>/order_details?order_id=<?= $order_id ?>">Payment Release</a></p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+		<?php }
+		} ?>
+	</div>
+
+
+
+	<div class="width_ninty_percent desktop_details_milestone">
 		<h4 class="mb-3">Milestone Details </h4>
 		<div class="table-responsive box-table box-shadow-req-act p-2">
 			<table class="table table-bordered">
@@ -403,14 +784,14 @@ $count_offers = $get_offers->rowCount()
 								<td><?= $delivery_time; ?> </td>
 								<td>
 									<?php
-									$status_milestone = ($milestone_status == 'not paid') ? '<button id="order-now-' . $milestone_id . '">Order Now</button>' : $milestone_status;
+									$status_milestone = ($milestone_status == 'not paid') ? '<button class="custom-btn-styling" id="order-now-' . $milestone_id . '">Order Now</button>' : $milestone_status;
 									?>
 									<?= $status_milestone; ?>
 								</td>
 								<td>
 									<div class="dropdown">
 										<button class="btn btn-success dropdown-toggle" data-toggle="dropdown"></button>
-										<div class="dropdown-menu" id="drop_list_miles">
+										<div class="dropdown-menu px-2" id="drop_list_miles">
 											<p class="mb-2" onclick="newFormDesignFunc()">Create Milestone</p>
 											<p class="mb-2"><a href="<?= $site_url ?>/customer_support?enquiry_id=1&order_number=<?= $order_number ?>">Dispute</a></p>
 											<p class="mb-2"><a href="">Payment Release</a></p>
@@ -452,7 +833,7 @@ $count_offers = $get_offers->rowCount()
 				</tbody>
 			</table>
 
-			<div class="new_form_design" id="new_form_design">
+			<!-- <div class="new_form_design" id="new_form_design">
 				<div class="new_form_designinner">
 					<div class="form_milestone_div">
 						<div class="milestone_form_display">
@@ -483,6 +864,39 @@ $count_offers = $get_offers->rowCount()
 						</div>
 					</div>
 				</div>
+			</div> -->
+
+			<div class="new_form_design" id="new_form_design">
+				<div class="new_form_designinner">
+					<div class="form_milestone_div">
+						<div class="milestone_form_display">
+							<form method="post">
+								<h4 class="mb-4"><u>Create Milestone</u> <span class="close_miles_form_span" onclick="closeNewDesignForm()"> X </span></h4>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="" class="task-title-label-design">Task Title</label><br>
+										<input class="col-md-12 p-2 task-input-field-design" type="text" name="task_title" placeholder="Enter Your Task" id="" required>
+									</div>
+									<div class="col-md-12 mt-3">
+										<label for="" class="task-title-label-design">Task Description</label><br>
+										<input class="col-md-12 p-2 task-input-field-design" type="text" name="task_description" placeholder="Enter Your description" id="" required>
+									</div>
+									<div class="col-md-6 mt-3">
+										<label for="" class="task-title-label-design">Task Amount ( In $ )</label> <br>
+										<input class="col-md-12 p-2 task-input-field-design" type="number" name="task_amount" placeholder="Enter Your amount" id="" required>
+									</div>
+									<div class="col-md-6 mt-3">
+										<label for="" class="task-title-label-design">Delivery Time</label><br>
+										<input class="col-md-12 p-2 task-input-field-design" type="number" name="delivery_time" placeholder="Enter Your delivery time" id="" required>
+									</div>
+								</div>
+								<div class="w-100 d-flex pt-5 pb-3">
+									<button type="submit" class="m-auto submit_milestone_btn_style" name="submit_milestone">Submit</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -503,6 +917,22 @@ $count_offers = $get_offers->rowCount()
 		}
 	</script>
 
+	<script>
+		function displayMileStoneForm() {
+			var position_fixed_div = document.getElementById("position_fixed_div");
+			position_fixed_div.style.display = "block";
+		}
+
+		function displayNoneMileStoneForm() {
+			var position_fixed_div = document.getElementById("position_fixed_div");
+			position_fixed_div.style.display = "none";
+		}
+
+		function toggleDropdownCustom() {
+			const dropdown = document.querySelector('.custom-dropdown-code');
+			dropdown.classList.toggle('open');
+		}
+	</script>
 	<div id="append-modal"></div>
 	<?php require_once("../includes/footer.php"); ?>
 </body>

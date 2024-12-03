@@ -29,22 +29,21 @@ if (isset($_GET['search'])) {
 		<form action="post-idea" method="post">
 			<div class="form-group">
 				<!--- form-group Starts --->
-				<h5 class="<?= $textRight; ?>"> I suggest you ...</h5>
+				<h5 class="<?= $textRight; ?> mb-3"> I suggest you ...</h5>
 				<div class="input-group mb-3">
 					<?php if ($lang_dir == "right") { ?>
-						<div class="input-group-addon bg-success">
-							<button class="btn bg-transparent text-white rounded-right" name="post_idea" type="submit">Post idea</button>
+						<div class="input-group-addon px-1 bg-success">
+							<button class="bg-transparent no_border text-white rounded-right" name="post_idea" type="submit">Post idea</button>
 						</div>
 						<input type="text" name="title" class="form-control form-control-lg  text-right" placeholder="Enter your idea" required />
 					<?php } else { ?>
 						<input type="text" name="title" class="form-control form-control-lg" placeholder="Enter your idea" required />
-						<div class="input-group-addon bg-success">
+						<div class="input-group-addon px-2 bg-success">
 							<?php if (isset($_SESSION['seller_user_name'])) { ?>
-								<button class="btn bg-transparent text-white rounded-right" name="post_idea" type="submit">Post idea</button>
+								<button class="bg-transparent no_border text-white rounded-right" name="post_idea" type="submit">Post idea</button>
 							<?php } else { ?>
-								<button class="btn bg-transparent text-white rounded-right" data-toggle="modal" data-target="#login-modal" type="button">Post idea</button>
+								<button class="bg-transparent no_border text-white rounded-right" data-toggle="modal" data-target="#login-modal" type="button">Post idea</button>
 							<?php } ?>
-
 						</div>
 					<?php } ?>
 				</div>

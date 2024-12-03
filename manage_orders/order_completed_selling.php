@@ -1,16 +1,32 @@
 <style>
-@media (max-width:768px){
-	.font-size-3 {
-				font-size: 13px !important;
-				padding: 10px !important;
-			}
+	@media (max-width:767px) {
+		.font-size-3 {
+			font-size: 13px !important;
+			padding: 10px !important;
 		}
-		.box-shadow-order-1{
-		/* box-shadow: 0px 0px 2px gray; */
+
+		.mobile_view_only_completed {
+			display: block;
+		}
+
+		.desktop_view_only_completed {
+			display: none;
+		}
+	}
+
+	@media (min-width:768px) {
+
+		.mobile_view_only_completed {
+			display: none;
+		}
+
+		.desktop_view_only_completed {
+			display: block;
+		}
 	}
 </style>
 <div class="table-responsive box-table mt-3">
-	<table class="table table-bordered" id="orderSellerCompleted">
+	<table class="table table-bordered desktop_view_only_completed" id="orderSellerCompleted">
 		<thead>
 			<tr>
 				<th class="font-size-3"><?= $lang['th']['order_summary']; ?></th>
@@ -28,6 +44,9 @@
 			</tr>
 		</tbody>
 	</table>
+	<div id="orderCompletedSellingSmall" class="mobile_view_only_completed">
+
+	</div>
 	<nav id="pagination-seller-order-completed" aria-label="Active order navigation">
 	</nav>
 </div>
@@ -45,6 +64,7 @@
 				}
 			}).done(function(data) {
 				$('body #orderSellerCompleted tbody').html(data.data);
+				$('#orderCompletedSellingSmall').html(data.dataCard4);
 				$('body #pagination-seller-order-completed').html(data.pagination);
 				$('body #wait').removeClass("loader");
 			});

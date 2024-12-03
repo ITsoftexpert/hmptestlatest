@@ -12,7 +12,7 @@
     color: #00c8d4;
     text-decoration: none;
 
-  }
+  } 
 </style>
 <div class="sub_header col-xs-12 sm-hidden box-shadow-cat-nav">
   <div class="sub_header_inner row">

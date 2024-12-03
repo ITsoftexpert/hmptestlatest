@@ -137,7 +137,7 @@ if (empty($payout_anyday) and $login_seller_payouts == 0 and date("d") <= $payou
         margin-right: -9px !important;
       }
        .alter-margin-padding{
-      /* margin-top:rem; */
+      margin-top:120px;
       padding-top: 15px;
       padding-bottom: 15px;
     }

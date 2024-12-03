@@ -101,12 +101,12 @@ if ($delivery_extension_query) {
             <div class="delivery_extension_received_inner">
                 <form method="post" class="form_extension_style">
                     <h2 class="heading_two_style mb-4"><u>Delivery Extend Request From Seller</u></h2>
-                    <p class="mb-1"><b>Order Number : </b> <?= $order_number; ?></p>
-                    <p class="mb-1"><b>Extend Delivery Duration : </b> <?= $order_duration_extend; ?>days</p>
-                    <p class="mb-1"><b>Extend Delivery Date : </b> <?= $order_date_extend; ?></p>
-                    <p class="mb-1"><b>Extend Delivery Time: </b> <?= $order_time_extend; ?></p>
-                    <p class="mb-1"><b>Extend Reason : </b> <?= $extend_reason; ?></p>
-                    <p class="mb-4"><b>Extend Delivery Message : </b> <?= $extend_delivery_message; ?></p>
+                    <p class="mb-1"><b>Order Number </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;<?= $order_number; ?></p>
+                    <p class="mb-1"><b>Extended Duration </b>&nbsp;&nbsp;:&nbsp;&nbsp; <?= $order_duration_extend; ?>days</p>
+                    <p class="mb-1"><b>Extended Date </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; <?= $order_date_extend; ?></p>
+                    <p class="mb-1"><b>Extended Time </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<?= $order_time_extend; ?></p>
+                    <p class="mb-1"><b>Extended Reason </b> &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<?= $extend_reason; ?></p>
+                    <p class="mb-4"><b>Extended Message </b>&nbsp;&nbsp;:&nbsp;&nbsp; <?= $extend_delivery_message; ?></p>
 
                     <input type="hidden" name="order_duration_extend" value="<?= $order_duration_extend ?> days" id="">
                     <input type="hidden" name="order_date_extend" value="<?= $order_date_extend ?>" id="">
@@ -201,7 +201,9 @@ if (isset($_POST['submit_extend_result'])) {
                 "order_status" => $extend_result
             ), array("order_id" => $order_id));
             $db->update("milestone", array(
-                "milestone_status" => $extend_result, "order_id" => $order_id), array("milestone_id" => $milestone_id));
+                "milestone_status" => $extend_result,
+                "order_id" => $order_id
+            ), array("milestone_id" => $milestone_id));
 
             $data = [];
             $data['template'] = "delivery_extent_req_rejected";

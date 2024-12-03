@@ -7,11 +7,7 @@
 <?php } ?>
 <br>
 <?php if($enable_tazapay == "yes"){ ?>
-    <form action="checkout_order_tazapay" method="post" id="tazpay-form">
-        <button class="btn btn-lg btn-success btn-block" type="submit" name="checkout_submit_order">
-            <?= $lang['button']['pay_with_tazapay']; ?>
-        </button>
-    </form>
+  
 <?php } ?>
 
 <?php if($enable_paypal == "yes"){ ?>

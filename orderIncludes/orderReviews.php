@@ -33,30 +33,24 @@ if ($count_seller_reviews == 1) {
     $seller_image = getImageUrl2("sellers", "seller_image", $row_seller->seller_image);
 }
 
-$count_all_reviews = "$count_buyer_reviews$count_seller_reviews";
+$count_all_reviews = $count_buyer_reviews + $count_seller_reviews;
 if ($count_all_reviews == "00") {
 } else {
 
 ?>
 
     <div class="card rounded-0 mt-3">
-
         <div class="card-header bg-fivGrey">
-
             <h5 class="text-center mt-2">
-                <img src="images/svg/reviews.svg" class="mr-1 order-icon" /> Order Reviews
+                <img src="images/svg/reviews.svg" width="35%" class="mr-1 order-icon" />
             </h5>
-
+            <h4 class="text-center text-dark">Order Reviews</h4>
         </div>
 
         <div class="card-body">
-
             <div class="proposal-reviews">
-
                 <ul class="reviews-list">
-
                     <?php if (!$count_buyer_reviews == 0) { ?>
-
                         <li class="star-rating-row">
 
                             <span class="user-picture">
@@ -98,25 +92,15 @@ if ($count_all_reviews == "00") {
                             <span class="rating-date"><?= $review_date; ?> </span>
 
                         </li>
-
                         <hr class="mb-4">
-
                     <?php } ?>
-
                     <?php if (!$count_seller_reviews == 0) { ?>
-
                         <li class="rating-seller">
-
                             <h4>
-
                                 <span class="mr-1">Seller's Feedback</span>
-
                                 <?php
-
                                 for ($seller_i = 0; $seller_i < $seller_rating; $seller_i++) {
-
-                                    echo "<img src='images/user_rate_full.png'>";
-                                }
+                                    echo "<img src='images/user_rate_full.png'>";                                }
 
                                 for ($seller_i = $seller_rating; $seller_i < 5; $seller_i++) {
 
@@ -427,4 +411,4 @@ if ($count_all_reviews == "00") {
 
     <?php } ?>
 
-<?php } ?>
+<?php }  ?>

@@ -42,6 +42,7 @@ $query = $db->query($sQuery, $sBind);
 if ($rowCount > 0) {
     //Display records fetched from database.
     $data = "";
+    $cardData = "";
     if ($status == 'modification') {
         while ($oResult = $query->fetch()) { //fetch values
             $request_id = $oResult->request_id;
@@ -72,6 +73,35 @@ if ($rowCount > 0) {
             </div>
         </td>';
             $data .= "</tr>";
+
+            //  card format code
+            $cardData .= '<div class="order-card">';
+            $cardData .= '    <div class="order-content">';
+            $cardData .= '        <div class="order-text">';
+            $cardData .= '            <h3 class="manage-req-heading-main"> <b> Title: </b> ' . $request_title . '</h3>';
+            $cardData .= '            <div class="order-info">';
+            $cardData .= '                <div class="info-container">';
+            $cardData .= '                   <p> <b>Message: </b> ' .  $modification_message . '</p>';
+            $cardData .= '                </div>';
+            $cardData .= '            </div>';
+            $cardData .= '        </div>';
+            $cardData .= '    </div>';
+            $cardData .= '<div class="" style="text-align:right;">
+                                <div class="dropdown">
+                                      <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"></button>
+                                  <div class="dropdown-menu">';
+            $cardData .= '<a href="' . $site_url . '/requests/active_request?request_id=' . $request_id . '" class="dropdown-item">
+                                                      Submit for Approval
+                                               </a>';
+            $cardData .= '<a href="' . $site_url . '/requests/edit_request?request_id=' . $request_id . '" class="dropdown-item">
+                         Edit
+                        </a>';
+            $confirm = 'Are you sure to delete this request?';
+            $cardData .= '<a href="' . $site_url . '/requests/delete_request?request_id=' . $request_id . '" class="dropdown-item" onclick="return confirm(\'Are you sure you want to delete?\');">
+                    Delete
+                </a>';
+            $cardData .= '</div>';
+            $cardData .= '</div>';
         }
     } else {
         while ($oResult = $query->fetch()) { //fetch values
@@ -84,7 +114,7 @@ if ($rowCount > 0) {
             $order_id = $individual_order_id->order_id;
             $count_offers = $db->count("send_offers", array("request_id" => $request_id, "status" => 'active'));
             $data .= "<tr>";
-            $data .= "<td>" . '<a href="'. $site_url . '/order_details?order_id='. $order_id .'">'. $request_title .  $request_id . "</td>";
+            $data .= "<td>" . '<a href="' . $site_url . '/order_details?order_id=' . $order_id . '">' . $request_title .  $request_id . "</td>";
             $data .= "<td class='desc-wrap'>" . $request_description . "</td>";
             $data .= "<td>" . $request_date . "</td>";
             $data .= "<td>" . $count_offers . "</td>";
@@ -115,6 +145,51 @@ if ($rowCount > 0) {
             </div>
         </td>';
             $data .= "</tr>";
+
+            // card format code
+            $cardData .= '<div class="order-card">';
+            $cardData .= '    <div class="order-content">';
+            $cardData .= '        <div class="order-text">';
+            $cardData .= '            <h3 class="manage-req-heading-main">' . $request_title . '</h3>';
+            $cardData .= '            <div class="order-info">';
+            $cardData .= '                <div class="info-container">';
+            $cardData .= '                    <div class="info-item">';
+            $cardData .= '                        <i class="fas fa-calendar"></i> ' . date("F j, Y", strtotime($request_date)) . ' ';
+            $cardData .= '                        <span class="heading">date</span>';
+            $cardData .= '                    </div>';
+            $cardData .= '                    <div class="info-item">';
+            $cardData .= '                        <i class="fas fa-gift"></i> ' . $count_offers;
+            $cardData .= '                        <span class="heading">offer</span>';
+            $cardData .= '                    </div>';
+            $cardData .= '                    <div class="info-item">';
+            $cardData .= '                        <i class="fa-solid fa-sack-dollar"></i> ' . showPrice($request_budget) . ' ';
+            $cardData .= '                        <span class="heading">Budget</span>';
+            $cardData .= '                    </div>';
+            $cardData .= '                </div>';
+            $cardData .= '            </div>';
+            $cardData .= '        </div>';
+            $cardData .= '    </div>';
+
+            $cardData .= '<div class="" style="text-align:right;">';
+            $cardData .= '    <div class="dropdown">';
+            $cardData .= '        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"></button>';
+            $cardData .= '        <div class="dropdown-menu">';
+
+            if ($status == 'active') {
+                $cardData .= '            <a href="' . $site_url . '/requests/view_offers?request_id=' . $request_id . '" target="blank" class="dropdown-item">View Offers</a>';
+                $cardData .= '            <a href="' . $site_url . '/requests/pause_request?request_id=' . $request_id . '" class="dropdown-item">Pause</a>';
+            }
+            if ($status == 'pause') {
+                $cardData .= '            <a href="' . $site_url . '/requests/active_request?request_id=' . $request_id . '" class="dropdown-item">Submit for Approval</a>';
+            }
+            $cardData .= '            <a href="' . $site_url . '/requests/edit_request?request_id=' . $request_id . '" class="dropdown-item">Edit</a>';
+            $confirm = 'Are you sure to delete this request?';
+            $cardData .= '            <a href="' . $site_url . '/requests/delete_request?request_id=' . $request_id . '" class="dropdown-item" onclick="return confirm(\'Are you sure you want to delete?\');">Delete</a>';
+
+            $cardData .= '        </div>';
+            $cardData .= '    </div>';
+            $cardData .= '</div>';
+            $cardData .= '</div>';
         }
     }
     $paginationData = paginate($limit, $pageNumber, $rowCount, $totalPages);
@@ -134,5 +209,5 @@ if ($rowCount > 0) {
     $paginationData = null;
 }
 header("Content-type: application/json");
-echo json_encode(["data" => $data, "pagination" => $paginationData]);
+echo json_encode(["data" => $data, "cardData" => $cardData, "pagination" => $paginationData]);
 exit;

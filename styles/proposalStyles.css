@@ -252,7 +252,7 @@ box-sizing: border-box;
 width: 100%;
 }
 .btn-order.primary{
-background-color: #27ae60;
+/* background-color: #27ae60; */
 }
 .btn-order.referral{
 background-color: #0069ff;

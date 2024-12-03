@@ -287,7 +287,7 @@ require_once("functions/functions.php");
               city.removeClass('d-none');
               if (city.length) {
                 cities[iKey] = city_name;
-                console.log(city_name);
+                // console.log(city_name);
               }
               iKey++;
             };

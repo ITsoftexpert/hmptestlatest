@@ -1,12 +1,43 @@
 <?php
-if ($order_status == "Delivery accepted") {
+if ($order_status == "delivery_accepted") {
   include_once("realease_pay_ment.php");
 }
 ?>
+<style>
+  @media(max-width:1024px) {
+    .styling_sticky_status_bar {
+      margin-top: 8.1rem;
+    }
+  }
 
+  @media(max-width:1041px) and (min-width:1024px) {
+    .styling_sticky_status_bar {
+      margin-top: 14rem;
+    }
+  }
+
+  @media(max-width:1116px) and (min-width:1042px) {
+    .styling_sticky_status_bar {
+      margin-top: 13.2rem;
+    }
+  }
+
+  @media(max-width:1146px) and (min-width:1117px) {
+    .styling_sticky_status_bar {
+      margin-top: 12.2rem;
+    }
+  }
+
+
+  @media(min-width:1147px) {
+    .styling_sticky_status_bar {
+      margin-top: 10.8rem;
+    }
+  }
+</style>
 
 <?php if ($order_status == "pending" or $order_status == "progress" or $order_status == "delivered" or $order_status == "revision requested" or $order_status == "cancellation requested" or $order_status) { ?>
-  <div id="order-status-bar" style="margin-top: 151px;">
+  <div id="order-status-bar" class="styling_sticky_status_bar">
     <div class="container">
       <div class="row">
         <div class="col-md-10 offset-md-1">
@@ -40,7 +71,7 @@ if ($order_status == "Delivery accepted") {
     </div>
   </div>
 <?php } elseif ($order_status == "cancelled") { ?>
-  <div id="order-status-bar" style="margin-top: 151px;">
+  <div id="order-status-bar" class="styling_sticky_status_bar">
     <div class="container">
       <div class="row">
         <div class="col-md-10 offset-md-1">
@@ -56,7 +87,7 @@ if ($order_status == "Delivery accepted") {
   </div>
 
 <?php } elseif ($order_status == "completed") { ?>
-  <div id="order-status-bar" class="completed text-white" style="margin-top: 151px;">
+  <div id="order-status-bar" class="completed text-white styling_sticky_status_bar">
     <div class="row">
       <!--  <div class="col-md-10 offset-md-1"> -->
       <div class="container">

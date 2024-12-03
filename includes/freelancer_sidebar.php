@@ -56,11 +56,11 @@ if (isset($_GET['seller_skill'])) {
 		<button class="btn btn-secondary btn-sm <?= ($lang_dir == "right" ? 'float-left' : 'float-right') ?> clear_seller_skill clearlink" onclick="clearSkill()">
 			<?= $lang['sidebar']['clear_filter']; ?>
 		</button>
-	</div>	
+	</div>
 	<div class="card-body box-shadow-freelancer-sb">
 		<ul class="nav flex-wrap flex-row">
 			<?php
-			$qSkills = $db->select("seller_skills");
+			$qSkills = $db->query("SELECT * FROM seller_skills ORDER BY RAND() LIMIT 10");
 			$tSkills = $qSkills->rowCount();
 			if ($tSkills > 0) {
 				while ($oSkill = $qSkills->fetch()) {
@@ -68,17 +68,17 @@ if (isset($_GET['seller_skill'])) {
 					$tagId = $oSkill->skill_id;
 					if (!empty($tagTitle)) {
 			?>
-					<li class="nav-item col-12 checkbox checkbox-success">
-						<label>
-							<input type="checkbox" value="<?= $tagId; ?>" name="sellerSkills" class="get_seller_skill" <?php if (isset($sellerSkills["$tagId"])) {
-																													echo "checked";
-																												} ?>>
-							<span><?= $tagTitle; ?></span>
-						</label>
-					</li>
+						<li class="nav-item col-12 checkbox checkbox-success">
+							<label>
+								<input type="checkbox" value="<?= $tagId; ?>" name="sellerSkills" class="get_seller_skill" <?php if (isset($sellerSkills["$tagId"])) {
+																																echo "checked";
+																															} ?>>
+								<span><?= substr($tagTitle, 0, 35); ?><?= strlen($tagTitle) > 35 ? "..." : ""; ?></span>
+							</label>
+						</li>
 			<?php }
-			}
-		}?>
+				}
+			} ?>
 		</ul>
 	</div>
 </div>

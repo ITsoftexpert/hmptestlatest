@@ -9,24 +9,45 @@
     </h2>
   <?php } ?>
   <div id="countdown-timer">
-    <div class="row"> 
-      <div class="col-lg-3 col-md-6 col-sm-6 countdown-box">
-        <p class="countdown-number" id="days"></p>
-        <p class="countdown-title">Day(s)</p>       
+    <div class="d-flex">
+      <div class="col-lg-3 col-md-3 col-3 px-2 countdown-box">
+        <p class="countdown-number style_counter_data" id="days"></p>
+        <p class="countdown-title style_counter_data2">Day(s)</p>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 countdown-box">
-        <p class="countdown-number" id="hours"></p>
-        <p class="countdown-title">Hours</p>
+      <div class="col-lg-3 col-md-3 col-3 px-2 countdown-box">
+        <p class="countdown-number style_counter_data" id="hours"></p>
+        <p class="countdown-title style_counter_data2">Hours</p>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 countdown-box">
-        <p class="countdown-number" id="minutes"></p>
-        <p class="countdown-title">Minutes</p>
+      <div class="col-lg-3 col-md-3 col-3 px-2 countdown-box">
+        <p class="countdown-number style_counter_data" id="minutes"></p>
+        <p class="countdown-title style_counter_data2">Minutes</p>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 countdown-box">
-        <p class="countdown-number" id="seconds"></p>
-        <p class="countdown-title">Seconds</p>
+      <div class="col-lg-3 col-md-3 col-3 px-2 countdown-box">
+        <p class="countdown-number style_counter_data" id="seconds"></p>
+        <p class="countdown-title style_counter_data2">Seconds</p>
       </div>
     </div>
   </div>
 <?php } ?>
 
+<style>
+  .style_counter_data {
+    border: 2px solid #ebebeb;
+    text-align: center;
+    margin-bottom: 0px;
+    padding: 5px;
+    border-radius:5px 5px 0 0;
+    font-size: 19px;
+
+  }
+
+  .style_counter_data2 {
+    background-color:#00cedc;
+    color: white;
+    text-align: center;
+    margin-bottom: 0px;
+    padding: 5px;
+    font-size: 19px;
+    border-radius:0 0 5px 5px;
+  }
+</style>

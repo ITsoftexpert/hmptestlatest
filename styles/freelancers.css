@@ -87,13 +87,18 @@ figure {
   width: 87px !important;
 }
 
-.wt-userdropdown {
-  bottom: -6px;
-  right: -12px;
-  width: 48px;
-  height: 48px;
-  position: absolute;
-  cursor: pointer;
+.wt-userdropdown {   
+    top: -12px;   
+    left: -12px;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.wt-userdropdown img{
+  height: 50px !important;
+  width: 50px !important;
 }
 
 /* Seller Rating */

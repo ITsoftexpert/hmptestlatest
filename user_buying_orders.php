@@ -98,43 +98,74 @@
         /* Optional: adds space between the label and the badge */
     }
 
-    .dropnitinbuyer {
+    .dropcarvelbuyer {
         background-color: #fff;
         width: 100%;
         transform: translate3d(0px, 46px, 0px) !important;
     }
 </style>
 <ul class="nav nav-tabs flex-column flex-sm-row box-shadow-buyer-order">
-
-    <!-- Dropdown for smaller screens -->
     <li class="nav-item dropdown d-block d-sm-none">
-        <a class="dropdown-toggle nav-link respo_drop_toggle make-black padding-13 text-blue" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="dropdown-toggle nav-link respo_drop_toggle make-black padding-13 text-blue" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Manage Proposals
-        </a>
-        <div class="dropdown-menu dropnitinbuyer" aria-labelledby="navbarDropdown">
+        </button>
+        <div class="dropdown-menu dropcarvelbuyer dropdown-menu-display" aria-labelledby="navbarDropdown">
             <?php
             $statuses = ['active', 'delivered', 'completed', 'cancelled', 'all'];
-            $active_label = $lang['tabs']['active']; // Assuming this is the label for active
-
             foreach ($statuses as $status) {
                 $count_orders = $db->count("orders", array("buyer_id" => $login_seller_id, "order_status" => $status));
-                $label = $lang['tabs'][$status]; // Dynamic label
-
+                $label = $lang['tabs'][$status];
+                $active_class = $status == 'active' ? 'active' : '';
                 echo "
-            <a class='dropdown-item' href='#$status' data-status='$status'>
-                <span class='status-label'>$label</span> 
-                <span class='badge badge-success'>$count_orders</span>
-                <span class='check-icon' style='display:none;'>✔️</span>
-            </a>";
+                <a class='dropdown-item respo_drop_item' href='#$status' data-toggle='tab'>
+                    <span class='status-label'>$label</span> 
+                    <span class='badge badge-success'>$count_orders</span>
+                    <span class='check-icon' style='display:none;'>✔️</span>                    
+                </a>";
             }
             ?>
-            <div class="dropdown-divider"></div>
-            <button id="confirmSelection" class="btn btn-primary btn-block">OK</button>
         </div>
     </li>
 
-    <!-- Add this JavaScript code to handle selection and confirmation -->
     <script>
+        $(document).ready(function() {
+            // Set the dropdown label to "active" by default
+            $('#navbarDropdown').text('Manage Proposals (Active)');
+
+            // Handle dropdown item click
+            $('.dropdown-item').on('click', function(e) {
+                // e.preventDefault(); // Prevent default anchor behavior
+
+                // Get selected item text and update dropdown button label
+                const selectedText = $(this).find('.status-label').text().trim();
+                $('#navbarDropdown').text(selectedText);
+
+                // Show corresponding tab content
+                const targetTab = $(this).attr('href');
+                $('.dropdown-menu-display').removeClass('show'); // This line closes the dropdown
+                $('#navbarDropdown').attr('aria-expanded', 'false'); // Update ARIA attribute
+
+            });
+
+            // Toggle the dropdown menu on button click
+            $('#navbarDropdown').on('click', function(e) {
+                e.stopPropagation(); // Prevent click event from bubbling
+                $('.dropdown-menu-display').toggleClass('show');
+                $(this).attr('aria-expanded', $('.dropdown-menu-display').hasClass('show'));
+            });
+
+            // Close the dropdown if clicked outside
+            $(document).on('click', function() {
+                $('.dropdown-menu-display').removeClass('show');
+                $('#navbarDropdown').attr('aria-expanded', 'false');
+            });
+
+        });
+    </script>
+
+
+    <!-- Add this JavaScript code to handle selection and confirmation -->
+    <!-- <script>
         let selectedStatuses = [];
 
         document.querySelectorAll('.dropdown-item').forEach(item => {
@@ -167,7 +198,7 @@
                 alert('No statuses selected.');
             }
         });
-    </script>
+    </script> -->
 
 
 

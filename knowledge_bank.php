@@ -88,15 +88,14 @@ require_once("includes/db.php");
     }
 
     .container_for_faq_cat {
-      border: 1px solid #000;
+      /* border: 1px solid #000; */
       width: 85%;
       height: 220px;
       float: left;
       padding: 20px;
       margin: 20px auto;
       background-color: white;
-      box-shadow: 0px 0px 1px 1px gray;
-      /* text-align: center; */
+      box-shadow: 0px 0px 3px gray;
       border-radius: 10px;
     }
 
@@ -112,7 +111,7 @@ require_once("includes/db.php");
       text-align: center;
       padding-top: 15px;
       font-size: 17px;
-    }   
+    }
 
     .image_restyling {
       /* border: 1px solid green;   */
@@ -129,43 +128,44 @@ require_once("includes/db.php");
       width: 100%;
       /* border:1px solid green; */
     }
-    .in-line-blo-ck{
+
+    .in-line-blo-ck {
       display: flex;
       float: left;
       width: 33%;
     }
-   
-    
-    @media(max-width:768px){
-      .in-line-blo-ck{
-      display:contents;
-      float: left;
-      width: 33%;
-    }
 
-    .container_for_faq_cat {
-      border: 1px solid lightgray;
-      width: 100%;
-      height: 230px;
-      float: left;
-      padding: 20px;
-      margin: 20px auto;
-      background-color: white;
-      box-shadow: 0px 0px 1px 1px gray;
-      /* text-align: center; */
-      border-radius: 8px;
-    }
+
+    @media(max-width:768px) {
+      .in-line-blo-ck {
+        display: contents;
+        float: left;
+        width: 33%;
+      }
+
+      .container_for_faq_cat {
+        border: 1px solid lightgray;
+        width: 100%;
+        height: 230px;
+        float: left;
+        padding: 20px;
+        margin: 20px auto;
+        background-color: white;
+        box-shadow: 0px 0px 1px 1px gray;
+        /* text-align: center; */
+        border-radius: 8px;
+      }
     }
   </style>
   <?php require_once("includes/external_stylesheet.php"); ?>
-</head> 
+</head>
 
-<body style="background-color: #E4E4E4;" class="is-responsive">
+<body class="is-responsive">
   <div class="header" style="<?= ($lang_dir == "right" ? 'direction: rtl;' : '') ?>">
     <div class="container pb-4">
       <a class="navbar-brand logo text-success" href="<?= $site_url; ?>/index">
         <?php if ($site_logo_type == "image") { ?>
-          <img src="<?= $site_logo_image; ?>" width="150" style="margin-top:8%;">
+          <img src="images/orginal_safed_hmp_logo.png" width="150" style="margin-top:8%;">
         <?php } else { ?>
           <?= $site_logo_text; ?>
         <?php } ?>
@@ -196,77 +196,77 @@ require_once("includes/db.php");
   </div>
   <div class="container mt-5">
     <div class="row" style="<?= ($lang_dir == "right" ? 'direction: rtl;' : '') ?>">
-      <?php
-      $get_cats = $db->select("article_cat", array("language_id" => $siteLanguage));
-      while ($row_cats = $get_cats->fetch()) {
-        $article_cat_id = $row_cats->article_cat_id;
-        $article_cat_title = $row_cats->article_cat_title;
-      ?>
-        <div class="text-center-main-h mt-4">
-          <h3 class="make-black pb-1 "><?= $article_cat_title; ?> </h3>
-        </div>
-        <div class="col-md-12 padding-next-for-impro">
-          <div class="container_image_margin">
-            <!-- Category -->
-            <?php
-            $get_articles = "select DISTINCT * from knowledge_bank where cat_id='$article_cat_id' AND language_id='$siteLanguage'";
-            $get_articles = $db->select("knowledge_bank", array("cat_id" => $article_cat_id, "language_id" => $siteLanguage));
-            $count_articles = $get_articles->rowCount();
-            if ($count_articles == 0) {
-              echo "No articles to display at the moment.";
-            }
-            while ($row_articles = $get_articles->fetch()) {
-              $article_id = $row_articles->article_id;
-              $article_url = $row_articles->article_url;
-              $article_heading = $row_articles->article_heading;
-              $article_body = $row_articles->article_body;
-              $right_image = $row_articles->right_image;
-              $top_image = getImageUrl2("knowledge_bank", "top_image", $row_articles->top_image);
-              $bottom_image = $row_articles->bottom_image;
-            ?>
- 
-              <a href="<?= $site_url ?>/search_articles?search=<?= $article_heading; ?>" class="in-line-blo-ck" >
-                <div class="container_for_faq_cat">
-                  <p class="image_restyle_paragra">
-                    <img src="<?php echo $top_image ?>" alt="" width="100px" class="image_restyling">
-                  </p>
-                  <h6 class="text-align-center-1">
-                    <?= $article_heading; ?>
-                  </h6>
-                </div>
-              </a>
-            <?php } ?>
-          </div>
-           <!--<br><br> -->
-        <?php } ?>
-        </div>
-        <!-- <div class="col-md-9 padding-next-for-impro2">
-          <?php
-          $get_articles = "select * from knowledge_bank where cat_id='$article_cat_id' AND language_id='$siteLanguage'";
-          $get_articles = $db->select("knowledge_bank", array("cat_id" => $article_cat_id, "language_id" => $siteLanguage));
-          $count_articles = $get_articles->rowCount();
-          while ($row_articles = $get_articles->fetch()) {
-            $article_id = $row_articles->article_id;
-            $article_url = $row_articles->article_url;
-            $article_heading = $row_articles->article_heading;
-            $article_body = $row_articles->article_body;
-            $right_image = $row_articles->right_image;
-            $top_image = getImageUrl2("knowledge_bank", "top_image", $row_articles->top_image);
-            $bottom_image = $row_articles->bottom_image;
-          ?>
 
-            <div class="thirdth_div_sect">
-              <div class="fourth_div_sect">
-                <div><img src="<?php echo $top_image; ?>" class="article_img_div"></div>
-                <div class="article_heading"><?= $article_heading; ?></div>
-                <div class="article_body_div">
-                  <h6 class="article_body"><?= $article_body ?></h6>
-                </div>
-              </div>
+      <div class="text-center-main-h mt-4">
+        <h3 class="make-black pb-1 "> </h3>
+      </div>
+      <div class="col-md-12 padding-next-for-impro">
+        <div class="container_image_margin">
+          <!-- Category -->
+          <a href="<?= $site_url; ?>/search_articles?search=" class="in-line-blo-ck">
+            <div class="container_for_faq_cat">
+              <p class="image_restyle_paragra">
+                <img src="article/article_images/account.png" alt="" width="100px" class="image_restyling">
+              </p>
+              <h6 class="text-align-center-1">
+                Your Hire My Profile Account
+              </h6>
             </div>
-          <?php } ?>
-        </div> -->
+          </a>
 
+          <a href="" class="in-line-blo-ck">
+            <div class="container_for_faq_cat">
+              <p class="image_restyle_paragra">
+                <img src="article/article_images/buyer.png" alt="" width="100px" class="image_restyling">
+              </p>
+              <h6 class="text-align-center-1">
+                Buying On Hire My Profile
+              </h6>
+            </div>
+          </a>
+          <a href="" class="in-line-blo-ck">
+            <div class="container_for_faq_cat">
+              <p class="image_restyle_paragra">
+                <img src="article/article_images/seller.png" alt="" width="100px" class="image_restyling">
+              </p>
+              <h6 class="text-align-center-1">
+                Selling on Hire My Profile
+              </h6>
+            </div>
+          </a>
+          <a href="" class="in-line-blo-ck">
+            <div class="container_for_faq_cat">
+              <p class="image_restyle_paragra">
+                <img src="article/article_images/order-management.png" alt="" width="100px" class="image_restyling">
+              </p>
+              <h6 class="text-align-center-1">
+                Order management
+              </h6>
+            </div>
+          </a>
+          <a href="" class="in-line-blo-ck">
+            <div class="container_for_faq_cat">
+              <p class="image_restyle_paragra">
+                <img src="article/article_images/withdraw.png" alt="" width="100px" class="image_restyling">
+              </p>
+              <h6 class="text-align-center-1">
+                Payments & withdrawals
+              </h6>
+            </div>
+          </a>
+          <a href="" class="in-line-blo-ck">
+            <div class="container_for_faq_cat">
+              <p class="image_restyle_paragra">
+                <img src="article/article_images/services.png" alt="" width="100px" class="image_restyling">
+              </p>
+              <h6 class="text-align-center-1">
+                Services
+              </h6>
+            </div>
+          </a>
+        </div>
+        <!--<br><br> -->
+      </div>
     </div>
   </div>
   <?php include "includes/footer.php"; ?>

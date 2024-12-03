@@ -29,6 +29,7 @@ $seller_id = $row_orders->seller_id;
 $buyer_id = $row_orders->buyer_id;
 $order_price = $row_orders->order_price;
 $order_number = $row_orders->order_number;
+$milestone_enable = $row_orders->milestone_enable;
 $proposal_id = $row_orders->proposal_id;
 $order_status = $row_orders->order_status;
 $complete_time = $row_orders->complete_time;
@@ -172,7 +173,7 @@ if ($cOffers > 0) {
 
 
 
-  <div class="container mt-2 pt-5">
+  <div class="container mt-2">
     <?php
     $delivery_extension_request = $db->select("orders", array("buyer_id" => $login_seller_id, "order_id" => $order_id))->fetch();
     if ($delivery_extension_request->order_status === "Extend Delivery Request") {
@@ -181,11 +182,10 @@ if ($cOffers > 0) {
     ?>
     <?php require_once("milestone_request.php"); ?>
     <?php require_once("order_cancellation_req.php"); ?>
-    
+
     <?php require_once("buyer_cancellation_request.php"); ?>
-    <hr>
-    <div id="show_details">continue.....</div>
-    <hr>
+    <div id="show_details"></div>
+
 
     <div class="row">
       <div class="col-md-12">
@@ -236,14 +236,20 @@ if ($cOffers > 0) {
 
               <?php require_once("orderIncludes/orderDeliverButton.php"); ?>
 
+              <style>
+                .selectnextstep {
+                  border: 2px solid grey;
+                  padding: 1rem;
+                  border-radius: 5px;
+                }
+              </style>
 
 
-
-              <div class="proposal_reviews mt-5">
-                <?php if ($order_status == "Delivery accepted" or $order_status == "completed" and $login_seller_id == $buyer_id) { ?>
-                  <select name="nextstep" id="selectnextstep" class="selectnextstep">
-                    <option value="" selected> Select Any Option</option>
-                    <option value="continue">Continue Project</option>
+              <div class="proposal_reviews mt-5 col-md-12 col-12">
+                <?php if ($order_status == "delivery_accepted" or $order_status == "completed" and $login_seller_id == $buyer_id) { ?>
+                  <select name="nextstep" id="selectnextstep" class="selectnextstep col-md-12 col-12">
+                    <option value="" selected> Select Any Option</option>                  
+                      <option value="continue">Continue Project</option>                  
                     <?php if ($order_status == "completed") { ?>
                       <option value="review">Complete Project</option>
                     <?php } else { ?>
@@ -268,9 +274,7 @@ if ($cOffers > 0) {
                     </center><!-- mb-4 mt-4 Ends --->
                   <?php } ?>
                 </div>
-
                 <hr>
-
 
                 <div id="orderContinue" style="display: none;">
                   <?php if ($buyer_id == $login_seller_id) { ?>
@@ -341,9 +345,18 @@ if ($cOffers > 0) {
                 </script>
 
 
-                <div id="reviewOrder" style="display: none;"><?= include("orderIncludes/orderReviews.php"); ?></div>
+                <div id="reviewOrder" style="display: none;">
+                  <?= include("orderIncludes/orderReviews.php"); ?>
+                </div>
 
 
+                <?php
+                if ($order_status == "completed") {
+                  if ($seller_id == $login_seller_id) {
+                    include("orderIncludes/orderReviews.php");
+                  }
+                }
+                ?>
 
 
 

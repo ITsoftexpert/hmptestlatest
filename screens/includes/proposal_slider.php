@@ -18,13 +18,13 @@
 
     .slide-left,
     .slide-right {
-        /* background-color: #fff; */
+        background-color: #ffffff6e;
         position: absolute;
         z-index: 4;
         top: 50%;
         width: 50px;
         height: 50px;
-        right: 10px;
+        right: 20px;
         margin-top: -24px;
         text-align: center;
         opacity: 1;
@@ -38,27 +38,19 @@
     }
 
     .slide-right {
-        left: 10px;
+        left: 20px;
     }
 
-    .margin-top-f {
-        margin-top: 50px;
-    }
-
-    #myCarousel .carousel-inner .carousel-item.active {
-        /* border: 2px solid grey; */
-        padding: 1rem;
-        width: 85%;
-        height: 29.3rem; 
-        margin: 1rem auto;
-        /* background-color: lightgrey; */
-        box-shadow: inset 0px 0px 25px lightgray;
+    .w-95percent {
+        width: 95%;
+        margin: auto;
+        border-radius: 25px;
     }
 </style>
 
 <?php $jwplayer_code = ""; ?>
 
-<div id="myCarousel" class="carousel slide margin-top-f">
+<div id="myCarousel" class="carousel slide">
     <ol class="carousel-indicators">
         <?php if (!empty($proposal_video)) { ?>
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -85,7 +77,7 @@
                 <?php if ($proposal_video_type == "uploaded") { ?>
                     <?php if (!empty($jwplayer_code)) { ?>
                         <script type="text/javascript" src="<?= $jwplayer_code; ?>"></script>
-                        <div class="d-block w-100" id="player"></div>
+                        <div class="d-block w-95percent" id="player"></div>
                         <?php
                         $show_video = str_replace("\r", "", $show_video);
                         $show_video = str_replace("\n", "", $show_video);
@@ -113,7 +105,7 @@
         <div class="carousel-item <?php if (empty($proposal_video)) {
                                         echo "active";
                                     } ?>">
-            <img class="d-block w-100" src="<?= $show_img1; ?>">
+            <img class="d-block w-95percent " src="<?= $show_img1; ?>">
             <div data-action="img-1" class="slide-fullscreen">Full Screen</div>
         </div>
         <?php if (!empty($proposal_img2)) { ?>
@@ -151,7 +143,7 @@
                     </div>
 
                 <?php } else { ?>
-                    <img class="d-block w-100" src="<?= $show_img3; ?>">
+                    <img class="d-block w-95percent" src="<?= $show_img3; ?>">
                     <div data-action="img-3" class="slide-fullscreen">Full Screen</div>
                 <?php } ?>
 
@@ -172,7 +164,7 @@
                     </div>
 
                 <?php } else { ?>
-                    <img class="d-block w-100" src="<?= $show_img4; ?>">
+                    <img class="d-block w-95percent" src="<?= $show_img4; ?>">
                     <div data-action="img-4" class="slide-fullscreen">Full Screen</div>
                 <?php } ?>
 
@@ -181,7 +173,8 @@
         <?php if (!empty($proposal_yt_url)) { ?>
             <div class="carousel-item">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/<?= $ytId ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/<?= $ytId ?>"
+                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                     </iframe>
                 </div>
             </div>

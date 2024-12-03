@@ -6,11 +6,11 @@
 	if(enable_websocket == 1){
 		var websocket = new WebSocket("<?= $websocket_address; ?>/?message_group_id=<?= $message_group_id; ?>"); 
 		websocket.onopen = function(event) { 
-			console.log('onopen event');
+			// console.log('onopen event');
 			//console.log(event)		
 		}
 		websocket.onmessage = function(event) {
-			console.log('onmessage event');			
+			// console.log('onmessage event');			
 			var data = JSON.parse(event.data);
 			if(data.type == 'chat'){				
 				//console.log(data);
@@ -19,10 +19,10 @@
 		};
 		
 		websocket.onerror = function(event){
-			console.log('onerror event');			
+			// console.log('onerror event');			
 		};
 		websocket.onclose = function(event){
-			console.log('onclose event');
+			// console.log('onclose event');
 			var reason;
 			//alert(event.code);   
 	        // See http://tools.ietf.org/html/rfc6455#section-7.4.1

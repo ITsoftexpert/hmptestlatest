@@ -333,23 +333,24 @@ $form_data = Flash::render("form_data");
 
 
             <style>
-                #attribute_details_style {
+                #attribute_input_style {
                     border: 1px solid lightgray;
-                    padding: 15px 10px;
                     border-radius: 5px;
+                    padding: 1.7rem 1rem;
+
                 }
 
-                #attribute_details_style:focus {
+                #attribute_input_style:focus {
                     border: none !important;
                     box-shadow: 0px 0px 2px 3px lightblue;
                 }
 
-                #attribute_details_style:focus-visible {
+                #attribute_input_style:focus-visible {
                     outline: none;
                     /* This prevents any default focus outline */
                 }
 
-                #attribute_details_style::selection {
+                #attribute_input_style::selection {
                     background-color: lightblue;
                     /* You can keep or modify this if needed */
                     color: white;
@@ -505,7 +506,7 @@ $form_data = Flash::render("form_data");
                                     <th scope="col">Sub category</th>
                                     <th scope="col">Attribute</th>
                                     <th scope="col">Skills</th>
-                                    <th scope="col">Level</th>
+                                    <th scope="col">Levels</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -561,6 +562,97 @@ $form_data = Flash::render("form_data");
                             </tbody>
                         </table>
                     </div>
+
+
+
+
+
+
+
+
+
+                    <!--start mobile view section  -->
+                    <div class="skills-details-container-mobile">
+                        <h5 class="text-center">Selected skills details</h5>
+
+                        <?php
+                        $r_skills_relation = $db->select("skills_relation", array("seller_id" => $login_seller_id));
+                        if ($r_skills_relation->rowCount() > 0) {
+                            $i = 0;
+                            while ($row_seller_skills = $r_skills_relation->fetch()) {
+                                $skill_cat_id = $row_seller_skills->skill_cat_id;
+                                $skill_child_id = $row_seller_skills->skill_child_id;
+                                $skill_sub_child_id = $row_seller_skills->skill_sub_child_id;
+                                $relation_id = $row_seller_skills->relation_id;
+                                $skill_id = $row_seller_skills->skill_id;
+                                $skill_level = $row_seller_skills->skill_level;
+
+                                $get_skill = $db->select("seller_skills", array("skill_id" => $skill_id));
+                                $row_skill = $get_skill->fetch();
+                                $skill_title = $row_skill->skill_title;
+
+                                $get_skill_category = $db->select("cats_meta", array("cat_id" => $skill_cat_id));
+                                $row_skill_category = $get_skill_category->fetch();
+                                $skill_category_details = $row_skill_category->cat_title;
+
+                                $get_skill_sub_category = $db->select("child_cats_meta", array("child_id" => $skill_child_id));
+                                $row_skill_sub_category = $get_skill_sub_category->fetch();
+                                $skill_sub_category_details = $row_skill_sub_category->child_title;
+
+                                $get_skill_attribute = $db->select("sub_subcategories", array("attr_id" => $skill_sub_child_id));
+                                $row_skill_attribute = $get_skill_attribute->fetch();
+                                $skill_sub_subcategory = $row_skill_attribute->sub_subcategory_name;
+
+                        ?>
+                                <div class="skills-detail-card">
+                                    <div class="skills-detail-row">
+                                        <span class="skills-label">Category:</span>
+                                        <span class="skills-value"><?= $skill_category_details; ?></span>
+                                    </div>
+                                    <div class="skills-detail-row">
+                                        <span class="skills-label">Sub Category:</span>
+                                        <span class="skills-value"><?= $skill_sub_category_details; ?></span>
+                                    </div>
+                                    <div class="skills-detail-row">
+                                        <span class="skills-label">Attribute:</span>
+                                        <span class="skills-value"><?= $skill_sub_subcategory ?></span>
+                                    </div>
+                                    <div class="skills-detail-row">
+                                        <span class="skills-label">Skills:</span>
+                                        <span class="skills-value"><?= $skill_title; ?><input type="hidden" name="skills[<?= $i ?>][id]" value="<?= $skill_id; ?>"></span>
+                                    </div>
+                                    <div class="skills-detail-row">
+                                        <span class="skills-label">Level:</span>
+                                        <span class="skills-value"><?= $skill_level; ?><input type="hidden" name="skills[<?= $i ?>][level]" value="<?= $skill_level; ?>"></span>
+                                        <button class="delete-btn-professional-mobile-view">
+                                            <a href="javascript:;" onclick="deleteSkill(<?= $relation_id; ?>)" class="text-primary"><i class="fa fa-trash-o"></i></a>
+                                        </button>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <th scope="row"></th>
+                                <td> </td>
+
+
+                            <?php
+                                $i++;
+                            }
+                        } else {
+                            ?>
+                            <tr class="table-danger">
+                                <th colspan="5" scope="row">0 Skill added, please use above form to addss your skillsets.</th>
+                            </tr>
+                        <?php } ?>
+
+                    </div>
+                    <!--End mobile view section  -->
+
+
                     <div class="col py-2 px-0 mb-2">
                         <a href="javascript:;" class="" style="border:2px solid grey; padding:10px 10px; border-radius:5px;" onclick="addSkill()"><i class="fa fa-plus"></i> <span style="color:black; background-color:white;"> Add more skills </span></a>
                     </div>
@@ -626,7 +718,7 @@ $form_data = Flash::render("form_data");
                             <th scope="col">Sub category</th>
                             <th scope="col">Attribute</th>
                             <th scope="col">Skills</th>
-                            <th scope="col">Level</th>
+                            <th scope="col">Levels</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -661,7 +753,7 @@ $form_data = Flash::render("form_data");
 
                         ?>
                                 <tr>
-                                    <th scope="row"><?= $cat_title; ?></th>
+                                    <th scope="row"><?= $skill_cat_id; ?></th>
                                     <th scope="row"><?= $child_title; ?></th>
                                     <th scope="row"><?= $sub_subcategory_name; ?></th>
                                     <th scope="row"><?= $skill_title; ?></th>
@@ -684,6 +776,106 @@ $form_data = Flash::render("form_data");
     <!--  -->
 
     <style>
+        /* mobile section css start */
+
+        /* Mobile-specific styles */
+        @media only screen and (max-width: 768px) {
+            .skills-details-container-mobile {
+                display: block;
+                padding: 10px;
+                background-color: #f9f9f9;
+            }
+
+            .skills-detail-card {
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 10px;
+                margin-bottom: 10px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+            .skills-detail-row {
+                display: flex;
+                justify-content: space-between;
+                padding: 5px 0;
+            }
+
+            .skills-label {
+                font-weight: bold;
+                color: #333;
+            }
+
+            .skills-value {
+                color: #555;
+            }
+
+            .delete-icon {
+                color: #007bff;
+                cursor: pointer;
+            }
+        }
+
+        /* Hide on desktop */
+        @media only screen and (min-width: 769px) {
+            .skills-details-container-mobile {
+                display: none;
+            }
+        }
+
+
+
+        .delete-btn-professional-mobile-view {
+            display: inline-block;
+            border-radius: 4px;
+            /* background-color: #00cedc; */
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 17px;
+            padding: 0px 13px;
+            /* width: 130px; */
+            transition: all 0.5s;
+            cursor: pointer;
+            /* margin: 5px; */
+        }
+
+        .delete-btn-professional-mobile-view span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .delete-btn-professional-mobile-view span:after {
+            content: '»';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -15px;
+            transition: 0.5s;
+        }
+
+        .delete-btn-professional-mobile-view:hover span {
+            padding-right: 15px;
+        }
+
+        .delete-btn-professional-mobile-view:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+
+        @media only screen and (max-width: 768px) {
+            .border_skill_details_table {
+                display: none;
+            }
+        }
+
+        /* mobile section css end */
+
+
+
         .submit_professional_btndiv {
             width: 100%;
             display: flex;
@@ -835,7 +1027,7 @@ $form_data = Flash::render("form_data");
         }
 
         #attribute_details {
-            padding: 1.7rem 1rem;
+            padding: 1rem 0.7rem;
             /* margin-bottom: 1.5rem; */
             border: 1px solid lightgray;
             border-radius: 5px;
@@ -877,31 +1069,7 @@ $form_data = Flash::render("form_data");
         $videoUrls = explode(',', $_POST['videoUrls']); // assuming video URLs are passed as a comma-separated string
         $seller_id = $login_seller_id;
 
-        // Handle file uploads
-        if (isset($_FILES['images']) && count($_FILES['images']['name']) > 0) {
-            for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
-                $targetDir = "portfolio/";
-                $imageFileType = strtolower(pathinfo($_FILES['images']['name'][$i], PATHINFO_EXTENSION));
-                $uniqueFilename = generateUniqueFilename($imageFileType);
-                $targetFile = $targetDir . $uniqueFilename;
-                $check = getimagesize($_FILES['images']['tmp_name'][$i]);
-
-                // Debugging Step: Print each file being processed
-                echo "Processing file: " . $_FILES['images']['name'][$i] . "<br>";
-
-                // Check if image file is an actual image or fake image
-                if ($check !== false) {
-                    // Move uploaded file to target directory
-                    if (move_uploaded_file($_FILES['images']['tmp_name'][$i], $targetFile)) {
-                        $_SESSION['uploadedImages'][] = $uniqueFilename;
-                    } else {
-                        echo "There was an error uploading image: " . $_FILES['images']['name'][$i];
-                    }
-                } else {
-                    echo "File is not an image: " . $_FILES['images']['name'][$i];
-                }
-            }
-        }
+      
 
         // Debugging to check the session uploaded images array
         // echo "<pre>";
@@ -924,13 +1092,7 @@ $form_data = Flash::render("form_data");
             }
         }
 
-        // Insert images
-        foreach ($_SESSION['uploadedImages'] as $image) {
-            $portfolio_images = $db->insert("portfolio_images", array("portfolio_id" => $portfolio_id, "image_path" => $image));
-            if (!$portfolio_images) {
-                echo "There Is Error In : " . $db->error;
-            }
-        }
+    
 
         // Insert videos
         foreach ($videoUrls as $videoUrl) {
@@ -976,7 +1138,7 @@ $form_data = Flash::render("form_data");
                         <input type="url" class="form-control col-md-12" name="referenced_url" id="referenced_url" placeholder="Enter your project referenc url">
                         <br>
                         <label for="attribute_details" class="col-md-12 pl-0">Attribute</label>
-                        <select name="attribute_details" id="attribute_details_style" class="col-md-12 text-dark">
+                        <select name="attribute_details" id="attribute_details" class="col-md-12 text-dark">
                             <option value="" selected>Select an attribute</option>
                             <?php
                             $q_skills_relation = $db->select("skills_relation", array("seller_id" => $login_seller_id));
@@ -1024,14 +1186,7 @@ $form_data = Flash::render("form_data");
                     </div>
                 </div>
                 <div class="portfolio-from-div">
-                    <div class="portfolio-first">
-                        <label for="images" class="col-md-12 pl-0">Upload Images (Max 3)</label>
-                        <input type="file" class="form-control-file col-md-12" id="imageUpload" name="images[]" accept="image/*" multiple>
-                        <div id="imagePreview" class="image-preview-container mt-2">
-                            <!-- Image previews will be appended here -->
-                        </div>
-                        <small id="imageLimitMessage" class="limit-message"></small> <br>
-                    </div>
+                   
                     <div class="portfolio-second">
                         <label for="videos" class="col-md-12 pl-0">Add Video URLs (Max 3)</label>
                         <input type="url" class="form-control col-md-12" name="videoUrls" id="videoUrl" placeholder="Enter video URL and press Enter">
@@ -1082,56 +1237,7 @@ $form_data = Flash::render("form_data");
                 }
             });
 
-            // Handle image upload
-            document.getElementById('imageUpload').addEventListener('change', function(e) {
-                const files = e.target.files;
-                const imagePreview = document.getElementById('imagePreview');
-                const imageLimitMessage = document.getElementById('imageLimitMessage');
-                const existingImages = imagePreview.getElementsByClassName('img-thumbnail').length;
-
-                if (files.length + existingImages > maxImages) {
-                    imageLimitMessage.textContent = `You can only upload up to ${maxImages} images.`;
-                    return;
-                }
-
-                imageLimitMessage.textContent = ''; // Clear any previous error messages
-                Array.from(files).forEach(file => {
-                    if (file.type.startsWith('image/')) {
-                        const imgContainer = document.createElement('div');
-                        imgContainer.className = 'position-relative';
-
-                        const img = document.createElement('img');
-                        img.className = 'img-thumbnail';
-                        img.file = file;
-                        imgContainer.appendChild(img);
-
-                        const removeBtn = document.createElement('span');
-                        removeBtn.className = 'remove-img';
-                        removeBtn.textContent = '×';
-                        removeBtn.onclick = function() {
-                            imgContainer.remove();
-                            const fileInput = document.getElementById('imageUpload');
-                            const dataTransfer = new DataTransfer();
-                            Array.from(fileInput.files).forEach(f => {
-                                if (f !== file) dataTransfer.items.add(f);
-                            });
-                            fileInput.files = dataTransfer.files;
-                        };
-                        imgContainer.appendChild(removeBtn);
-
-                        imagePreview.appendChild(imgContainer);
-
-                        const reader = new FileReader();
-                        reader.onload = (function(aImg) {
-                            return function(e) {
-                                aImg.src = e.target.result;
-                            };
-                        })(img);
-                        reader.readAsDataURL(file);
-                    }
-                });
-            });
-
+          
             // Handle video URL input
             document.getElementById('videoUrl').addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {

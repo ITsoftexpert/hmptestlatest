@@ -70,8 +70,8 @@ $site_border_color = $row_general_settings->site_border_color;
 <link href="<?= $site_url; ?>/styles/some-changes.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-<!-- <link href="styles/nitin.css" rel="stylesheet">
-<script src="js/nitin.js"></script> -->
+<!-- <link href="styles/bluff.css" rel="stylesheet">
+<script src="js/bluff.js"></script> -->
 
 <style>
   .sub_header {
@@ -215,7 +215,7 @@ $site_border_color = $row_general_settings->site_border_color;
     }
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1024px) {
     .style-display-flex {
       display: none !important;
     }
@@ -235,8 +235,6 @@ $site_border_color = $row_general_settings->site_border_color;
     .sub_header {
       display: none;
     }
-
-    /* ye login ke phele vale page ka header */
 
     .account-nav {
       /* border: 2px solid green; */
@@ -349,7 +347,7 @@ $site_border_color = $row_general_settings->site_border_color;
     }
   }
 
-  @media(min-width:1025px) {
+  @media(min-width:1024px) {
     .gnav-header .search-nav {
       position: relative;
       float: left;
@@ -528,12 +526,12 @@ $site_border_color = $row_general_settings->site_border_color;
                     </a> -->
           </div>
         </div>
-        <div class="catnav-search-bar search-browse-wrapper with-catnav" id="search-bar-btn-respo">
+        <div class="catnav-search-bar search-browse-wrapper with-catnav errbvwrefg" id="search-bar-btn-respo">
           <div class="search-browse-inner" id="search-bar-btn-respo-inn">
             <form id="gnav-search" class="search-nav expanded-search apply-nav-height" method="post">
               <div class="gnav-search-inner clearable clearable2" id="inner-search-btn-bar">
-                <div class="search-input-wrapper text-field-wrapper">
-                  <input id="search-query" class="w-100 rounded" name="search_query"
+                <div class="w-100 search-input-wrapper text-field-wrapper border_lightgrey">
+                  <input id="search-query" class="w-100 p-2 rounded no_border" name="search_query"
                     placeholder="<?= $lang['search']['placeholder']; ?>" value="<?= @$_SESSION["search_query"]; ?>"
                     autocomplete="off">
                 </div>
@@ -592,7 +590,7 @@ $site_border_color = $row_general_settings->site_border_color;
                     position: relative;
                   }
 
-                  @media screen and (min-width: 1025px) {
+                  @media screen and (min-width: 1024px) {
                     #ram_canvas_toggle {
                       display: none;
                     }
@@ -722,6 +720,14 @@ $site_border_color = $row_general_settings->site_border_color;
                   .clearable_4 {
                     width: 80%;
                   }
+
+                  .border_lightgrey {
+                    border: 1px solid lightgray;
+                  }
+
+                  .no_border {
+                    border: none;
+                  }
                 </style>
 
 
@@ -731,8 +737,8 @@ $site_border_color = $row_general_settings->site_border_color;
 
                     <button id="ram_canvas_close" class="ram_canvas_close">&times;</button>
                     <div class="gnav-search-inner clearable_4 " id="inner-search-btn-bar">
-                      <div class="search-input-wrapper text-field-wrapper">
-                        <input id="search-query" class="w-100 rounded" name="search_query"
+                      <div class="w-100 search-input-wrapper text-field-wrapper border_lightgrey">
+                        <input id="search-query" class="w-100 p-2 rounded no_border" name="search_query"
                           placeholder="<?= $lang['search']['placeholder']; ?>" value="<?= @$_SESSION["search_query"]; ?>"
                           autocomplete="off">
                       </div>

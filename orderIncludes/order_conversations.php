@@ -183,9 +183,9 @@ while ($row_order_conversations = $get_order_conversations->fetch()) {
       <div class="card-body">
 
         <h5 class="text-center">
-          <img src="images/svg/box.svg" class="order-icon" /> Order Delivered
+          <img src="images/svg/box.svg" class="order-icon" width="35%" />
         </h5>
-
+        <h4 class="text-center"> Order Delivered</h4>
         <?php if ($seller_id == $login_seller_id) { ?>
           <p class="text-center font-weight-bold pb-0">The buyer has <?= $remain->d; ?> day(s) to complete/respond to this order, otherwise it will be automatically marked as completed.</p>
         <?php } else { ?>
@@ -233,32 +233,29 @@ while ($row_order_conversations = $get_order_conversations->fetch()) {
 
       <p class="message-desc">
 
-        <?= $message; ?>
+        <?= $message; ?> </p>
 
-        <?php
+      <p> <?php
 
-        if (!empty($file)) {
+          if (!empty($file)) {
 
-          if ($watermark == 1 and $order_status != "completed") {
-            $file_name = $file;
-            $d_file = getImageUrl("order_conversations", $watermark_file, 'watermark_file');
-          } else {
-            $file_name = $file;
-            $d_file = getImageUrl("order_conversations", $file);
+            if ($watermark == 1 and $order_status != "completed") {
+              $file_name = $file;
+              $d_file = getImageUrl("order_conversations", $watermark_file, 'watermark_file');
+            } else {
+              $file_name = $file;
+              $d_file = getImageUrl("order_conversations", $file);
+            }
+
+            echo "
+<a href='orderIncludes/download?order_id=$order_id&c_id=$c_id' class='d-block mt-2 ml-1' target='_blank'>
+<i class='fa fa-download'></i> $file_name
+</a>
+"; 
           }
 
-          echo "
-    <a href='orderIncludes/download?order_id=$order_id&c_id=$c_id' class='d-block mt-2 ml-1' target='_blank'>
-      <i class='fa fa-download'></i> $file_name
-    </a>
-    ";
-        }
-
-        ?>
-
-      </p>
-
-      <p class="text-right text-muted mb-0"> <?= $date; ?> </p>
+          ?></p>
+      <p class=" text-muted mb-0"> <?= $date; ?> </p>
 
     </div><!--- message-div Ends --->
 

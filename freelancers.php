@@ -34,11 +34,12 @@ require_once("functions/functions.php");
   <?php } ?>
 
   <style>
-    .body-background-none{
+    .body-background-none {
       /* background-color: white !important; */
       /* padding-top: 50px; */
-      margin-top:-5px !important;
+      margin-top: -5px !important;
     }
+
     @media(min-width:1200px) {
       /* .col-xl-10 {
         -ms-flex: 0 0 83.333333%;
@@ -46,26 +47,49 @@ require_once("functions/functions.php");
         max-width: 97.333333%;
       } */
     }
-
+    .container-fluid-new {
+        margin-top: 160px;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+      }
     @media(max-width:1024px) and (min-width:769px) {
       .margin-top {
         margin-top: 2rem;
         margin-bottom: -1rem;
       }
-      .padding-alter10a{
+
+      .padding-alter10a {
         /* border:2px solid green; */
-        padding:0px 13px;
+        padding: 0px 13px;
+      }
+      .container-fluid-new {
+        margin-top: 60px;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
       }
     }
 
+   
 
     @media(max-width:768px) {
-      .container-fluid {
-        /* margin-top: 4px !important; */
+      .container-fluid-new {
+        margin-top: 60px;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
       }
-      .padding-alter10a{
+
+      .padding-alter10a {
         /* border:2px solid green; */
-        padding:0px 1px;
+        padding: 0px 1px;
       }
 
       .margin-top {
@@ -80,10 +104,10 @@ require_once("functions/functions.php");
       }
     }
 
-    @media(min-width:640px) and (max-width:768px){
-      .padding-alter10a{
+    @media(min-width:640px) and (max-width:768px) {
+      .padding-alter10a {
         /* border:2px solid green; */
-        padding:0px 13px;
+        padding: 0px 13px;
       }
     }
   </style>
@@ -92,7 +116,8 @@ require_once("functions/functions.php");
 <body class="is-responsive">
   <?php require_once("includes/header.php"); ?>
 
-  <div class="container-fluid body-background-none">
+  <div class="container-fluid-new">
+    <!-- body-background-none class removed -->
     <!-- Container start -->
     <div class="row padding-alter10a">
       <div class="col-md-12 margin-top">
@@ -105,12 +130,12 @@ require_once("functions/functions.php");
     </div>
     <div class="row mt-3 justify-content-center padding-alter10a">
       <!-- <div class="col-lg-10 col-md-12"> -->
-      <div class="col-xl-10 col-lg-12 col-md-12">
+      <div class="col-xl-11 col-lg-12 col-md-12">
         <div class="row">
-          <div class="col-lg-3 col-md-4 col-sm-12 <?= ($lang_dir == "right" ? 'order-2 order-sm-1' : '') ?>">
+          <div class="col-lg-4 col-md-4 col-sm-12 <?= ($lang_dir == "right" ? 'order-2 order-sm-1' : '') ?>">
             <?php require_once("includes/freelancer_sidebar.php"); ?>
           </div>
-          <div class="col-lg-9 col-md-8 col-sm-12 <?= ($lang_dir == "right" ? 'order-1 order-sm-2' : '') ?>">
+          <div class="col-lg-8 col-md-8 col-sm-12 <?= ($lang_dir == "right" ? 'order-1 order-sm-2' : '') ?>">
             <div class="row flex-wrap" id="freelancers">
               <!-- Here Freelancers Gona Show -->
               <?php get_freelancers(); ?>
