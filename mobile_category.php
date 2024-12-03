@@ -33,7 +33,7 @@ require_once("social-config.php");
     <style>
         /* Yeh meri optimized CSS hai hhhhh */
         .main-graphic-design-icon-image,
-        .mobile-view-category-icon { 
+        .mobile-view-category-icon {
             width: 70px;
             /* Ensure consistent sizing */
             height: 70px;
@@ -130,7 +130,8 @@ require_once("social-config.php");
 
             ?>
                 <div class="mobile-view-category-item">
-                    <img src="<?= $site_url; ?>/cat_images/<?= $cat_image; ?>" alt="Writing Icon" class="mobile-view-category-icon" />
+                    <!-- <img src="cat_images/<?= $cat_image; ?>" alt="Writing Icon" class="mobile-view-category-icon" /> -->
+                    <img src="cat_images/<?= $cat_image; ?>" alt="Writing Icon" class="mobile-view-category-icon" />
                     <div class="mobile-view-category-content">
                         <h3 class="mobile-view-category-name"> <a href="<?= $site_url; ?>/mobile_sub_cat?cat_id=<?= $cat_id; ?>">
                                 <?= $cat_title; ?></span>
