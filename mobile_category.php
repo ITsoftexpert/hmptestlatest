@@ -31,7 +31,7 @@ require_once("social-config.php");
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a39d50ac9681a6c"></script>
     <style>
-        /* Yeh meri optimized CSS hai */
+        /* Yeh meri optimized CSS hai hhhhh */
         .main-graphic-design-icon-image,
         .mobile-view-category-icon { 
             width: 70px;
